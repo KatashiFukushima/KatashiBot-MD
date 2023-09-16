@@ -97,11 +97,12 @@ global.official = [ // Agregate si eres Owner
 ["5493513446678", 'Batman 💻', 1],
 ["5218771647787", 'IssSG', 1],
 ["51948273587", 'Katashi Two', 1]];
-
-global.mail = ''; //agrega tú correo
-global.desc = ''; //agrega una descripción corta
+["584166718372", 'Jesus ofc 🍂' 1],
+ 
+global.mail = 'apostoljesusalejandro2@gmail'; //agrega tú correo
+global.desc = 'Contactó oficial de katashibot🍁'; //agrega una descripción corta
 global.desc2 = ''; //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
-global.country = ''; //agrega tú país ejemplo: 🇪🇨
+global.country = '🇻🇪'; //agrega tú país ejemplo: 🇪🇨
 
 global.packname = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆";
 global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂✥";
