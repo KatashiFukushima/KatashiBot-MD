@@ -1,14 +1,34 @@
-//by https://github.com/elrebelde21 
-
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
+const comandos = /piedra|papel|tijera|estado|verificar|creadora|bottemporal|grupos|instalarbot|términos|bots|deletebot|eliminarsesion|serbot|verify|register|registrar|reg|reg1|nombre|name|nombre2|name2|edad|age|edad2|age2|genero|género|gender|identidad|pasatiempo|hobby|identify|finalizar|pas2|pas3|pas4|pas5|registroc|deletesesion|registror|jadibot/i
+export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner, command }) {
 if (m.isBaileys && m.fromMe) return !0
 if (m.isGroup) return !1
-if (!m.message) return !0 
-let chat = global.db.data.chats[m.chat]
-let user = global.db.data.users[m.sender]
-let bot = global.db.data.settings[this.user.jid] || {}
+if (!m.message) return !0
+const regex = new RegExp(`^${prefix} ?(?:${comandos.source})$`, 'i')
+if (regex.test(m.text.toLowerCase())) return !0
+
+let chat, user, bot, mensaje
+chat = global.db.data.chats[m.chat]
+user = global.db.data.users[m.sender]
+bot = global.db.data.settings[this.user.jid] || {}
+
 if (bot.antiPrivate && !isOwner && !isROwner) {
-await m.reply(`Hola *@${m.sender.split`@`[0]}*, NO PUEDE USAR ESTE BOT EN CHAT PRIVADO\n\nUnirte al Grupo oficial del bot para poder usar el bot\n${nn}`, false, { mentions: [m.sender] })
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat')
+if (user.counterPrivate === 0) {
+mensaje = `*@${m.sender.split`@`[0]} ESTÁ PROHIBIDO ESCRIBIR AL PRIVADO, PORQUE ASÍ LO QUISO MI PROPIETARIO(A).*\n\n⚠️ \`\`\`PRIMERA ADVERTENCIA\`\`\` ⚠️`
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
+  
+} else if (user.counterPrivate === 1) {
+let grupos = [ nn, nnn, nnnt, nnntt, nnnttt ].getRandom()
+mensaje = `*@${m.sender.split`@`[0]} YA SE MENCIONÓ QUE NO PUEDE ESCRIBIR AL PRIVADO. 🫤*\n\n👇 *PUEDE UNIRSE A ESTE GRUPO OFICIAL*\n${grupos}\n\n*SI VUELVE A ESCRIBIR SERÁ BLOQUEADO(A)* ‼️\n⚠️ \`\`\`SEGUNDA ADVERTENCIA\`\`\` ⚠️`
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
+  
+} else if (user.counterPrivate === 2) {
+mensaje = `*@${m.sender.split`@`[0]} SERÁ BLOQUEADO(A). 😾 SE MENCIONÓ ANTES QUE NO PODÍA ESCRIBIR AL PRIVADO.*\n\n⚠️ \`\`\`TERCERA ADVERTENCIA\`\`\` ⚠️`
+await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
+  
+user.counterPrivate = -1
+await this.updateBlockStatus(m.sender, 'block')
+}
+user.counterPrivate++
+}
 return !1
-}}
+}
