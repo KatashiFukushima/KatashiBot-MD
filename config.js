@@ -94,10 +94,9 @@ global.moment = moment;
 global.official = [ // Agregate si eres Owner
 ["51906662557", 'Katashi 💻', 1], 
 ["5217442363122", '𝑖𝑍𝑖 👻', 1],  
-["5493513446678", 'Batman 💻', 1],
+["584166718372", 'Jesus 💻', 1],
 ["5218771647787", 'IssSG', 1],
 ["51948273587", 'Katashi Two', 1]];
-["584166718372", 'Jesus ofc 🍂' 1],
  
 global.mail = ''; //agrega tú correo
 global.desc = ''; //agrega una descripción corta
