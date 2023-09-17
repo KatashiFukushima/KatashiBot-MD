@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-const timeout = 60000;
+const timeout = 30000;
 const poin = 1000;
 const handler = async (m, {conn, usedPrefix}) => {
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
@@ -9,14 +9,9 @@ const handler = async (m, {conn, usedPrefix}) => {
     conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
     throw false;
   } // 5LTV57azwaid7dXfz5fzJu
-  const res = await fetchJson(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tebaklagu.json`);
+  const res = await fetchJson(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/tebaklagu.json`);
   const json = res[Math.floor(Math.random() * res.length)];
-  const caption = `
-ADIVINA EL TITULO DE LA CANCION
-Tiempo ${(timeout / 1000).toFixed(2)} segundos
-Escribe *${usedPrefix}pista* Para obtener una pista
-Premio: ${poin} XP
-RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
+  const caption = `ADIVINA EL TITULO DE LA CANCION\n⎔ Tiempo ➺ ${(timeout / 1000).toFixed(2)} segundos ⏰\n⎔ Escribe *${usedPrefix}pista* Para obtener una pista 😸\n⎔ Premio: ${poin} XP⚡\n\nRESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!!`.trim();
   conn.tebaklagu[id] = [
     await m.reply(caption),
     json, poin,
