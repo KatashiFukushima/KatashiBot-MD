@@ -78,7 +78,6 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 \`\`\`${week}, ${date}\`\`\`
 ⟮⸙ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ ⟯
 ⟮⸙ *Registrados »* ${rtotalreg}/${totalreg} ⟯
-⟮⸙ *${lenguajeGB['smsTime']()}* ➺ _${time}_ ⟯   
 ⟮⸙ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ ⟯
 ⟮⸙ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_ ⟯
 ⟮⸙ *${lenguajeGB['smsMode']()} ➺* _${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}_ ⟯
