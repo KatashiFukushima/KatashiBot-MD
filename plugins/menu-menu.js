@@ -85,6 +85,10 @@ const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
 \`\`\`${horarioFecha}\`\`\`
+*𝘾𝘼𝙉𝘼𝙇 𝘿𝙀 𝙆𝘼𝙏𝘼𝙎𝙃𝙄 𝘽𝙊𝙏*
+︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻
+https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37
+︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼
 ⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
 ⎔ *Registrados »* ${rtotalreg}/${totalreg}    
 ⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
