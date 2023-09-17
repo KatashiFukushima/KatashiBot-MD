@@ -6,6 +6,9 @@ const cat = `✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎�
 
 𝑖𝑍𝑖
 *wa.me/527442363122*
+
+⸙ꦿꪾJesus〆ꪾofc⸙ꪾNatsukiꫂ
+*wa.me/584166718372
 *---------------------*
 
 *GRUPO OFICIAL DE KATASHIBOT*
