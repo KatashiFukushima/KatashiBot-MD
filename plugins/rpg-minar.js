@@ -16,21 +16,21 @@ const fkontak = {
 
 let user = global.db.data.users[m.sender]
 let premium = user.premium  
-let minar = `${pickRandom(['Que pro 😎 has minado',
-'🌟✨ Genial!! Obtienes',
-'WOW!! eres un(a) gran Minero(a) ⛏️ Obtienes',
-'Has Minado!!',
-'😲 Lograste Minar la cantidad de',
-'Tus Ingresos subiran gracias a que minaste',
-'⛏️⛏️⛏️⛏️⛏️ Minando',
-'🤩 SII!!! AHORA TIENES',
-'La minaria esta de tu lado, por ello obtienes',
-'😻 La suerte de Minar',
-'♻️ Tu Mision se ha cumplido, lograste minar',
-'⛏️ La Mineria te ha beneficiado con',
-'🛣️ Has encontrado un Lugar y por minar dicho lugar Obtienes',
-'👾 Gracias a que has minado tus ingresos suman',
-'Felicidades!! Ahora tienes','⛏️⛏️⛏️ Obtienes'])}`
+let minar = `${pickRandom(['𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nQue pro 😎 has minado',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n🌟✨ Genial!! Obtienes',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nWOW!! eres un(a) gran Minero(a) ⛏️ Obtienes',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nHas Minado!!',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n😲 Lograste Minar la cantidad de',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nTus Ingresos subiran gracias a que minaste',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n⛏️⛏️⛏️⛏️⛏️ Minando',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n🤩 SII!!! AHORA TIENES',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nLa minaria esta de tu lado, por ello obtienes',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n😻 La suerte de Minar',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n♻️ Tu Mision se ha cumplido, lograste minar',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n⛏️ La Mineria te ha beneficiado con',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n🛣️ Has encontrado un Lugar y por minar dicho lugar Obtienes',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\n👾 Gracias a que has minado tus ingresos suman',
+'𝐂𝐀𝐍𝐀𝐋 𝐃𝐄 𝐊𝐀𝐓𝐀𝐒𝐇𝐈 𝐁𝐎𝐓\n\n︻︻︻︻︻︻︻︻︻︻︻︻︻︻︻\n\nhttps://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37\n\n︼︼︼︼︼︼︼︼︼︼︼︼︼︼︼\n\nFelicidades!! Ahora tienes','⛏️⛏️⛏️ Obtienes'])}`
 
 let pp = 'https://media.istockphoto.com/vectors/basic-rgb-vector-id1315251368?b=1&k=6&m=1315251368&s=170667a&w=0&h=2BgQx5Pu2CewGeq93Qxsyoyw5oT4gioHOOIkHb7PoyY='
 
