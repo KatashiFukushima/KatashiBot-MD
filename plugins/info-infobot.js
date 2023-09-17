@@ -1,5 +1,6 @@
 import os from 'os'
 import util from 'util'
+import ws from 'ws';
 import sizeFormatter from 'human-readable'
 let MessageType =  (await import(global.baileys)).default
 
@@ -51,12 +52,12 @@ let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let old = performance.now()
   //await m.reply('_Realizando test_')
   let neww = performance.now()
-  let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+  let totaljadibot = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
   let speed = neww - old
 
 let info = `╭━━━━[ ${gt} ]━━━━━⬣
 ┃➥ *CREADORA | CREATOR*
-┃ღ *𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂*
+┃ღ *𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃➥ *CONTACTO | CONTACT* 
 ┃ღ *${ig}*
