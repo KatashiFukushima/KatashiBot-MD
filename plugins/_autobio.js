@@ -6,13 +6,12 @@ let _uptime = process.uptime() * 1000
 let _muptime
 if (process.send) { process.send('uptime')
 _muptime = await new Promise(resolve => { process.once('message', resolve) 
-setTimeout(resolve, 7000) }) * 1000}
-
+setTimeout(resolve, 2000) }) * 1000}
 let uptime = clockString(_uptime)
-let bio = `${global.packname} ║ ✅ ${uptime} ⌛ ║ ⓀⒷ 𓃠 #estado #menu #jadibot #grupos #owner 💻`
+let bio = `${global.packname} ║ ✅ ${uptime} ⌛ ║ ⓀⒷ 🥷🏻 #estado #menu #jadibot #grupos #owner 💻`
 await this.updateProfileStatus(bio).catch(_ => _)
 setting.status = new Date() * 1
-}
+} 
 export default handler
 
 function clockString(ms) {
