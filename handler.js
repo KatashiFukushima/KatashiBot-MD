@@ -939,7 +939,7 @@ if (!('premium' in user)) user.premium = false
 		
             if (chat) {
                 if (!('isBanned' in chat)) chat.isBanned = false                    
-                if (!('welcome' in chat)) chat.welcome = false                    
+                if (!('welcome' in chat)) chat.welcome = true                    
                 if (!('detect' in chat)) chat.detect = true                    
                 if (!('sWelcome' in chat)) chat.sWelcome = ''                    
                 if (!('sBye' in chat)) chat.sBye = ''                    
@@ -950,7 +950,7 @@ if (!('premium' in user)) user.premium = false
                 if (!('modohorny' in chat)) chat.modohorny = false                    
                 if (!('stickers' in chat)) chat.stickers = false                   
                 if (!('autosticker' in chat)) chat.autosticker = false                      
-                if (!('audios' in chat)) chat.audios = false                     
+                if (!('audios' in chat)) chat.audios = true                     
 		if (!('antiver' in chat)) chat.antiver = false                  
                 if (!('antiLink' in chat)) chat.antiLink = false                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
@@ -962,9 +962,9 @@ if (!('premium' in user)) user.premium = false
 		if (!('antiTwitter' in chat)) chat.antiInstagram = false
 		if (!('antifake' in chat)) chat.antifake = false
 		if (!('reaction' in chat)) chat.reaction = true    
-                if (!('viewonce' in chat)) chat.viewonce = false         
+                if (!('viewonce' in chat)) chat.viewonce = true         
                 if (!('modoadmin' in chat)) chat.modoadmin = false           
-                if (!('antitoxic' in chat)) chat.antitoxic = false 
+                if (!('antitoxic' in chat)) chat.antitoxic = true 
                 if (!('simi' in chat)) chat.simi = false
                 if (!('antiTraba' in chat)) chat.antiTraba = true
 		if (!('autolevelup' in chat))  chat.autolevelup = false
@@ -973,7 +973,7 @@ if (!('premium' in user)) user.premium = false
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
-                    welcome: false,
+                    welcome: true,
                     detect: true,
                     sWelcome: '',
                     sBye: '',
@@ -997,7 +997,7 @@ if (!('premium' in user)) user.premium = false
 		    reaction: true,
                     viewonce: true,
                     modoadmin: false,
-                    antitoxic: false,
+                    antitoxic: true,
                     simi: false,
                     antiTraba: true,
 	            autolevelup: false,
@@ -1010,7 +1010,7 @@ if (!('premium' in user)) user.premium = false
                 if (!('autoread' in settings)) settings.autoread = false
 		if (!('autoread2' in settings)) settings.autoread2 = false
                 if (!('restrict' in settings)) settings.restrict = false
-		if (!('temporal' in settings)) settings.temporal = false
+		if (!('temporal' in settings)) settings.temporal = true
                 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 		if (!('antiCall' in settings)) settings.antiCall = true
 		if (!('antiSpam' in settings)) settings.antiSpam = true 
@@ -1021,7 +1021,7 @@ if (!('premium' in user)) user.premium = false
                 autoread: false,
 		autoread2: false,
                 restrict: false,
-		temporal: false,
+		temporal: true,
 		antiPrivate: false,
 		antiCall: true,
 		antiSpam: true,
@@ -1264,7 +1264,7 @@ user.commandCount = 1;
                     m.reply('Exp limit') // Hehehe
                 else               
                 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-                    this.reply(m.chat, `🥷🏻 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
+                    this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
                     continue     
 		}
 			
@@ -1334,7 +1334,7 @@ user.commandCount = 1;
                         m.reply(+m.limit + lenguajeGB.smsCont8())
                 }
                  if (m.money)
-                        m.reply(+m.money + ' 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🥷🏻 𝙐𝙎𝘼𝘿𝙊(𝙎)')
+                        m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')
               
                 break
             }
@@ -1453,7 +1453,7 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 katashifukushima23.gmail.com'].getRandom(),
+"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
 sourceUrl: [md, nna, nn2, yt, ig, paypal, fb].getRandom()}}}, { quoted: fkontak2 }) 
@@ -1552,7 +1552,7 @@ let msg = {
 }[type]
 //if (msg) return m.reply(msg)
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 katashifukushima23@gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
