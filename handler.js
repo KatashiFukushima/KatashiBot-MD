@@ -1181,11 +1181,10 @@ user.bannedMessageCount = 0;
 if (user.bannedMessageCount < 3) {
 const messageNumber = user.bannedMessageCount + 1;
 const messageText = `❰ ⚠️ ❱ *𝙀𝙎𝙏𝘼𝙎 𝘽𝘼𝙉𝙀𝘼𝘿𝙊/𝘼* ❰ ⚠️ ❱\nAviso (${messageNumber}/3) ${user.bannedReason ? `\n*Motivo:* ${user.bannedReason}` : '*Motivo:* Sin especificar (spam)'}
-*👉 Puedes contactar a la propietaria del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
+*👉 Puedes contactar al propietario del Bot si crees que se trata de un error (TENER PRUEBAS) para tratar el motivo de tú desbaneo*
 
 👉 ${global.asistencia}
-👉 wa.me/593980586516
-👉 wa.me/593993684821`.trim();
+👉 wa.me/51906662557`.trim();
 m.reply(messageText);
 user.bannedMessageCount++;
 } else if (user.bannedMessageCount === 3) {
@@ -1264,7 +1263,7 @@ user.commandCount = 1;
                     m.reply('Exp limit') // Hehehe
                 else               
                 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-                    this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
+                    this.reply(m.chat, `🥷🏻 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
                     continue     
 		}
 			
@@ -1334,7 +1333,7 @@ user.commandCount = 1;
                         m.reply(+m.limit + lenguajeGB.smsCont8())
                 }
                  if (m.money)
-                        m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')
+                        m.reply(+m.money + ' 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🥷🏻 𝙐𝙎𝘼𝘿𝙊(𝙎)')
               
                 break
             }
@@ -1552,7 +1551,7 @@ let msg = {
 }[type]
 //if (msg) return m.reply(msg)
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷🏻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷🏻', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
