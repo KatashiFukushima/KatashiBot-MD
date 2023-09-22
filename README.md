@@ -6,5 +6,5 @@
 </p>
 
 <p align="center">
-<img src="https://telegra.ph/file/d6132a616d46e9fcae600.jpg" alt="GataBot-MD" width="900"/>
+<img src="https://telegra.ph/file/86afc8b4881e2013cded4.jpg" alt="GataBot-MD" width="900"/>
 </p>
