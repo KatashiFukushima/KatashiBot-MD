@@ -1,3 +1,4 @@
 # KatashiBot-MD
-Canal 
-https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37
+> <b>🚀 VERSIÓN 2.0</b>
+
+<p align="center"> 
