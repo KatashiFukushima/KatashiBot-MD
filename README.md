@@ -29,3 +29,96 @@
 <a href="https://instabio.cc/KatashiUwU">
 <img src="https://img.shields.io/badge/Redes_Sociales-000000%7D?style=for-the-badge&logo=biolink&logoColor=white">
 </a>
+
+-----
+### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
+[![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/PESW8LXXlOI?feature=share)
+> **Note** Comandos para instalar de forma automática en Termux  
+```bash
+termux-setup-storage
+```
+```bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash
+```
+```js
+// PERSONALIZAR INSTALACIÓN AUTOMÁTICA (En caso de una Bifurcación)
+// Parámetros editables
+
+// REFERENCIA
+"wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/gata.sh | bash"
+
+// PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
+"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
+```
+#### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
+```js
+//LÍNEAS A MODIFICAR
+205 --> "git clone https://github.com/[user]/[repositorio].git"
+//Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
+
+209 --> "cd [repositorio]"
+//Ejemplo: cd GataBot-MD
+
+//Una vez hecho estos cambios ejecute los nuevos comandos en Termux
+```
+-----
+### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
+> **Note** Comandos para instalar de forma manual
+```bash
+termux-setup-storage
+```
+```bash
+apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD && yarn install && npm install && npm start
+```
+> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
+------------------
+### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
+> **Note** Descargué y Descomprime
+### [`GataBot-MD ~ Archivos`](https://github.com/GataNina-Li/GataBot-MD/archive/refs/heads/master.zip)
+[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/UcWlyQ8u5HE)
+```bash
+termux-setup-storage
+apt update
+apt upgrade
+pkg install -y git nodejs ffmpeg imagemagick yarn
+cd storage/downloads/GataBot-MD-master/GataBot-MD-master 
+yarn install
+npm install
+npm start
+```
+* #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
+* #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
+> **Note** Guardar los archivos en la ubicación: storage/downloads/GataBot-MD-master/GataBot-MD-master   
+----
+### 🚀 USAR GATABOT 24/7 EN TERMUX 
+> Ejecutar estos comandos dentro de la carpeta GataBot-MD
+```bash
+termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
+``` 
+#### ⬇️ Opciones Disponibles
+> **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
+```bash 
+pm2 delete index
+``` 
+> Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:
+```bash 
+pm2 logs 
+``` 
+> Si desea detener la ejecución de Termux use:
+```bash 
+pm2 stop index
+``` 
+> Si desea iniciar de nuevo la ejecución de Termux use:
+```bash 
+pm2 start index
+``` 
+----
+### 😼 ACTUALIZAR GATABOT
+> **Note** Comandos para actualizar GataBot-MD de forma automática
+```bash
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/update.sh | bash 
+```
+#### Para que no pierda su progreso en GataBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
+> **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
+----
