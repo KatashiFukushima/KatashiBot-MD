@@ -10,6 +10,5 @@
 </p>
 
 <p align="center">
-<a href="#"><img title="KatashiBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APÓYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
-<img src="https://telegra.ph/file/6b74f1e9e96546ff8d3c1.mp4" height="28px">
+<a href="#"><img title="KatashiBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APÓYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>  
