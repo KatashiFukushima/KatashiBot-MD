@@ -114,7 +114,7 @@ pm2 stop index
 pm2 start index
 ``` 
 ----
-### 😼 ACTUALIZAR KATASHIBOT
+### 🥷🏻 ACTUALIZAR KATASHIBOT
 > **Note** Comandos para actualizar KatashiBot-MD de forma automática
 ```bash
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/update.sh | bash 
