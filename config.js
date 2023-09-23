@@ -11,8 +11,8 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-["5214271951557", '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 💖🐈', true],
-["51906662557", '𝙊𝙬𝙣𝙚𝙧 💖🐈', true],
+["5214271951557", '𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂', true],
+["51906662557", '𝙊𝙬𝙣𝙚𝙧', true],
 ["5217441745021"], ["5217442363122"], ["584166718372"]]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
@@ -130,7 +130,7 @@ global.nnnttt1 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 6 CO
 global.nnnttt2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 7 COL
 global.nnnttt3 = 'https://chat.whatsapp.com/EtZ1QLGBFwi2lFfMDIANAh' //Grupo 8 COL
 global.nnnttt4 = 'https://chat.whatsapp.com/I5SYcqBoItD1LpaEWkalnz' //Grupo 9 COL
-global.paypal = 'https://paypal.me/OficialGD'
+global.paypal = 'https://paypal.me/KatashiF'
 global.asistencia = 'Wa.me/51906662557' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
@@ -171,7 +171,7 @@ global.wait = "*⌛ _Cargando | Charging..._ ▬▭▭▭▭▭▭*";
 global.waitt = "*⌛ _Cargando | Charging..._ ▬▬▭▭▭*";
 global.waittt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▭▭*";
 global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*";
-global.nomorown = "593993684821";
+global.nomorown = "51948273587";
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"];
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
