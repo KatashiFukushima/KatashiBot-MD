@@ -75,8 +75,8 @@ apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && g
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Note** Descargué y Descomprime
 ### [`KatashiBot-MD ~ Archivos`](https://github.com/KatashiFukushima/KatashiBot-MD/archive/refs/heads/master.zip)
-[![blog](https://img.shields.io/badge/Termux-GataBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/UcWlyQ8u5HE)
+[![blog](https://img.shields.io/badge/NO_TUTORIAL-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://www.youtube.com/shorts/ZLJYDUM6vSY)
 ```bash
 termux-setup-storage
 apt update
