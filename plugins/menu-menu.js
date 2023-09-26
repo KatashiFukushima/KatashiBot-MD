@@ -116,8 +116,8 @@ let menu = `╭═══〘 _Katashi bot MD_ 〙═══⊷❍
 ┃✵│ _${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »_ ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
 ┃✵│ _${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »_ ${role}
 ┃✵│ _${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »_ ${emoji} || ${user.exp - min}/${xp}
-┃✵│ _${lenguajeGB['smsPareja']()}* ${pareja ? `\n*»_ ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-┃✵│ _Pasatiempo(s)* 🍁 ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+┃✵│ _${lenguajeGB['smsPareja']()}* ${pareja ? `\n*»_ ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}_`}
+┃✵│ _Pasatiempo(s)* 🍁 ${user.pasatiempo === 0 ? '*Sin Registro*_' : user.pasatiempo + '\n'}
 ┃✵╰─────────────────❍
 ╰══════════════════⊷❍
 
