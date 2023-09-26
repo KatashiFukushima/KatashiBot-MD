@@ -256,7 +256,7 @@ ${readMore}
 ╰══════════════════════════⊷
 
 ╭════〘 _DESCARGAS_ 〙════⊷❍
-│  │
+│   │
 ┃✵│ _${usedPrefix}imagen | image *texto*_
 ┃✵│ _${usedPrefix}pinterest | dlpinterest *texto*_
 ┃✵│ _${usedPrefix}wallpaper|wp *texto*_
