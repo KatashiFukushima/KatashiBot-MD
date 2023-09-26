@@ -109,7 +109,7 @@ global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊�
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.vs = "1.4.9";
-global.vsJB = "2.0";
+global.vsJB = "2.5 (Beta)";
 
 global.gt = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆";
 global.yt = "https://chat.whatsapp.com/Gxpc9XjJ8MALe4bCR3nRtL";
