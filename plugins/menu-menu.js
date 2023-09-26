@@ -177,7 +177,7 @@ ${readMore}
 │
 ┃✵│ _${usedPrefix}mates | matemáticas | math_
 ┃✵│ _${usedPrefix}ppt *piedra : papel : tijera*_
-┃✵│ _${usedPrefix}lanzar *cara* | *cruz*
+┃✵│ _${usedPrefix}lanzar *cara* | *cruz*_
 ┃✵│ _${usedPrefix}tictactoe | ttt *sala*_
 ┃✵│ _${usedPrefix}deltictactoe | delttt_
 ┃✵│ _${usedPrefix}topgays_
