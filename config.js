@@ -11,14 +11,14 @@ import { en, es, id, ar, pt, fr, hi } from "./lib/idiomas/total-idiomas.js";
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰  
 
 global.owner = [
-["5214271951557", '𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂', true],
-["51906662557", '𝙊𝙬𝙣𝙚𝙧', true],
-["5217441745021"], ["5217442363122"], ["584166718372"]]
+["212694964738", 'bot infogar', true],
+["212694964738", '𝙊𝙬𝙣𝙚𝙧', true],
+["212664408359"], ["212644072336"]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.mods = [];
-global.prems = ["528451003894"];
+global.prems = ["212664408359"];
 //key de violetics
 global.Key360 = ["964f-0c75-7afc"];
    
@@ -103,8 +103,8 @@ global.desc = ''; //agrega una descripción corta
 global.desc2 = ''; //agrega una descripción larga (Solo se aplicará si su whasapp no tiene descripción)
 global.country = ''; //agrega tú país ejemplo: 🇪🇨
 
-global.packname = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆";
-global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂✥";
+global.packname = "junior☆";
+global.author = "✥junior✥";
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
