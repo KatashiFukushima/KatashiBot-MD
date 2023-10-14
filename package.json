@@ -1,6 +1,6 @@
-{ 
+{
 "name": "KatashiBot-MD",
-"version": "3.0", 
+"version": "1.4.9", 
 "description": "Super Bot WhatsApp",
 "main": "index.js",
 "type": "module",
@@ -17,7 +17,7 @@
     
 "homepage": "https://github.com/KatashiFukushima/KatashiBot-MD",
 "author": {
-"name": "Katashi Fukushima" }, 
+"name": "KatashiFukushima" }, 
     
 "repository": {
 "type": "git",
@@ -27,7 +27,7 @@
 "url": "https://github.com/KatashiFukushima/KatashiBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "^6.4.1",
+"@whiskeysockets/baileys": "^6.5.0",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@brandond/findthelyrics": "^2.0.5",
