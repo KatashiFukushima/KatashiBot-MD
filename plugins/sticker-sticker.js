@@ -23,6 +23,8 @@ if (new Date - user.lastmiming < 10000) return await conn.reply(m.chat, `*ESPERA
         console.error(e)
       } finally {
       await conn.reply(m.chat, `${eg}⏳ *CREANDO STICKER, UN MOMENTO...* 🐈`, m)
+        if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
+        //Recién añadido arriba
         if (!stiker) {
           if (/webp/g.test(mime)) out = await webp2png(img)
           else if (/image/g.test(mime)) out = await uploadImage(img)
@@ -33,6 +35,8 @@ if (new Date - user.lastmiming < 10000) return await conn.reply(m.chat, `*ESPERA
       }
     } else if (args[0]) {
       if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
+        if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
+      //recién añadido arriba
       else return m.reply('URL invalido')
     }
   } catch (e) {
