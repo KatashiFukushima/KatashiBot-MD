@@ -41,7 +41,7 @@ if (new Date - user.lastmiming < 10000) return await conn.reply(m.chat, `*ESPERA
     console.error(e)
     if (!stiker) stiker = e
   } finally {
-     if (stiker) conn.sendsendMessage(m.chat, { 
+     if (stiker) conn.sendMessage(m.chat, { 
 text: str, 
 contextInfo:{
 forwardingScore: 9999999,
