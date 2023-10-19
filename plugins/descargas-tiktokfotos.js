@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch' 
 
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `*⚠️ INGRESE UN ENLACE DE TIKTOK QUE CONTENGA IMAGENES.*`
