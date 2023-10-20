@@ -125,16 +125,16 @@ global.n2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL GATA
 global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE GATABOT
 global.nn2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE 2
 global.nna2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Help
-global.nn = 'https://chat.whatsapp.com/EoskgcEk2qW0tIeK8hh13H' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/LGHW0ZwLgpeH7Nsn4vlrWi' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/Jvhbjxueer0GSdOw75ZtWR' //Grupo 3
-global.nnntt = 'https://chat.whatsapp.com/Gysm0PMJ4zg7ts0E9t91Hz' //Grupo 4
-global.nnnttt = 'https://chat.whatsapp.com/IZeaMQos8pxEhlyVI6yZaa' //Grupo 5
-global.nnnttt1 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA'; //Grupo 6 COL
-global.nnnttt2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 7 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 8 COL
-global.nnnttt4 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 9 COL
-global.nnnttt5 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //A.T.M.M
+global.nn = 'https://chat.whatsapp.com/EoskgcEk2qW0tIeK8hh13H' //Grupo 1 - Anime
+global.nnn = 'https://chat.whatsapp.com/J2IRY8iLvtL2Us6pVGGcRH' //Grupo 2 - PapuCity 2.5
+global.nnnt = 'https://chat.whatsapp.com/EBQOkLPgftc8mPR4KTml8S' //Grupo 3 - PapuGaymers HD
+global.nnntt = 'https://chat.whatsapp.com/JrPYbBETich6HFYvLYq9Pf' //Grupo 4 - El Hentai es Literatura
+global.nnnttt = 'https://chat.whatsapp.com/LgxLCZwejjSFaeREilUo7r' //Grupo 5 - Anexados del infierno
+global.nnnttt1 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA'; //Grupo 6 COL - GRUPO KATASHIBOT
+global.nnnttt2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 7 COL - GRUPO KATASHIBOT
+global.nnnttt3 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 8 COL - GRUPO KATASHIBOT
+global.nnnttt4 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 9 COL - GRUPO KATASHIBOT
+global.nnnttt5 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //A.T.M.M - GRUPO KATASHIBOT
 global.paypal = 'https://paypal.me/KatashiF'
 global.asistencia = 'Wa.me/51948705559' //Dudas? escríbeme...
 
@@ -227,7 +227,7 @@ global.img16 = 'https://telegra.ph/file/c314943b11806b25803f3.jpg' //+18
 global.img17 = 'https://telegra.ph/file/38cd8c6bea67860878901.jpg'
 global.img18 = 'https://telegra.ph/file/1e7e54a16dd6fd59c8d22.jpg'
 
-global.logogit = 'https://telegra.ph/file/2aaf3e48202b3d1c06b94.jpg'
+global.logogit = 'https://telegra.ph/file/75bbb5686e0dff952e79c.jpg'
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb]
 global.redesMenu = [n2, nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt1, nnnttt2, nnnttt3, nnnttt4, md, ig, paypal, yt, asistencia, fb]
