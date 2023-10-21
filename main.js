@@ -366,7 +366,7 @@ unwatchFile(file)
 console.log(chalk.bold.greenBright(lenguajeGB['smsMainBot']().trim()))
 import(`${file}?update=${Date.now()}`)
 })
-}) }) }) }
+ 
 
 setInterval(async () => {
 await clearTmp()
