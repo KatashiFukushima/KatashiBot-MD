@@ -1,6 +1,6 @@
 // by https://github.com/elrebelde21
  
-let handler = m => m
+/*let handler = m => m
 handler.all = async function (m) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let chat = global.db.data.chats[m.chat]
@@ -14,13 +14,13 @@ conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
 }
 
-/*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sin prefijo 
+//if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sin prefijo 
     let teks = `
 ${pickRandom([`no puedo esta contra las política del grupo.😸`, `_uff miren un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣_`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callate putito_'])}
 `.trim()
 conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
 
-}*/
+}
 
 if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo 
     conn.reply(m.chat, `╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
@@ -32,10 +32,10 @@ if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo
 
 }
 
-/* if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
+       if (/^hola|halo|hello|hi$/i.test(m.text) ) { //sin prefijo 
      conn.reply(m.chat, `Hola :D`, fkontak, m)
 
- }*/
+ }
  
 if (/^¿que es un bot?|Que es un bot|Que es gatabot?$/i.test(m.text) ) { //sem prefixo
     conn.reply(m.chat, `╭┄〔 *${wm}* 〕┄⊱
@@ -60,5 +60,5 @@ export default handler
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
-}
+}*/
 
