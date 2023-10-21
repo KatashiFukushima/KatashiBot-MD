@@ -34,11 +34,11 @@ let pp = await this.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.
 Mensajes Fakes
 */
 
-global.fakewa = { contextInfo: { externalAdReply: { mediaUrl: nn, mediaType: 'VIDEO', description: 'CuriosityBot-MD', title: wm2, body: 'Grupos ofc', thumbnailUrl: pp, sourceUrl: nn }}}
+global.n2 = { contextInfo: { externalAdReply: { mediaUrl: nn, mediaType: 'VIDEO', description: 'CuriosityBot-MD', title: packname, body: 'Grupos ofc', thumbnailUrl: pp, sourceUrl: nn }}}
   
-global.fakegit = { contextInfo: { externalAdReply: { mediaUrl: md, mediaType: 'VIDEO', description: 'GitHub', title: 'GitHub', body: 'ˢᶦ ᵗᵉ ᵃᵍʳᵃᵈᵃ ᵉˡ ᴮᵒᵗ ᵃᵖᵒʸᵃᵐᵉ ᶜᵒⁿ ᵘⁿᵃ 🌟', thumbnailUrl: pp, sourceUrl: md }}}
+global.gitHub = { contextInfo: { externalAdReply: { mediaUrl: md, mediaType: 'VIDEO', description: 'GitHub', title: 'GitHub', body: 'ˢᶦ ᵗᵉ ᵃᵍʳᵃᵈᵃ ᵉˡ ᴮᵒᵗ ᵃᵖᵒʸᵃᵐᵉ ᶜᵒⁿ ᵘⁿᵃ 🌟', thumbnailUrl: pp, sourceUrl: md }}}
 
-global.fakeyt = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: 'ˢᵘˢᶜʳᶦᵇᵉᵗᵉ ᵃ ⁿᵘᵉˢᵗʳᵒ ᶜᵃⁿᵃˡ ᵈᵉˡ ʸᵒᵘᵀᵘᵇᵉ : ' + yt, title: 'YouTube', body: 'CuriosityBot-MD', thumbnailUrl: pp, sourceUrl: yt }}}
+global.youtube = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: 'ˢᵘˢᶜʳᶦᵇᵉᵗᵉ ᵃ ⁿᵘᵉˢᵗʳᵒ ᶜᵃⁿᵃˡ ᵈᵉˡ ʸᵒᵘᵀᵘᵇᵉ : ' + yt, title: 'YouTube', body: 'CuriosityBot-MD', thumbnailUrl: pp, sourceUrl: yt }}}
 
 global.fgif = { key: { fromMe: false, participant: "0@s.whatsapp.net", ...(m.chat ? { remoteJid: "6285736178354-1625305606@g.us" } : {})}, message: { videoMessage: { title: wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': wm,  'jpegThumbnail': imagen1}}}
 
@@ -64,7 +64,7 @@ global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@
 
 global.faketick = { key: { participant: "0@s.whatsapp.net", "remoteJid": "6287834993722-1621306547@g.us", "fromMe": false, "id": "3B64558B07848BD81108C1D14712018E" }, "message": { "stickerMessage": { "fileSha256": "uZiOJzqOvrOo2WGjnMKgX2MMQMyasT+ZDgqUczpIBmY=", "pngThumbnail": imagen1, "mimetype": "image/webp", "height": 64, "width": 64, "directPath": "/v/t62.15575-24/56110107_763365384384977_5720135628188301198_n.enc?oh=450f8f684b06f0ba2dbc9779e5f06774&oe=605B81EE", "fileLength": "60206", "firstFrameLength": 3626, "isAnimated": false } }, "messageTimestamp": "1614070775", "status": "PENDING" }
 
-global.fakeimg = { key: {participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})}, message: { imageMessage: { title: `*${azami}*`, "h": `Hmm`, 'seconds': '99999', 'imagePlayback': 'true', 'caption': `${wm2}\n          ${azami}`, jpegThumbnail: imagen1 }}}
+global.fakeimg = { key: {participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})}, message: { imageMessage: { title: `${azami}`, "h": `Hmm`, 'seconds': '99999', 'imagePlayback': 'true', 'caption': `${wm2}\n          ${azami}`, jpegThumbnail: imagen1 }}}
 
 global.fakemsg = { key: { fromMe: false, participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "17608914335-1625305606@g.us" } : {}) }, message: { extendedTextMessage: { text: `${wm2}\n${azami}`, title: `${wm2}`, jpegThumbnail: imagen1}}}
 
@@ -92,8 +92,8 @@ global.twa = {key: {participant: "0@s.whatsapp.net", remoteJid: "0@s.whatsapp.ne
 
 global.fakemek = {key: {participant: "0@s.whatsapp.net",remoteJid: "0@s.whatsapp.net"}, message: {groupInviteMessage: {groupJid: "51995386439-1616969743@g.us", inviteCode: "m",groupName: "P", caption: 'CuriosityBot-MD', jpegThumbnail: null}}}
 
-var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = CuriosityML['smsFsaludo']() + '🌙'; break; case 1: hour = CuriosityML['smsFsaludo']() + '💤'; break; case 2: hour = CuriosityML['smsFsaludo']() + '🦉'; break; case 3: hour = CuriosityML['smsFsaludo2']() + '✨'; break; case 4: hour = CuriosityML['smsFsaludo2']() + '💫'; break; case 5: hour = CuriosityML['smsFsaludo2']() + '🌅'; break; case 6: hour = CuriosityML['smsFsaludo2']() + '🌄'; break; case 7: hour = CuriosityML['smsFsaludo2']() + '🌅'; break; case 8: hour = CuriosityML['smsFsaludo2']() + '💫'; break; case 9: hour = CuriosityML['smsFsaludo2']() + '✨'; break; case 10: hour = CuriosityML['smsFsaludo3']() + '🌞'; break; case 11: hour = CuriosityML['smsFsaludo3']() + '🌨'; break; case 12: hour =  CuriosityML['smsFsaludo3']() + '❄'; break; case 13: hour = CuriosityML['smsFsaludo3']() + '🌤'; break; case 14: hour = CuriosityML['smsFsaludo4']() + '🌇'; break; case 15: hour = CuriosityML['smsFsaludo4']() + '🏜️'; break; case 16: hour = CuriosityML['smsFsaludo4']() + '☀️'; break; case 17: hour = CuriosityML['smsFsaludo4']() + '🌆'; break; case 18: hour = CuriosityML['smsFsaludo']() + '🌙'; break; case 19: hour = CuriosityML['smsFsaludo']() + '🌃'; break; case 20: hour = CuriosityML['smsFsaludo']() + '🌌'; break; case 21: hour = CuriosityML['smsFsaludo']() + '🌃'; break; case 22: hour = CuriosityML['smsFsaludo']() + '🌙'; break; case 23: hour = CuriosityML['smsFsaludo']() + '🌃'; break;}
-global.saludo = CuriosityML['smsFsaludo5']() + hour;
+var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'una linda noche 🌙'; break; case 1: hour = 'una linda noche 💤'; break; case 2: hour = 'una linda noche 🦉'; break; case 3: hour = 'una linda mañana ✨'; break; case 4: hour = 'una linda mañana 💫'; break; case 5: hour = 'una linda mañana 🌅'; break; case 6: hour = 'una linda mañana 🌄'; break; case 7: hour = 'una linda mañana 🌅'; break; case 8: hour = 'una linda mañana 💫'; break; case 9: hour = 'una linda mañana ✨'; break; case 10: hour = 'un lindo dia 🌞'; break; case 11: hour = 'un lindo dia 🌨'; break; case 12: hour = 'un lindo dia ❄'; break; case 13: hour = 'un lindo dia 🌤'; break; case 14: hour = 'una linda tarde 🌇'; break; case 15: hour = 'una linda tarde 🏜️'; break; case 16: hour = 'una linda tarde ☀️'; break; case 17: hour = 'una linda tarde 🌆'; break; case 18: hour = 'una linda noche 🌙'; break; case 19: hour = 'una linda noche 🌃'; break; case 20: hour = 'una linda noche 🌌'; break; case 21: hour = 'una linda noche 🌃'; break; case 22: hour = 'una linda noche 🌙'; break; case 23: hour = 'una linda noche 🌃'; break;}
+global.saludo = "Espero que tengas " + hour;
 
 global.d = new Date(new Date + 3600000)
 global.locale = 'es'
@@ -106,11 +106,6 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 global.nombre = conn.getName(m.sender)
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 
-global.fakes = pickRandom([fakegit, fakeyt])
-
 }
 
 export default handler
-
-function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)]}
