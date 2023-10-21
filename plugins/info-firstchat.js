@@ -7,7 +7,7 @@ if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
 let user = global.db.data.users[m.sender]
 
 if (new Date() - user.pc < 21600000) return
-await m.reply(`🌟 *Bienvenido ${username} a KatashiBot* 🥷🏻
+await m.reply(`🌟 *Hola ${username}, bienvenido a KatashiBot* 🥷🏻
 📲 _Ejecute el comando .menu para visualizar los comandos que dispongo_ 🫡
 
 📌 *Cualquier duda o sugerencia puede contactar a mi creador:* 🎉
