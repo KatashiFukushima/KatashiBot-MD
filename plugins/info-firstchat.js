@@ -4,12 +4,8 @@ if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
   
 let user = global.db.data.users[m.sender]
 
-if (new Date() - user.pc < 21600000) return
-await m.reply(`👋 Hola ${nombre}!!
- ${saludo}
-
-📅 Fecha: ${fecha}
-⏰ Hora: ${tiempo}
+if (new Date() - user.pc < 1) return
+await m.reply(`👋 Hola!!
 
 ⚠️ Nota: no envíe spam al bot
 🧃 Escriba .menu para mostrar el menú 
