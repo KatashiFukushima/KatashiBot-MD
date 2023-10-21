@@ -15,7 +15,7 @@ await conn.reply(m.chat, `👋 Hola ${nombre}!!
 🧃 Escriba *.menu* para mostrar el menú 
   
 📝 ¿Quieres apoyar este proyecto para que siga actualizándose? enviar a través de: 
-*https://paypal.me/azami.19*`, m, fakes,)
+*https://paypal.me/KatashiF*`, m, fakes,)
 user.pc = new Date * 1
 
 }
