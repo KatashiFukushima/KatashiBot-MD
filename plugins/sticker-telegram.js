@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+/*import fetch from "node-fetch"
 import { sticker } from '../lib/sticker.js'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `╰⊱❗️⊱ *𝙇𝙊 𝙐𝙎𝙊́ 𝙈𝘼𝙇 | 𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂* ⊱❗️⊱╮\n\n𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙏𝙀𝙇𝙀𝙂𝙍𝘼𝙈\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊:\n${usedPrefix + command} https://t.me/addstickers/Porcientoreal\n\n𝙀𝙉𝙏𝙀𝙍 𝙏𝙃𝙀 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙏𝙀𝙇𝙀𝙂𝙍𝘼𝙈 𝙇𝙄𝙉𝙆\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀:\n${usedPrefix + command} https://t.me/addstickers/Porcientoreal`
@@ -28,4 +28,5 @@ handler.limit = 1
 //handler.register = true
 export default handler
 
-const delay = time => new Promise(res => setTimeout(res, time))
+const delay = time => new Promise(res => setTimeout(res, time))*/
+
