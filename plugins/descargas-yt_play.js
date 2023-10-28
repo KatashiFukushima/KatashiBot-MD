@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 let user = db.data.users[m.sender]
 let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality, z   
 let ayuda = '${lenguajeGB['smsAvisoMG']()}𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝙊 𝙏𝙄𝙏𝙐𝙇𝙊\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊\n*${usedPrefix + command} Billie Eilish - Bellyache*\n\n𝙒𝙍𝙄𝙏𝙀 𝙏𝙃𝙀 𝙉𝘼𝙈𝙀 𝙊𝙍 𝙏𝙄𝙏𝙇𝙀\n𝙀𝙓𝘼𝙈𝙋𝙇𝙀\n*${usedPrefix + command} Billie Eilish - Bellyache*'
-if (!text) await conn.sendMessage(m.chat, {text: ayuda, contextInfo:{mentions: [sender], forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${wm}`, "body": ` ${vs}`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: n2}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+if (!text) await conn.sendMessage(m.chat, {text: ayuda, contextInfo: { 'forwardingScore': 9999999, 'isForwarded': true, externalAdReply: {showAdAttribution: true, containsAutoReply: true, "title": wm, body: `Canal de WhatsApp`, "previewType": "PHOTO", thumbnail: imagen1, sourceUrl: n2}}}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
   try {
 let z = m.quoted ? m.quoted : m  
 let mime = (z.msg || z).mimetype || z.mediaType || ''
