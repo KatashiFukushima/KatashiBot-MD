@@ -4,7 +4,7 @@ import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 
 let handler = async (m, { conn, args, usedPrefix, command, text }) => {
-const fkontak =  { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `Canal de WhatsApp`, mediaType: 2, sourceUrl: n2, thumbnail: imagen1}}}
+const fkontak = {"key": {"participants": "0@s.whatsapp.net", remoteJid: "0@s.whatsapp.net" }, message: { groupInviteMessage: { groupJid: "6288213840883-1616169743@g.us", inviteCode: "m", groupName: "AzamiJs", caption: `${wm}\n      ${azami}`, jpegThumbnail: imagen1}}}
 let pp = 'https://c4.wallpaperflare.com/wallpaper/991/456/22/sketch-artist-anime-anime-girls-arknights-swire-arknights-hd-wallpaper-preview.jpg'
 let stiker = false
 let q = m.quoted ? m.quoted : m
