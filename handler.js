@@ -952,12 +952,11 @@ if (!('sWelcome' in chat)) chat.sWelcome = ''
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''                    
 if (!('sDemote' in chat)) chat.sDemote = '' 
-if (!('delete' in chat))
-chat.delete = true                    
+if (!('delete' in chat)) chat.delete = true                    
 if (!('modohorny' in chat)) chat.modohorny = false                    
 if (!('stickers' in chat)) chat.stickers = false                   
 if (!('autosticker' in chat)) chat.autosticker = false                      
-if (!('audios' in chat)) chat.audios = true                     
+if (!('audios' in chat)) chat.audios = false                     
 if (!('antiver' in chat)) chat.antiver = false                  
 if (!('antiLink' in chat)) chat.antiLink = false                    
 if (!('antiLink2' in chat)) chat.antiLink2 = false
@@ -989,7 +988,7 @@ delete: true,
 modohorny: true,
 stickers: false,
 autosticker: false,
-audios: true,
+audios: false,
 antiver: false,
 antiLink: false,
 antiLink2: false,
