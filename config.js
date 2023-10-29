@@ -121,7 +121,7 @@ global.ig = "https://www.instagram.com/gkatashi_fukushima"
 global.md = "https://github.com/KatashiFukushima/KatashiBot-MD"
 global.fb = "https://www.facebook.com/KatashiFukushima23"
 
-global.n2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL GATABOT
+global.cnl = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL GATABOT
 global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE GATABOT
 global.nn2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE 2
 global.nna2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Help
