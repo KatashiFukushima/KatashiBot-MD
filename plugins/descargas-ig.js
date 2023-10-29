@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import axios from 'axios';
 import instagramGetUrl from 'instagram-url-direct';
 import {instagram} from '@xct007/frieren-scraper';
