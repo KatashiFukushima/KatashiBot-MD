@@ -70,15 +70,7 @@ let fsizedoc = '1'.repeat(10)
 let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
 let str = `
-╭┄〔 *${wm}* 〕┄⊱
-┊ *🎶 ${lenguajeGB['smsConfi2']()} ${username}*
-┊დ *${week}, ${date}*
-┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
-┊
-┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
-┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
-┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
-╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
+─ ❖ ── ✦ ──『 _Audios_ 』── ✦ ── ❖ ──╗
 
 ⠇ *${lenguajeGB['smsTex16']()}* 🔊
 ⠇ ${lenguajeGB['smsTex17']()}
@@ -213,13 +205,7 @@ let str = `
 ∘ _Vamos!!_
 ∘ _Se pudrio_
 ∘ _Gol!_
-
-╭════• ೋ•✧๑♡๑✧•ೋ •════╮
-                      🐈 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 🐈
-         0:40 ━❍──────── -8:39
-         ↻     ⊲  Ⅱ  ⊳     ↺
-         VOLUMEN: ▁▂▃▄▅▆▇ 100%
-╰════• ೋ•✧๑♡๑✧•ೋ •════╯`.trim()
+─ ❖ ── ✦ ── ✧ ── ✦ ── ❖ ──╝`.trim()
     conn.sendFile(m.chat, pp, 'lp.jpg', str, m, false, { contextInfo: { mentionedJid }})
 /*let menuA = `🎶 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `

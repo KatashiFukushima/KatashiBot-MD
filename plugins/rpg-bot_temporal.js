@@ -24,7 +24,7 @@ let img1 = 'https://img.freepik.com/vector-premium/animacion-monedas-pixeles-ima
 let img2 ='https://img.freepik.com/premium-vector/set-8bit-pixel-graphics-icons-game-art-coins-gold-animation_534389-12.jpg?w=2000'
 
 if (!global.db.data.settings[conn.user.jid].temporal) return await conn.reply(m.chat, texto0, fkontak, m)  
-//conn.sendButton( m.chat, wm, texto0, null, [[`🙌 𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝘼𝙍 𝘾𝙊𝙈𝘼𝙉𝘿𝙊`, `.reporte *Quiero unir a GataBot en mí Grupo. Por favor Active la función #botemporal*`], [`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m) 
+//conn.sendButton( m.chat, wm, texto0, null, [[`🙌 𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝘼𝙍 𝘾𝙊𝙈𝘼𝙉𝘿𝙊`, `.reporte *Quiero unir a KatashiBot en mí Grupo. Por favor Active la función #botemporal*`], [`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m) 
 
 if (!args[0]) return await conn.reply(m.chat, texto1, fkontak, m)  
 let [_, code] = args[0].match(linkRegex) || []

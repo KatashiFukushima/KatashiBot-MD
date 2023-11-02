@@ -79,16 +79,15 @@ let user = global.db.data.users[m.sender]
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         throw `
-╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
-┃ *NOMBRE | NAME*
-┃ ${name}
+╭─ ❖ ── *Level* ── ❖ ──╗
+┃ *Nombre :* ${name}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *NIVEL:* *${user.level}*
+┃ *Nivel:* *${user.level}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *RANGO:* ${user.role}
+┃ *Rango:* ${user.role}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *XP:* *${user.exp - min}/${xp}*
-╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
+╰─ ❖ ── ✦ ── ✦ ── ❖ ──╝
 
 *Te falta ${max - user.exp} de XP para subir de nivel*
 `.trim()
@@ -99,7 +98,7 @@ let user = global.db.data.users[m.sender]
     if (before !== user.level) {
         let teks = `Bien hecho! ${conn.getName(m.sender)} Nivel: ${user.level}`
         let str = `
-╭━━━[ *𝙉𝙄𝙑𝙀𝙇 | 𝙇𝙀𝙑𝙀𝙇* ]━━━━⬣
+╭─ ❖ ── *LevelUp* ── ❖ ──╗
 ┃ *NIVEL ANTERIOR:* *${before}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *NIVEL ACTUAL:* *${user.level}*
@@ -107,7 +106,7 @@ let user = global.db.data.users[m.sender]
 ┃ *RANGO* ${user.role}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *FECHA:* *${new Date().toLocaleString('id-ID')}*
-╰━━━〔 *𓃠 ${vs}* 〕━━━━━⬣
+╰─ ❖ ── ✦ ── ✦ ── ❖ ──╝
 
 *_Cuanto más interactúes con KatashiBot-MD, mayor será tu nivel!!_*
 *_Actualiza tú rango con el comando ${usedPrefix}rol!!_*
