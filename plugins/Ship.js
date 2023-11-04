@@ -1,7 +1,9 @@
 let handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()} *MENCIONE 2 NOMBRES PARA CALCULAR EL PORCENTAJE`
-
   if (command == 'ship') {
+    if (!text) {
+      return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} *MENCIONE 2 NOMBRES PARA CALCULAR EL PORCENTAJE*`, m);
+    }
+
     // Aquí capturamos los valores de `text` y `text2` mencionados por el usuario
     const [textValue, text2Value] = text.split(' ');
 
