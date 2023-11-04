@@ -69,9 +69,9 @@ texto += `+${recompensas[reward]} ${global.rpgshop.emoticon(reward)}\n`}
 await conn.reply(m.chat, `*${minar} ${xp} XP*`, fkontak,  m)
 user.lastmiming = new Date * 1  
 }
-handler.help = ['inar']
+handler.help = ['mminar']
 handler.tags = ['xp']
-handler.command = ['inar', 'miming', 'mine', 'minarxp', 'minarexp', 'minarexperiencia'] 
+handler.command = ['mminar', 'miming', 'mine', 'minarxp', 'minarexp', 'minarexperiencia'] 
 handler.fail = null
 handler.exp = 0
 export default handler
