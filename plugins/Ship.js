@@ -1,5 +1,5 @@
 let handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()} 𝙀𝙏𝙄𝙌𝙄𝙀𝙏𝙀 @𝙏𝘼𝙂 𝙊 𝙀𝙏𝙄𝙌𝙄𝙀𝙏𝙀 @𝙏𝘼𝙂 𝙊𝙍 𝙏𝙄𝙈𝘼 𝙉𝘼𝙈𝙀`
+  if (!text) throw `${lenguajeGB['smsAvisoMG']()} *MENCIONE 2 NOMBRES PARA CALCULAR EL PORCENTAJE`
 
   if (command == 'ship') {
     // Aquí capturamos los valores de `text` y `text2` mencionados por el usuario
