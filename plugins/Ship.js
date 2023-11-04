@@ -1,26 +1,14 @@
-let handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (command == 'ship') {
-    if (!text) {
-      return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} *MENCIONE 2 NOMBRES PARA CALCULAR EL PORCENTAJE*`, m);
-    }
+let handler = async (m, { conn, command, text }) => {
+if (!text) throw `⚠️ ESCRIBE EL NOMBRE DE DOS PERSONAS PARA CALCULAR SU AMOR`
+let [text1, ...text2] = text.split(' ')
+text2 = (text2 || []).join(' ')
+if (!text2) throw `⚠️ ESCRIBE EL NOMBRE DE LA SEGUNDA PERSONA`
+let love = `❤️ ${text1} tu oportunidad de enamorarte de ${text2} es de ${Math.floor(Math.random() * 100)}%👩🏻‍❤️‍👨🏻 
 
-    
-    const [textValue, text2Value] = text.split(' ');
-    
-    let text2Value; // 
-
-    if (!text2Value) {
-     
-      text2Value = textValue;
-    }
-
-    let juego = `❣️ *${textValue}* tu oportunidad de enamorarte de *${text2Value}* ES DE ${Math.floor(Math.random() * 101)}%* 👩🏻‍❤️‍👨🏻`.trim();
-    await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid } : {});
-  }
+`.trim()
+m.reply(love, null, { mentions: conn.parseMention(love) })
 }
-
-handler.help = ['ship'].map(v => v + ' <text> <text2>')
-handler.tags = ['calculator']
-handler.command = ['ship']
-handler.exp = 100
+handler.help = ['love']
+handler.tags = ['fun']
+handler.command = /^(ship2)$/i
 export default handler
