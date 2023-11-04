@@ -201,6 +201,7 @@ ${readMore}
 ┃🎃│ _${usedPrefix}puta *nombre : @tag*_
 ┃🎃│ _${usedPrefix}rata *nombre : @tag*_
 ┃🎃│ _${usedPrefix}love *nombre : @tag*_
+┃🎃│ _${usedPrefix}ship nombre1 nombre2*_
 ┃🎃│ _${usedPrefix}doxear *nombre : @tag*_
 ┃🎃│ _${usedPrefix}doxxeame_
 ┃🎃│ _${usedPrefix}apostar | slot *cantidad*_
