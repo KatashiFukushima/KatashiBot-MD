@@ -8,6 +8,6 @@ await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid }
 }
 handler.help = ['ship4'].map(v => v + ' @tag | nombre')
 handler.tags = ['calculator']
-handler.command = /^´ship4/i
+handler.command = ['ship4']
 handler.exp = 100
 export default handler
