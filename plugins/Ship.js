@@ -8,7 +8,7 @@ let love = `❤️ ${text1} tu oportunidad de enamorarte de ${text2} es de ${Mat
 `.trim()
 m.reply(love, null, { mentions: conn.parseMention(love) })
 }
-handler.help = ['love']
+handler.help = ['ship']
 handler.tags = ['fun']
-handler.command = /^(ship2)$/i
+handler.command = /^(ship)$/i
 export default handler
