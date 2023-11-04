@@ -1,4 +1,4 @@
-/*let handler = async (m, { conn, command, text }) => {
+let handler = async (m, { conn, command, text }) => {
 if (!text) throw `⚠️ ESCRIBE EL NOMBRE DE DOS PERSONAS PARA CALCULAR SU AMOR`
 let [text1, ...text2] = text.split(' ')
 text2 = (text2 || []).join(' ')
