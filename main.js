@@ -108,7 +108,7 @@ const connectionOptions = {
 printQRInTerminal: true,
 auth: state,
 logger: P({ level: 'silent'}),
-browser: ['GataBot-MD','Edge','2.0.0']
+browser: ['KatashiBot-MD','Edge','2.0.0']
 }
 
 global.conn = makeWASocket(connectionOptions)
