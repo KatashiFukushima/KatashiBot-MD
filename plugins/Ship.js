@@ -10,7 +10,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
       text2Value = textValue;
     }
 
-    let juego = `*${textValue}* tu oportunidad de enamorarte de *${text2Value}* ES DE ${Math.floor(Math.random() * 101)}%*`.trim();
+    let juego = `❣️ *${textValue}* tu oportunidad de enamorarte de *${text2Value}* ES DE ${Math.floor(Math.random() * 101)}%* 👩🏻‍❤️‍👨🏻`.trim();
     await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid } : {});
   }
 }
