@@ -4,10 +4,14 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
       return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} *MENCIONE 2 NOMBRES PARA CALCULAR EL PORCENTAJE*`, m);
     }
 
-       const [textValue, text2Value] = text.split(' ');
+    
+    const [textValue, text2Value] = text.split(' ');
+    
+    let text2Value; // 
 
     if (!text2Value) {
-            text2Value = textValue;
+     
+      text2Value = textValue;
     }
 
     let juego = `❣️ *${textValue}* tu oportunidad de enamorarte de *${text2Value}* ES DE ${Math.floor(Math.random() * 101)}%* 👩🏻‍❤️‍👨🏻`.trim();
