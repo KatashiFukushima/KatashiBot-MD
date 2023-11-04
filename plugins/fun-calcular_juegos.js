@@ -76,9 +76,17 @@ await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid }
 //], m, m.mentionedJid ? {
 //mentions: m.mentionedJid
 //} : {})} 
+if (command == 'ship') {
+let juego =  `❤️ ${text1} tu oportunidad de enamorarte de ${text2} es de ${Math.floor(Math.random() * 100)}%👩🏻‍❤️‍👨🏻`.trim()
+if (!text) throw `⚠️ ESCRIBE EL NOMBRE DE DOS PERSONAS PARA CALCULAR SU AMOR`
+let [text1, ...text2] = text.split(' ')
+text2 = (text2 || []).join(' ')
+if (!text2) throw `⚠️ ESCRIBE EL NOMBRE DE LA SEGUNDA PERSONA`
+m.reply(loves, null, { mentions: conn.parseMention(love) })
+ 
 }
-handler.help = ['love', 'gay2', 'lesbiana', 'pajero', 'pajera', 'puto', 'puta', 'manco', 'manca', 'rata', 'prostituta', 'prostituto'].map(v => v + ' @tag | nombre')
+handler.help = ['love', 'gay2', 'lesbiana', 'pajero', 'pajera', 'puto', 'puta', 'manco', 'manca', 'rata', 'prostituta', 'prostituto', 'ship'].map(v => v + ' @tag | nombre')
 handler.tags = ['calculator']
-handler.command = /^love|gay2|lesbiana|pajero|pajera|puto|puta|manco|manca|rata|prostituta|prostituto/i
+handler.command = /^love|gay2|lesbiana|pajero|pajera|puto|puta|manco|manca|rata|prostituta|prostituto|ship/i
 handler.exp = 100
 export default handler
