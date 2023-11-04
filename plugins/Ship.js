@@ -6,8 +6,8 @@ let juego = `_*${text.toUpperCase()}* *ES/IS* *${(500).getRandom()}%* *GAY*_ ðŸ
 await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid } : {})}
 
 }
-handler.help = ['ship4'].map(v => v + ' @tag | nombre')
+handler.help = ['ship'].map(v => v + ' @tag | nombre')
 handler.tags = ['calculator']
-handler.command = ['ship4']
+handler.command = ['ship']
 handler.exp = 100
 export default handler
