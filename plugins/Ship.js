@@ -3,10 +3,10 @@ if (!text) throw `⚠️ ESCRIBE EL NOMBRE DE DOS PERSONAS PARA CALCULAR SU AMOR
 let [text1, ...text2] = text.split(' ')
 text2 = (text2 || []).join(' ')
 if (!text2) throw `⚠️ ESCRIBE EL NOMBRE DE LA SEGUNDA PERSONA`
-let love = `❤️ ${text1} tu oportunidad de enamorarte de ${text2} es de ${Math.floor(Math.random() * 100)}%👩🏻‍❤️‍👨🏻 
+let loves = `❤️ ${text1} tu oportunidad de enamorarte de ${text2} es de ${Math.floor(Math.random() * 100)}%👩🏻‍❤️‍👨🏻 
 
 `.trim()
-m.reply(love, null, { mentions: conn.parseMention(love) })
+m.reply(loves, null, { mentions: conn.parseMention(love) })
 }
 handler.help = ['ship']
 handler.tags = ['fun']
