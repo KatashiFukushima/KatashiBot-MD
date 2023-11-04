@@ -6,7 +6,7 @@ let juego = `*${nombre1} tu oportunidad de enamorarte de ${text.toUpperCase()} $
 await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid } : {})}
 
 }
-handler.help = ['ship'].map(v => v + 'nombre1 nombre2')
+handler.help = ['ship'].map(v => v + '<text> <text2>')
 handler.tags = ['calculator']
 handler.command = ['ship']
 handler.exp = 100
