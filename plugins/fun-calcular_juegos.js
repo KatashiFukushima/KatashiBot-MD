@@ -82,8 +82,8 @@ if (!text) throw `⚠️ ESCRIBE EL NOMBRE DE DOS PERSONAS PARA CALCULAR SU AMOR
 let [text1, ...text2] = text.split(' ')
 text2 = (text2 || []).join(' ')
 if (!text2) throw `⚠️ ESCRIBE EL NOMBRE DE LA SEGUNDA PERSONA`
-m.reply(juego, null, { mentions: conn.parseMention(love) })
-} 
+m.reply(juego, null, { mentions: conn.parseMention(love) })}
+ 
 }
  
 handler.help = ['love', 'gay2', 'lesbiana', 'pajero', 'pajera', 'puto', 'puta', 'manco', 'manca', 'rata', 'prostituta', 'prostituto', 'ship'].map(v => v + ' @tag | nombre')
