@@ -1490,7 +1490,7 @@ restrict: lenguajeGB['smsRestrict'](),
 }[type]
 //if (msg) return m.reply(msg)
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷🏻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷🏻', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, n2, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷🏻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷🏻', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, cnl, nn, nnn, nnnt, nnnttt4, yt, ig, paypal, fb].getRandom() }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
