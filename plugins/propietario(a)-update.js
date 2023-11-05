@@ -10,8 +10,8 @@ await m.reply(update.toString())
 } catch {
 await m.reply(`${fg}`) 
 }}
-handler.help = ['update']
+handler.help = ['pdate']
 handler.tags = ['owner']
-handler.command = /^update|actualizar$/i
+handler.command = /^pdate|actualizar$/i
 handler.rowner = true
 export default handler 
