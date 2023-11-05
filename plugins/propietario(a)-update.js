@@ -1,4 +1,4 @@
-import { execSync } from 'child_process'
+import { execSync } from 'child_process' 
 let handler = async (m, { conn, text }) => {
 try {  
 if (global.conn.user.jid == conn.user.jid) {
