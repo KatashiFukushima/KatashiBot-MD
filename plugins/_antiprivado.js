@@ -17,7 +17,7 @@ mensaje = `*@${m.sender.split`@`[0]} ESTÁ PROHIBIDO ESCRIBIR AL PRIVADO, PORQUE
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] })  
   
 } else if (user.counterPrivate === 1) {
-let grupos = [ nn, nnn, nnnt, nnntt, nnnttt ].getRandom()
+let grupos = [ nn, nna2, nnnttt2, nnnttt3, nnnttt4 ].getRandom()
 mensaje = `*@${m.sender.split`@`[0]} YA SE MENCIONÓ QUE NO PUEDE ESCRIBIR AL PRIVADO. 🫤*\n\n👇 *PUEDE UNIRSE A ESTE GRUPO OFICIAL*\n${grupos}\n\n*SI VUELVE A ESCRIBIR SERÁ BLOQUEADO(A)* ‼️\n⚠️ \`\`\`SEGUNDA ADVERTENCIA\`\`\` ⚠️`
 await conn.reply(m.chat, mensaje, m, { mentions: [m.sender] }) 
   
