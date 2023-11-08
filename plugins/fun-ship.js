@@ -10,5 +10,5 @@ m.reply(love, null, { mentions: conn.parseMention(love) })
 }
 handler.help = ['ship']
 handler.tags = ['fun']
-handler.command = /^ship|shippear$/i
+handler.command = /^ship|shippear|shipear$/i
 export default handler
