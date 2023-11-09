@@ -63,12 +63,12 @@ await conn.reply(m.chat, `${eg}🚀 _*PRUEBA DE VELOCIDAD*_ \n_*🚀SPEED TEST*_
 //await conn.sendButton(m.chat, wm, `${eg}🚀 𝙋𝙍𝙐𝙀𝘽𝘼 𝘿𝙀 𝙑𝙀𝙇𝙊𝘾𝙄𝘿𝘼𝘿...\n🚀 𝙎𝙋𝙀𝙀𝘿 𝙏𝙀𝙎𝙏...`, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m)  
 let neww = performance.now()
 let speed = neww - old
-let caption = `*${htki} VELOCIDAD: SPEED ${htka}*
+let caption = `${htki} *VELOCIDAD: SPEED* ${htka}
 
-🌐 *${Math.round(neww - old)}* ms
-🌐 *${speed}* ms
+🌐 _*${Math.round(neww - old)}* ms_
+🌐 _*${speed}* ms_
 
-*${htjava}* TIEMPO DE EJECUCIÓN : RUNTIME 
+*${htjava} TIEMPO DE EJECUCIÓN : RUNTIME* 
 ${muptime}
 ${readMore}
 *${htjava} C H A T S*
