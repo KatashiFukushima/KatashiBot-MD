@@ -72,11 +72,11 @@ let caption = `${htki} *VELOCIDAD: SPEED* ${htka}
 ${muptime}
 ${readMore}
 *${htjava} C H A T S*
-• *${groupsIn.length}* \`\`\`Grupales : Groups\`\`\`
-• *${groupsIn.length}* \`\`\`Grupos Unidos : Join Groups\`\`\`
-• *${groupsIn.length - groupsIn.length}* \`\`\`Grupos Restantes : Groups Left\`\`\`
-• *${chats.length - groupsIn.length}* \`\`\`Chats Privados : Chats Private\`\`\`
-• *${chats.length}* \`\`\`Total Chats\`\`\`
+🔢 *${groupsIn.length}* \`\`\`Grupales : Groups\`\`\`
+📶 *${groupsIn.length}* \`\`\`Grupos Unidos : Join Groups\`\`\`
+🚮 *${groupsIn.length - groupsIn.length}* \`\`\`Grupos Restantes : Groups Left\`\`\`
+📲 *${chats.length - groupsIn.length}* \`\`\`Chats Privados : Chats Private\`\`\`
+❇️ *${chats.length}* \`\`\`Total Chats\`\`\`
 
 *${htjava} S E R V I D O R : S E R V E R*
 *🟢 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
