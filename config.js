@@ -118,9 +118,9 @@ global.vsJB = "2.5 (Beta)"
 global.gt = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆"
 global.yt = "https://youtube.com/@KatashiFukushima"
 global.yt2 = "https://www.youtube.com/shorts/ZLJYDUM6vSY"
-global.ig = "https://www.instagram.com/gkatashi_fukushima"
+global.ig = "https://www.instagram.com/katashi_fukushima"
 global.md = "https://github.com/KatashiFukushima/KatashiBot-MD"
-global.fb = "https://www.facebook.com/KatashiFukushima23"
+global.fb = "https://www.facebook.com/KatashiFukushimaF"
 
 global.cnl = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL GATABOT
 global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE GATABOT
