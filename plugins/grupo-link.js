@@ -11,7 +11,7 @@ let fsizedoc = '1'.repeat(10)
 let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
 
 try{
-await conn.reply(m.chat, '*https://chat.whatsapp.com/' + await conn.groupInviteCode(group) + '*', m)
+await conn.reply(m.chat, '*https://chat.whatsapp.com/' + await conn.groupInviteCode(group) + '*', m, adReply)
 //await conn.sendButton(m.chat, 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group), wm, pp, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, adReply)
 } catch (e) {
 await m.reply(`\n${wm}`, lenguajeGB['smsMalError3']() + '#report ' + usedPrefix + command, m)   
