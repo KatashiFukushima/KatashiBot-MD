@@ -68,7 +68,28 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 termux-setup-storage
 ```
 ```bash
-apt update && apt upgrade && pkg install git nodejs ffmpeg imagemagick yarn && git clone https://github.com/KatashiFukushima/KatashiBot-MD && cd KatashiBot-MD && yarn install && npm install && npm start
+apt update
+```
+```bash
+apt upgrade
+```
+```bash
+pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+```bash
+git clone https://github.com/GataNina-Li/GataBot-MD
+```
+```bash
+cd GataBot-MD
+```
+```bash
+yarn install
+```
+```bash
+npm install
+```
+```bash
+npm start
 ```
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 ------------------
