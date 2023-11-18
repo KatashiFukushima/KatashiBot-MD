@@ -1,5 +1,5 @@
 {
-"name": "GataBot-MD",
+"name": "KatashiBot-MD",
 "version": "1.7.0",
 "description": "Super Bot WhatsApp",
 "main": "index.js",
@@ -17,7 +17,7 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/GataNina-Li/GataBot-MD",
+"homepage": "https://github.com/KatashiFukushima/KatashiBot-MD",
 "author": {
 "name": "KatashiFukushima" },
     
