@@ -3,7 +3,7 @@ var handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, co
 if (!args[0]) return m.reply(`⚠️ INGRESE EL PREFIJO DE UN PAÍS`)
 if (isNaN(args[0])) return m.reply(`⚠️ INGRESA EL PREFIJO DE UN PAÍS`)
  
-let lol = args[0].replace(/[+]/g, '51')
+let lol = args[0].replace(/[+]/g, '')
 let ps = participants.map((u) => u.id).filter((v) => v !== conn.user.jid && v.startsWith(lol || lol))
 let bot = global.db.data.settings[conn.user.jid] || {}
 
