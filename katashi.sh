@@ -19,7 +19,7 @@ COMMENT
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
 mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3" "install_automatic6.mp3" "install_automatic7.mp3" "install_automatic8.mp3" "install_automatic9.mp3" "install_automatic10.mp3" "install_automatic11.mp3" "install_automatic12.mp3")
 random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
-if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
+if wget -q https://github.com/KatashiFukushima/KatashiBot-MD/raw/master/musicSH/"$random_mp3"; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
 while true; do
 mpv --no-terminal "$random_mp3" &
@@ -82,7 +82,7 @@ if pkg install nodejs -y 2>&1 >/dev/null | grep -E -i -q '(command not found|una
 error=$(pkg install nodejs -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar Node.js. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/KatashiFukushima/KatashiBot-MD\ncd KatashiaBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/KatashiFukushima/KatashiBot-MD\ncd KatashiBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mNode.js se ha instalado correctamente.\nNode.js has been installed successfully.\n\033[0m" 
@@ -140,7 +140,7 @@ if pkg install imagemagick -y 2>&1 >/dev/null | grep -E -i -q '(command not foun
 error=$(pkg install imagemagick -y 2>&1 >/dev/null)
 echo -e "\033[0;31mError: $error\033[0m" 
 echo -e "\033[0;34mNo se pudo instalar ImageMagick. Verifique su conexión a Internet e inténtelo de nuevo. Si el error continúa, instale de forma manual!!\nIf the error continues, install manually!!\033[0m" 
-echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/KatashiFukushima/KatashiBot-MD\ncd KatashiBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
+echo -e "\033[01;33mpkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/KatashiFukushima/KatashiBot-MD\ncd GataBot-MD\nyarn install\nnpm install\nnpm start\033[0m"
 exit 1
 else
 echo -e "\033[01;32m\033[01mImageMagick se ha instalado correctamente.\nImageMagick has been installed successfully.\n\033[0m" 
@@ -184,7 +184,7 @@ echo -e "\e[36m
 ░█▀▀█ ▒█░░░ ▒█░░░ 　 ▒█▀▀█ ▀█▀ ▒█▀▀█ ▒█░▒█ ▀▀█▀▀ 
 ▒█▄▄█ ▒█░░░ ▒█░░░ 　 ▒█▄▄▀ ▒█░ ▒█░▄▄ ▒█▀▀█ ░▒█░░ 
 ▒█░▒█ ▒█▄▄█ ▒█▄▄█ 　 ▒█░▒█ ▄█▄ ▒█▄▄█ ▒█░▒█ ░▒█░░\n\e[0m"
-echo -e "\033[01;32m\033[01m\nTodas las dependencias se han instalado correctamente.\nAll dependencies have been installed successfully.\n\033[0m" 
+echo -e "\033[01;32m\033[01m\nTodas las dependencias se han instalado correctamente.\nAll dependencies have been installed successfully.\n\033[0m"
 
 echo -e "\e[35m
 ██╗░░██╗░░  ██╗░░██╗░█████╗░████████╗░█████╗░░██████╗██╗░░██╗██╗██████╗░░█████╗░████████╗
@@ -249,7 +249,7 @@ v1="${b}\033[32m"
 b="\033[0m"
 
 menu() {
-	#GataBot-MD
+	#KatashiBot-MD
 	echo -e "${v1} MENÚ DE CONFIGURACIÓN"
 	printf "\n"
 	printf "${v1}[${b}01${v1}]${v} Visistar Grupo de Actualizaciones\n"
@@ -263,11 +263,11 @@ menu() {
 }
 
 menu_ayuda() {
-    #printf "${v1}[${b}++${v1}]${v} GataBot-MD${b}: "
+    #printf "${v1}[${b}++${v1}]${v} KatashiBot-MD${b}: "
 	read opcion
 	case $opcion in
             01|1)
-                am start -a android.intent.action.VIEW https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3 &>> /dev/null
+                am start -a android.intent.action.VIEW https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA &>> /dev/null
                 echo -e "${b}[${v1}++${b}]${v} Accediendo al Grupo Oficial\n"
                 
                 ;;
