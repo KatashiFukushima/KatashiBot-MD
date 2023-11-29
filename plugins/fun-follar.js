@@ -7,7 +7,7 @@ let handler = async (m, {conn, text}) => {
   ${text} 
 🤤🥵 ¡𝐘𝐀 𝐓𝐄 𝐇𝐀𝐍 𝐅𝐎𝐋𝐋𝐀𝐃𝐎! 🥵🤤
  `.trim();
-  conn.reply(m.chat, coger, null, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: '', mediaType: 2, sourceUrl: cnl, thumbnail: imagen1}}}, { quoted: m }, {mentions: conn.parseMention(coger)});
+  conn.reply(m.chat, coger, null, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: '', mediaType: 2, sourceUrl: cnl, thumbnail: imagen1}}}, { quoted: m }, {mentions: [m.sender, text.replace('@', '') + '@s.whatsapp.net']});
 };
 handler.help = ["follar"];
 handler.tags = ["fun"];
