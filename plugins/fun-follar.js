@@ -7,7 +7,7 @@ let handler = async (m, {conn, text}) => {
   ${text} 
 🤤🥵 ¡𝐘𝐀 𝐓𝐄 𝐇𝐀𝐍 𝐅𝐎𝐋𝐋𝐀𝐃𝐎! 🥵🤤
  `.trim();
-  this.reply(m.chat, coger, fkontak, null, {mentions: conn.parseMention(coger)});
+  conn.reply(m.chat, coger, fkontak, null, {mentions: conn.parseMention(coger)});
 };
 handler.help = ["follar"];
 handler.tags = ["fun"];
