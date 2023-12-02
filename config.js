@@ -28,13 +28,13 @@ global.Key360 = ["964f-0c75-7afc"]
    
   
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰ 
-//Agrega el Idioma que quieres que tenga GataBot-MD
-//Add the language you want GataBot-MD to have
+//Agrega el Idioma que quieres que tenga KatashiBot-MD
+//Add the language you want KatashiBot-MD to have
 //  es = Español         id = Bahasa Indonesia
 //  en = English         pt = Português 
 //  ar = عرب             hi = Hindi Language
 
-global.lenguajeGB = es //Idioma de GataBot, Ejemplo: es | en | pt...
+global.lenguajeGB = es //Idioma de KatashiBot, Ejemplo: es | en | pt...
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -122,8 +122,8 @@ global.ig = "https://www.instagram.com/katashi_fukushima"
 global.md = "https://github.com/KatashiFukushima/KatashiBot-MD"
 global.fb = "https://www.facebook.com/KatashiFukushimaF"
 
-global.cnl = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL GATABOT
-global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE GATABOT
+global.cnl = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL KATASHIBOT
+global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE KATASHIBOT
 global.nn2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE 2
 global.nna2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Help
 global.nn = 'https://chat.whatsapp.com/EoskgcEk2qW0tIeK8hh13H' //Grupo 1 - Anime
