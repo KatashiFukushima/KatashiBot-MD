@@ -14,7 +14,7 @@ if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {tex
 else {
 await conn.sendMessage(m.chat, { text: lenguajeGB.smsJBAdios() }, { quoted: m })}
 try {
-fs.rmdir("./GataJadiBot/" + uniqid, { recursive: true, force: true })
+fs.rmdir("./KatashiJadiBot/" + uniqid, { recursive: true, force: true })
 await conn.sendMessage(m.chat, { text : lenguajeGB.smsJBCerrarS() } , { quoted: m })
 } catch(err) {
 console.error(userS + ' ' + lenguajeGB.smsJBErr(), err)   
