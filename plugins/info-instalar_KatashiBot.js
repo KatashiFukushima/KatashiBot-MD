@@ -16,6 +16,12 @@ const fkontak = {
 
 let picture = './media/menus/Menu1.jpg'
 let gata = `𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 𝙆𝘼𝙏𝘼𝙎𝙃𝙄𝘽𝙊𝙏 🥷
+*━━━━━━━━━━━━━⬣*
+✅ 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝙍 𝙀𝙉 𝙏𝙀𝙍𝙈𝙐𝙓
+*⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
+termux-setup-storage
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/katashi.sh | bash
+*━━━━━━━━━━━━━⬣*
 
 *━━━━━━━━━━━━━⬣*
 ✅ 𝗜𝗡𝗦𝗧𝗔𝗟𝗔𝗥 𝗘𝗡 𝗕𝗢𝗫𝗠𝗜𝗡𝗘
@@ -34,13 +40,6 @@ _https://dash.boxmineworld.com_
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
 _Panel_
 _https://panel.boxmineworld.com_
-*━━━━━━━━━━━━━⬣*
-
-*━━━━━━━━━━━━━⬣*
-✅ 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝙍 𝙀𝙉 𝙏𝙀𝙍𝙈𝙐𝙓
-*⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*
-termux-setup-storage
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/katashi.sh | bash
 *━━━━━━━━━━━━━⬣*
 
 *━━━━━━━━━━━━━⬣*
