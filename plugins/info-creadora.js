@@ -11,7 +11,7 @@ const cat = `
 │ *wa.me/527442363122*
 │
 │ ᴛᴇʀᴀᴋᴏᴍᴀʀɪ ᵒᶠᶜ
-│ *wa.me/584166718372*
+│ *wa.me/584160107731*
 │
 │
 │*GRUPO OFICIAL DE KATASHIBOT*
