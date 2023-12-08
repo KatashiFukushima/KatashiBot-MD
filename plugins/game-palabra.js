@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let timeout = 30000
+let timeout = 60000
 let poin = 500
 
 let handler = async (m, { conn, usedPrefix }) => {
@@ -19,6 +19,8 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 *• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
 *• Bono:* +${poin} Exp
+
+✨ Responde a este mensaje con la palabra correcta ✨
 `.trim()
     conn.tekateki[id] = [
        await conn.reply(m.chat, caption, m),
