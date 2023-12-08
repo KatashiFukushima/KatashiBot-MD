@@ -622,7 +622,7 @@ ${readMore}
 ┃☭│ _${usedPrefix}añadirkatacoins *@tag cantidad*_
 ┃☭╰─────────────────❍
 ╰══════════════════⊷❍`.trim()
-const vi = ['https://telegra.ph/file/93af7de92aa4e791b77b4.mp4',
+const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
 'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
 'https://telegra.ph/file/117391db9016a51f73618.mp4']
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: [m.sender, global.conn.user.jid] }, { quoted: fkontak })
