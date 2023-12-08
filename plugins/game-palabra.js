@@ -36,6 +36,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['palabra']
 handler.tags = ['game']
-handler.command = /^(palabra|word|ordena|order)$/i
+handler.command = /^(palabra|word|ordenar|order)$/i
 
 export default handler
