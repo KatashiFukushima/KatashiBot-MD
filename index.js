@@ -16,7 +16,7 @@ say('Katashi\nBot\nMD', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Project Author:\nKatashi Fukushima (@katashi_fukushima)\n\nColaboradores:\nWilsonOFC (WilsonWaoz)\nSoIz1 (iZi)\nAzamiJs (Azami)`, {
+say(`Project Author:\nKatashi Fukushima (@katashi_fukushima)\n\nColaboradores:\nWilsonOFC (WilsonWaoz)\nAzamiJs (Azami)\nSoIz1 (iZi)`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})
