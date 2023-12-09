@@ -12,9 +12,9 @@ const cat = `
 │
 │ ᴛᴇʀᴀᴋᴏᴍᴀʀɪ ᵒᶠᶜ
 │ *wa.me/584160107731*
-| 
-| ♥️🎩⚠︎    シ︎𝑾𝒊𝒍𝖘𝒐𝒏シ︎   ⚠︎🎩♥️
-|  *wa.me/5492964650915*
+│
+│ シ︎𝑾𝒊𝒍𝖘𝒐𝒏シ︎
+│ *wa.me/5492964650915*
 │
 │*GRUPO OFICIAL DE KATASHIBOT*
 │*https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA*
