@@ -26,118 +26,34 @@
 {"question": "Tengo un ojo pero no puedo ver. ¿Qué soy?", "response": "Una aguja" },
 {"question": "Siempre estoy en el agua, pero nunca me mojo. ¿Qué soy?", "response": "Una sombra" },
 {"question": "Puedo volar sin alas, siempre estoy cerca del suelo, pero nunca me caigo. ¿Qué soy?", "response": "Un sueño" },
-{
-        "question": "Soy redondo como una moneda, pero no tengo valor. ¿Qué soy?",
-        "response": "Un botón" 
-    },
-{
-        "question": "Soy una palabra de cinco letras y me temen más que a la muerte. Si me quitas la primera letra, tendrás un lugar donde la gente vive. ¿Qué soy?",
-        "response": "Cárcel" 
-    },
-{
-        "question": "Soy un lugar donde nunca se puede entrar, pero siempre puedes ver lo que está dentro. ¿Qué soy?",
-        "response": "Un ojo" 
-    },
-{
-        "question": "Tengo dientes, pero no puedo masticar. ¿Qué soy?",
-        "response": "Un peine" 
-    },
-{
-        "question": "Soy un agujero en el agua que puedes llenar con una taza. ¿Qué soy?",
-        "response": "Un agujero de llave" 
-    },
-{
-        "question": "Tengo una cabeza, un cuerpo, pero no tengo alma. ¿Qué soy?",
-        "response": "Un muñeco" 
-    },
-{
-        "question": "Tengo manos y una cara, pero no tengo cuerpo. ¿Qué soy?",
-        "response": "Un reloj" 
-    },
-{
-        "question": "Soy una cosa que es más útil cuando está rota. ¿Qué soy?",
-        "response": "Un huevo" 
-    },
-{
-        "question": "Soy un lugar donde puedes encontrar tesoros y libros, pero nunca encontrarás oro ni palabras. ¿Qué soy?",
-        "response": "Una biblioteca" 
-    },
-{
-        "question": "Si me nombras, me rompes. ¿Qué soy?",
-        "response": "El silencio" 
-    },
-{
-        "question": "Soy un número sin fin, pero siempre empiezo con un 1. ¿Qué soy?",
-        "response": "El número Pi" 
-    },
-{
-        "question": "¿Qué le dice un ciego a otro ciego?",
-        "response": "Después nos vemos"
-    },
-{
-        "question": "¿En qué se parece un alfiler a un policía?",
-        "response": "En que los dos prenden"
-    },
-{
-        "question": "¿Qué se congela cuando se calienta?",
-        "response": "La computadora"
-    },
-{
-        "question": "¿Qué fruta tiene muchos ojos, pero no puede ver?",
-        "response": "La piña"
-    },
-{
-        "question": "¿En qué idioma se comunican las tortugas?",
-        "response": "En tortugués"
-    },
-{
-        "question": "¿Cómo llama un policía sevillano a su pistola?",
-        "response": "Mi arma"
-    },
-{
-        "question": "¿Qué es todo para uno y nada para lo demás?",
-        "response": "La mente"
-    },
-{
-        "question": "¿Cuál es el colmo de una aspiradora?",
-        "response": "Ser alérgica al polvo"
-    },
-{
-        "question": "¿Qué es aquello que si nombras, desaparece?",
-        "response": "El silencio"
-    },
-{
-        "question": "¿Qué necesitamos para escribir durmiendo?",
-        "response": "Estar despiertos"
-    },
-{
-        "question": "¿Qué objeto puede tener cara sin poseer cuerpo?",
-        "response": "Una moneda"
-    },
-{
-        "question": "Alimenta la casa, Gabinete con hielo",
-        "response": "La nevera"
-    },
-{
-        "question": "¿Qué tienen las mujeres en medio de las piernas?",
-        "response": "Las rodillas"
-    },
-{
-        "question": "Entra duro y seco y sale blandito y mojado ¿Qué es?",
-        "response": "Un chicle"
-    },
-{
-        "question": "Estoy en todo y estoy en nada ¿qué soy?",
-        "response": "La letra d"
-    },
-{
-        "question": "Continuas en rojo, pero te paras en verde. ¿Qué soy?",
-        "response": "Una sandía"
-    },
-{
-        "question": "¿Qué es negro cuando lo compras, rojo cuando lo usas, y gris cuando lo tiras?",
-        "response": "El carbón"
-    },
+{"question": "Soy redondo como una moneda, pero no tengo valor. ¿Qué soy?", "response": "Un botón" },
+{"question": "Soy una palabra de cinco letras y me temen más que a la muerte. Si me quitas la primera letra, tendrás un lugar donde la gente vive. ¿Qué soy?", "response": "Cárcel" },
+{"question": "Soy un lugar donde nunca se puede entrar, pero siempre puedes ver lo que está dentro. ¿Qué soy?", "response": "Un ojo" },
+{"question": "Tengo dientes, pero no puedo masticar. ¿Qué soy?", "response": "Un peine" },
+{"question": "Soy un agujero en el agua que puedes llenar con una taza. ¿Qué soy?", "response": "Un agujero de llave" },
+{"question": "Tengo una cabeza, un cuerpo, pero no tengo alma. ¿Qué soy?", "response": "Un muñeco" },
+{"question": "Tengo manos y una cara, pero no tengo cuerpo. ¿Qué soy?", "response": "Un reloj" },
+{"question": "Soy una cosa que es más útil cuando está rota. ¿Qué soy?", "response": "Un huevo" },
+{"question": "Soy un lugar donde puedes encontrar tesoros y libros, pero nunca encontrarás oro ni palabras. ¿Qué soy?", "response": "Una biblioteca" },
+{"question": "Si me nombras, me rompes. ¿Qué soy?", "response": "El silencio" },
+{"question": "Soy un número sin fin, pero siempre empiezo con un 1. ¿Qué soy?", "response": "El número Pi" },
+{"question": "¿Qué le dice un ciego a otro ciego?", "response": "Después nos vemos"},
+{"question": "¿En qué se parece un alfiler a un policía?", "response": "En que los dos prenden" },
+{"question": "¿Qué se congela cuando se calienta?", "response": "La computadora" },
+{"question": "¿Qué fruta tiene muchos ojos, pero no puede ver?", "response": "La piña" },
+{"question": "¿En qué idioma se comunican las tortugas?", "response": "En tortugués" },
+{"question": "¿Cómo llama un policía sevillano a su pistola?", "response": "Mi arma" },
+{"question": "¿Qué es todo para uno y nada para lo demás?", "response": "La mente" },
+{"question": "¿Cuál es el colmo de una aspiradora?", "response": "Ser alérgica al polvo" },
+{"question": "¿Qué es aquello que si nombras, desaparece?", "response": "El silencio" },
+{"question": "¿Qué necesitamos para escribir durmiendo?", "response": "Estar despiertos" },
+{"question": "¿Qué objeto puede tener cara sin poseer cuerpo?", "response": "Una moneda" },
+{"question": "Alimenta la casa, Gabinete con hielo", "response": "La nevera" },
+{"question": "¿Qué tienen las mujeres en medio de las piernas?", "response": "Las rodillas" },
+{"question": "Entra duro y seco y sale blandito y mojado ¿Qué es?", "response": "Un chicle" },
+{"question": "Estoy en todo y estoy en nada ¿qué soy?", "response": "La letra d" },
+{"question": "Continuas en rojo, pero te paras en verde. ¿Qué soy?", "response": "Una sandía" },
+{"question": "¿Qué es negro cuando lo compras, rojo cuando lo usas, y gris cuando lo tiras?", "response": "El carbón" },
 {
         "question": "¿Qué hay delante de ti siempre pero que no se puede ver?",
         "response": "El futuro"
