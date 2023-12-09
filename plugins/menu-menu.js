@@ -174,6 +174,9 @@ ${readMore}
 
 ╭════〘卐 _ENTRETENIMIENTO_ 卐〙════⊷❍
 │
+┃☭│ _${usedPrefix}acertijo_
+┃☭│ _${usedPrefix}ordenar_
+┃☭│ _${usedPrefix}peliculas | adv_
 ┃☭│ _${usedPrefix}mates | matemáticas | math_
 ┃☭│ _${usedPrefix}ppt *piedra : papel : tijera*_
 ┃☭│ _${usedPrefix}lanzar *cara* | *cruz*_
