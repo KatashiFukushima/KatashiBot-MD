@@ -1,4 +1,4 @@
-let media = './media/menus/Menuvid3.mp4'
+let media = 'https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4'
 let handler = async (m, { conn, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎 𝙂𝙍𝙐𝙋𝙊𝙎 𝙊𝙁𝙄𝘾𝙄𝘼𝙇𝙀𝙎
@@ -29,11 +29,11 @@ let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎
 
 *Por favor, no ingresar con números de Bots, y mantener el respeto.*\n
 *Please, do not enter with Bot numbers, and maintain respect.*`
-//await conn.sendFile(m.chat, media, 'gata.mp4', str, fkontak)}
-const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
-'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
-'https://telegra.ph/file/117391db9016a51f73618.mp4']
-await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: str, mentions: [m.sender, global.conn.user.jid] }, { quoted: fkontak })
+await conn.sendFile(m.chat, media, 'gata.mp4', str, fkontak)}
+//const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
+//'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
+//'https://telegra.ph/file/117391db9016a51f73618.mp4']
+//await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: str, mentions: [m.sender, global.conn.user.jid] }, { quoted: fkontak })
 /*conn.sendHydrated(m.chat, str, `𝙂𝘼𝙏𝘼 𝘿𝙄𝙊𝙎 - 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼\n${asistencia}\n\n` + wm, media, 'https://github.com/GataNina-Li/GataBot-MD', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
 ['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨 ✅', '.cuentasgb'],
 ['🎁 𝘿𝙤𝙣𝙖𝙧 | 𝘿𝙤𝙣𝙖𝙩𝙚', '.donar'],
