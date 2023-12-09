@@ -33,7 +33,7 @@ let str = `💕 𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙊(𝘼) 𝘼 𝙇𝙊𝙎
 const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
 'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
 'https://telegra.ph/file/117391db9016a51f73618.mp4']
-await conn.sendFile(m.chat, vi, 'gata.mp4', str, fkontak)}
+await conn.sendFile(m.chat, vi.getRandom(), 'gata.mp4', str, fkontak)}
 //const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
 //'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
 //'https://telegra.ph/file/117391db9016a51f73618.mp4']
