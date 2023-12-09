@@ -1,12 +1,6 @@
 [
-    {
-        "question": "Ordena la palabra: IDCMOA",
-        "response": "COMIDA" 
-    },
-    {
-        "question": "Ordena la palabra: CEHLEUP",
-        "response": "PELUCHE" 
-    },
+{"question": "Ordena la palabra: IDCMOA", "response": "COMIDA" },
+{"question": "Ordena la palabra: CEHLEUP", "response": "PELUCHE" },
     {
         "question": "Ordena la palabra: PATLPO",
         "response": "LAPTOP" 
