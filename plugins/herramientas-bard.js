@@ -7,9 +7,9 @@ if (!text) throw `*🤨 ¿Qué carajo quiere buscar? 🤬 ¡Ingrese un texto!* `
 try {
 
 await m.reply('🌐 *_Aguarde un momento..._*')
-var apii = await fetch(`https://api.botcahx.live/api/search/bard-ai?apikey=97Fxy6mj&text=${text}`)
+var apii = await fetch(`https://aemt.me/bard?text=${text}`)
 var res = await apii.json()
-await m.reply(res.message)
+await m.reply(res.result)
 
 } catch (error) {
 console.error(error)
