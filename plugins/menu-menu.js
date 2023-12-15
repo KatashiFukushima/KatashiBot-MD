@@ -613,7 +613,7 @@ ${readMore}
 ┃☭│ _${usedPrefix}comunicargrupos *texto*_
 ┃☭│ _${usedPrefix}borrartmp | cleartmp_
 ┃☭│ _${usedPrefix}delexp *@tag*_
-┃☭│ _${usedPrefix}delgatacoins *@tag*_
+┃☭│ _${usedPrefix}delkatacoins *@tag*_
 ┃☭│ _${usedPrefix}deldiamantes *@tag*_
 ┃☭│ _${usedPrefix}reiniciar | restart_
 ┃☭│ _${usedPrefix}ctualizar | update_
