@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Todavía hay una pregunta sin responder en este chat', conn.tekateki[id][0])
         throw false
     }
-    let tekateki = JSON.parse(fs.readFileSync(`./src/game/Trivia.json`))
+    let tekateki = JSON.parse(fs.readFileSync(`./src/game/trivia.json`))
     let json = tekateki[Math.floor(Math.random() * tekateki.length)]
     let _clue = json.response
     let clue = _clue.replace(/[A-Za-z]/g, '_')
