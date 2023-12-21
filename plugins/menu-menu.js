@@ -174,6 +174,7 @@ ${readMore}
 
 ╭════〘卐 _ENTRETENIMIENTO_ 卐〙════⊷❍
 │
+│☭│ _${usedPrefix}trivia 
 │☭│ _${usedPrefix}acertijo_
 │☭│ _${usedPrefix}palabra | ordenar_
 │☭│ _${usedPrefix}pelicula | adv_
