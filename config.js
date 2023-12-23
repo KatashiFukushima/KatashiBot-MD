@@ -123,21 +123,21 @@ global.md = "https://github.com/KatashiFukushima/KatashiBot-MD"
 global.fb = "https://www.facebook.com/KatashiFukushimaF"
 
 global.cnl = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //CANAL KATASHIBOT
-global.nna = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE KATASHIBOT
+global.nna = 'https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g' //UPDATE KATASHIBOT
 global.nn2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' //UPDATE 2
-global.nna2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Help
+global.nna2 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' //Help
 global.nn = 'https://chat.whatsapp.com/EoskgcEk2qW0tIeK8hh13H' //Grupo 1 - Anime
 global.nnn = 'https://chat.whatsapp.com/J2IRY8iLvtL2Us6pVGGcRH' //Grupo 2 - PapuCity 2.5
 global.nnnt = 'https://chat.whatsapp.com/EBQOkLPgftc8mPR4KTml8S' //Grupo 3 - PapuGaymers HD
 global.nnntt = 'https://chat.whatsapp.com/JrPYbBETich6HFYvLYq9Pf' //Grupo 4 - El Hentai es Literatura
 global.nnnttt = 'https://chat.whatsapp.com/LgxLCZwejjSFaeREilUo7r' //Grupo 5 - Anexados del infierno
-global.nnnttt1 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA'; //Grupo 6 COL - GRUPO KATASHIBOT
-global.nnnttt2 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 7 COL - GRUPO KATASHIBOT
-global.nnnttt3 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 8 COL - GRUPO KATASHIBOT
+global.nnnttt1 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy'; //Grupo 6 COL - GRUPO KATASHIBOT
+global.nnnttt2 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' //Grupo 7 COL - GRUPO KATASHIBOT
+global.nnnttt3 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' //Grupo 8 COL - GRUPO KATASHIBOT
 global.nnnttt4 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //Grupo 9 COL - GRUPO KATASHIBOT
-global.nnnttt5 = 'https://chat.whatsapp.com/GOMZkMih9onHg80KsQfIFA' //A.T.M.M - GRUPO KATASHIBOT
+global.nnnttt5 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' //A.T.M.M - GRUPO KATASHIBOT
 global.paypal = 'https://paypal.me/KatashiF'
-global.asistencia = 'Wa.me/51948705559' //Dudas? escríbeme...
+global.asistencia = 'Wa.me/51948273587' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
