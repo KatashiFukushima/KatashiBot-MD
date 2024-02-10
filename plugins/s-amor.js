@@ -1,5 +1,5 @@
 import { sticker } from '../lib/sticker.js'
-let handler = async(m, { conn }) => {
+let handler = async(m, { conn }) => { 
 if (db.data.chats[m.chat].stickers) {
 
 let nombre = '🥷☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆'
