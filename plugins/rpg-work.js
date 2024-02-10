@@ -27,9 +27,9 @@ await conn.reply(m.chat, `*${pickRandom(global.work)}* ${gata} XP`, fkontak, pp,
 ], m,) */
 global.db.data.users[m.sender].lastwork = new Date * 1
 }
-handler.help = ['ork']
+handler.help = ['work']
 handler.tags = ['xp']
-handler.command = ['ork', 'rabajar']
+handler.command = ['work', 'trabajar']
 handler.fail = null
 handler.exp = 0
 export default handler
