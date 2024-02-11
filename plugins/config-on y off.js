@@ -213,6 +213,15 @@ throw false
 chat.stickers = isEnable          
 break
     
+case 'game': case 'juegos': case 'fun': case 'ruleta':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.game = isEnable          
+break
+    
 case 'temporal':
 isAll = true
 if (!isOwner) {
@@ -340,6 +349,15 @@ throw false
 bot.antiSpam = isEnable
 break
  
+case 'antispam2':
+isAll = true
+if (!isOwner) {
+global.dfail('owner', m, conn)
+throw false
+}
+bot.antiSpam2 = isEnable
+break
+
 case 'modoadmin': case 'soloadmin':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
