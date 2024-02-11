@@ -963,18 +963,18 @@ global.db.data.chats[m.chat] = {}
 		
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false         
-if (!('welcome' in chat)) chat.welcome = true           
+if (!('welcome' in chat)) chat.welcome = false           
 if (!('detect' in chat)) chat.detect = true               
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('delete' in chat)) chat.delete = false                   
-if (!('modohorny' in chat)) chat.modohorny = true       
+if (!('modohorny' in chat)) chat.modohorny = false       
 if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
-if (!('audios' in chat)) chat.audios = true               
-if (!('antiver' in chat)) chat.antiver = false             
+if (!('audios' in chat)) chat.audios = false               
+if (!('antiver' in chat)) chat.antiver = true             
 if (!('antiLink' in chat)) chat.antiLink = false      
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
@@ -984,30 +984,30 @@ if (!('antiFacebook' in chat)) chat.antiFacebook = false
 if (!('antiInstagram' in chat)) chat.antiInstagram = false
 if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false
-if (!('reaction' in chat)) chat.reaction = true    
-if (!('viewonce' in chat)) chat.viewonce = false       
+if (!('reaction' in chat)) chat.reaction = false    
+if (!('viewonce' in chat)) chat.viewonce = true       
 if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('game' in chat)) chat.game = true
 if (!('simi' in chat)) chat.simi = false
-if (!('antiTraba' in chat)) chat.antiTraba = true
-if (!('autolevelup' in chat))  chat.autolevelup = true
+if (!('antiTraba' in chat)) chat.antiTraba = false
+if (!('autolevelup' in chat))  chat.autolevelup = false
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
-welcome: true,
+welcome: false,
 detect: true,
 sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
 delete: false,
-modohorny: true,
+modohorny: false,
 stickers: false,
 autosticker: false,
-audios: true,
-antiver: false,
+audios: false,
+antiver: true,
 antiLink: false,
 antiLink2: false,
 antiTiktok: false,
@@ -1017,14 +1017,14 @@ antiFacebook: false,
 antiInstagram: false,
 antiTwitter: false,
 antifake: false,
-reaction: true,
-viewonce: false,
+reaction: false,
+viewonce: true,
 modoadmin: false,
 antitoxic: false,
 game: true, 
 simi: false,
-antiTraba: true,
-autolevelup: true,
+antiTraba: false,
+autolevelup: false,
 expired: 0,
 }
 let settings = global.db.data.settings[this.user.jid]
@@ -1039,7 +1039,7 @@ if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
 if (!('modoia' in settings)) settings.modoia = false
-if (!('jadibotmd' in settings)) settings.jadibotmd = true  
+if (!('jadibotmd' in settings)) settings.jadibotmd = false  
 } else global.db.data.settings[this.user.jid] = {
 self: false,
 autoread: false,
@@ -1050,7 +1050,7 @@ antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
-jadibotmd: true,
+jadibotmd: false,
 }} catch (e) {
 console.error(e)
 }
