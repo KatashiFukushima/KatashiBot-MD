@@ -1,9 +1,9 @@
-### Aquí puedes verificar los distribuidores autorizados.
-#### ✅ = Distribuidor en curso.
+### Pagos realizados para la utilización de bot en servidor.
+#### ✅ = Pago activo.
 #### ⚪ = Sin información.
  
 | USUARIO          |   CÓDIGO                | CONTACTO    | ESTADO
 | ------------     | ------------            | ------------| ------------
-| [**Richetti123**](https://github.com/Richetti123)        | `KmZxVE5lIUVvrkqLd8EYJlC9G` | `IG: @richetti_123` | ✅
+| [**~=͟͟͞͞Joss.exe**](+56 9 8646 9687)        | `12 Feb.` | `12 Mar..` | ✅
 | ⚪        | ⚪               |  ⚪ | ⚪
 
