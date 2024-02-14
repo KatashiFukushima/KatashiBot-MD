@@ -135,7 +135,7 @@ global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊�
 // [ES] > CUENTAS E INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
 // MANTENGA ESTO SIN MODIFICAR, NOS ESFORZAMOS A DIARIO POR OFRECERLES UN BOT PARA LA COMUNIDAD, SEA AGRADECIDO 😉
 // [EN] > ACCOUNTS AND BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
-global.vs = "1.7.0"
+global.vs = "1.0.1"
 global.vsJB = "2.5 (Beta)"
 global.gt = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆"
 
@@ -155,7 +155,7 @@ global.nn2 = 'https://instabio.cc/KatashiUwU' // Cuentas 2
 global.nna2 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' // Grupo oficial de KatashiBot
 global.nn = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' // Grupo oficial de KatashiBot
 global.nnn = 'https://chat.whatsapp.com/E9J01d9ExLVLy3C8IQEPjP' // Grupo ☆𝑨𝒏𝒊𝒎𝒆♡𝑨𝒎𝒊𝒔𝒕𝒂𝒅♡
-global.nnnt = 'https://chat.whatsapp.com/J2IRY8iLvtL2Us6pVGGcRH' // PapuCity 2.5 resurrección
+global.nnnt = 'https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW' // PapuCity 2.5 resurrección
 global.nnntt = 'https://chat.whatsapp.com/EQHMweZI9nmIrA283eYK5i' // Grupo de Stickers
 global.nnnttt = 'https://chat.whatsapp.com/CciFSHhsYxd9TqW2tZhhZx' // Grupo 5
 global.nnnttt1 = 'https://chat.whatsapp.com/Ej5AUrpmYnJKYtEa6YMwK6' // Grupo 6 COL
