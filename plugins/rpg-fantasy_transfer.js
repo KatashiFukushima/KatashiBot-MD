@@ -1,20 +1,25 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 import fetch from 'node-fetch'  
 import fs from 'fs'
 const fantasyDBPath = './fantasy.json'
 let fantasyDB = []
-
+let fake
 let handler = async (m, { text, usedPrefix, command, conn }) => {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let userId = m.sender
 if (fs.existsSync(fantasyDBPath)) {
 fantasyDB = JSON.parse(fs.readFileSync(fantasyDBPath, 'utf8'))
 } else {
-conn.reply(m.chat, `Para usar este comando primero debes comprar al menos un personaje. Usa *${usedPrefix}fy*`, m)
+fake = { contextInfo: { externalAdReply: { title: `🌟 ¡Colecciona Personajes!`, body: `Compra un personaje y vuelve aquí`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+conn.reply(m.chat, `Para usar este comando primero debes comprar al menos un personaje. Usa *${usedPrefix}fy*`, m, fake)
 return
 }
 
 let user, character
 if (m.quoted && userId === m.quoted.sender) {
-return conn.reply(m.chat, '> *No puedes hacer una transferencia a ti mismo* ⚠️', m)
+fake = { contextInfo: { externalAdReply: { title: `Transfiera a otro Usuario 🧐`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, '> *No puedes hacer una transferencia a ti mismo* ⚠️', m, fake)
 }
 if (m.quoted && m.quoted.sender && text) {
 user = m.quoted.sender
@@ -22,7 +27,8 @@ character = text.trim()
 } else if (text) {
 let [userText, characterText] = text.split(/[|,&\/\\]+/).map(v => v.trim())
 if (!userText || !characterText) {
-return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
+fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver sus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
 }
 let isUserNumber = userText.endsWith('@s.whatsapp.net')
 let isCharNumber = characterText.endsWith('@s.whatsapp.net')
@@ -42,7 +48,8 @@ character = characterText
 user = characterText.replace(/[^\d]/g, '') + '@s.whatsapp.net'
 character = userText
 } else {
-return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m)
+fake = { contextInfo: { externalAdReply: { title: `❌ Parámetros incompletos`, body: `Algo no salió bien...`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, `*Use un caracter en medio del Usuario y personaje*\n\n> *Caracteres aceptados:*\n\`(|), (,), (\\), (&), y (/)\`\n\n> *Ejemplo:*\n\`${usedPrefix + command} Usuario | Personaje\`\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, fake)
 }}} else {
 if (m.quoted && !text) {
 return conn.reply(m.chat, `*Responda a un mensaje de @${m.quoted.sender.split('@')[0]} escribiendo el nombre o código del personaje*\n\n> *Para ver tus persoanjes, escriba:*\n\`${usedPrefix}fantasymy o ${usedPrefix}fymy\``, m, { mentions: [m.quoted.sender] })
@@ -74,6 +81,7 @@ const jsonURL = 'https://raw.githubusercontent.com/SoIz1/AnimeFantasy/main/Anime
 const response = await fetch(jsonURL)
 const data = await response.json()
 const imageInfo = data.infoImg.find(img => img.name.toLowerCase() === character.toLowerCase() || img.code === character)
+const imageURL = imageInfo.url
 let usuarioExistente = fantasyDB.find(usuario => Object.keys(usuario)[0] === m.sender)  
 handler.before = async (m) => {    
 let senderCharacter
@@ -102,21 +110,24 @@ let userInDB = fantasyDB.find(userEntry => userEntry[userId])
 let userReceiverDB = fantasyDB.find(userEntry => userEntry[user])
 if (senderCharacter && userInDB && userReceiverDB) {
 fantasyDB[senderIndex][userId] = senderData
-userReceiverDB[user].record[0].total_character_transfer += 1
+userInDB[userId].record[0].total_character_transfer += 1
 userInDB[userId].record[0].total_purchased -= 1
 userReceiverDB[user].record[0].total_purchased += 1
 fs.writeFileSync(fantasyDBPath, JSON.stringify(fantasyDB, null, 2), 'utf8')
-await conn.reply(m.chat, `> *Transferencia completada* ✅\n
-El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*`, m, { mentions: [user] })
+let fytxt = `> *Transferencia completada* ✅\n
+El personaje *"${senderCharacter.name}"* ahora lo tiene *@${user.split('@')[0]}*\n\n> _Use *${usedPrefix}fyranking* para ver su ranking_`
+await conn.sendMessage(m.chat, { image: { url: imageURL }, caption: fytxt, mentions: [user] }, { quoted: fkontak })
+  
 } else {
 return conn.reply(m.chat, '*El personaje no te pertenece*', m)
 }}
   
 if (m.quoted && m.quoted.id == id_message && ['no', '👎'].includes(m.text.toLowerCase())) {
-return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterIndex].name}"* fue cancelada`, m)  
+fake = { contextInfo: { externalAdReply: { title: `✋ Decidió no continuar`, body: `No se hizo transferencia`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+return conn.reply(m.chat, `La transferencia de *"${senderData.fantasy[characterIndex].name}"* fue cancelada`, m, fake)  
 }}
 return
 }
 
-handler.command = /^(fantasytransfer|fytransfer|fyregalar|fydar)$/i
+handler.command = /^(fantasytransfer|fytransfer|fydar)$/i
 export default handler

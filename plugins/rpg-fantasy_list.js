@@ -1,3 +1,5 @@
+// Código elaborado por: https://github.com/GataNina-Li
+
 import fetch from 'node-fetch'
 let numPersonaje = 10
 let currentPage = null
@@ -134,7 +136,7 @@ ${formatCharacterList(charactersByType)}
 `.trim()
 }}
 
-handler.command = /^(fylista|fyl)$/i
+handler.command = /^(fylista|fyl|fantasyl|fantasylista)$/i
 export default handler
 
 
