@@ -556,7 +556,7 @@ ${readMore}
 ┃☭│ _${usedPrefix}fycambiar_
 ┃☭│ _${usedPrefix}fyguia_
 ┃☭│ _${usedPrefix}fyinfo_
-┃☭│ _${usedPrefix}fylista*_
+┃☭│ _${usedPrefix}fylista_
 ┃☭│ _${usedPrefix}fymy_
 ┃☭│ _${usedPrefix}fytransfer_
 ┃☭╰─────────────────❍
