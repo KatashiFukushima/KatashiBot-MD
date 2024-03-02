@@ -35,7 +35,7 @@ who = m.sender
 const userId = who
 let user = global.db.data.users[userId]
 
-const jsonURL = 'https://raw.githubusercontent.com/SoIz1/AnimeFantasy/main/AnimeFantasyDate/anime.json'
+const jsonURL = 'https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/main/AnimeFantasyDate/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
 
