@@ -1010,16 +1010,95 @@
     "price": 9500,
     "code": "H4@3bN"
     },
-    
-      {
+    {
     "index": 102,
     "url": "https://telegra.ph/file/98bb050b98e30e8e05cb5.jpg",
     "name": "Miku Nakano",
-    "desp": "Dragon Ball Super",
+    "desp": "Go Toubun no Hanayome",
     "class": "Raro",
     "type": "Romance, Comedia",
     "price": 8000,
     "code": "H2#3nN"
+    },
+    {
+    "index": 103,
+    "url": "https://telegra.ph/file/3ad948f06319b86453f42.jpg",
+    "name": "Nino Nakano",
+    "desp": "Go Toubun no Hanayome",
+    "class": "Raro",
+    "type": "Comedia, Romance",
+    "price": 8000,
+    "code": "Ni@7oP"
+    },
+    {
+    "index": 104,
+    "url": "https://telegra.ph/file/5315312baf1e2ef418230.jpg",
+    "name": "Ichika",
+    "desp": "Go Toubun no Hanayome",
+    "class": "Raro",
+    "type": "Comedia, Romance",
+    "price": 8000,
+    "code": "I7$8cW"
+    },
+    {
+    "index": 105,
+    "url": "https://telegra.ph/file/88cb390aadbf5119847be.jpg",
+    "name": "Yotsuba Nakano",
+    "desp": "Go Toubun no Hanayome",
+    "class": "Raro",
+    "type": "Transformación, Anime, Carismático",
+    "price": 8000,
+    "code": "Y0T3sB"
+    },
+    {
+    "index": 106,
+    "url": "https://telegra.ph/file/f2a2e9742f4cb357383bb.jpg",
+    "name": "Itsuki Nakano",
+    "desp": "Go Toubun no Hanayome",
+    "class": "Raro",
+    "type": "Transformación, Anime, Carismático",
+    "price": 8000,
+    "code": "I7$2sK"
+    },
+    {
+    "index": 107,
+    "url": "https://telegra.ph/file/4391227747bd056ed5f81.jpg",
+    "name": "Tanjiro Kamado",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Legendario",
+    "type": "Fuego, Onichan, Carismático",
+    "price": 10000,
+    "code": "T4%7jR"
+    },
+    {
+    "index": 108,
+    "url": "https://telegra.ph/file/2abd28afabc0ef7b7c8f3.jpg",
+    "name": "Zenitsu Agatsuma",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Rayo, Simp, Llorón",
+    "price": 9000,
+    "code": "Z3*1tU"
+    },
+    {
+    "index": 109,
+    "url": "https://telegra.ph/file/580737e459e06244640d3.jpg",
+    "name": "Kanao Tsuyuri",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Poco común",
+    "type": "Seria, Veloz, Sorpresiva",
+    "price": 7000,
+    "code": "K4&4oG"
+    },
+    {
+    "index": 110,
+    "url": "https://telegra.ph/file/cfd9ea458482d1a29ce5a.jpg",
+    "name": "Sanemi Shinazugawa",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Ágil, Fuerte, Cazador",
+    "price": 9500,
+    "code": "S4#3mI"
     }
   ]
 }
