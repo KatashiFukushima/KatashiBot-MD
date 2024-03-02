@@ -549,6 +549,19 @@ ${readMore}
 ┃☭╰─────────────────❍
 ╰══════════════════⊷❍
 
+╭════〘卐 _RPG FANTASY_ 卐〙════⊷❍
+┃☭╭─────────────────────────❍
+┃☭│ _${usedPrefix}fy_
+┃☭│ _${usedPrefix}fyadd_
+┃☭│ _${usedPrefix}fycambiar_
+┃☭│ _${usedPrefix}fyguia_
+┃☭│ _${usedPrefix}fyinfo_
+┃☭│ _${usedPrefix}fylista*_
+┃☭│ _${usedPrefix}fymy_
+┃☭│ _${usedPrefix}fytransfer_
+┃☭╰─────────────────❍
+╰══════════════════⊷❍
+
 ╭══〘卐 _Tabla de clasificación_ 卐〙═⊷❍
 ┃☭╭─────────────────❍
 ┃☭│ _${usedPrefix}top | lb | leaderboard_
