@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 let numPersonaje = 10
 let currentPage = null
 let handler = async (m, { command, usedPrefix, conn, text }) => {
-const jsonURL = 'https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/main/AnimeFantasyDate/anime.json'
+const jsonURL = 'https://raw.githubusercontent.com/SoIz1/AnimeFantasy/main/AnimeFantasyDate/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
 
