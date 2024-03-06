@@ -15,7 +15,7 @@ global.db.data.users[m.sender].exp += rob
 global.db.data.users[who].exp -= rob 
 global.db.data.users[m.sender].money += rob
 global.db.data.users[who].money -= rob 
-m.reply(`*✧ Robaste ${rob} Xp a @${who.split`@`[0]}*`, null, { mentions: [who] })
+//m.reply(`*✧ Robaste ${rob} Xp a @${who.split`@`[0]}*`, null, { mentions: [who] })
 global.db.data.users[m.sender].money += rob2
 global.db.data.users[who].money -= rob2 
 m.reply(`*✧ Robaste ${rob} Xp y ${rob2} Katacoins a @${who.split`@`[0]}*`, null, { mentions: [who] })
