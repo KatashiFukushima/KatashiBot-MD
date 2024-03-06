@@ -9,13 +9,12 @@ if (!who) throw `${lenguajeGB['smsAvisoMG']()}𝙀𝙏𝙄𝙌𝙐𝙀𝙏𝘼  
 if (!(who in global.db.data.users)) throw `${lenguajeGB['smsAvisoAG']()}𝙀𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙐𝙀𝙉𝙏𝙍𝘼 𝙀𝙉 𝙈𝙄 𝘽𝘼𝙎𝙀 𝘿𝙀 𝘿𝘼𝙏𝙊𝙎.`
 let users = global.db.data.users[who]
 let rob = Math.floor(Math.random() * ro)
-if (users.exp < rob) return m.reply(`😿 @${who.split`@`[0]} tiene menos de *${ro} XP* No robes a un pobre :v`, null, { mentions: [who] })
-if (users.money < rob2) return m.reply(`😿 @${who.split`@`[0]} tiene menos de *${ro} coins* No robes a un pobre :v`, null, { mentions: [who] })
+if (users.exp < rob) return m.reply(`😿 @${who.split`@`[0]} tiene menos de *${ro} XP* No robes a un pobre :v`, null, { mentions: [who] })    
 global.db.data.users[m.sender].exp += rob
 global.db.data.users[who].exp -= rob 
-global.db.data.users[m.sender].money += rob2
-global.db.data.users[who].money -= rob2 
-m.reply(`*✧ Robaste ${rob} Xp y ${rob2} coins a @${who.split`@`[0]}*`, null, { mentions: [who] })
+global.db.data.users[m.sender].money += rob
+global.db.data.users[who].money -= rob 
+m.reply(`*✧ Robaste ${rob} Xp a @${who.split`@`[0]}*`, null, { mentions: [who] })
 global.db.data.users[m.sender].lastrob = new Date * 1
 }
 handler.help = ['rob']
