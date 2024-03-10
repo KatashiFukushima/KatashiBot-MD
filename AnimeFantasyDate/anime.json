@@ -1117,17 +1117,47 @@
     "desp": "Kimetsu no Yaiba",
     "class": "Épico",
     "type": "Imparable, Hermoso, Cazador",
-    "price": 18000,
+    "price": 8000,
     "code": "I7@5zK"
     },
     {
     "index": 113,
-    "url": "https://telegra.ph/file/cfd9ea458482d1a29ce5a.jpg",
+    "url": "https://telegra.ph/file/1da14e6bb06a97c0e5553.jpg",
+    "name": "Genya Shinazugawa",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Demonio, Veloz, Cazador",
+    "price": 9000,
+    "code": "G3&7YA"
+    },
+    {
+    "index": 114,
+    "url": "https://telegra.ph/file/10f92ffc33767c7fe965f.jpg",
     "name": "Giyū Tomioka",
     "desp": "Kimetsu no Yaiba",
     "class": "Épico",
     "type": "Veloz, Resistente, Cazador",
-    "price": 18000,
+    "price": 7000,
+    "code": "G1%9oW"
+    },
+    {
+    "index": 115,
+    "url": "https://telegra.ph/file/02bad2b98ee449492f0c3.jpg",
+    "name": "Akaza",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Demonio, Fuerte, Impulsivo",
+    "price": 9500,
+    "code": "A9@8zA"
+    },
+    {
+    "index": 116,
+    "url": "https://telegra.ph/file/c77283b318d5532243d02.jpg",
+    "name": "Muichiro Tokito",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Impacible, Resistente, Cazador",
+    "price": 7000,
     "code": "G1%9oW"
     }
   ]
