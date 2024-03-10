@@ -18,5 +18,5 @@ codigo += caracteresEspeciales.charAt(Math.floor(Math.random() * caracteresEspec
 codigo = codigo.split('').sort(() => Math.random() - 0.5).join('');
 return codigo
 }
-handler.command = /^rcode$/i
+handler.command = /^(codefy|fycode|rcode)$/i
 export default handler
