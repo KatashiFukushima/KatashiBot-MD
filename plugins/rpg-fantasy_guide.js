@@ -58,7 +58,7 @@ La transacción se confirma cuando recibes el mensaje de que has adquirido al pe
 *¿Te gustaría proponer tus propios personajes para que formen parte de KatashiBot?*
 ¡Es sencillo! Solo utiliza el comando *${usedPrefix}fyadd* o *${usedPrefix}fantasyadd* y sigue la guía proporcionada para comenzar a crear tu solicitud de personajes. Los desarrolladores estarán encantados de recibir tus propuestas y considerarlas para enriquecer la experiencia en KatashiBot.
 `.trim()
-let pp = 'https://telegra.ph/file/5413c3d098f748e7def77.jpg'
+let pp = 'https://telegra.ph/file/e6283b3badc925fc433ae.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 await conn.sendFile(m.chat, pp, 'error.jpg', fantasy, fkontak, true, {
 contextInfo: {
@@ -70,7 +70,7 @@ title: `🌟 FANTASÍA RPG`,
 body: `😻 Una aventura nos espera...`,
 mediaType: 1,
 sourceUrl: accountsgb.getRandom(),
-thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
+thumbnailUrl: 'https://telegra.ph/file/e6283b3badc925fc433ae.jpg'
 }}})
 }
 
