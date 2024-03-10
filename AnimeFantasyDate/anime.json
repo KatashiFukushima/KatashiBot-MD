@@ -1099,6 +1099,26 @@
     "type": "Ágil, Fuerte, Cazador",
     "price": 9500,
     "code": "S4#3mI"
+    },
+    {
+    "index": 111,
+    "url": "https://telegra.ph/file/530d49527e1ddf65fe519.jpg",
+    "name": "Muzan Kibutsuji",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Legendario",
+    "type": "Narcisista, Megalomaniático, Demonio",
+    "price": 20000,
+    "code": "M0Z4nK"
+    },
+    {
+    "index": 112,
+    "url": "https://telegra.ph/file/cfd9ea458482d1a29ce5a.jpg",
+    "name": "Inosuke Hashibira",
+    "desp": "Kimetsu no Yaiba",
+    "class": "Épico",
+    "type": "Imparable, Hermoso, Cazador",
+    "price": 18000,
+    "code": "I7@5zK"
     }
   ]
 }
