@@ -1,4 +1,4 @@
-function generarCodigo() {
+/*function generarCodigo() {
 const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 const numeros = '0123456789'
 const caracteresEspeciales = '#@%_*!^<'
