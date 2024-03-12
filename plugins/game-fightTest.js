@@ -4,6 +4,7 @@ let handler = async (m, {
     conn.level = global.db.data.users[m.sender]
     conn.fight = conn.fight ? conn.fight : {}
     const delay = time => new Promise(res => setTimeout(res, time));
+    const money = Math.floor(Math.random() * 10000)
   
     if (typeof conn.fight[m.sender] != "undefined" && conn.fight[m.sender] == true) return m.reply(`No puedes pelear de nuevo porque ya estás en una pelea.`)
   
