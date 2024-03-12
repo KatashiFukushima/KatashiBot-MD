@@ -70,8 +70,6 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = "GataDios"
 global.itsrose = ["4b146102c4d500809da9d1ff"]
 global.baileys = "@whiskeysockets/baileys"
-global.apikasu = "https://apikasu.onrender.com"
-global.apikeykasu = "ApiKey"
 
 global.APIs = { 
 xteam: 'https://api.xteam.xyz',
@@ -80,7 +78,6 @@ lol: 'https://api.lolhuman.xyz',
 violetics: 'https://violetics.pw',
 neoxr: 'https://api.neoxr.my.id',
 zenzapis: 'https://api.zahwazein.xyz',
-KasuApi: 'https://apikasu.onrender.com',
 akuari: 'https://api.akuari.my.id',
 akuari2: 'https://apimu.my.id',	
 fgmods: 'https://api-fgmods.ddns.net',
@@ -96,7 +93,6 @@ global.APIKeys = {
 'https://api.lolhuman.xyz': `${lolkeysapi}`,
 'https://api.neoxr.my.id': `${keysneoxr}`,	
 'https://violetics.pw': 'beta',
-'https://apikasu.onrender.com': 'ApiKey',
 'https://api.zahwazein.xyz': `${keysxxx}`,
 'https://api-fgmods.ddns.net': 'fg-dylux',
 'https://api.botcahx.biz.id': 'Admin',
