@@ -18,7 +18,7 @@ let handler = async (m, {
         oponente = users[Math.floor(users.length * Math.random())]
     }
   
-    let duracionPelea = getRandom(1, 10)
+    let duracionPelea = getRandom(1, 5)
     let msg = `*Tú* (nivel ${global.db.data.users[m.sender].level}) desafías a *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) y están en medio de una pelea intensa.\n\nEspera ${duracionPelea} minutos más y veremos quién gana.`
     conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg }, { quoted: m })
   
