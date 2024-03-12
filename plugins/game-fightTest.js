@@ -18,7 +18,7 @@ let handler = async (m, {
         oponente = users[Math.floor(users.length * Math.random())]
     }
   
-    let duracionPelea = getRandom(1, 5)
+    let duracionPelea = getRandom(1, 3)
     let msg = `*Tú* (nivel ${global.db.data.users[m.sender].level}) desafías a *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) y están en medio de una pelea intensa.\n\nEspera ${duracionPelea} minutos más y veremos quién gana.`
     conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg }, { quoted: m })
   
@@ -62,7 +62,7 @@ let handler = async (m, {
         let multa = (puntosOponente - puntosJugador) * 100000
         global.db.data.users[m.sender].money -= money
         global.db.data.users[m.sender].exp -= exp
-        let msg2 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) PERDISTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesPerder[getRandom(0, razonesPerder.length - 1)]}\n\nTu Experiencia disminuyó en $${exp.toLocaleString()}\n+1`
+        let msg2 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) PERDISTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesPerder[getRandom(0, razonesPerder.length - 1)]}\n\nTu *`Experiencia`* disminuyó en ${exp.toLocaleString()}\n+1`
         conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg2 }, { quoted: m })
     } else {
         let msg3 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\nLa pelea terminó en empate, ¡no recibes nada! 😂`
