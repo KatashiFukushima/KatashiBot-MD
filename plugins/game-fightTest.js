@@ -28,6 +28,7 @@ let handler = async (m, {
   
     let razonesPerder = ['Novato',
         'Débil',
+        'Gay',                  
         'Menos habilidoso',
         'Perdiste por ser débil',
         'Derrota humillante'
