@@ -56,13 +56,13 @@ let handler = async (m, {
         let premio = (puntosJugador - puntosOponente) * 10000
         global.db.data.users[m.sender].money += money
         global.db.data.users[m.sender].exp += exp
-        let msg1 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) GANASTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesGanar[getRandom(0, razonesGanar.length - 1)]}\n\nPremio: $${money.toLocaleString()}\n+1 Katacoins`
+        let msg1 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) GANASTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesGanar[getRandom(0, razonesGanar.length - 1)]}\n\nPremio: ${money.toLocaleString()} Katacoins`
         conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg1 }, { quoted: m })
     } else if (puntosJugador < puntosOponente) {
         let multa = (puntosOponente - puntosJugador) * 100000
         global.db.data.users[m.sender].money -= money
         global.db.data.users[m.sender].exp -= exp
-        let msg2 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) PERDISTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesPerder[getRandom(0, razonesPerder.length - 1)]}\n\nTu *`Experiencia`* disminuyó en ${exp.toLocaleString()}\n+1`
+        let msg2 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) PERDISTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesPerder[getRandom(0, razonesPerder.length - 1)]}\n\nTu *`Experiencia`* disminuyó en ${exp.toLocaleString()}`
         conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg2 }, { quoted: m })
     } else {
         let msg3 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\nLa pelea terminó en empate, ¡no recibes nada! 😂`
