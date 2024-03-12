@@ -1,4 +1,4 @@
-let handler = async (m, {
+/*let handler = async (m, {
     conn, usedPrefix, participants
   }) => {
     conn.level = global.db.data.users[m.sender]
