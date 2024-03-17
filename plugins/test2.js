@@ -4,8 +4,7 @@ let handler = async (m, { command, conn }) => {
  // const  generarcodigo = generarCodigo()
 
  handler.command = /^(codetest|codefy|fycode)$/i
-  export default handler
-
+ 
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     const numeros = '0123456789'
@@ -25,4 +24,4 @@ function generarCodigo() {
     }
 
     // handler.command = /^(codetest|codefy|fycode)$/i
-    // export default handler
+    export default handler
