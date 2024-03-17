@@ -1,7 +1,7 @@
 // import fetch from 'node-fetch'
 //import fs from 'fs'
 let handler = async (m, { command, usedPrefix, conn, text }) => {
- const  generarcodigo = generarCodigo()
+ // const  generarcodigo = generarCodigo()
 
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
