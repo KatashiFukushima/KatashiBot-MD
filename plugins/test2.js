@@ -2,7 +2,7 @@
 //import fs from 'fs'
 let handler = async (m, { command, conn }) => {
  // const  generarcodigo = generarCodigo()
- export default handler
+ // export default handler
 
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
