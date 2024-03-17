@@ -1,8 +1,6 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 
-let handler = async (m, { command, usedPrefix, conn, text }) => {
-// const  generarcodigo = generarCodigo()
 
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -21,5 +19,8 @@ function generarCodigo() {
     codigo = codigo.split('').sort(() => Math.random() - 0.5).join('');
     return codigo
     }
+let handler = async (m, { command, usedPrefix, conn, text }) => {
+ const  generarcodigo = generarCodigo()
+}
     handler.command = /^(codetest|codefy|fycode)$/i
     export default handler
