@@ -1,6 +1,6 @@
 // import fetch from 'node-fetch'
 //import fs from 'fs'
-let handler = async (m, { command, usedPrefix, conn, text }) => {
+let handler = async (m, { command, conn }) => {
  // const  generarcodigo = generarCodigo()
 
 function generarCodigo() {
