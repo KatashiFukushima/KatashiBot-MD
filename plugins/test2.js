@@ -1,4 +1,4 @@
-// import fetch from 'node-fetch'
+/* import fetch from 'node-fetch'
 //import fs from 'fs'
 let handler = async (m, { command, conn }) => {
  // const  generarcodigo = generarCodigo()
@@ -24,4 +24,4 @@ function generarCodigo() {
     }
 
     // handler.command = /^(codetest|codefy|fycode)$/i
-    export default handler
+    export default handler */
