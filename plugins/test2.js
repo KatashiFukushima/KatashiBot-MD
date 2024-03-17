@@ -1,3 +1,6 @@
+import fetch from 'node-fetch'
+import fs from 'fs'
+
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     const numeros = '0123456789'
