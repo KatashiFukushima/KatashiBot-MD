@@ -2,6 +2,7 @@
 //import fs from 'fs'
 let handler = async (m, { command, conn }) => {
  // const  generarcodigo = generarCodigo()
+ export default handler
 
 function generarCodigo() {
     const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -22,4 +23,4 @@ function generarCodigo() {
     }
 
     handler.command = /^(codetest|codefy|fycode)$/i
-    export default handler
+    // export default handler
