@@ -81,7 +81,7 @@ user.fantasy_character5 = 0
 // Verifica si el usuario existe en la base de datos y si tiene la estructura fantasy
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId && user[userId].fantasy)
 if (usuarioExistente && user.fantasy_character === 0) {
-fake = { contextInfo: { externalAdReply: { title: `🌟 NUEVO LOGRO 🌟`, body: `Califica personajes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 NUEVO LOGRO 🌟`, body: `Califica personajes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: katashiMenu.getRandom() }}}
 await conn.reply(m.chat, `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} ahora puedes calificar personajes*`, m, fake)
 user.fantasy_character++
 }
@@ -90,7 +90,7 @@ user.fantasy_character++
 usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const fantasyArray = usuarioExistente[userId].fantasy
-fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Usa #fymy para ver más desafíos`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `🌟 RECOMPENSA 🌟`, body: `Usa #fymy para ver más desafíos`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: katashiMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por comprar ${fantasyArray.length} personajes*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character2 + 1})\`\`\``
 const conditionMet = [
 (fantasyArray.length >= 5 && typeof fantasyArray[4].id === 'string' && fantasyArray[4].status === true && user.fantasy_character2 === 0),
@@ -136,7 +136,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const likesCount = flowArray.filter(voto => voto.like).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica persoanjes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👍`, body: `Califica persoanjes, es gratis 👍`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: katashiMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${likesCount} veces "👍"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character3 + 1})\`\`\``
 const conditionMet = [
 (likesCount === 3 && user.fantasy_character3 === 0),
@@ -187,7 +187,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const superlikesCount = flowArray.filter(voto => voto.superlike).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO ❤️`, body: `Califica persoanjes, es gratis ❤️`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: katashiMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${superlikesCount} veces "❤️"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character4 + 1})\`\`\``
 const conditionMet = [
 (superlikesCount === 3 && user.fantasy_character4 === 0),
@@ -238,7 +238,7 @@ usuarioExistente = fantasyDB.find((user) => Object.keys(user)[0] === userId)
 if (usuarioExistente) {
 const flowArray = usuarioExistente[userId].flow || []
 const disLikeCount = flowArray.filter(voto => voto.dislike).length
-fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👎`, body: `Califica persoanjes, es gratis 😅`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: gataMenu.getRandom() }}}
+fake = { contextInfo: { externalAdReply: { title: `SIGUE DANDO 👎`, body: `Califica persoanjes, es gratis 😅`, sourceUrl: accountsgb.getRandom(), thumbnailUrl: katashiMenu.getRandom() }}}
 logro = `\`\`\`Desafío desbloqueado 🔓\`\`\`\n\n*${conn.getName(userId)} recompensa por calificar ${disLikeCount} veces "👎"*\n\n🌟 *Recompensas:* \`\`\`(X${user.fantasy_character5 + 1})\`\`\`` 
 const conditionMet = [
 (disLikeCount === 3 && user.fantasy_character5 === 0),
