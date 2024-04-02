@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'   
-import fetch from 'node-fetch' 
+import fetch from 'node-fetch'
+import './plugins/_content.js'
  
 /**
  * @type {import('@adiwajshing/baileys')}  
@@ -56,6 +57,7 @@ global.db.data.users[m.sender] = {}
 if (user) {
 if (!isNumber(user.exp)) user.exp = 0
 if (!('premium' in user)) user.premium = false
+if (!('muto' in user)) user.muto = false
 if (!isNumber(user.joincount)) user.joincount = 1
 if (!isNumber(user.money)) user.money = 150
 if (!isNumber(user.limit)) user.limit = 15 	       
@@ -66,14 +68,14 @@ if (!isNumber(user.IDregister)) user.IDregister = 0
 	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
-if (!('age' in user)) user.age = m.age
-if (!('descripcion' in user)) user.descripcion = m.descripcion
-if (!('genero' in user)) user.genero = m.genero
-if (!('identidad' in user)) user.identidad = m.identidad
-if (!('pasatiempo' in user)) user.pasatiempo = m.pasatiempo
-if (!('tiempo' in user)) user.tiempo = m.tiempo
-if (!('miestado' in user)) user.miestado = m.miestado	
-if (!('midLanguage' in user)) user.midLanguage = m.midLanguage
+if (!('age' in user)) user.age = 0
+if (!('descripcion' in user)) user.descripcion = 0
+if (!('genero' in user)) user.genero = 0
+if (!('identidad' in user)) user.identidad = 0
+if (!('pasatiempo' in user)) user.pasatiempo = 0
+if (!('tiempo' in user)) user.tiempo = 0 
+if (!('miestado' in user)) user.miestado = 0
+if (!('midLanguage' in user)) user.midLanguage = 0
 if (!isNumber(user.premLimit)) user.premLimit = 0
 if (!isNumber(user.anggur)) user.anggur = 0
 if (!isNumber(user.apel)) user.apel = 0
@@ -517,13 +519,13 @@ afk: -1,
 afkReason: '',
 reporte: 0,
 name: m.name,
-age: m.age,
-genero: m.genero,
-identidad: m.identidad,
-pasatiempo: m.pasatiempo,
-tiempo: m.tiempo,
-miestado: m.miestado,	
-descripcion: m.descripcion,
+age: 0,
+genero: 0,
+identidad: 0,
+pasatiempo: 0,
+tiempo: 0,
+miestado: 0,	
+descripcion: 0,
 premLimit: 0,
 agility: 16,
 juegos: 0,
@@ -839,6 +841,7 @@ pillhero: 0,
 pisang: 0,
 pointxp: 0,
 potion: 10,
+muto: false,
 premium: false,
 premiumTime: 0,
 ramuan: 0,
@@ -963,18 +966,18 @@ global.db.data.chats[m.chat] = {}
 		
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false         
-if (!('welcome' in chat)) chat.welcome = false           
+if (!('welcome' in chat)) chat.welcome = true           
 if (!('detect' in chat)) chat.detect = true               
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('delete' in chat)) chat.delete = false                   
-if (!('modohorny' in chat)) chat.modohorny = false       
+if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
-if (!('audios' in chat)) chat.audios = false               
-if (!('antiver' in chat)) chat.antiver = true             
+if (!('audios' in chat)) chat.audios = true               
+if (!('antiver' in chat)) chat.antiver = false             
 if (!('antiLink' in chat)) chat.antiLink = false      
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
@@ -984,26 +987,27 @@ if (!('antiFacebook' in chat)) chat.antiFacebook = false
 if (!('antiInstagram' in chat)) chat.antiInstagram = false
 if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false
-if (!('reaction' in chat)) chat.reaction = false    
-if (!('viewonce' in chat)) chat.viewonce = true       
+if (!('reaction' in chat)) chat.reaction = true    
+if (!('viewonce' in chat)) chat.viewonce = false       
 if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('game' in chat)) chat.game = true
+if (!('game2' in chat)) chat.game2 = true
 if (!('simi' in chat)) chat.simi = false
-if (!('antiTraba' in chat)) chat.antiTraba = false
-if (!('autolevelup' in chat))  chat.autolevelup = false
+if (!('antiTraba' in chat)) chat.antiTraba = true
+if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
-welcome: false,
+welcome: true,
 detect: true,
 sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
-delete: false,
-modohorny: false,
+delete: true,
+modohorny: true,
 stickers: false,
 autosticker: false,
 audios: false,
@@ -1017,14 +1021,15 @@ antiFacebook: false,
 antiInstagram: false,
 antiTwitter: false,
 antifake: false,
-reaction: false,
+reaction: true,
 viewonce: true,
 modoadmin: false,
 antitoxic: false,
 game: true, 
+game2: true, 
 simi: false,
-antiTraba: false,
-autolevelup: false,
+antiTraba: true,
+autolevelup: true,
 expired: 0,
 }
 let settings = global.db.data.settings[this.user.jid]
@@ -1050,7 +1055,7 @@ antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
-jadibotmd: false,
+jadibotmd: true,
 }} catch (e) {
 console.error(e)
 }
@@ -1190,10 +1195,10 @@ user.antispam++
 return
 }
 
-//Antispam		
-if (user.antispam2) return
-let time = global.db.data.users[m.sender].spam + 5000
-if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
+//Antispam 2		
+if (user.antispam2 && isROwner) return
+let time = global.db.data.users[m.sender].spam + 3000
+if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`[ SPAM ]`) 
 global.db.data.users[m.sender].spam = new Date * 1
 }
 		
@@ -1246,19 +1251,19 @@ if (xp > 2000)
 m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-//this.reply(m.chat, `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
-this.sendMessage(m.chat, {text: `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}}, { quoted: m })         
+//this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
+this.sendMessage(m.chat, {text: `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
 continue //Sin límite
 }
 if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: accountsgb.getRandom()}}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
 continue // Si no se ha alcanzado el nivel
 }
@@ -1329,7 +1334,12 @@ this.msgqueque.splice(quequeIndex, 1)
 }
 //console.log(global.db.data.users[m.sender])
 let user, stats = global.db.data.stats
-if (m) {
+if (m) { let utente = global.db.data.users[m.sender]
+if (utente.muto == true) {
+let bang = m.key.id
+let cancellazzione = m.key.participant
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: cancellazzione }})
+}
 if (m.sender && (user = global.db.data.users[m.sender])) {
 user.exp += m.exp
 user.limit -= m.limit * 1
@@ -1399,7 +1409,7 @@ case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = katashiMenu.getRandom()
+let pp = katashiMenu
 try {
 pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
@@ -1431,7 +1441,7 @@ mentionedJid:[user],
 "title": [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
-sourceUrl: [md, channel1, channel2, channel3, yt, ig, paypal, fb].getRandom()}}}, { quoted: fkontak2 })
+sourceUrl: accountsgb }}}, { quoted: fkontak2 })
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
@@ -1461,7 +1471,7 @@ return
 for (const groupUpdate of groupsUpdate) {
 const id = groupUpdate.id
 if (!id) continue
-let chats = global.db.data.chats[id], text = ''
+let chats = global.db.data?.chats?.[id], text = ''
 if (!chats?.detect) continue
 // if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
 //if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject)
@@ -1497,7 +1507,7 @@ ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
 *╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
-this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+//this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
 }}
@@ -1517,7 +1527,7 @@ restrict: lenguajeGB['smsRestrict'](),
 }[type]
 //if (msg) return m.reply(msg)
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, channel1, channel2, channel3, yt, ig, paypal, fb].getRandom() }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
