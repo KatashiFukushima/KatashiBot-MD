@@ -5,7 +5,7 @@
       "youTube": "https://youtube.com/@katashifukushima",
       "instagram": "https://www.instagram.com/katashi_fukushima",
       "katashibot_md": "https://github.com/KatashiFukushima/KatashiBot-MD",
-      "gatabotlite_md": "https://github.com/GataNina-Li/GataBotLite-MD",
+      "gatabot_md": "https://github.com/GataNina-Li/GataBotLite-MD",
       "facebook": "https://www.facebook.com/KatashiFukushimaF",
       "tiktok": "https://www.tiktok.com/@katashi_fukushima",
       "threads": "https://www.threads.net/@katashi_fukushima",
@@ -18,37 +18,37 @@
     "channels": {
       "channel1": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
       "channel2": "https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g",
-      "channel3": "https://whatsapp.com/channel/0029VaKn22pDJ6GwY61Ftn15",
-      "channel4": "https://t.me/globalgb"
+      "channel3": "https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A",
+      "channel4": "https://discord.gg/MUbBJAMs"
     },
 
     "groups": {
-      "group1": "https://chat.whatsapp.com/KNwcGS4PCEN5qjbHD5VDZM",
-      "group2": "https://chat.whatsapp.com/LfcjmLcYax431QXBO0CSPk",
-      "group3": "https://chat.whatsapp.com/IZSDBt8ZxWgCp9lcaV8GU5",
-      "group4": "https://chat.whatsapp.com/GDORy2LCnLh8BopOAr2l4n",
-      "group5": "https://chat.whatsapp.com/IIxG8Wwv1df4scsrI9OJOH",
-      "group6": "https://t.me/supergatabot"
+      "group1": "https://chat.whatsapp.com/HXf2jEcQ1sQHozytQYGzcD",
+      "group2": "https://chat.whatsapp.com/E9J01d9ExLVLy3C8IQEPjP",
+      "group3": "https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW",
+      "group4": "https://chat.whatsapp.com/E4ZxJiCYbvsG95fwPfaLj6",
+      "group5": "https://chat.whatsapp.com/Hg4GlAowks9IQ3gnI8ZzB2",
+      "group6": "https://chat.whatsapp.com/Hg4GlAowks9IQ3gnI8ZzB2"
     },
 
     "collaboration": {
-      "group1": "https://chat.whatsapp.com/B5s3ohjEGofH5YDD05jAV5",
-      "group2": "https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh",
-      "group3": "https://chat.whatsapp.com/H1TEBeMtFVv3RcayD1WfGU",
-      "group4": "https://chat.whatsapp.com/GFsgXW2VD4I4FEOSlEg9wp"
+      "group1": "https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV",
+      "group2": "https://chat.whatsapp.com/GrcXB1NINsDAPp4fCVgwfX",
+      "group3": "https://chat.whatsapp.com/Gxpc9XjJ8MALe4bCR3nRtL",
+      "group4": "https://chat.whatsapp.com/FwQDYWZHkli4fwQKEn2ps7"
     },
 
     "sponsors": {
-      "boxmine": "https://boxmineworld.com",
+      "infinity": "https://host.panel-infinitywa.store/",
       "cafirexos": "https://www.cafirexos.com",
       "vortexus": "https://vortexuscloud.com",
       "asif": "https://t.me/Asifhosting"
     },
 
     "others": {
-      "assistance_num": "https://wa.me/message/MEKOUFBEOG5ED1",
-      "yt_vid": "https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s",
-      "group_support": "https://chat.whatsapp.com/BpoXxhKl33C9EI4v4mWDHh"
+      "assistance_num": "https://wa.me/51948705559",
+      "yt_vid": "https://www.youtube.com/shorts/ZLJYDUM6vSY",
+      "group_support": "https://chat.whatsapp.com/HXf2jEcQ1sQHozytQYGzcD"
     }
 
   }
