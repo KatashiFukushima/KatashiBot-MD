@@ -143,3 +143,29 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 #### Para que no pierda su progreso en KatashiBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
 ----
+
+
+> Recuerda leer la **[Política de KatashiBot. 🥷](https://github.com/KatashiFukushima/KatashiBot-MD/blob/master/terms.md)** antes de hacer algo con este repositorio. 
+  
+----
+### 💠 [`IDIOMAS DISPONIBLES PARA KATASHIBOT`](https://github.com/KatashiFukushima/KatashiBot-MD/blob/master/config.js) 
+#### 🌐 Español  
+#### 🌐 Inglés (English) 
+#### 🌐 Portugués (Português)
+#### 🌐 Indonesio (Bahasa Indonesia) 
+#### 🌐 Árabe (عرب)
+#### 🌐 Hindi (Indian Language)
+- [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/ZTwOGkT.jpg"></details>
+----
+
+### 🌟 DESARROLLADORES
+<a href="https://github.com/KatashiFukushima/KatashiBot-MD/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=KatashiFukushima/KatashiBot-MD" /> 
+</a>
+
+### 🌟 AGRADECIMIENTOS
+[![TheShadowBrokers1](https://github.com/GataNina-Li.png?size=60)](https://github.com/GataNina-Li) 
+
+### 🌟 CREADOR 
+[![KatashiFukushima](https://github.com/KatashiFukushima.png?size=100)](https://github.com/KatashiFukushima) 
+> Copyright (c) 2024 **[KatashiFukushima](https://github.com/KatashiFukushima/KatashiBot-MD/blob/master/LICENSE)**.
