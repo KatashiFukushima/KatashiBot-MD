@@ -5,7 +5,7 @@ import axios from 'axios';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
-if (!args[0]) throw "Formato incorrecto*\nEjemplo:\n\n${usedPrefix + command} con mi prima";
+if (!args[0]) throw `*Formato incorrecto*\nEjemplo:\n\n${usedPrefix + command} con mi prima`;
 try {
 let searchResults = await searchPornhub(args[0]);
 let teks = searchResults.result.map((v, i) => 
