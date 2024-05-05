@@ -1,4 +1,4 @@
-let linkRegex = { return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi')) }
+const linkRegex = { return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi')) }
 export async function before(m, { isAdmin, isBotAdmin, text, participants }) { 
 if (m.isBaileys && m.fromMe)
 return !0
