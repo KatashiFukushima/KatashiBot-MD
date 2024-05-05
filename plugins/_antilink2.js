@@ -1,5 +1,6 @@
-const linkRegex = { return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi')) }
-export async function before(m, { isAdmin, isBotAdmin, text, participants }) { 
+let linkRegex = { return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi')) }
+let handler = m => m
+handler.before = async function (m, { isAdmin, isBotAdmin, text, participants }) {
 if (m.isBaileys && m.fromMe)
 return !0
 if (!m.isGroup) return !1
@@ -30,3 +31,4 @@ await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 return !0
 }
+export default handler
