@@ -9,6 +9,11 @@
 <img src="https://telegra.ph/file/86afc8b4881e2013cded4.jpg" alt="GataBot-MD" width="900"/>
 </p>
 
+> 𝑴𝑼𝑪𝑯𝑨𝑺 𝑮𝑹𝑨𝑪𝑰𝑨𝑺 𝑷𝑶𝑹 𝑷𝑹𝑬𝑭𝑬𝑹𝑰𝑹𝑵𝑶𝑺 👑🔥
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
+
 <p align="center">
 <a href="#"><img title="KatashiBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APÓYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>  
