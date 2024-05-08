@@ -76,24 +76,24 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://i.imgur.com/IXlUwTW.jpg'
-global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
+global.img = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img2 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
-global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
-global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
+global.img3 = 'https://telegra.ph/file/225955da888d3fab2f641.jpg' //prem
+global.img4 = 'https://telegra.ph/file/d94bf9e7d656f40e72b05.jpg' //prem
 
-global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
-global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
-global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
-global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
-global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
+global.img5 = 'https://telegra.ph/file/dc871409fc8c0a9ecab90.jpg'
+global.img6 = 'https://telegra.ph/file/ffdd4ed96c39c24abf89e.jpg'
+global.img7 = 'https://telegra.ph/file/df9197f0dfd095d1b00de.jpg'
+global.img8 = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img9 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
-global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
-global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
-global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
-global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
-global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
-global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
+global.img10 = 'https://telegra.ph/file/225955da888d3fab2f641.jpg'
+global.img11 = 'https://telegra.ph/file/d94bf9e7d656f40e72b05.jpg'
+global.img12 = 'https://telegra.ph/file/dc871409fc8c0a9ecab90.jpg'
+global.img13 = 'https://telegra.ph/file/ffdd4ed96c39c24abf89e.jpg'
+global.img14 = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img15 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
 global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
