@@ -107,6 +107,7 @@ npm start
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 <p align="center">
+  
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Note** Descargué y Descomprime
 ### [`KatashiBot-MD ~ Archivos`](https://github.com/KatashiFukushima/KatashiBot-MD/archive/refs/heads/master.zip)
@@ -127,6 +128,7 @@ npm start
 > **Note** Guardar los archivos en la ubicación: storage/downloads/KatashiBot-MD-master/KatashiBot-MD-master   
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 <p align="center">
+  
 ### 🚀 USAR KATASHIBOT 24/7 EN TERMUX 
 > Ejecutar estos comandos dentro de la carpeta KatashiBot-MD
 ```bash
@@ -151,6 +153,7 @@ pm2 start index
 ``` 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 <p align="center">
+  
 ### 🥷🏻 ACTUALIZAR KATASHIBOT
 > **Note** Comandos para actualizar KatashiBot-MD de forma automática
 ```bash
