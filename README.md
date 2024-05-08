@@ -40,10 +40,8 @@
 </a>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 <p align="center">
-  
------
+
 ### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA POR TERMUX 🫰
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/shorts/ZLJYDUM6vSY)
 > **Note** Comandos para instalar de forma automática en Termux  
@@ -74,7 +72,8 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
------
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 ### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
 > **Note** Comandos para instalar de forma manual
 ```bash
@@ -105,7 +104,8 @@ npm install
 npm start
 ```
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
-------------------
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 ### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Note** Descargué y Descomprime
 ### [`KatashiBot-MD ~ Archivos`](https://github.com/KatashiFukushima/KatashiBot-MD/archive/refs/heads/master.zip)
@@ -124,7 +124,8 @@ npm start
 * #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 * #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
 > **Note** Guardar los archivos en la ubicación: storage/downloads/KatashiBot-MD-master/KatashiBot-MD-master   
-----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 ### 🚀 USAR KATASHIBOT 24/7 EN TERMUX 
 > Ejecutar estos comandos dentro de la carpeta KatashiBot-MD
 ```bash
@@ -147,7 +148,8 @@ pm2 stop index
 ```bash 
 pm2 start index
 ``` 
-----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 ### 🥷🏻 ACTUALIZAR KATASHIBOT
 > **Note** Comandos para actualizar KatashiBot-MD de forma automática
 ```bash
@@ -155,12 +157,14 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 ```
 #### Para que no pierda su progreso en KatashiBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX                           
-----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 
 
 > Recuerda leer la **[Política de KatashiBot. 🥷](https://github.com/KatashiFukushima/KatashiBot-MD/blob/master/terms.md)** antes de hacer algo con este repositorio. 
   
-----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 ### 💠 [`IDIOMAS DISPONIBLES PARA KATASHIBOT`](https://github.com/KatashiFukushima/KatashiBot-MD/blob/master/config.js) 
 #### 🌐 Español  
 #### 🌐 Inglés (English) 
@@ -169,7 +173,8 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 #### 🌐 Árabe (عرب)
 #### 🌐 Hindi (Indian Language)
 - [x] Ejemplo <details><summary>Idioma</summary><img src="https://i.imgur.com/ZTwOGkT.jpg"></details>
-----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+<p align="center">
 
 ### 🌟 DESARROLLADORES
 <a href="https://github.com/KatashiFukushima/KatashiBot-MD/graphs/contributors">
