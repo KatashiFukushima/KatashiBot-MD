@@ -1,4 +1,4 @@
-//CREDITOS PARA >> https://github.com/BrunoSobrino
+//CREDITOS PARA >> https://github.com/BrunoSobrino 
 
 let handler = m => m
 handler.all = async function (m) {
