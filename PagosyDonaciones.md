@@ -4,7 +4,7 @@
  
 | USUARIO          |   INICIO                | FIN    | ESTADO
 | ------------     | ------------            | ------------| ------------
-| [**Desconocido**](+51 977 382 134)        | `14 Abril` | `18 Mayo` | ✅
+| [**Desconocido**](+51 977 382 134)        | `14 Abril` | `18 Mayo` | ❌
 | [**ANIIIIII**](+56 9 7451 3824)        | `1 Mayo` | `1 Enero` | ✅
 | ⚪        | ⚪               |  ⚪ | ⚪
 
