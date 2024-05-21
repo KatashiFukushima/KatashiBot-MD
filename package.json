@@ -1,6 +1,6 @@
 {
 "name": "KatashiBot-MD",
-"version": "1.4.0", 
+"version": "1.4.1", 
 "description": "Super Bot WhatsApp",
 "main": "index.js",
 "type": "module",
@@ -29,7 +29,7 @@
 "url": "https://github.com/KatashiFukushima/KatashiBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "^6.6.0",
+"@whiskeysockets/baileys": "^6.7.2",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@brandond/findthelyrics": "^2.0.5",
@@ -50,7 +50,9 @@
 "cheerio": "^1.0.0-rc.10",
 "colors": "^1.4.0",
 "countries-and-timezones": "^3.6.0",
+"country-phone-prefix": "^1.0.1",
 "express": "^4.17.3",
+"emoji-country-flags": "^1.0.3",
 "fb-downloader-scrapper": "^1.0.1",
 "file-type": "^17.1.1",
 "fluent-ffmpeg": "^2.1.2",
