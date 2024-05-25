@@ -38,5 +38,5 @@ const handler = async (m, {conn, text, participants, isOwner, isAdmin}) => {
 };
 handler.command = /^(hidetag|notificar|notify)$/i
 handler.group = true
-handler.admin = false
+handler.admin = true
 export default handler
