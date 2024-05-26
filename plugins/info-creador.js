@@ -20,7 +20,7 @@ const cat = `
 │*${asistencia}*
 ╰─ ❖ ── ✦ ── ✦ ── ❖ ──╝`
 
-await conn.sendFile(m.chat, pp, 'gata.mp4', cat, fkontak)
+await conn.sendFile(m.chat, pp, 'gata.jpg', cat, fkontak)
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
