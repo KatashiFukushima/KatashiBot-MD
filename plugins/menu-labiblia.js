@@ -74,7 +74,7 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `*[❗] Los comandos +1
     conn.reply(m.chat, '*𝒟𝐼𝒮𝐹𝑅𝒰𝒯𝐸𝒩*', m);
   }
 };
-handler.command = /^(menulabiblia|labiblia|Labiblia)$/i;
+handler.command = /^(menulabiblia|labiblia|Labiblia|menu18|menu+18|menubiblia)$/i;
 handler.exp = 50;
 handler.fail = null;
 export default handler;
