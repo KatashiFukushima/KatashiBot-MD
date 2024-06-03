@@ -64,13 +64,20 @@ let username = conn.getName(who)
 let user = global.db.data.users[m.sender]
 //user.registered = false
 
-let pp = gataVidMenu.getRandom()
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let pp = gataVidMenu
 let fsizedoc = '1'.repeat(10)
-let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(katashiMenu.getRandom())).buffer(), sourceUrl: redesMenu.getRandom() }}}
+let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: await(await fetch(gataMenu)).buffer(), sourceUrl: redesMenu }}}
 
 let str = `
-─ ❖ ── ✦ ──『 _Audios_ 』── ✦ ── ❖ ──╗
+╭┄〔 *${wm}* 〕┄⊱
+┊ *🎶 ${lenguajeGB['smsConfi2']()} ${username}*
+┊დ *${week}, ${date}*
+┊დ *${lenguajeGB['smsBotonM4']()} » ${Object.keys(global.db.data.users).length}* 
+┊
+┊დ *${lenguajeGB['smsBotonM5']()} »* ${role}
+┊დ *${lenguajeGB['smsBotonM6']()} » ${level}*
+┊დ *${lenguajeGB['smsBotonM7']()} »* ${user.premiumTime > 0 ? '✅' : '❌'}
+╰┄┄┄┄〔 *𓃠 ${vs}* 〕┄┄┄┄⊱
 
 ⠇ *${lenguajeGB['smsTex16']()}* 🔊
 ⠇ ${lenguajeGB['smsTex17']()}
@@ -205,7 +212,13 @@ let str = `
 ∘ _Vamos!!_
 ∘ _Se pudrio_
 ∘ _Gol!_
-─ ❖ ── ✦ ── ✧ ── ✦ ── ❖ ──╝`.trim()
+
+╭════• ೋ•✧๑♡๑✧•ೋ •════╮
+                      🥷 𝙆𝙖𝙩𝙖𝙨𝙝𝙞 𝙁𝙪𝙠𝙪𝙨𝙝𝙞𝙢𝙖 🥷
+         0:40 ━❍──────── -8:39
+         ↻     ⊲  Ⅱ  ⊳     ↺
+         VOLUMEN: ▁▂▃▄▅▆▇ 100%
+╰════• ೋ•✧๑♡๑✧•ೋ •════╯`.trim()
     conn.sendFile(m.chat, pp, 'lp.jpg', str, m, false, { contextInfo: { mentionedJid }})
 /*let menuA = `🎶 ${lenguajeGB['smsConfi2']()} *${username}*`.trim()
 let menuB = `
