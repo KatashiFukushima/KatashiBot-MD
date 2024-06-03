@@ -1,18 +1,18 @@
 {
-  "name": "KatashiBot-MD", 
-  "description": "Super Bot WhatsApp",
-  "repository": "https://github.com/KatashiFukushima/KatashiBot-MD",
-  "logo": "https://i.imgur.com/8fK4h6F.jpg",
-  "keywords": ["java", "bot", "whatsapp-bot", "whatsapp-automation"],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    },
-    {
-      "url": "https://github.com/bogini/heroku-buildpack-graphicsmagick"
-    }    
- ]
+"name": "KatashiBot-MD",
+"website": "https://github.com/KatashiFukushima",
+"description": "Super Bot WhatsApp",
+"repository": "https://github.com/KatashiFukushima/KatashiBot-MD",
+"logo": "https://telegra.ph/file/0d2e58ec6944872fea0f4.jpg",
+"success_url": "https://github.com/KatashiFukushima/KatashiBot-MD",
+"keywords": [
+"nodejs", "heroku", "bot", "spanish", "english", "indonesian", "arab", "portuguese", "italian", "french", "whatsapp",
+"termux", "superbot", "multi-device", "md", "official", "javascript", "katashibot"],
+"image": "heroku/nodejs",
+"buildpacks": [
+{ "url": "heroku/nodejs" },
+{ "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest" },
+{ "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git" },
+{ "url": "https://github.com/bogini/heroku-buildpack-graphicsmagick" }    
+]
 }
