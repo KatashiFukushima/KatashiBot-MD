@@ -1,1 +1,1 @@
-# Multi Idioma Dinámico GB (MID-GB | Beta)
+# Multi Idioma Dinámico KB (MID-KB | Beta)
