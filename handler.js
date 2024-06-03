@@ -26,10 +26,14 @@ export async function handler(chatUpdate) {
 this.msgqueque = this.msgqueque || [];
 this.uptime = this.uptime || Date.now();
 if (!chatUpdate) {
-return;
+return
 }
-this.pushMessage(chatUpdate.messages).catch(console.error);
-let m = chatUpdate.messages[chatUpdate.messages.length - 1];
+if (!chatUpdate || !chatUpdate.messages) {
+return
+} else {
+this.pushMessage(chatUpdate.messages).catch(console.error)
+}
+let m = chatUpdate.messages[chatUpdate.messages.length - 1]
 if (!m) {
 return;
 }
@@ -95,8 +99,7 @@ if (!isNumber(user.regTime)) user.regTime = -1
 if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
 }
-	
-if (!isNumber(user.counterPrivate)) user.counterPrivate = 0	                    		    
+	              		    
 if (!isNumber(user.afk)) user.afk = -1
 //if (!('autolevelup' in user))  user.autolevelup = true
 if (!isNumber(user.reporte)) user.reporte = 0
@@ -402,6 +405,7 @@ if (!isNumber(user.ojekk)) user.ojekk = 0
 if (!isNumber(user.oporayam)) user.oporayam = 0
 if (!isNumber(user.orca)) user.orca = 0
 if (!isNumber(user.pancing)) user.pancing = 0
+if (!isNumber(user.pasangan)) user.pasangan = 0	
 if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
@@ -514,7 +518,6 @@ if (!user.rtrofi) user.rtrofi = 'Bronce'
 } else
 global.db.data.users[m.sender] = {
 midLanguage: 0,
-counterPrivate: 0,
 afk: -1,
 afkReason: '',
 reporte: 0,
@@ -966,52 +969,59 @@ global.db.data.chats[m.chat] = {}
 		
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false         
-if (!('welcome' in chat)) chat.welcome = false           
+if (!('welcome' in chat)) chat.welcome = true           
 if (!('detect' in chat)) chat.detect = true               
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
+if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
 if (!('delete' in chat)) chat.delete = false                   
 if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
-if (!('audios' in chat)) chat.audios = false               
-if (!('antiver' in chat)) chat.antiver = true             
-if (!('antiLink' in chat)) chat.antiLink = false      
+if (!('audios' in chat)) chat.audios = true               
+if (!('antiver' in chat)) chat.antiver = false 
+if (!('antiPorn' in chat)) chat.antiPorn = true     
+if (!('antiLink' in chat)) chat.antiLink = false     
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
 if (!('antiYoutube' in chat)) chat.antiYoutube = false
 if (!('antiTelegram' in chat)) chat.antiTelegram = false
 if (!('antiFacebook' in chat)) chat.antiFacebook = false
 if (!('antiInstagram' in chat)) chat.antiInstagram = false
-if (!('antiTwitter' in chat)) chat.antiInstagram = false
+if (!('antiTwitter' in chat)) chat.antiTwitter = false
+if (!('antiDiscord' in chat)) chat.antiDiscord = false
+if (!('antiThreads' in chat)) chat.antiThreads = false
+if (!('antiTwitch' in chat)) chat.antiTwitch = false
 if (!('antifake' in chat)) chat.antifake = false
-if (!('reaction' in chat)) chat.reaction = false    
-if (!('viewonce' in chat)) chat.viewonce = true       
+if (!('reaction' in chat)) chat.reaction = true    
+if (!('viewonce' in chat)) chat.viewonce = false       
 if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('game' in chat)) chat.game = true
 if (!('game2' in chat)) chat.game2 = true
 if (!('simi' in chat)) chat.simi = false
-if (!('antiTraba' in chat)) chat.antiTraba = false
+if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = false
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
-welcome: false,
+welcome: true,
 detect: true,
 sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
-delete: false,
+sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
+delete: true,
 modohorny: true,
 stickers: false,
 autosticker: false,
 audios: false,
 antiver: true,
+antiPorn: true,
 antiLink: false,
 antiLink2: false,
 antiTiktok: false,
@@ -1020,15 +1030,18 @@ antiTelegram: false,
 antiFacebook: false,
 antiInstagram: false,
 antiTwitter: false,
+antiDiscord: false,
+antiThreads: false,
+antiTwitch: false,
 antifake: false,
-reaction: false,
+reaction: true,
 viewonce: true,
 modoadmin: false,
 antitoxic: false,
 game: true, 
 game2: true, 
 simi: false,
-antiTraba: false,
+antiTraba: true,
 autolevelup: false,
 expired: 0,
 }
@@ -1190,7 +1203,7 @@ if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
-m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
+m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR LOS COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
 user.antispam++	
 return
 }
@@ -1322,7 +1335,7 @@ if (m.limit)
 m.reply(+m.limit + lenguajeGB.smsCont8())
 }
 if (m.money)
-m.reply(+m.money + ' 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🪙 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
+m.reply(+m.money + ' 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🥷 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
 break
 }}} catch (e) {
 console.error(e)
@@ -1409,7 +1422,7 @@ case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = katashiMenu
+let pp = global.gataImg
 try {
 pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
@@ -1421,13 +1434,28 @@ text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'We
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
-const numerosPermitidos = ["1", "2", "4", "6", "7", "8", "9"] //PUEDES EDITAR LOS USUARIOS QUE SE ELIMINARÁN SI EMPIEZA POR CUALQUIER DE ESOS NÚMEROS	
-if (numerosPermitidos.some(num => user.startsWith(num))) {	
-this.sendMessage(id, { text:`*${lenguajeGB['smsAvisoAG']()}${lenguajeGB['smsInt1']()} @${user.split("@")[0]} ${lenguajeGB['smsInt2']()}*`, mentions: [user] }, { quoted: null });          
-let responseb = await this.groupParticipantsUpdate(id, [user], 'remove')
+const prefijosPredeterminados = [1, 2, 4, 6, 7, 8, 9] // Puedes editar que usuarios deseas que se eliminen si empieza por algunos de los números
+const rutaArchivo = './prefijos.json'
+let prefijos = []
+const existeArchivo = fs.existsSync(rutaArchivo)
+if (existeArchivo) {
+try {
+const contenido = fs.readFileSync(rutaArchivo, 'utf-8')
+prefijos = JSON.parse(contenido)
+} catch (error) {
+console.log('Error "prefijos.json": ', error)
+return
+}} else {
+prefijos = prefijosPredeterminados
+}
+const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toString()))
+if (comienzaConPrefijo) {
+let texto = mid.mAdvertencia + mid.mFake2(user)
+await conn.sendMessage(id, { text: texto, mentions: [user] })
+let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
 if (responseb[0].status === "404") return      
-return    
-}}    
+}}
+	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 this.sendMessage(id, { text: text, 
 contextInfo:{
@@ -1442,6 +1470,7 @@ mentionedJid:[user],
 "containsAutoReply": true,
 "mediaType": 1, 
 sourceUrl: accountsgb }}}, { quoted: fkontak2 })
+apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
 			    
@@ -1507,7 +1536,7 @@ ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
 *╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
-//this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
 }}
@@ -1525,17 +1554,19 @@ botAdmin: lenguajeGB['smsBotAdmin'](),
 unreg: lenguajeGB['smsUnreg'](),
 restrict: lenguajeGB['smsRestrict'](),
 }[type]
+	
 //if (msg) return m.reply(msg)
+	
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
 const file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
-unwatchFile(file);
+unwatchFile(file)
 console.log(chalk.redBright('Update \'handler.js\''));
-if (global.reloadHandler) console.log(await global.reloadHandler());
+//if (global.reloadHandler) console.log(await global.reloadHandler());
   
 if (global.conns && global.conns.length > 0 ) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
