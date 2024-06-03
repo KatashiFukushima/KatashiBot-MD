@@ -80,7 +80,7 @@ neoxr: 'https://api.neoxr.my.id',
 zenzapis: 'https://api.zahwazein.xyz',
 akuari: 'https://api.akuari.my.id',
 akuari2: 'https://apimu.my.id',	
-fgmods: 'https://api-fgmods.ddns.net',
+fgmods: 'https://api.fgmods.xyz', 
 botcahx: 'https://api.botcahx.biz.id',
 ibeng: 'https://api.ibeng.tech/docs',	
 rose: 'https://api.itsrose.site',
@@ -94,6 +94,7 @@ global.APIKeys = {
 'https://api.neoxr.my.id': `${keysneoxr}`,	
 'https://violetics.pw': 'beta',
 'https://api.zahwazein.xyz': `${keysxxx}`,
+'https://api.fgmods.xyz': 'DRLg5kY7', 
 'https://api-fgmods.ddns.net': 'fg-dylux',
 'https://api.botcahx.biz.id': 'Admin',
 'https://api.ibeng.tech/docs': 'tamvan',
@@ -138,35 +139,6 @@ global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊�
 global.vs = "1.0.1"
 global.vsJB = "2.5 (Beta)"
 global.gt = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆"
-
-global.yt = "https://youtube.com/@KatashiFukushima"
-global.yt2 = "https://www.youtube.com/shorts/ZLJYDUM6vSY"
-global.ig = "https://www.instagram.com/katashi_fukushima"
-global.md = "https://github.com/KatashiFukushima/KatashiBot-MD"
-global.fb = "https://www.facebook.com/KatashiFukushimaF"
-global.tk = "https://www.tiktok.com/@katashi_fukushima"
-global.ths = "https://www.threads.net/@katashi_fukushima"
-global.paypal = 'https://paypal.me/KatashiF'
-global.asistencia = 'Wa.me/51948705559' //Contacto
-global.bot = 'wa.me/51999999999'
-
-global.nna = 'https://www.atom.bio/katashifukushima' // Cuentas
-global.nn2 = 'https://instabio.cc/KatashiUwU' // Cuentas 2
-global.nna2 = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' // Grupo oficial de KatashiBot
-global.nn = 'https://chat.whatsapp.com/LS9A8ItcmfiHm1ugivAjYy' // Grupo oficial de KatashiBot
-global.nnn = 'https://chat.whatsapp.com/E9J01d9ExLVLy3C8IQEPjP' // Grupo ☆𝑨𝒏𝒊𝒎𝒆♡𝑨𝒎𝒊𝒔𝒕𝒂𝒅♡
-global.nnnt = 'https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW' // PapuCity 2.5 resurrección
-global.nnntt = 'https://chat.whatsapp.com/EQHMweZI9nmIrA283eYK5i' // Grupo de Stickers
-global.nnnttt = 'https://chat.whatsapp.com/CciFSHhsYxd9TqW2tZhhZx' // Grupo 5
-global.nnnttt1 = 'https://chat.whatsapp.com/Ej5AUrpmYnJKYtEa6YMwK6' // Grupo 6 COL
-global.nnnttt2 = 'https://chat.whatsapp.com/I9DsG6ABKer27NbW01Nl39' // Grupo 7 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/BngbJC3aBVhF5KjoaawiT1' // Grupo 8 COL
-global.nnnttt4 = 'https://chat.whatsapp.com/KQtWZDVfosTKbheIlndLBN' // Grupo 9 COL
-global.nnnttt5 = 'https://chat.whatsapp.com/HXOGzELFOVXFM1KrSoKdqH' // MULTI - BOTS
-global.nnnttt6 = 'https://chat.whatsapp.com/KNFk4om8MR70h8t3fTSHea' // A.T.M.M
-global.channel1 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37'
-global.channel2 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37'
-global.channel3 = 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37'
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
@@ -200,59 +172,6 @@ global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*"
 global.waittttt = "*✅ _Completado | Filled..._ ▬▬▬▬▬▬▬*"
 global.nomorown = "51948273587"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
-// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
-// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-// ❰ IMAGEN DEL BOT : BOT IMAGE ❱
-global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
-global.imagen2 = fs.readFileSync("./media/menus/img1.jpg")
-global.imagen3 = fs.readFileSync("./media/menus/img2.jpg")
-global.imagen4 = fs.readFileSync("./media/menus/img3.jpg")
-global.imagen5 = fs.readFileSync("./media/menus/img4.jpg")
-global.imagen6 = fs.readFileSync("./media/menus/img5.jpg")
-global.imagen7 = fs.readFileSync("./media/menus/img6.jpg")
-global.imagen8 = fs.readFileSync("./media/menus/img7.jpg")
-global.imagen9 = fs.readFileSync("./media/menus/img8.jpg")
-global.imagen10 = fs.readFileSync("./media/menus/img9.jpg")
-global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
-global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
-global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
-
-global.img = 'https://i.imgur.com/IXlUwTW.jpg'
-global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
-
-global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
-global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
-
-global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
-global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
-global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
-global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
-global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
-
-global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
-global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
-global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
-global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
-global.img14 = 'https://i.imgur.com/knBDWRA.jpeg'
-global.img15 = 'https://i.imgur.com/QrkkKx7.jpeg'
-
-global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
-
-global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
-global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
-
-global.logogit = 'https://tinyurl.com/2qvl9vgs'
-// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-
-// • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-// ❰ RANDOMS ❱
-global.welgata = [tk, ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb, tk, ths, asistencia]
-global.redesMenu = [nna, nn, nn2, nnn, nnnt, nnntt, nnnttt, nnnttt1, nnnttt2, nnnttt3, nnnttt4, nnnttt5, md, ig, paypal, yt, asistencia, fb, tk]
-global.accountsgb = [channel1, channel2, channel3, tk, ig, yt, paypal, fb, ths, md, nna, asistencia]
-global.katashiMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18]
-global.gataVidMenu = ['./media/menus/Menuvid1.mp4', './media/menus/Menuvid2.mp4', './media/menus/Menuvid3.mp4']
-global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
