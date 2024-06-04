@@ -16,7 +16,7 @@ const conflictedFiles = status
 .split('\n')
 .filter(line => line.trim() !== '')
 .map(line => {
-if (line.includes('.npm/') || line.includes('.cache/') || line.includes('tmp/') || line.includes('GataBotSession/') || line.includes('npm-debug.log')) {
+if (line.includes('.npm/') || line.includes('.cache/') || line.includes('tmp/') || line.includes('KatashiBotSession/') || line.includes('npm-debug.log')) {
 return null;
 }
 return '*→ ' + line.slice(3) + '*'})
