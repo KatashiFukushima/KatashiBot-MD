@@ -1,5 +1,6 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
 import './config.js' 
+import './plugins/_content.js'
 import { createRequire } from 'module'
 import path, { join } from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
@@ -25,7 +26,6 @@ import { mongoDB, mongoDBV2 } from './lib/mongoDB.js'
 import store from './lib/store.js'
 import readline from 'readline'
 import NodeCache from 'node-cache'
-const { proto} = (await import('@whiskeysockets/baileys')).default;
 const { DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC } = await import('@whiskeysockets/baileys')
 const { CONNECTING } = ws
 const { chain } = lodash
@@ -104,25 +104,29 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-global.authFile = `KatashiBotSession`
+global.authFile = `GataBotSession`
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
-const msgRetryCounterMap = (MessageRetryMap) => { };
+const msgRetryCounterMap = (MessageRetryMap) => { }
 const msgRetryCounterCache = new NodeCache()
-const {version} = await fetchLatestBaileysVersion();
-let phoneNumber = global.botNumberCode
+const {version} = await fetchLatestBaileysVersion()
 
+let phoneNumber = global.botNumberCode
 const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
 
-//const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-//const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout, prompt: '' })
+const rl = readline.createInterface({
+input: process.stdin,
+output: process.stdout,
+terminal: true,
+})
 const question = (texto) => {
+rl.clearLine(rl.input, 0)
 return new Promise((resolver) => {
 rl.question(texto, (respuesta) => {
+rl.clearLine(rl.input, 0)
 resolver(respuesta.trim())
-}) })
+})})
 }
 
 let opcion
@@ -154,73 +158,69 @@ opcion = await question(`╭${lineM}
 ┊ ${chalk.blueBright('┊')} ${chalk.bold.yellow(`npm start ${chalk.italic.magenta(`(${mid.methodCode14})`)}`)}
 ┊ ${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ╰${lineM}\n${chalk.bold.magentaBright('---> ')}`)
-//if (fs.existsSync(`./${authFile}/creds.json`)) {
-//console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
-//process.exit()
 if (!/^[1-2]$/.test(opcion)) {
 console.log(chalk.bold.redBright(mid.methodCode11(chalk)))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
-  
+
+const filterStrings = [
+"Q2xvc2luZyBzdGFsZSBvcGVu", // "Closing stable open"
+"Q2xvc2luZyBvcGVuIHNlc3Npb24=", // "Closing open session"
+"RmFpbGVkIHRvIGRlY3J5cHQ=", // "Failed to decrypt"
+"U2Vzc2lvbiBlcnJvcg==", // "Session error"
+"RXJyb3I6IEJhZCBNQUM=", // "Error: Bad MAC" 
+"RGVjcnlwdGVkIG1lc3NhZ2U=" // "Decrypted message" 
+]
+
+console.info = () => {} 
+console.debug = () => {} 
+['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
+
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['KatashiBot-MD', 'Edge', '2.0.0'] : methodCodeQR ? ['KatashiBot-MD', 'Edge', '2.0.0'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
+browser: opcion == '1' ? ['GataBot-MD', 'Edge', '2.0.0'] : methodCodeQR ? ['GataBot-MD', 'Edge', '2.0.0'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
 },
 markOnlineOnConnect: true, 
 generateHighQualityLinkPreview: true, 
+syncFullHistory: true,
 getMessage: async (clave) => {
 let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
 return msg?.message || ""
 },
-msgRetryCounterCache,
-msgRetryCounterMap,
-defaultQueryTimeoutMs: undefined,   
-version
+msgRetryCounterCache, // Resolver mensajes en espera
+msgRetryCounterMap, // Determinar si se debe volver a intentar enviar un mensaje o no
+defaultQueryTimeoutMs: undefined,
+version,  
 }
 
 global.conn = makeWASocket(connectionOptions)
 if (!fs.existsSync(`./${authFile}/creds.json`)) {
 if (opcion === '2' || methodCode) {
-//if (fs.existsSync(`./${authFile}/creds.json`)) {
-//console.log(chalk.bold.redBright(`PRIMERO BORRE EL ARCHIVO ${chalk.bold.greenBright("creds.json")} QUE SE ENCUENTRA EN LA CARPETA ${chalk.bold.greenBright(authFile)} Y REINICIE.`))
-//process.exit()
-//}
 opcion = '2'
-if (!conn.authState.creds.registered) {  
-//if (MethodMobile) throw new Error('No se puede usar un código de emparejamiento con la API móvil')
-
+if (!conn.authState.creds.registered) {
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright(mid.phNumber)))
-process.exit(0)
-}} else {
-while (true) {
-addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(mid.phNumber2(chalk))))
-addNumber = addNumber.replace(/[^0-9]/g, '')
-
-if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-break 
 } else {
-console.log(chalk.bold.redBright(mid.phNumber3))
-}}
-rl.close()  
-} 
-
+do {
+phoneNumber = await question(chalk.bgBlack(chalk.bold.greenBright(mid.phNumber2(chalk))))
+phoneNumber = phoneNumber.replace(/\D/g,'')
+} while (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v)))
+rl.close()
+addNumber = phoneNumber.replace(/\D/g, '')
 
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
 console.log(chalk.bold.white(chalk.bgMagenta(mid.pairingCode)), chalk.bold.white(chalk.white(codeBot)))
 }, 2000)
-}}
+}}}
 }
 
 conn.isInit = false
@@ -229,10 +229,14 @@ conn.well = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "KatashiJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
-
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
 if (global.obtenerQrWeb === 1) (await import('./server.js')).default(global.conn, PORT)
 
+async function getMessage(key) {
+if (store) {
+} return {
+conversation: 'SimpleBot',
+}}
 
 async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
@@ -252,10 +256,6 @@ console.log(chalk.bold.yellow(mid.mCodigoQR))}
 if (connection == 'open') {
 console.log(chalk.bold.greenBright(mid.mConexion))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
-if (reason == 405) {
-await fs.unlinkSync("./KatashiBotSession/" + "creds.json")
-console.log(chalk.bold.redBright(mid.mConexionOFF)) 
-process.send('reset')}
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
 console.log(chalk.bold.cyanBright(lenguajeGB['smsConexionOFF']()))
@@ -284,7 +284,6 @@ process.on('uncaughtException', console.error);
 //process.on('uncaughtException', (err) => {
 //console.error('Se ha cerrado la conexión:\n', err)
 //process.send('reset') })
-
 
 let isInit = true;
 let handler = await import('./handler.js');
@@ -420,29 +419,29 @@ unlinkSync(filePath)})
 
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./KatashiBotSession")
+let directorio = readdirSync("./GataBotSession")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./KatashiBotSession/${files}`)
+unlinkSync(`./GataBotSession/${files}`)
 })
 } 
 
 function purgeSessionSB() {
 try {
-const listaDirectorios = readdirSync('./KatashiJadiBot/');
+const listaDirectorios = readdirSync('./GataJadiBot/');
 let SBprekey = [];
 listaDirectorios.forEach(directorio => {
-if (statSync(`./KatashiJadiBot/${directorio}`).isDirectory()) {
-const DSBPreKeys = readdirSync(`./KatashiJadiBot/${directorio}`).filter(fileInDir => {
+if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
+const DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-')
 })
 SBprekey = [...SBprekey, ...DSBPreKeys];
 DSBPreKeys.forEach(fileInDir => {
 if (fileInDir !== 'creds.json') {
-unlinkSync(`./KatashiJadiBot/${directorio}/${fileInDir}`)
+unlinkSync(`./GataJadiBot/${directorio}/${fileInDir}`)
 }})
 }})
 if (SBprekey.length === 0) {
@@ -454,7 +453,7 @@ console.log(chalk.bold.red(lenguajeGB.smspurgeSessionSB3() + err))
 }}
 
 function purgeOldFiles() {
-const directories = ['./KatashiBotSession/', './KatashiJadiBot/']
+const directories = ['./GataBotSession/', './GataJadiBot/']
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
@@ -469,19 +468,29 @@ console.log(chalk.bold.green(`${lenguajeGB.smspurgeOldFiles1()} ${file} ${lengua
 } }) }
 }) }) }) }
 
+function redefineConsoleMethod(methodName, filterStrings) {
+const originalConsoleMethod = console[methodName]
+console[methodName] = function() {
+const message = arguments[0]
+if (typeof message === 'string' && filterStrings.some(filterString => message.includes(atob(filterString)))) {
+arguments[0] = ""
+}
+originalConsoleMethod.apply(console, arguments)
+}}
+
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
 await clearTmp()
 console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 4) // 4 min 
 
-setInterval(async () => {
-if (stopped === 'close' || !conn || !conn.user) return
-await purgeSession()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 10) // 10 min
+//setInterval(async () => {
+//if (stopped === 'close' || !conn || !conn.user) return
+//await purgeSession()
+//console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))}, 1000 * 60 * 10) // 10 min
 
-setInterval(async () => {
-if (stopped === 'close' || !conn || !conn.user) return
-await purgeSessionSB()}, 1000 * 60 * 10)
+//setInterval(async () => {
+//if (stopped === 'close' || !conn || !conn.user) return
+//await purgeSessionSB()}, 1000 * 60 * 10) 
 
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
