@@ -251,8 +251,15 @@ let menu = `╭═══〘卐 _Katashi bot MD_ 卐〙═══⊷❍
 ┃☭│➺ _${usedPrefix}cuentaskatashibot | cuentaskb_
 ┃☭╰──────────────⬣
 *╰═════════════════⊷*`.trim()
+
+// MODIFICAR LOS LINKS CON TUS VIDEOS 
+const vi = ['https://telegra.ph/file/7f0318607ccfdb6bcb66d.mp4',
+'https://telegra.ph/file/a848eeb479e662f2e3fab.mp4',
+'https://telegra.ph/file/117391db9016a51f73618.mp4']
+
+      
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
-await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
+await conn.sendMessage(m.chat, { audio: { url: vi }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 }} catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
