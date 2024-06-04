@@ -7,7 +7,7 @@ try {
 let d = new Date
 let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
 let database = await fs.readFileSync(`./database.json`)
-let creds = await fs.readFileSync(`./GataBotSession/creds.json`)
+let creds = await fs.readFileSync(`./KatashiBotSession/creds.json`)
 await conn.reply(m.sender, `*🗓️ Database:* ${date}`, fkontak)
 await conn.sendMessage(m.sender, {document: database, mimetype: 'application/json', fileName: `database.json`}, { quoted: m })
 await conn.sendMessage(m.sender, {document: creds, mimetype: 'application/json', fileName: `creds.json`}, { quoted: m })
