@@ -9,7 +9,7 @@ handler.all = async function (m) {
 global.key = ''
 
 // Cuentas
-const response = await fetch('https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/official_accounts.json')  
+const response = await fetch('https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/official_accounts.json')  
 const data = await response.json()
 let { accounts, channels, groups, collaboration, sponsors, others } = data.info
 
@@ -54,9 +54,9 @@ global.redesMenu = [canal1, canal2, canal3, canal4, soporteGB, grupo1, grupo2, g
 global.accountsgb = [canal1, canal2, canal3, canal4, tk, ig, yt, paypal, fb, ths, md, asistencia].getRandom()
 
 var canalesInfo = [
-{ link: canal1, id: "120363160031023229@newsletter", name: "INFINITY-WA 💫" },
-{ link: canal2, id: "120363169294281316@newsletter", name: "GB - UPDATE ✨" },
-{ link: canal3, id: "120363203805910750@newsletter", name: "Tips sobre GataBot 🤩" } 
+{ link: canal1, id: "120363178367665133@newsletter", name: "🥷🏻 KatashiBot 🥷🏻" },
+{ link: canal2, id: "120363205895430548@newsletter", name: "[RESPALDO] 🥷 KatashiBot 🤖" },
+{ link: canal3, id: "120363203805910750@newsletter", name: "INFINITY-WA 💫" } 
 ]
 var indiceAleatorio = Math.floor(Math.random() * canalesInfo.length)
 var channelRD = canalesInfo[indiceAleatorio]
@@ -76,32 +76,31 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://qu.ax/vZii.jpg'
-global.img2 = 'https://qu.ax/hjcB.jpg'
+global.img = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img2 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
-global.img3 = 'https://qu.ax/zELg.jpg' //prem
-global.img4 = 'https://qu.ax/YueS.jpg' //prem
+global.img3 = 'https://telegra.ph/file/225955da888d3fab2f641.jpg' //prem
+global.img4 = 'https://telegra.ph/file/d94bf9e7d656f40e72b05.jpg' //prem
 
-global.img5 = 'https://qu.ax/xLcn.jpg'
-global.img6 = 'https://qu.ax/EGOe.jpg'
-global.img7 = 'https://qu.ax/wly.jpg'
-global.img8 = 'https://qu.ax/TPVV.jpg'
-global.img9 = 'https://qu.ax/qKlN.jpg'
+global.img5 = 'https://telegra.ph/file/dc871409fc8c0a9ecab90.jpg'
+global.img6 = 'https://telegra.ph/file/ffdd4ed96c39c24abf89e.jpg'
+global.img7 = 'https://telegra.ph/file/df9197f0dfd095d1b00de.jpg'
+global.img8 = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img9 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
-global.img10 = 'https://qu.ax/SYFo.jpg'
-global.img11 = 'https://qu.ax/efhn.jpg'
-global.img12 = 'https://qu.ax/Vmpl.jpg'
-global.img13 = 'https://qu.ax/ElSy.jpg'
-global.img14 = 'https://qu.ax/Tgbe.jpg'
-global.img15 = 'https://qu.ax/Puwj.jpg' 
+global.img10 = 'https://telegra.ph/file/225955da888d3fab2f641.jpg'
+global.img11 = 'https://telegra.ph/file/d94bf9e7d656f40e72b05.jpg'
+global.img12 = 'https://telegra.ph/file/dc871409fc8c0a9ecab90.jpg'
+global.img13 = 'https://telegra.ph/file/ffdd4ed96c39c24abf89e.jpg'
+global.img14 = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
+global.img15 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
 
-global.img16 = 'https://qu.ax/ovkN.jpg' //+18
+global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
 
-global.img17 = 'https://qu.ax/HJdr.jpg'
-global.img18 = 'https://qu.ax/HCt.jpg'
+global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
+global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
 
-global.logogit = 'https://qu.ax/RzKF.jpg'
-
+global.logogit = 'https://tinyurl.com/2qvl9vgs'
 global.gataVidMenu = ['https://qu.ax/AAvg.mp4', 'https://qu.ax/SeFS.mp4', 'https://qu.ax/NqZN.mp4'].getRandom()
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18].getRandom()
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13].getRandom()
@@ -120,8 +119,8 @@ const estiloaudio = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ..
 let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 99, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
 let fgif = {key: {participant : '0@s.whatsapp.net'}, message: {"videoMessage": { "title": wm, "h": `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./media/menus/Menu3.jpg')}}}
                              
-let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: redesMenu, thumbnail: await(await fetch(gataMenu)).buffer() }}}
-let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
+let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🥷', body: 'support group' , sourceUrl: redesMenu, thumbnail: await(await fetch(gataMenu)).buffer() }}}
+let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: gataMenu, sourceUrl: accountsgb }}}
 let dos = [enlace, enlace2]  
 
 global.wait = "⌛ *`Cargando...`*\n*✪✦✦⊹⊹⊹⊹⊹⊹⊹⊹✪* `20%`"
