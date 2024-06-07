@@ -101,7 +101,7 @@ externalAdReply: {
 title: wm,
 body: '🌟 Puede modificar su registro antes de finalizar',
 thumbnailUrl: pp, 
-sourceUrl: 'https://www.atom.bio/gatabot/',
+sourceUrl: 'https://www.atom.bio/katashifukushima/',
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
@@ -581,7 +581,7 @@ externalAdReply: {
 title: wm,
 body: user.name,
 thumbnailUrl: pp, 
-sourceUrl: 'https://www.atom.bio/gatabot/',
+sourceUrl: 'https://www.atom.bio/katashifukushima/',
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
