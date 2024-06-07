@@ -253,7 +253,7 @@ let str = `🏷️ *INVENTARIO | INVENTORY*
 ┃ ╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯
 ┃ ${rpgg.emoticon('exp')} *Exp » ${exp}*
 ┃ ${rpgg.emoticon('limit')} *Diamante : Diamond » ${dia}*
-┃ ${rpgg.emoticon('money')} *GataCoins: » ${money}*
+┃ ${rpgg.emoticon('money')} *KataCoins: » ${money}*
 ┃ ${rpgg.emoticon('joincount')} *Token » ${token}*
 ┃ *${rpgshop.emoticon('emerald')} » ${member.emerald}*
 ┃ *${rpgshop.emoticon('berlian')} » ${member.berlian}*
@@ -308,7 +308,7 @@ let str = `🏷️ *INVENTARIO | INVENTORY*
 🚀 *SUMMARY IN THE TOPS* 🚀
 👤» *${name}* ( @${who.split("@")[0]} )\n
 _1.Top Nivel_ *${userslevel.indexOf(m.sender) + 1}* _de_ *${userslevel.length}*
-_2.Top GataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
+_2.Top KataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
 _3.Top Diamantes+_ *${usersdiamond.indexOf(m.sender) + 1}* _de_ *${usersdiamond.length}*
 _4.Top Poción_ *${userspotion.indexOf(m.sender) + 1}* _de_ *${userspotion.length}*
 _5.Top Basura_ *${userssampah.indexOf(m.sender) + 1}* _de_ *${userssampah.length}*
@@ -552,7 +552,7 @@ const cooldowns = Object.entries(inventory.cooldowns).map(([cd, { name, time }])
 *╭──━• MISIONES*
 *╭──━• MISSIONS*
 *│ ⛏️⚡ Minar EXP » ${new Date - user.lastmiming < 600000 ? '❌' : '✅'}*
-*│ ⛏️🐱 Minar GataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
+*│ ⛏️🪙 Minar KataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
 *│ ⛏️💎 Minar Diamantes » ${new Date - user.lastdiamantes < 900000 ? '❌' : '✅'}* 
 *│ ⚗️ Cofre : Coffer » ${new Date - user.lastcofre < 86400000 ? '❌' : '✅'}* 
 *│ 🏹 Caza : Berburu » ${new Date - user.lastberburu < 2700000 ? '❌' : '✅'}* 
@@ -562,7 +562,7 @@ const cooldowns = Object.entries(inventory.cooldowns).map(([cd, { name, time }])
 *│ 🎁 Semanalmente : Weekly ${new Date - user.lastweekly < 259200000 ? '❌' : '✅'}* 
 *│ 📮 Mensual : Monthly ${new Date - user.lastmonthly < 432000000 ? '❌' : '✅'}* 
 *╰─⋆─⋆─⋆─⋆─⋆─⋆─⋆─⋆─┄⸙*`.trim()//`
-conn.sendFile(m.chat, imgr, 'gata.jpg', caption, fkontak, m, { mentions: conn.parseMention(caption) })
+conn.sendFile(m.chat, imgr, 'katashi.jpg', caption, fkontak, m, { mentions: conn.parseMention(caption) })
 //await conn.sendButton(m.chat, `*𝗣𝗥𝗘𝗠𝗜𝗨𝗠 ${user.premium ? "✅": "❌"}*\n${wm}`, caption, imgr + 'Inventario : Inventory', [[`⚜️ 𝙇𝙞𝙨𝙩𝙖 𝙙𝙚 𝙈𝙞𝙨𝙞𝙤𝙣𝙚𝙨 | 𝙈𝙞𝙨𝙨𝙞𝙤𝙣𝙨`, `${usedPrefix}inventario 3`],	[`🏕️ 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖𝙧 | 𝙑𝙚𝙣𝙩𝙪𝙧𝙚`, `${usedPrefix}adventure`],['💗 𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂', '.rpgmenu']], fkontak, m, { mentions: conn.parseMention(caption) })
 	
 } else if (args[0] == '4') { // Inventario 3
@@ -743,7 +743,7 @@ ${readMore}
 ┃ ╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯
 ┃ ${rpgg.emoticon('exp')} *Exp » ${exp}*
 ┃ ${rpgg.emoticon('limit')} *Diamante : Diamond » ${dia}*
-┃ ${rpgg.emoticon('money')} *GataCoins: » ${money}*
+┃ ${rpgg.emoticon('money')} *KataCoins: » ${money}*
 ┃ ${rpgg.emoticon('joincount')} *Token » ${token}*
 ┃ *${rpgshop.emoticon('emerald')} » ${member.emerald}*
 ┃ *${rpgshop.emoticon('berlian')} » ${member.berlian}*
@@ -798,7 +798,7 @@ ${readMore}
 🚀 *SUMMARY IN THE TOPS* 🚀
 👤» *${name}* ( @${who.split("@")[0]} )\n
 _1.Top Nivel_ *${userslevel.indexOf(m.sender) + 1}* _de_ *${userslevel.length}*
-_2.Top GataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
+_2.Top KataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
 _3.Top Diamantes+_ *${usersdiamond.indexOf(m.sender) + 1}* _de_ *${usersdiamond.length}*
 _4.Top Poción_ *${userspotion.indexOf(m.sender) + 1}* _de_ *${userspotion.length}*
 _5.Top Basura_ *${userssampah.indexOf(m.sender) + 1}* _de_ *${userssampah.length}*
@@ -981,7 +981,7 @@ _16.Top Caja para Mascota_ *${userspet.indexOf(m.sender) + 1}* _de_ *${userspet.
 *╭──━• MISIONES*
 *╭──━• MISSIONS*
 *│ ⛏️⚡ Minar EXP » ${new Date - user.lastmiming < 600000 ? '❌' : '✅'}*
-*│ ⛏️🐱 Minar GataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
+*│ ⛏️🪙 Minar KataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
 *│ ⛏️💎 Minar Diamantes » ${new Date - user.lastdiamantes < 900000 ? '❌' : '✅'}* 
 *│ ⚗️ Cofre : Coffer » ${new Date - user.lastcofre < 86400000 ? '❌' : '✅'}* 
 *│ 🏹 Caza : Berburu » ${new Date - user.lastberburu < 2700000 ? '❌' : '✅'}* 
@@ -1103,7 +1103,7 @@ _16.Top Caja para Mascota_ *${userspet.indexOf(m.sender) + 1}* _de_ *${userspet.
 *│ ⛏️⚡ Minar EXP » ${new Date - user.lastmiming < 600000 ? '❌' : '✅'}*
 ${new Date - user.lastmiming < 600000 ? `${clockString(user.lastmiming + 600000 - new Date())}` : '*│* ✅ 𝗠𝗜𝗦𝗜𝗢𝗡 𝗬𝗔 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘'}
 *│┈┈┈┈┈┈┈┈┈┈┈┈*
-*│ ⛏️🐱 Minar GataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
+*│ ⛏️🪙 Minar KataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
 ${new Date - user.lastcoins < 600000 ? `${clockString(user.lastcoins + 600000 - new Date())}` : '*│* ✅ 𝗠𝗜𝗦𝗜𝗢𝗡 𝗬𝗔 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘'}
 *│┈┈┈┈┈┈┈┈┈┈┈┈*
 *│ ⛏️💎 Minar Diamantes » ${new Date - user.lastdiamantes < 900000 ? '❌' : '✅'}* 
@@ -1151,7 +1151,7 @@ ${new Date - user.lastmonthly < 432000000 ? `${clockString(user.lastmonthly + 43
 🚀 *SUMMARY IN THE TOPS* 🚀
 👤» *${name}* ( @${who.split("@")[0]} )\n
 _1.Top Nivel_ *${userslevel.indexOf(m.sender) + 1}* _de_ *${userslevel.length}*
-_2.Top GataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
+_2.Top KataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
 _3.Top Diamantes+_ *${usersdiamond.indexOf(m.sender) + 1}* _de_ *${usersdiamond.length}*
 _4.Top Poción_ *${userspotion.indexOf(m.sender) + 1}* _de_ *${userspotion.length}*
 _5.Top Basura_ *${userssampah.indexOf(m.sender) + 1}* _de_ *${userssampah.length}*
@@ -1167,7 +1167,7 @@ _15.Top Caja Legendaria_ *${userslegendary.indexOf(m.sender) + 1}* _de_ *${users
 _16.Top Caja para Mascota_ *${userspet.indexOf(m.sender) + 1}* _de_ *${userspet.length}*
 _17.Top Gold_ *${usersgold.indexOf(m.sender) + 1}* _de_ *${usersgold.length}*
 _18.Top Clock_ *${usersarlok.indexOf(m.sender) + 1}* _de_ *${usersarlok.length}*` //`
-conn.sendFile(m.chat, imgr, 'gata.jpg', str, {quoted: fkontak})
+conn.sendFile(m.chat, imgr, 'katashi.jpg', str, {quoted: fkontak})
 //await conn.sendButton(m.chat, `*𝗣𝗥𝗘𝗠𝗜𝗨𝗠 ${user.premium ? "✅": "❌"}*\n${wm}`, str, imgr + 'Inventario : Inventory', [[`${healt < 40 ? '❤️ 𝘾𝙐𝙍𝘼𝙍𝙈𝙀 | 𝙃𝙀𝘼𝙇 𝙈𝙀' : '𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖𝙧 | 𝙑𝙚𝙣𝙩𝙪𝙧𝙚 🏕️'}`, `${healt < 40 ? '.heal' : '.adventure'}`],['🏪 𝙏𝙞𝙚𝙣𝙙𝙖 𝙥𝙖𝙧𝙖 𝘾𝙤𝙢𝙥𝙧𝙖𝙧 | 𝘽𝙪𝙮', '.buy'],['🏪 𝙏𝙞𝙚𝙣𝙙𝙖 𝙥𝙖𝙧𝙖 𝙑𝙚𝙣𝙙𝙚𝙧 | 𝙎𝙚𝙡𝙡', '.sell']], m, {quoted: fkontak})
 
 } else if (args[0] == '3') { // Inventario 4
@@ -1225,7 +1225,7 @@ conn.sendFile(m.chat, imgr, 'gata.jpg', str, {quoted: fkontak})
 *│ ⛏️⚡ Minar EXP » ${new Date - user.lastmiming < 600000 ? '❌' : '✅'}*
 ${new Date - user.lastmiming < 600000 ? `${clockString(user.lastmiming + 600000 - new Date())}` : '*│* ✅ 𝗠𝗜𝗦𝗜𝗢𝗡 𝗬𝗔 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘'}
 *│┈┈┈┈┈┈┈┈┈┈┈┈*
-*│ ⛏️🐱 Minar GataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
+*│ ⛏️🪙 Minar KataCoins » ${new Date - user.lastcoins < 600000 ? '❌' : '✅'}*
 ${new Date - user.lastcoins < 600000 ? `${clockString(user.lastcoins + 600000 - new Date())}` : '*│* ✅ 𝗠𝗜𝗦𝗜𝗢𝗡 𝗬𝗔 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘'}
 *│┈┈┈┈┈┈┈┈┈┈┈┈*
 *│ ⛏️💎 Minar Diamantes » ${new Date - user.lastdiamantes < 900000 ? '❌' : '✅'}* 
@@ -1273,7 +1273,7 @@ ${new Date - user.lastmonthly < 432000000 ? `${clockString(user.lastmonthly + 43
 🚀 *SUMMARY IN THE TOPS* 🚀
 👤» *${usuario}* ( @${who.split("@")[0]} )\n
 _1.Top Nivel_ *${userslevel.indexOf(m.sender) + 1}* _de_ *${userslevel.length}*
-_2.Top GataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
+_2.Top KataCoins_ *${usersmoney.indexOf(m.sender) + 1}* _de_ *${usersmoney.length}*
 _3.Top Diamantes+_ *${usersdiamond.indexOf(m.sender) + 1}* _de_ *${usersdiamond.length}*
 _4.Top Poción_ *${userspotion.indexOf(m.sender) + 1}* _de_ *${userspotion.length}*
 _5.Top Basura_ *${userssampah.indexOf(m.sender) + 1}* _de_ *${userssampah.length}*
@@ -1338,7 +1338,7 @@ Serigala: *${serigala == 0 ? 'Tidak Punya' : '' || serigala == 1 ? 'Level 1' : '
 │Serigala ${serigala == 0 ? 'Tidak Punya' : '' || serigala > 0 && serigala < 15 ? `Level *${serigala}* To level *${serigala + 1}*\n│Exp *${_serigala}* -> *${serigala *10000}*` : '' || serigala == 15? '*Max Level*' : ''}
 ╰────────────────\n\n
 */
-conn.sendFile(m.chat, imgr, 'gata.jpg', str, fkontak, m, { mentions: conn.parseMention(str) })
+conn.sendFile(m.chat, imgr, 'katashi.jpg', str, fkontak, m, { mentions: conn.parseMention(str) })
 //await conn.sendButton(m.chat, `*𝗣𝗥𝗘𝗠𝗜𝗨𝗠 ${user.premium ? "✅": "❌"}*\n${wm}`, str, imgr + 'Inventario : Inventory', [     [`🍱 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 𝙙𝙚 𝘼𝙡𝙞𝙢𝙚𝙣𝙩𝙤𝙨 `, `${usedPrefix}alimentos`],[`🎒 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 𝙩𝙤𝙩𝙖𝙡`, `${usedPrefix}inventario 4`],	['💗 𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂', '.rpgmenu']], fkontak, m, { mentions: conn.parseMention(str) })
 	
     } else if (command == 'alimentos') { // Inventario piscina
@@ -1498,7 +1498,7 @@ let aineh = `
 ┃🍱 *Caja para Mascota : Pet Box » ${user.pet}*
 ┃💐 *Caja de Jardinería : Garden boxs » ${user.gardenboxs}*
 ╰━━━━━━━━━⬣`.trim()
-conn.sendFile(m.chat, imgr, 'gata.jpg', aineh, fkontak, m)}
+conn.sendFile(m.chat, imgr, 'katashi.jpg', aineh, fkontak, m)}
 //await conn.sendButton(m.chat, `*𝗣𝗥𝗘𝗠𝗜𝗨𝗠 ${user.premium ? "✅": "❌"}*\n${wm}`, aineh, imgr + 'Inventario : Inventory', [[`🐈 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 𝙙𝙚 𝘼𝙣𝙞𝙢𝙖𝙡𝙚𝙨`, `${usedPrefix}animales`],[`🎒 𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 𝙩𝙤𝙩𝙖𝙡`, `${usedPrefix}inventario 4`],['𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂 💗', '.rpgmenu']], fkontak, m)}
 }
 handler.help = ['inventory', 'inv']
