@@ -51,12 +51,12 @@ Cada imagen se clasifica con etiquetas que actúan como palabras clave, proporci
 *¿Cómo puedo adquirir una imagen?*
 Utiliza los comandos \`${usedPrefix}fantasy* o *${usedPrefix}fy\` para ver Personajes.
 
-Para realizar la compra, es necesario contar con *${rpgshop.emoticon('money')}*. Si dispones de la cantidad necesaria, responde al mensaje de la imagen con *"c", "🛒", o "🐱"* para comprar al personaje.
+Para realizar la compra, es necesario contar con *${rpgshop.emoticon('money')}*. Si dispones de la cantidad necesaria, responde al mensaje de la imagen con *"c", "🛒", o "🥷"* para comprar al personaje.
 
 La transacción se confirma cuando recibes el mensaje de que has adquirido al personaje. De lo contrario, recibirás un mensaje diferente indicando la falta de *${rpgshop.emoticon('money')}* o que alguien más ya ha reclamado ese personaje.
 
-*¿Te gustaría proponer tus propios personajes para que formen parte de GataBot?*
-¡Es sencillo! Solo utiliza el comando \`${usedPrefix}fyadd* o *${usedPrefix}fyagregar\` y sigue la guía proporcionada para comenzar a crear tu solicitud de personajes. Los desarrolladores estarán encantados de recibir tus propuestas y considerarlas para enriquecer la experiencia en GataBot.
+*¿Te gustaría proponer tus propios personajes para que formen parte de KatashiBot?*
+¡Es sencillo! Solo utiliza el comando \`${usedPrefix}fyadd* o *${usedPrefix}fyagregar\` y sigue la guía proporcionada para comenzar a crear tu solicitud de personajes. Los desarrolladores estarán encantados de recibir tus propuestas y considerarlas para enriquecer la experiencia en KatashiBot.
 
 > Calificar personajes en RPG Fantasy
 
@@ -93,9 +93,9 @@ Utilizando \`${usedPrefix}fytendencia o ${usedPrefix}fyranking\`, podrás ver un
 
 Las recompensas serán asignadas de acuerdo al \`${usedPrefix}inventario o ${usedPrefix}inventory\`. Es decir, al completar misiones, podrás obtener recompensas de todo tipo. Además, mientras más misiones completes, más se multiplicarán tus futuras recompensas. Para ver las misiones disponibles, visita con el comando \`${usedPrefix}fantasy o ${usedPrefix}fymy\`
 
-*¿Quieres conocer todos los personajes disponibles en GataBot?*
+*¿Quieres conocer todos los personajes disponibles en KatashiBot?*
 
-Con el comando \`${usedPrefix}fylista o ${usedPrefix}fyl\`, puedes acceder a una lista completa de todos los personajes disponibles en GataBot. Además, podrás explorar diferentes categorías.
+Con el comando \`${usedPrefix}fylista o ${usedPrefix}fyl\`, puedes acceder a una lista completa de todos los personajes disponibles en KatashiBot. Además, podrás explorar diferentes categorías.
 
 *¿Quieres saber más sobre un personaje específico?*
 
