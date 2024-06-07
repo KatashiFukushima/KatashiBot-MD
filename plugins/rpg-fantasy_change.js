@@ -9,7 +9,7 @@ const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', '
 let handler = async (m, { command, usedPrefix, conn, text }) => {
 user = global.db.data.users[m.sender]
 
-const jsonURL = 'https://raw.githubusercontent.com/GataNina-Li/module/main/imagen_json/anime.json'
+const jsonURL = 'https://raw.githubusercontent.com/SoIz1/AnimeFantasy/main/AnimeFantasyDate/anime.json'
 const response = await fetch(jsonURL)
 const data = await response.json()
 
@@ -44,7 +44,7 @@ externalAdReply: {
 showAdAttribution: false,
 renderLargerThumbnail: false,
 title: `🌟 FANTASÍA RPG`,
-body: `😼 Personajes de: » ${conn.getName(userId)}`,
+body: `🥷 Personajes de: » ${conn.getName(userId)}`,
 mediaType: 1,
 sourceUrl: accountsgb,
 thumbnailUrl: 'https://i.imgur.com/vIH5SKp.jpg'
