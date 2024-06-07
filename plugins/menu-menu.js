@@ -553,7 +553,7 @@ ${margen}
 ✓ _${usedPrefix}stickerfilter *efecto : responder a imagen*_
 ✓ _${usedPrefix}cs *:* cs2_
 
-> 😼 *MODIFICAR STICKERS* 😼
+> 🥷 *MODIFICAR STICKERS* 🥷
 
 ✓ _${usedPrefix}wm *packname|author*_
 ✓ _${usedPrefix}wm *texto1|texto2*_
