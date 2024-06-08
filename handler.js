@@ -1,15 +1,13 @@
 import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
-import {smsg} from './lib/simple.js';
-import {format} from 'util';
-import {fileURLToPath} from 'url';
-import path, {join} from 'path';
-import {unwatchFile, watchFile} from 'fs';
-import fs from 'fs';
-import chalk from 'chalk';
-import mddd5 from 'md5';
-import ws from 'ws';
-
-
+import { smsg } from './lib/simple.js'
+import { format } from 'util'
+import { fileURLToPath } from 'url'
+import path, { join } from 'path'
+import { unwatchFile, watchFile } from 'fs'
+import chalk from 'chalk'   
+import fetch from 'node-fetch'
+import './plugins/_content.js'
+ 
 /**
  * @type {import('@adiwajshing/baileys')}  
  */
@@ -40,9 +38,9 @@ if (!m) {
 return;
 }
 if (global.db.data == null) await global.loadDatabase()
-/*------------------------------------------------*/             
+/*------------------------------------------------*/	     
 if (global.chatgpt.data === null) await global.loadChatgptDB()
-/*------------------------------------------------*/        
+/*------------------------------------------------*/	
 try {
 m = smsg(this, m) || m
 if (!m)
@@ -53,10 +51,10 @@ m.money = false
 try {
 // TODO: use loop to insert data instead of this
 let user = global.db.data.users[m.sender]
-/*------------------------------------------------*/                    
+/*------------------------------------------------*/	            
 let chatgptUser = global.chatgpt.data.users[m.sender];
 if (typeof chatgptUser !== "object")
-global.chatgpt.data.users[m.sender] = [];                
+global.chatgpt.data.users[m.sender] = [];		
 /*------------------------------------------------*/
 if (typeof user !== 'object')
 global.db.data.users[m.sender] = {}
@@ -66,18 +64,22 @@ if (!('premium' in user)) user.premium = false
 if (!('muto' in user)) user.muto = false
 if (!isNumber(user.joincount)) user.joincount = 1
 if (!isNumber(user.money)) user.money = 150
-if (!isNumber(user.limit)) user.limit = 15         
-if (!isNumber(user.inycoins)) user.exoticocoins = 5       
-if (!isNumber(user.infinityserver)) user.exoticoserver = 0
-if (!isNumber(user.infinitypaquete)) user.exoticopaquete = 0
+if (!isNumber(user.limit)) user.limit = 15 	       
 if (!('registered' in user)) user.registered = false
 if (!('registroR' in user)) user.registroR = false
 if (!('registroC' in user)) user.registroC = false  
 if (!isNumber(user.IDregister)) user.IDregister = 0 
-
+	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = 0
+if (!('descripcion' in user)) user.descripcion = 0
+if (!('genero' in user)) user.genero = 0
+if (!('identidad' in user)) user.identidad = 0
+if (!('pasatiempo' in user)) user.pasatiempo = 0
+if (!('tiempo' in user)) user.tiempo = 0 
+if (!('miestado' in user)) user.miestado = 0
+if (!('midLanguage' in user)) user.midLanguage = 0
 if (!isNumber(user.premLimit)) user.premLimit = 0
 if (!isNumber(user.anggur)) user.anggur = 0
 if (!isNumber(user.apel)) user.apel = 0
@@ -97,11 +99,11 @@ if (!isNumber(user.regTime)) user.regTime = -1
 if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
 }
-
+	              		    
 if (!isNumber(user.afk)) user.afk = -1
 //if (!('autolevelup' in user))  user.autolevelup = true
 if (!isNumber(user.reporte)) user.reporte = 0
-if (!('role' in user)) user.role = 'Novato'
+if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
 if (!isNumber(user.agility)) user.agility = 0
 if (!isNumber(user.anakanjing)) user.anakanjing = 0
 if (!isNumber(user.mesagge)) user.anakanjing = 0
@@ -372,9 +374,6 @@ if (!isNumber(user.lelebakar)) user.lelebakar = 0
 if (!isNumber(user.leleg)) user.leleg = 0
 if (!isNumber(user.level)) user.level = 0
 if (!isNumber(user.limit)) user.limit = 15
-if (!isNumber(user.inycoins)) user.exoticocoins = 5
-if (!isNumber(user.infinityserver)) user.exoticoserver = 0
-if (!isNumber(user.infimitypaquete)) user.exoticopaquete = 0
 if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 1
 if (!isNumber(user.lion)) user.lion = 0
 if (!isNumber(user.lionexp)) user.lionexp = 0
@@ -406,7 +405,7 @@ if (!isNumber(user.ojekk)) user.ojekk = 0
 if (!isNumber(user.oporayam)) user.oporayam = 0
 if (!isNumber(user.orca)) user.orca = 0
 if (!isNumber(user.pancing)) user.pancing = 0
-if (!isNumber(user.pasangan)) user.pasangan = 0        
+if (!isNumber(user.pasangan)) user.pasangan = 0	
 if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
@@ -524,6 +523,13 @@ afkReason: '',
 reporte: 0,
 name: m.name,
 age: 0,
+genero: 0,
+identidad: 0,
+pasatiempo: 0,
+tiempo: 0,
+miestado: 0,	
+descripcion: 0,
+premLimit: 0,
 agility: 16,
 juegos: 0,
 messageSpam: 0,
@@ -789,9 +795,6 @@ lelebakar: 0,
 leleg: 0,
 level: 0,
 limit: 15,
-inycoins: 5,
-infinityserver: 0,
-infinitypaquete: 0,
 limitjoinfree: 1,
 lion: 0,
 lionexp: 0,
@@ -933,7 +936,7 @@ wolf: 0,
 wolfexp: 0,
 wolflastfeed: 0,
 wood: 0,
-wortel: 0,        
+wortel: 0,	
 }
 let akinator = global.db.data.users[m.sender].akinator
 if (typeof akinator !== 'object')
@@ -959,28 +962,28 @@ question: null,
 progression: null,
 step: null, 
 soal: null
-}                   
+}   		
 let chat = global.db.data.chats[m.chat]
 if (typeof chat !== 'object')
 global.db.data.chats[m.chat] = {}
-
+		
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false         
-if (!('welcome' in chat)) chat.welcome = true 
-if (!('detect' in chat)) chat.detect = true                 
+if (!('welcome' in chat)) chat.welcome = true           
+if (!('detect' in chat)) chat.detect = true               
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
-if (!('delete' in chat)) chat.delete = true                   
-if (!('modohorny' in chat)) chat.modohorny = false       
-if (!('stickers' in chat)) chat.stickers = true            
+if (!('delete' in chat)) chat.delete = false                   
+if (!('modohorny' in chat)) chat.modohorny = true       
+if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
 if (!('audios' in chat)) chat.audios = true               
 if (!('antiver' in chat)) chat.antiver = false 
-if (!('antiPorn' in chat)) chat.antiPorn = false     
-if (!('antiLink' in chat)) chat.antiLink = true     
+if (!('antiPorn' in chat)) chat.antiPorn = true     
+if (!('antiLink' in chat)) chat.antiLink = false     
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
 if (!('antiYoutube' in chat)) chat.antiYoutube = false
@@ -996,9 +999,10 @@ if (!('reaction' in chat)) chat.reaction = true
 if (!('viewonce' in chat)) chat.viewonce = false       
 if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
-if (!('game' in chat)) chat.game = false
+if (!('game' in chat)) chat.game = true
+if (!('game2' in chat)) chat.game2 = true
 if (!('simi' in chat)) chat.simi = false
-if (!('antiTraba' in chat)) chat.antiTraba = false
+if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = false
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
@@ -1012,13 +1016,13 @@ sPromote: '',
 sDemote: '', 
 sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
 delete: true,
-modohorny: false,
-stickers: true,
+modohorny: true,
+stickers: false,
 autosticker: false,
-audios: true,
-antiver: false,
-antiPorn: false,
-antiLink: true,
+audios: false,
+antiver: true,
+antiPorn: true,
+antiLink: false,
 antiLink2: false,
 antiTiktok: false,
 antiYoutube: false,
@@ -1031,12 +1035,13 @@ antiThreads: false,
 antiTwitch: false,
 antifake: false,
 reaction: true,
-viewonce: false,
+viewonce: true,
 modoadmin: false,
 antitoxic: false,
-game: false,  
+game: true, 
+game2: true, 
 simi: false,
-antiTraba: false,
+antiTraba: true,
 autolevelup: false,
 expired: 0,
 }
@@ -1047,9 +1052,10 @@ if (!('self' in settings)) settings.self = false
 if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
+if (!('temporal' in settings)) settings.temporal = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
-if (!('antiSpam' in settings)) settings.antiSpam = false
+if (!('antiSpam' in settings)) settings.antiSpam = true 
 if (!('modoia' in settings)) settings.modoia = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = false  
 } else global.db.data.settings[this.user.jid] = {
@@ -1057,9 +1063,10 @@ self: false,
 autoread: false,
 autoread2: false,
 restrict: false,
+temporal: false,
 antiPrivate: false,
 antiCall: true,
-antiSpam: false,
+antiSpam: true,
 modoia: false, 
 jadibotmd: true,
 }} catch (e) {
@@ -1123,7 +1130,7 @@ console.error(e)
 for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
-m.reply(`🔴 *COMANDO CON FALLAS* 🔴\n\n❒ *Error:*\n\`\`\`${format(e)}\`\`\`\n`.trim(), data.jid)
+m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
 }}}
 if (!opts['restrict'])
 if (plugin.tags && plugin.tags.includes('admin')) {
@@ -1197,94 +1204,81 @@ if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-ex
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
 m.reply(`🚫 *ESTÁ BANEADO(A), NO PUEDE USAR LOS COMANDOS*\n📑 *MOTIVO: ${user.messageSpam === 0 ? 'NO ESPECIFICADO' : user.messageSpam}*\n⚠️ \`\`\`SI ESTE BOT ES CUENTA OFICIAL Y TIENE EVIDENCIA QUE RESPALDE QUE ESTE MENSAJE ES UN ERROR, PUEDE EXPONER SU CASO EN:\`\`\`👉 *${ig}*\n👉 ${asistencia}`)
-user.antispam++        
+user.antispam++	
 return
 }
 
-//Antispam 2                
+//Antispam 2		
 if (user.antispam2 && isROwner) return
 let time = global.db.data.users[m.sender].spam + 3000
 if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`[ SPAM ]`) 
 global.db.data.users[m.sender].spam = new Date * 1
 }
-
+		
 let hl = _prefix 
 let adminMode = global.db.data.chats[m.chat].modoadmin
-let exotico = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
-if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && exotico) return   
+let gata = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
+if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && gata) return   
 if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //número bot owner
 fail('owner', m, this)
 continue
 }
-if (plugin.rowner && !isROwner) { 
+if (plugin.rowner && !isROwner) { //Owner
 fail('rowner', m, this)
 continue
 }
-if (plugin.owner && !isOwner) { 
+if (plugin.owner && !isOwner) { //Propietario/Owner
 fail('owner', m, this)
 continue
 }
-if (plugin.mods && !isMods) { 
+if (plugin.mods && !isMods) { // Moderator
 fail('mods', m, this)
 continue
 }
-if (plugin.premium && !isPrems) { 
+if (plugin.premium && !isPrems) { // Premium
 fail('premium', m, this)
 continue
 }
-if (plugin.group && !m.isGroup) {
+if (plugin.group && !m.isGroup) { //Solo el grupo
 fail('group', m, this)
 continue
-} else if (plugin.botAdmin && !isBotAdmin) { 
+} else if (plugin.botAdmin && !isBotAdmin) { //Detecta si el bot es admins
 fail('botAdmin', m, this)
 continue
-} else if (plugin.admin && !isAdmin) { 
+} else if (plugin.admin && !isAdmin) { //admins
 fail('admin', m, this)
 continue
 }
-if (plugin.private && m.isGroup) {
+if (plugin.private && m.isGroup) { //Solo chat privado
 fail('private', m, this)
 continue
 }
-if (plugin.register == true && _user.registered == false) { 
+if (plugin.register == true && _user.registered == false) { // user registrado? 
 fail('unreg', m, this)
 continue
 }
 
 m.isCommand = true
-let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10
+let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
 if (xp > 2000)
-m.reply('Exp limit') 
+m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-this.sendMessage(m.chat, {text: `❮💰❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗕𝗼𝘁𝗖𝗼𝗶𝗻𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
+//this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
+this.sendMessage(m.chat, {text: `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 continue     
 }
-
+			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `❮💎❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼. 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝗺𝗮𝘀 𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗲𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyall*\n*${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
-continue
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+//this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
+continue //Sin límite
 }
-
-if (!isPrems && plugin.inycoins && global.db.data.users[m.sender].inycoins < plugin.inycoins * 1) {
-this.sendMessage(m.chat, {text: `❮☁️❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗜𝗻𝘆𝗖𝗼𝗶𝗻𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼. 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝗺𝗮𝘀 𝗜𝗻𝘆𝗖𝗼𝗶𝗻𝗱, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗲𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyallcoins*\n*${usedPrefix}buycoins*\n\n• 𝗩𝗶𝘀𝗶𝘁𝗮 𝗹𝗮 𝘁𝗶𝗲𝗻𝗱𝗮 𝗲𝗻: #tiendainfinity`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
-continue
-}
-
-if (!isPrems && plugin.infinityserver && global.db.data.users[m.sender].infinityserver < plugin.infinityserver * 1) {
-this.sendMessage(m.chat, {text: `❮💻❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝗹𝗼 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲 𝗽𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝘂𝗻 𝗦𝗲𝗿𝘃𝗶𝗱𝗼𝗿, 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝘂𝗻 𝗦𝗲𝗿𝘃𝗶𝗱𝗼𝗿, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝙋𝙤𝙧 𝙚𝙟𝙚𝙢𝙥𝙡𝙤:\n\n*${usedPrefix}buyserver*\n\n• 𝗩𝗶𝘀𝗶𝘁𝗮 𝗹𝗮 𝘁𝗶𝗲𝗻𝗱𝗮 𝗲𝗻: #tiendainfinity`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
-continue
-}
-
-if (!isPrems && plugin.infinitypaquete && global.db.data.users[m.sender].infinitypaquete < plugin.infinitypaquete * 1) {
-this.sendMessage(m.chat, {text: `❮📢❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝗻𝗶𝗻𝗴𝘂𝗻 𝗽𝗮𝗾𝘂𝗲𝘁𝗲 𝗽𝗮𝗿𝗮 𝗮𝗯𝗿𝗶𝗿𝗹𝗼, 𝗰𝗼𝗺𝗽𝗿𝗮 𝘂𝗻𝗼 𝘂𝘀𝗮𝗻𝗱𝗼 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗲𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyallpaquetes*\n*${usedPrefix}buypaquete*\n\n• 𝗩𝗶𝘀𝗶𝘁𝗮 𝗹𝗮 𝘁𝗶𝗲𝗻𝗱𝗮 𝗲𝗻: #tiendainfinity`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
-continue
-}
-
 if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `❮📣❯ 𝗥𝗲𝗾𝘂𝗶𝗲𝗿𝗲 𝗲𝗹 𝗻𝗶𝘃𝗲𝗹: *${plugin.level}*\n\n• 𝗧𝘂 𝗻𝗶𝘃𝗲𝗹 𝗮𝗰𝘁𝘂𝗮𝗹 𝗲𝘀: *${_user.level}*\n\n• 𝗨𝘀𝗮 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼 𝗽𝗮𝗿𝗮 𝘀𝘂𝗯𝗶𝗿 𝗱𝗲 𝗻𝗶𝘃𝗲𝗹:\n*${usedPrefix}levelup*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: packname, previewType: 0, thumbnail: katashiImg, sourceUrl: redesKatashi }}}, { quoted: m })         
-continue
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+//this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
+continue // Si no se ha alcanzado el nivel
 }
 let extra = {
 match,
@@ -1321,16 +1315,16 @@ console.error(e)
 if (e) {
 let text = format(e)
 for (let key of Object.values(global.APIKeys))
-text = text.replace(new RegExp(key, 'g'), 'Admin')
+text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')
 if (e.name)
 for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
-m.reply(`🔴 *COMANDO CON FALLAS* 🔴\n\n❒ *Error:*\n\`\`\`${format(e)}\`\`\`\n`.trim(), data.jid)
+m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
 }
 m.reply(text)
 }} finally {
-
+// m.reply(util.format(_user))
 if (typeof plugin.after === 'function') {
 try {
 await plugin.after.call(this, m, extra)
@@ -1338,19 +1332,10 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.limit)
-m.reply('💎 Gastaste ' + m.limit + ' de Diamante(s)')
-
-if (m.inycoins)
-m.reply('☁️  Gastaste ' + m.inycoins + ' de InyCoin(s)')
-
-if (m.infinityserver)
-m.reply('🔑  Comprastes ' + m.infinityserver + ' de Servidor(es)')
-
-if (m.infinitypaquete)
-m.reply('🪐  Abriste ' + m.infinitypaquete + ' Paquete.')
+m.reply(+m.limit + lenguajeGB.smsCont8())
 }
 if (m.money)
-m.reply('💰 Gastaste ' + m.money + ' de BotCoin(s)')  
+m.reply(+m.money + ' 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🥷 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
 break
 }}} catch (e) {
 console.error(e)
@@ -1408,8 +1393,9 @@ console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
 if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
-
-if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|katashi|katashibot|fukushima|na|ho|qu|a|ja|js|mente|pero|tion|age|ous|ate|and|but|ify)/gi)) {
+//if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
+	    
+if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify)/gi)) {
 let emot = pickRandom(["😀", "😃", "😄", "😁", "😆", "🥹", "😅", "😂", "🤣", "🥲", "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🥸", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡", "🤬", "🤯", "😳", "🥵", "🥶", "😶‍🌫️", "😱", "😨", "😰", "😥", "😓", "🤗", "🤔", "🫣", "🤭", "🫢", "🫡", "🤫", "🫠", "🤥", "😶", "🫥", "😐", "🫤", "😑", "🫨", "😬", "🙄", "😯", "😦", "😧", "😮", "😲", "🥱", "😴", "🤤", "😪", "😮‍💨", "😵", "😵‍💫", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", "🤑", "🤠", "😈", "👿", "👺", "🤡", "💩", "👻", "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🫶", "👍", "✌️", "🙏", "🫵", "🤏", "🤌", "☝️", "🖕", "🙏", "🫵", "🫂", "🐱", "🤹‍♀️", "🤹‍♂️", "🗿", "✨", "⚡", "🔥", "🌈", "🩷", "❤️", "🧡", "💛", "💚", "🩵", "💙", "💜", "🖤", "🩶", "🤍", "🤎", "💔", "❤️‍🔥", "❤️‍🩹", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "🏳️‍🌈", "👊", "👀", "💋", "🫰", "💅", "👑", "🐣", "🐤", "🐈"])
 if (!m.fromMe) return this.sendMessage(m.chat, { react: { text: emot, key: m.key }})
 }
@@ -1436,7 +1422,7 @@ case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = global.menuImgs1
+let pp = global.gataImg
 try {
 pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
@@ -1444,9 +1430,9 @@ pp = await this.profilePictureUrl(user, 'image')
 let apii = await this.getFile(pp)                                      
 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
 const isBotAdminNn = botTt2?.admin === "admin" || false
-text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗\n\n⚠️ 𝗘𝘀𝘁𝗲 𝗚𝗿𝘂𝗽𝗼 𝗡𝗼 𝗧𝗶𝗲𝗻𝗲 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝗰𝗶𝗼𝗻. ⚠️') :
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 🥷') :
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-
+			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
 const prefijosPredeterminados = [1, 2, 4, 6, 7, 8, 9] // Puedes editar que usuarios deseas que se eliminen si empieza por algunos de los números
 const rutaArchivo = './prefijos.json'
@@ -1469,7 +1455,7 @@ await conn.sendMessage(id, { text: texto, mentions: [user] })
 let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
 if (responseb[0].status === "404") return      
 }}
-
+	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 this.sendMessage(id, { text: text, 
 contextInfo:{
@@ -1480,14 +1466,14 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": `${wm}`,
+"title": [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
-sourceUrl: redesKatashi }}}, { quoted: fkontak2 })
+sourceUrl: accountsgb }}}, { quoted: fkontak2 })
 apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
-
+			    
 break
 case 'promote':
 case 'daradmin':
@@ -1530,7 +1516,7 @@ if (!isAnticall) return
 for (let nk of callUpdate) { 
 if (nk.isGroup == false) {
 if (nk.status == "offer") {
-let callmsg = await this.reply(nk.from, `👊😄 𝗛𝗼𝗹𝗮 *@${nk.from.split('@')[0]}*, 𝗹𝗮𝘀 ${nk.isVideo ? '𝗟𝗹𝗮𝗺𝗮𝗱𝗮𝘀' : '𝗩𝗶𝗱𝗲𝗼 𝗹𝗹𝗮𝗺𝗮𝗱𝗮𝘀'} 𝗻𝗼 𝗲𝘀𝘁𝗮𝗻 𝗽𝗲𝗿𝗺𝗶𝘁𝗶𝗱𝗮𝘀 𝗲𝗻 𝗲𝘀𝘁𝗲 𝗯𝗼𝘁.\n\n• 𝗘𝗻 𝗰𝗮𝘀𝗼 𝗱𝗲 𝘂𝗻 𝗲𝗿𝗿𝗼𝗿, 𝗰𝗼𝗻𝘁𝗮𝗰𝘁𝗮 𝗰𝗼𝗻 𝗲𝗹 𝗼𝘄𝗻𝗲𝗿:\n• ${creador}`, false, { mentions: [nk.from] })
+let callmsg = await this.reply(nk.from, `${lenguajeGB['smsCont15']()} *@${nk.from.split('@')[0]}*, ${nk.isVideo ? lenguajeGB.smsCont16() : lenguajeGB.smsCont17()} ${lenguajeGB['smsCont18']()}`, false, { mentions: [nk.from] })
 //let data = global.owner.filter(([id, isCreator]) => id && isCreator)
 //await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
 await this.updateBlockStatus(nk.from, 'block')
@@ -1545,12 +1531,10 @@ let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
 if (!msg?.isGroup) return 
-const antideleteMessage = `❌️ *ANTIDELETE* ❌️
-❒ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢:
-• @${participant.split`@`[0]}
-
-❒ 𝗔𝗰𝗮𝗯𝗮 𝗱𝗲 𝗲𝗹𝗶𝗺𝗶𝗻𝗮𝗿 𝘂𝗻 𝗺𝗲𝗻𝘀𝗮𝗷𝗲 𝗿𝗲𝗲𝗻𝘃𝗶𝗮𝗻𝗱𝗼... ⏱️
-❌️ *ANTIDELETE* ❌️`.trim();
+const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
+${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
+${lenguajeGB['smsCont21']()}
+*╰━━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━╯*`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
@@ -1558,7 +1542,7 @@ console.error(e)
 }}
 
 global.dfail = (type, m, conn) => {
-  let msg = {
+let msg = {
 rowner: lenguajeGB['smsRowner'](),
 owner: lenguajeGB['smsOwner'](),
 mods: lenguajeGB['smsMods'](),
@@ -1570,9 +1554,9 @@ botAdmin: lenguajeGB['smsBotAdmin'](),
 unreg: lenguajeGB['smsUnreg'](),
 restrict: lenguajeGB['smsRestrict'](),
 }[type]
-
+	
 //if (msg) return m.reply(msg)
-
+	
 let tg = { quoted: m, userJid: conn.user.jid }
 let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
@@ -1583,7 +1567,7 @@ watchFile(file, async () => {
 unwatchFile(file)
 console.log(chalk.redBright('Update \'handler.js\''));
 //if (global.reloadHandler) console.log(await global.reloadHandler());
-
+  
 if (global.conns && global.conns.length > 0 ) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 for (const userr of users) {
