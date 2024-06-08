@@ -24,8 +24,8 @@ conn.sendPresenceUpdate('composing' , m.chat);
 await conn.sendMessage(m.chat, { text: txt.trim(), mentions: conn.parseMention(txt) }, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100} )
 
 }
-handler.help = ['sorteo']
-handler.command = ['sorteo']
+handler.help = ['donarsala']
+handler.command = ['donarsala']
 handler.tags = ['juegos']
 handler.group = true
 
