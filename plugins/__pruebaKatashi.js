@@ -1,23 +1,35 @@
-let handler = async (m, { conn, command, usedPrefix }) => {
-let ff = `https://telegra.ph/file/0ea56fa1fba7bdbb619ae.jpg`
-let donarstxt = `
-Ingrese texto que irá con el comando *.donarsala*
-`
-await conn.sendFile(m.chat, 'https://telegra.ph/file/0ea56fa1fba7bdbb619ae.jpg', 'fantasy.jpg', donarstxt.trim(), fkontak, true, {
-contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
-externalAdReply: {
-showAdAttribution: true,
-renderLargerThumbnail: false,
-title: `Free Fire`,
-body: `Donar Sala`,
-mediaType: 1,
-sourceUrl: 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37',
-thumbnailUrl: 'https://telegra.ph/file/0ea56fa1fba7bdbb619ae.jpg'
-}}
-}, { mentions: m.sender })
+import util from 'util'
+import path from 'path'
+
+async function handler(m, { groupMetadata, command, conn, text, usedPrefix}) {
+
+let user = a => '@' + a.split('@')[0]
+if (!text) throw `*Ejemplo:*\n${usedPrefix + command} texto`
+let ps = groupMetadata.participants.map(v => v.id)
+let a = ps.getRandom()
+let k = Math.floor(Math.random() * 70)
+let vn = `https://hansxd.nasihosting.com/sound/sound${k}.mp3`
+let top = `*\`[ 🥳 ＦＥＬＩＣＩＤＡＤＥＳ 🥳]\`*\n\n${user(a)} 🥳\nLe tocó donar sala , bájate con todo los que tengas , felicitaciones 🎉`
+let txt = ''
+let count = 0
+for (const c of top) {
+await new Promise(resolve => setTimeout(resolve, 15))
+txt += c
+count++
+
+if (count % 10 === 0) {
+conn.sendPresenceUpdate('composing' , m.chat);
+}
+}
+await conn.sendMessage(m.chat, { text: txt.trim(), mentions: conn.parseMention(txt) }, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100} )
 
 }
-handler.command = /^(pruebakatas|donarsala)$/i
+handler.help = ['sorteo']
+handler.command = ['sorteo']
+handler.tags = ['juegos']
+handler.group = true
+
 export default handler
+
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]}
