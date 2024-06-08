@@ -13,7 +13,7 @@ renderLargerThumbnail: false,
 title: `Free Fire`,
 body: `Donar Sala`,
 mediaType: 1,
-sourceUrl: accountsgb,
+sourceUrl: 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37',
 thumbnailUrl: 'https://telegra.ph/file/0ea56fa1fba7bdbb619ae.jpg'
 }}
 }, { mentions: m.sender })
