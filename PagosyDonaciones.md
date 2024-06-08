@@ -4,7 +4,7 @@
  
 | USUARIO          |   INICIO                | FIN    | ESTADO
 | ------------     | ------------            | ------------| ------------
-| [**Desconocido**](+51 977 382 134)        | `14 Abril` | `18 Mayo` | ❌
+| [**Desconocido**](+51977382134)        | `14 Abril` | `18 Mayo` | ❌
 | [**ANIIIIII**](+56)        | `1 Mayo` | `1 Enero` | ✅
 | [**Tenshi_senpai**](+50255295754)        | `3 Junio` | `20 Julio` | ✅
 | ⚪        | ⚪               |  ⚪ | ⚪
