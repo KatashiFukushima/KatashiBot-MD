@@ -9,7 +9,7 @@ let ps = groupMetadata.participants.map(v => v.id)
 let a = ps.getRandom()
 let k = Math.floor(Math.random() * 70)
 let vn = `https://hansxd.nasihosting.com/sound/sound${k}.mp3`
-let top = `*\`[ 🥳 ＦＥＬＩＣＩＤＡＤＥＳ 🥳]\`*\n\n${user(a)} 🥳\nLe tocó donar sala , bájate con todo los que tengas , felicitaciones 🎉`
+let top = `[ 🥳 ＦＥＬＩＣＩＤＡＤＥＳ 🥳]*\n\n${user(a)} 🥳\nLe tocó donar sala , bájate con todo los que tengas , felicitaciones 🎉`
 let txt = ''
 let count = 0
 for (const c of top) {
