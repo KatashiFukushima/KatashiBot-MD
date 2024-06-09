@@ -14,7 +14,7 @@ const isBotAdmin = bot?.admin || false;
 const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid);
 const participantStatus = isParticipant ? '✅ *ESTOY AQUÍ | YES*' : '❌ *NO ESTA AQUÍ | NO*';
 const totalParticipants = participants.length;
-txt += `╭═══〘卐 _Katashi bot MD_ 卐〙═══⊷❍
+txt += `╭═══〘 _𝙨𝙥𝙞𝙙𝙚𝙧 𝙗𝙤𝙩 MD_ 〙═══⊷❍
 🥷 *${i + 1}*
 ${lenguajeGB.smsLisC()} ${await conn.getName(jid)} ${participantStatus}
 ${lenguajeGB.smsLisD()} ${jid}
