@@ -55,7 +55,7 @@ let old = performance.now()
 
 let info = `╭═══〘卐 ${gt} 卐〙═══⊷❍
 ┃☭│〘 *CREADOR | CREATOR* 〙
-┃ღ *𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂*
+┃ღ *𝙍𝙞𝙘𝙖𝙧𝙙𝙤 𝘼𝘿𝙈*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃☭│〘 *CONTACTO | CONTACT* 〙
 ┃ღ *${ig}*
@@ -84,8 +84,6 @@ let info = `╭═══〘卐 ${gt} 卐〙═══⊷❍
 ┃☭│〘 *VELOCIDAD | SPEED* 〙
 ┃ღ  *${speed}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃☭│〘 *BOT SECUNDARIOS ACTIVOS | ACTIVE SECONDARY BACKS* 〙
-┃ღ *${totaljadibot.length}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃☭│〘 *AUTOREAD* 〙
 ┃ღ ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}
