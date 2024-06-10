@@ -39,8 +39,8 @@ contextInfo: {
 externalAdReply: {
 title: '✅ REGISTRADO ✅️',
 body: wm, 
-thumbnaiUrl: img, 
-sourceUrl: channel,
+thumbnaiUrl: global.gataImg, 
+sourceUrl: global.canales,
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true,
@@ -80,7 +80,7 @@ m.react('📩')
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 • ✨️ *Edad:* ${age} Años
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-Usuarios Registrados: ${rtotalreg}`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: '✅️  R E G I S T R O  ✅️',  body: '👑 Registro Completado', previewType: 0, thumbnail: img, sourceUrl: channel}}})
+Usuarios Registrados: ${rtotalreg}`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: '✅️  R E G I S T R O  ✅️',  body: '👑 Registro Completado', previewType: 0, thumbnail: global.gataImg, sourceUrl: global.canales}}})
 await m.reply(`${sn}`)}
 handler.help = ['reg']
 handler.tags = ['rg']
