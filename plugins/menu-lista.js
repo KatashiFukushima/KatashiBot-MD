@@ -160,7 +160,7 @@ name: "single_select",
 buttonParamsJson
 }]
 }}
-const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage, adReply }
+const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage, contextInfo: { forwardingScore: fsizedoc, externalAdReply: { showAdAttribution: true, title: wm, body: '👋 ' + username, mediaUrl: ig, description: 'Hola', previewType: 'PHOTO', thumbnail: imagen4 }} }
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
       
 } else { 
