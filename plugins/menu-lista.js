@@ -165,7 +165,7 @@ const vi = ['https://qu.ax/cEtC.mp4',
 'https://qu.ax/cEtC.mp4',
 'https://qu.ax/cEtC.mp4']
 const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
-await conn.sendFile(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true }, katashi, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}})
+await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true }, katashi, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}})
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
       
 } else { 
