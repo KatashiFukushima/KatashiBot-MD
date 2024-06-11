@@ -1,5 +1,5 @@
-// creditos gatabot @gata_nina
-
+// COMBINACIÓN DE MENSAJES
+// Adaptar el simple.js
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 // MENSAJE CARUSEL CON TODOS LOS BOTONES DISPONIBLES
@@ -45,7 +45,7 @@ const messages = [[ // CARRUSEL 1
 [['Enlace1', 'https://example.com/link1'], ['Enlace2', 'https://example.com/link2']],
 [['Botón Lista 1', sections], ['Botón Lista 2', sections]]
 ]] /* etc... */
-await conn.sendMessage(m.chat, 'Texto', 'Footer', 'Titulo de Carrusel', messages, m)            
+await conn.sendCarousel(m.chat, 'Texto', 'Footer', 'Titulo de Carrusel', messages, m)            
 
 }
 handler.command = /^(carousel)$/i
