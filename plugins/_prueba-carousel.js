@@ -1,10 +1,10 @@
-// COMBINACIÓN DE MENSAJES
+/*COMBINACIÓN DE MENSAJES
 // Adaptar el simple.js
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 // MENSAJE CARUSEL CON TODOS LOS BOTONES DISPONIBLES
 // Si las ids no te funciona con usedPrefix, tendrás que definirlas, ejemplo /menu
-/*const sections = [{
+const sections = [{
 title: `Título de la sección`,
 rows: [
 { header: 'Encabezado1', title: "Título1", description: 'Descripción1', id: usedPrefix + "menu" }, 
