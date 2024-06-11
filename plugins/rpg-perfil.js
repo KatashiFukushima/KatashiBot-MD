@@ -19,7 +19,7 @@ let prem = global.prems.includes(who.split`@`[0])
 let sn = createHash('md5').update(who).digest('hex')
 let str =
 `╔══ ⌠𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂⌡
-║ ⍟ 𝑁𝑂𝑀𝐵𝑅𝐸 ${conn.getName(m.sender)} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
+║ ⍟ 𝑁𝑂𝑀𝐵𝑅𝐸 ${conn.getName(m.sender)} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴷᴮ' : ''}
 ╠═════════════════
 ║ 𝑁𝑈𝑀𝐸𝑅𝑂 ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 ╠═════════════════
