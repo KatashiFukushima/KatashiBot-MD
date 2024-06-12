@@ -1,6 +1,6 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let pp = 'https://telegra.ph/file/d727fd3d71f0937434021.jpg'
-let colabs = `🏆 *EQUIPO DE AYUDANTES*
+let colabstxt = `🏆 *EQUIPO DE AYUDANTES*
 🥷 *Bot:* ${gt}
 ☁️ *Versión:* ${vs}
 
@@ -42,7 +42,7 @@ let colabs = `🏆 *EQUIPO DE AYUDANTES*
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/595983799436
 🏆 *GitHub:* https://github.com/DanixlJs`
-await conn.sendFile(m.chat, pp, 'colabs.jpg', colabs.trim(),
+await conn.sendFile(m.chat, pp, 'colabs.jpg', colabstxt.trim(),
  fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
