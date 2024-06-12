@@ -1,4 +1,4 @@
-/*import fs from 'fs'
+import fs from 'fs'
 import translate from '@vitalets/google-translate-api'
 import moment from 'moment-timezone'
 import ct from 'countries-and-timezones'
@@ -773,4 +773,4 @@ const commandsAI = [
 { comando: 'gemini', descripcion: '[texto] || [text]', contexto: 'IA, Tecnología de Google', showPrefix: true },
 { comando: 'geminimg', descripcion: '(imagen) + [texto] || (image) + [text]', contexto: 'Busca información de una imagen', showPrefix: true },
 { comando: 'hd', descripcion: '(responde con una imagen) || (responds with an image)', contexto: 'Mejorar calidad de imagen', showPrefix: true },
-]*/
+]
