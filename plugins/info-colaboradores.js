@@ -8,7 +8,7 @@ let colabs = `🏆 *EQUIPO DE AYUDANTES*
 
 • Diego-YL-177
 ☘️ *Rol:* Propietario
-✨️ *Número:* ${creador}
+✨️ *Número:* ${asistencia}
 🏆 *GitHub:* https://github.com/Diego-YL-177
 
 💫 *Colaboradores:*
