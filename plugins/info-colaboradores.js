@@ -61,5 +61,5 @@ thumbnailUrl: img
 }, { mentions: m.sender })
 
 }
-handler.command = /^(colabs|colab|staff|colaboradores|developers|colaborador)$/i
+handler.command = /^(staff|colaboradores)$/i
 export default handler
