@@ -1,14 +1,14 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let pp = `https://telegra.ph/file/d727fd3d71f0937434021.jpg`
 let colabs = `🏆 *EQUIPO DE AYUDANTES*
-🥷 *Bot:* ${global.botname}
-☁️ *Versión:* ${global.vs}
+🥷 *Bot:* ${gt}
+☁️ *Versión:* ${vs}
 
 👑 *Propietario:*
 
 • Diego-YL-177
 ☘️ *Rol:* Propietario
-✨️ *Número:* ${asistencia}
+✨️ *Número:* +51 948 705 559
 🏆 *GitHub:* https://github.com/Diego-YL-177
 
 💫 *Colaboradores:*
@@ -53,7 +53,7 @@ renderLargerThumbnail: false,
 title: `🥷 Developer 👑`,
 body: `💭 Staff Oficial`,
 mediaType: 1,
-sourceUrl: grupo1,
+sourceUrl: `https://www.instagram.com/katashi_fukushima`,
 thumbnailUrl: imagen2
 //Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
