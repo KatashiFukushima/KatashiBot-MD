@@ -2,13 +2,13 @@ let handler = async (m, { conn, command, usedPrefix }) => {
 let ff = `https://qu.ax/ZnYx.jpeg`
 let vs12txt = `💫 *EQUIPO STAFF*
 🥷 *Bot:* ${global.botname}
-☁️ *Versión:* ${global.vs}
+☁️ *Versión:* ${vs}
 
 👑 *Propietario:*
 
 • Diego-YL-177
 ☘️ *Rol:* Propietario
-✨️ *Número:* ${creador}
+✨️ *Número:* ${nomorown}
 🏆 *GitHub:* https://github.com/Diego-YL-177
 
 💫 *Colaboradores:*
