@@ -1,7 +1,7 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let ff = `https://qu.ax/ZnYx.jpeg`
 let vs12txt = `💫 *EQUIPO STAFF*
-🥷 *Bot:* ${global.botname}
+🥷 *Bot:* ${gt}
 ☁️ *Versión:* ${vs}
 
 👑 *Propietario:*
@@ -42,7 +42,7 @@ let vs12txt = `💫 *EQUIPO STAFF*
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/595983799436
 🏆 *GitHub:* https://github.com/DanixlJs ` //Aquí arriba cambiar el texto sin borrar las comillas
-await conn.sendFile(m.chat, 'https://qu.ax/ZnYx.jpeg', 'fantasy.jpg', vs12txt.trim(),
+await conn.sendFile(m.chat, 'https://telegra.ph/file/d727fd3d71f0937434021.jpg', 'cb.jpg', vs12txt.trim(),
 //En esta imagen vas a poner el url de la imagen grande
  fkontak, true, {
 contextInfo: {
@@ -51,15 +51,15 @@ contextInfo: {
 externalAdReply: {
 showAdAttribution: true,
 renderLargerThumbnail: false,
-title: `Free Fire`,
-body: `vs`,
+title: `🥷 Developer 👑`,
+body: `💭 Staff Oficial`,
 mediaType: 1,
-sourceUrl: 'https://www.instagram.com/ricardoookadm_',
-thumbnailUrl: 'https://qu.ax/ZnYx.jpeg'
+sourceUrl: ig,
+thumbnailUrl: img
 //Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
 }, { mentions: m.sender })
 
 }
-handler.command = /^(12vs12|vs12)$/i
+handler.command = /^(colabs|colab|staff|colaboradores|developers|colaborador)$/i
 export default handler
