@@ -6,12 +6,17 @@ let vs12txt = `💫 *EQUIPO STAFF*
 
 👑 *Propietario:*
 
-• Diego-YL-177
+• KatashiFukushima
 ☘️ *Rol:* Propietario
 ✨️ *Número:* ${nomorown}
-🏆 *GitHub:* https://github.com/Diego-YL-177
+🏆 *GitHub:* https://github.com/KatashiFukushima
 
 💫 *Colaboradores:*
+
+• Diego-YL-177
+☘️ *Rol:* Developer
+✨️ *Número:* Wa.me/573218138672
+🏆 *GitHub:* https://github.com/Diego-YL-177
 
 • GataNina-Li
 ☘️ *Rol:* Developer
@@ -23,11 +28,6 @@ let vs12txt = `💫 *EQUIPO STAFF*
 ✨️ *Número:* Wa.me/573147616444
 🏆 *GitHub:* https://github.com/elrebelde21
 
-• KatashiFukushima
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/51948705559
-🏆 *GitHub:* https://github.com/KatashiFukushima
-
 • AzamiJs
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/5214434703586
@@ -36,12 +36,7 @@ let vs12txt = `💫 *EQUIPO STAFF*
 • Alba070503
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/59169082575
-🏆 *GitHub:* https://github.com/Alba070503
-
-• Danixl.Js
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/595983799436
-🏆 *GitHub:* https://github.com/DanixlJs` //Aquí arriba cambiar el texto sin borrar las comillas
+🏆 *GitHub:* https://github.com/Alba070503` //Aquí arriba cambiar el texto sin borrar las comillas
 await conn.sendFile(m.chat, 'https://telegra.ph/file/d727fd3d71f0937434021.jpg', 'cb.jpg', vs12txt.trim(),
 //En esta imagen vas a poner el url de la imagen grande
  fkontak, true, {
