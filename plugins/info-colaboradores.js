@@ -41,7 +41,7 @@ let vs12txt = `💫 *EQUIPO STAFF*
 • Danixl.Js
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/595983799436
-🏆 *GitHub:* https://github.com/DanixlJs ` //Aquí arriba cambiar el texto sin borrar las comillas
+🏆 *GitHub:* https://github.com/DanixlJs` //Aquí arriba cambiar el texto sin borrar las comillas
 await conn.sendFile(m.chat, 'https://telegra.ph/file/d727fd3d71f0937434021.jpg', 'cb.jpg', vs12txt.trim(),
 //En esta imagen vas a poner el url de la imagen grande
  fkontak, true, {
@@ -54,8 +54,8 @@ renderLargerThumbnail: false,
 title: `🥷 Developer 👑`,
 body: `💭 Staff Oficial`,
 mediaType: 1,
-sourceUrl: ig,
-thumbnailUrl: img
+sourceUrl: 'https://www.facebook.com/',
+thumbnailUrl: 'https://telegra.ph/file/d727fd3d71f0937434021.jpg'
 //Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
 }, { mentions: m.sender })
