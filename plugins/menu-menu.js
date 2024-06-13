@@ -170,7 +170,7 @@ ${margen}
 ┃
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsTotalUsers']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.keys(global.db.data.users).length}\`\`\`
-╞══════════════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ Registrados ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${rtotalreg}/${totalreg}\`\`\`    
 ╞══════════════════════
