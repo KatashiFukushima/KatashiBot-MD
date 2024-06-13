@@ -4,42 +4,35 @@ let stafftxt = `💫 *EQUIPO STAFF*
 🥷 *Bot:* ${gt}
 ☁️ *Versión:* ${vs}
 
-👑 *Propietario:*
+👑 『 *Propietario:* 』 👑
 
-• KatashiFukushima
-☘️ *Rol:* Propietario
-✨️ *Número:* ${nomorown}
-🏆 *GitHub:* https://github.com/KatashiFukushima
+• *KatashiFukushima*
+🔰 *Rol:* Propietario
+📲 *Número:* ${nomorown}
+🧲 *GitHub:* https://github.com/KatashiFukushima
 
 💫 *Colaboradores:*
 
 • Diego-YL-177
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/573218138672
-🏆 *GitHub:* https://github.com/Diego-YL-177
+🔰 *Rol:* Developer
+📲 *Número:* Wa.me/573218138672
+🧲 *GitHub:* https://github.com/Diego-YL-177
 
-• GataNina-Li
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/593968263524
-🏆 *GitHub:* https://github.com/GataNina-Li
+• SoIz1
+🔰 *Rol:* Developer
+📲 *Número:* Wa.me/5217442363122
+🧲 *GitHub:* https://github.com/SoIz1
 
-• elrebelde21
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/573147616444
-🏆 *GitHub:* https://github.com/elrebelde21
-
-• AzamiJs
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/5214434703586
-🏆 *GitHub:* https://github.com/AzamiJs
+• WilsonOFC
+🔰 *Rol:* Developer
+📲 *Número:* Wa.me/5492964650915
+🧲 *GitHub:* https://github.com/WilsonOFC
 
 • Alba070503
-☘️ *Rol:* Developer
-✨️ *Número:* Wa.me/59169082575
-🏆 *GitHub:* https://github.com/Alba070503` //Aquí arriba cambiar el texto sin borrar las comillas
-await conn.sendFile(m.chat, pp, 'cb.jpg', stafftxt.trim(),
-//En esta imagen vas a poner el url de la imagen grande
- fkontak, true, {
+🔰 *Rol:* Developer
+📲 *Número:* Wa.me/59169082575
+🧲 *GitHub:* https://github.com/Alba070503`
+await conn.sendFile(m.chat, pp, 'cb.jpg', stafftxt.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
@@ -51,7 +44,6 @@ body: `💭 Staff Oficial`,
 mediaType: 1,
 sourceUrl: accountsgb,
 thumbnailUrl: 'https://telegra.ph/file/ec5b3f141f1318dea620e.jpg'
-//Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
 }, { mentions: m.sender })
 
