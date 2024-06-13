@@ -31,7 +31,10 @@ let stafftxt = `💫 *EQUIPO STAFF*
 • Alba070503
 🔰 *Rol:* Developer
 📲 *Número:* Wa.me/59169082575
-🧲 *GitHub:* https://github.com/Alba070503`
+🧲 *GitHub:* https://github.com/Alba070503
+
+_*Todos nosotros somos parte de KatashiBot.*_ 
+> Agradecemos el uso que le das al bot y puedes comunicarte con cualquiera de nosotros si necesitas ayuda o soporte sobre el bot o el servidor que usamos para hacer posible la activad de nuestro Bot.`
 await conn.sendFile(m.chat, pp, 'cb.jpg', stafftxt.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
