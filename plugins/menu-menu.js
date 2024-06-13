@@ -167,7 +167,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 『  𝐌𝐄𝐍𝐔 𝐈𝐍𝐈𝐂𝐈𝐎  』
 ▼▼▼▼▼▼▼▼▼▼
 
-╭═〘卐 _INFO KATASHI BOT_ 卐〙═⊷❍
+╭〘卐 _INFO KATASHI BOT_ 卐〙⊷❍
 ┃
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsTotalUsers']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.keys(global.db.data.users).length}\`\`\`
