@@ -192,7 +192,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 
 ┃☭╞════════════
 
-╭════〘卐 _INFO DEL USER_ 卐〙════⊷❍
+╭〘卐 _INFO DEL USER_ 卐〙═⊷❍
 ┃
 ┃☭│ *❰❰ Tipo de registro ❱❱*
 ┃☭│ ➺ ${user.registered === true ? `_${user.registroC === true ? '🗂️ Registro Completo' : '📑 Registro Rápido'}_` : '❌ _Sin registro_'}
