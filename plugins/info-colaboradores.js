@@ -1,5 +1,5 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
-let ff = `https://qu.ax/ZnYx.jpeg`
+let ff = `https://telegra.ph/file/553daf0dbd34612a197bc.jpg`
 let vs12txt = `💫 *EQUIPO STAFF*
 🥷 *Bot:* ${gt}
 ☁️ *Versión:* ${vs}
@@ -49,7 +49,7 @@ renderLargerThumbnail: false,
 title: `🥷 Developer 👑`,
 body: `💭 Staff Oficial`,
 mediaType: 1,
-sourceUrl: 'https://www.facebook.com/',
+sourceUrl: accountsgb,
 thumbnailUrl: 'https://telegra.ph/file/d727fd3d71f0937434021.jpg'
 //Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
