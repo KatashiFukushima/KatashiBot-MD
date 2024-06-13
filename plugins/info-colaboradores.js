@@ -1,6 +1,6 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
-let ff = `https://telegra.ph/file/553daf0dbd34612a197bc.jpg`
-let vs12txt = `💫 *EQUIPO STAFF*
+let pp = `https://telegra.ph/file/f5580f6fcacfe726d7cd4.jpg`
+let stafftxt = `💫 *EQUIPO STAFF*
 🥷 *Bot:* ${gt}
 ☁️ *Versión:* ${vs}
 
@@ -37,7 +37,7 @@ let vs12txt = `💫 *EQUIPO STAFF*
 ☘️ *Rol:* Developer
 ✨️ *Número:* Wa.me/59169082575
 🏆 *GitHub:* https://github.com/Alba070503` //Aquí arriba cambiar el texto sin borrar las comillas
-await conn.sendFile(m.chat, ff, 'cb.jpg', vs12txt.trim(),
+await conn.sendFile(m.chat, pp, 'cb.jpg', stafftxt.trim(),
 //En esta imagen vas a poner el url de la imagen grande
  fkontak, true, {
 contextInfo: {
@@ -50,7 +50,7 @@ title: `🥷 Developer 👑`,
 body: `💭 Staff Oficial`,
 mediaType: 1,
 sourceUrl: accountsgb,
-thumbnailUrl: 'https://telegra.ph/file/d727fd3d71f0937434021.jpg'
+thumbnailUrl: 'https://telegra.ph/file/ec5b3f141f1318dea620e.jpg'
 //Aquí arriba vas a poner el url de la imagen que irá junto a tu link de tu red social.
 }}
 }, { mentions: m.sender })
