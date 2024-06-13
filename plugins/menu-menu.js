@@ -171,99 +171,99 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsTotalUsers']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.keys(global.db.data.users).length}\`\`\`
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ Registrados ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${rtotalreg}/${totalreg}\`\`\`    
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsUptime']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${uptime}\`\`\`
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsVersion']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${vs}\`\`\`
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsMode']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}\`
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsBanChats']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}\`\`\`
-╞══════════════
+╞════════════
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsBanUsers']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.entries(global.db.data.users).filter(user => user[1].banned).length}\`\`\`
 
-╞════════════════
+╞════════════
 
 ╭════〘卐 _INFO DEL USER_ 卐〙════⊷❍
 ┃
 ┃☭│ *❰❰ Tipo de registro ❱❱*
 ┃☭│ ➺ ${user.registered === true ? `_${user.registroC === true ? '🗂️ Registro Completo' : '📑 Registro Rápido'}_` : '❌ _Sin registro_'}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ Mi estado ❱❱*
 ┃☭│ ➺ ${typeof user.miestado !== 'string' ? '❌ *Establecer usando:* _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ Registrado ❱❱*
 ┃☭│ ➺ ${user.registered === true ? '✅ Verificado' : '❌ *Establecer registro usando:* _' + usedPrefix + 'verificar_'}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ ${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} ❱❱* 
 ┃☭│ ➺ ${user.premiumTime > 0 ? '✅ Eres usuario Premium' : '❌ *Establecer Premium:* _' + usedPrefix + 'pase premium_'}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ ${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} ❱❱* 
 ┃☭│ ➺ ${role}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ ${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} ❱❱*
 ┃☭│ ➺ ${emoji} \`${user.exp - min}/${xp}\`
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ ${lenguajeGB['smsPareja']()} ❱❱*
 ┃☭│ ➺ ${pareja ? `${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ *❰❰ Pasatiempo(s) ❱❱* 
 ┃☭│ ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > 💫 *INFORMACIÓN* 💫\n
 ┃☭│ ${generateCommand(commandsInfo, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > 💻 *COMANDOS - SUB BOT*\n
 ┃☭│ ${generateCommand(commandsJadiBot, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
+┃☭╞═══════════
 ┃☭│
 ┃☭│ > 🆘 *REPORTAR COMANDOS* 🆘\n
 ┃☭│ ${generateCommand(commandsReport, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
-┃☭╞══════════════
+┃☭╞════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > 🎟️ *SER PREMIUM* 🎟️\n
 ┃☭│ ${generateCommand(commandsPrem, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > 🎡 *JUEGOS* 🎡\n
 ┃☭│ ${generateCommand(commandsGames, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > ✨ *IA* ✨\n
 ┃☭│ ${generateCommand(commandsAI, usedPrefix)}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > ⚙️ *AJUSTES* ⚙️
 ┃☭│ ${m.isGroup ? `_✅ ➤ Activado_
 ┃☭│ _❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}\n
 ┃☭│ ${generateCommand(commandsConfig, usedPrefix).replace(/≡/g, '𖡡')}
 ┃☭│
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│
 ┃☭│ > 🧾 *AJUSTES/INFO - GRUPO* 🧾
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}configuracion_
 ┃☭│ ➤ _${usedPrefix}settings_
 ┃☭│ ➤ _${usedPrefix}vergrupo_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🪄 *DESCARGAS* 🪄
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}imagen | image *texto*_
@@ -294,7 +294,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}fraseromantica_
 ┃☭│ ➤ _${usedPrefix}historia_
 ┃☭│ ➤ _${usedPrefix}drive | dldrive *link*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 👤 *CHAT ANONIMO* 👤
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}chatanonimo | anonimochat_
@@ -302,7 +302,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}start_
 ┃☭│ ➤ _${usedPrefix}next_
 ┃☭│ ➤ _${usedPrefix}leave_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🌐 *COMANDOS PARA GRUPOS* 🌐
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}add *numero*_
@@ -338,7 +338,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}nuevoenlace | resetlink_
 ┃☭│ ➤ _${usedPrefix}on_
 ┃☭│ ➤ _${usedPrefix}off_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 💞 *PAREJAS* 💞
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}listaparejas | listship_
@@ -347,7 +347,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}aceptar | accept *@tag*_
 ┃☭│ ➤ _${usedPrefix}rechazar | decline *@tag*_
 ┃☭│ ➤ _${usedPrefix}terminar | finish *@tag*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 📦 *VOTACIONES EN GRUPOS* 📦
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}crearvoto | startvoto *texto*_
@@ -355,11 +355,11 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}novotar | devote_
 ┃☭│ ➤ _${usedPrefix}vervotos | cekvoto_
 ┃☭│ ➤ _${usedPrefix}delvoto | deletevoto_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🔞 *CONTENIDO* 🔞
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}hornymenu_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🔁 *CONVERTIDORES* 🔁
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}toimg | img | jpg *sticker*_
@@ -370,12 +370,12 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}tourl *video, imagen*_
 ┃☭│ ➤ _${usedPrefix}toenlace  *video, imagen o audio*_
 ┃☭│ ➤ _${usedPrefix}tts es *texto*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🔆 *LOGOS* 🔆
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}logos *efecto texto*_
 ┃☭│ ➤ _${usedPrefix}menulogos2_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 💥 *EFECTOS* 💥
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}simpcard *@tag*_
@@ -385,7 +385,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}itssostupid_
 ┃☭│ ➤ _${usedPrefix}pixelar_
 ┃☭│ ➤ _${usedPrefix}blur_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🍭 *RANDOM/ANIME* 🍭
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}chica_
@@ -438,7 +438,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}sasuke_
 ┃☭│ ➤ _${usedPrefix}sakura_
 ┃☭│ ➤ _${usedPrefix}cosplay_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🎙️ *EFECTO DE AUDIO* 🎙️
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}bass_
@@ -453,7 +453,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}slow_
 ┃☭│ ➤ _${usedPrefix}smooth_
 ┃☭│ ➤ _${usedPrefix}tupai_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🔍 *BÚSQUEDAS* 🔍
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}animeinfo *texto*_
@@ -463,11 +463,11 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}letra | lirik *texto*_
 ┃☭│ ➤ _${usedPrefix}ytsearch | yts *texto*_
 ┃☭│ ➤ _${usedPrefix}wiki | wikipedia *texto*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🔊 *AUDIOS* 🔊
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}audios_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🛠️ *HERRAMIENTAS* 🛠️
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}afk *motivo*_
@@ -483,7 +483,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}morse decodificar *morse*_
 ┃☭│ ➤ _${usedPrefix}encuesta | poll *Motivo*_
 ┃☭│ ➤ _${usedPrefix}horario_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > ⚗️ *COMANDOS RPG* ⚗️
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}botemporal *enlace* *cantidad*_
@@ -525,7 +525,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}cadames | mes | monthly_
 ┃☭│ ➤ _${usedPrefix}cofre | abrircofre | coffer_
 ┃☭│ ➤ _${usedPrefix}trabajar | work_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🌟 *RPG Fnatasy* 🌟
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}fantasy | fy_
@@ -537,15 +537,15 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}fylista | fyl_
 ┃☭│ ➤ _${usedPrefix}fantasymy | fymy_
 ┃☭│ ➤ _${usedPrefix}fyentregar | fytransfer_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🏆 *TOP en RPG Fnatasy* 🏆
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}fytendencia | fyranking_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🏆 *TOP en KATASHIBOT* 🏆
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}top | lb | leaderboard_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 🎭 *FILTROS EN STICKERS* 🎭
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}sticker | s *imagen o video*_
@@ -565,12 +565,12 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}stickermarker *efecto : responder a imagen*_
 ┃☭│ ➤ _${usedPrefix}stickerfilter *efecto : responder a imagen*_
 ┃☭│ ➤ _${usedPrefix}cs *:* cs2_
-┃☭╞══════════════════════
+┃☭╞════════════════════
 ┃☭│ > 😼 *MODIFICAR STICKERS* 😼
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}wm *packname|author*_
 ┃☭│ ➤ _${usedPrefix}wm *texto1|texto2*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 👻 *STICKERS DINÁMICOS* 👻
 ┃☭│ 
 ┃☭│ ➤ _${usedPrefix}palmaditas | pat *@tag*_
@@ -578,7 +578,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}golpear *@tag*_
 ┃☭│ ➤ _${usedPrefix}besar | kiss *@tag*_
 ┃☭│ ➤ _${usedPrefix}alimentar | food *@tag*_
-┃☭╞══════════════
+┃☭╞════════════
 ┃☭│ > 💎 *PARA MI CREADOR/A* 💎
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}join *enlace*_
@@ -609,7 +609,7 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➤ _${usedPrefix}añadirdiamantes *@tag cantidad*_
 ┃☭│ ➤ _${usedPrefix}añadirxp *@tag cantidad*_
 ┃☭│ ➤ _${usedPrefix}añadirkatacoins *@tag cantidad*_
-╚ ══════════⊷❍
+◟ ══════════⊷❍
 `.trim()
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu }}})
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
