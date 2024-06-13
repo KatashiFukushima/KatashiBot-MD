@@ -149,8 +149,8 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 > *_${formatDate}_*
 > \`${nombreLugar} - ${ciudad}\`
 
-╭═══〘卐 _Katashi bot MD_ 卐〙═══⊷❍
-┃☭╭──────────────
+╭═〘卐 _Katashi bot MD_ 卐〙═⊷❍
+┃☭╭───────────
 ┃☭│ 〘 卐 _ᴏᴡɴᴇʀs ᴏғᴄ_ 卐 〙
 ┃☭│ 
 ┃☭│ _ᴋᴀᴛᴀsʜɪ ғᴜᴋᴜsʜɪᴍᴀ 🥷🏻_
@@ -161,12 +161,12 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│    ║▌│█║▌│█║▌│█│║▌║
 ┃☭│ᴋᴀᴛᴀsʜɪ ʙᴏᴛ x ᴋᴀᴛᴀsʜɪ ғᴜᴋᴜsʜɪᴍᴀ
 ┃☭│ 
-┃☭╰───────────────
-╰═════════════════⊷
+┃☭╰────────────
+╰══════════════⊷
 
-${margen}
+『  𝐌𝐄𝐍𝐔 𝐈𝐍𝐈𝐂𝐈𝐎  』
 
-╭════〘卐 _INFO KATASHI BOT_ 卐〙════⊷❍
+╭═〘卐 _INFO KATASHI BOT_ 卐〙═⊷❍
 ┃
 ┃☭│ ᩭ✎ *❰❰ ${lenguajeGB['smsTotalUsers']()} ❱❱* 
 ┃☭│ ᩭ✎ ➺ \`\`\`${Object.keys(global.db.data.users).length}\`\`\`
