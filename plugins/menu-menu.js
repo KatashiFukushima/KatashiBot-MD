@@ -256,7 +256,7 @@ ${generateCommand(commandsConfig, usedPrefix).replace(/≡/g, '𖡡')}
 ┃☭│ ➤ _${usedPrefix}settings_
 ┃☭│ ➤ _${usedPrefix}vergrupo_
 
-┃☭╒ ════════════
+┃☭╒════════════
 ┃☭│ > 🪄 *DESCARGAS* 🪄
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}imagen | image *texto*_
