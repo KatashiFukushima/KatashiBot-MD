@@ -219,51 +219,44 @@ let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.ge
 ┃☭│ ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 ┃☭│
 ┃☭╞════════════
-┃☭│
+┃☭╒════════════
 ┃☭│ > 💫 *INFORMACIÓN* 💫\n
-┃☭│ ${generateCommand(commandsInfo, usedPrefix)}
-┃☭│
-┃☭╞════════════
-┃☭│
+${generateCommand(commandsInfo, usedPrefix)}
+
+┃☭╒════════════
 ┃☭│ > 💻 *COMANDOS - SUB BOT*\n
 ┃☭│ ${generateCommand(commandsJadiBot, usedPrefix)}
-┃☭│
-┃☭╞═══════════
-┃☭│
+
+┃☭╒═══════════
 ┃☭│ > 🆘 *REPORTAR COMANDOS* 🆘\n
 ┃☭│ ${generateCommand(commandsReport, usedPrefix)}
-┃☭│
-┃☭╞════════════
-┃☭╞════════════
-┃☭│
+
+┃☭╒════════════
 ┃☭│ > 🎟️ *SER PREMIUM* 🎟️\n
 ┃☭│ ${generateCommand(commandsPrem, usedPrefix)}
-┃☭│
-┃☭╞════════════
-┃☭│
+
+┃☭╒════════════
 ┃☭│ > 🎡 *JUEGOS* 🎡\n
 ┃☭│ ${generateCommand(commandsGames, usedPrefix)}
-┃☭│
-┃☭╞════════════
-┃☭│
+
+┃☭╒════════════
 ┃☭│ > ✨ *IA* ✨\n
 ┃☭│ ${generateCommand(commandsAI, usedPrefix)}
-┃☭│
-┃☭╞════════════
-┃☭│
+
+┃☭╒════════════
 ┃☭│ > ⚙️ *AJUSTES* ⚙️
 ┃☭│ ${m.isGroup ? `_✅ ➤ Activado_
 ┃☭│ _❌ ➤ Desactivado_` : `Para ver la configuración completa sólo use: *${usedPrefix}on* o *${usedPrefix}off*`}\n
 ┃☭│ ${generateCommand(commandsConfig, usedPrefix).replace(/≡/g, '𖡡')}
-┃☭│
-┃☭╞════════════
-┃☭│
+
+┃☭╒════════════
 ┃☭│ > 🧾 *AJUSTES/INFO - GRUPO* 🧾
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}configuracion_
 ┃☭│ ➤ _${usedPrefix}settings_
 ┃☭│ ➤ _${usedPrefix}vergrupo_
-┃☭╞════════════
+
+┃☭╒ ════════════
 ┃☭│ > 🪄 *DESCARGAS* 🪄
 ┃☭│
 ┃☭│ ➤ _${usedPrefix}imagen | image *texto*_
