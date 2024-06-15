@@ -12,5 +12,5 @@ await conn.sendMessage(m.chat, { video: { url: pp.getRandom() }, gifPlayback: tr
 }
 handler.help = ['dance <@user>']
 handler.tags = ['fun']
-handler.command = ['~KatashiBot', 'bailar']
+handler.command = ['dance', 'bailar']
 export default handler
