@@ -4,7 +4,7 @@ let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
 
   let handler = async (m, { conn, usedPrefix, command}) => {
-let pp = ['https://media.tenor.com/FJzcVnWgHjgAAAAM/wave.gif', 'https://media.tenor.com/FJzcVnWgHjgAAAAM/wave.gif','https://media.tenor.com/FJzcVnWgHjgAAAAM/wave.gif']
+let pp = ['https://qu.ax/Tvpv.mp4', 'https://qu.ax/Tvpv.mp4','https://qu.ax/Tvpv.mp4']
 //let pp2 = 'https://tinyurl.com/294oahv9'
 let who
 if (m.isGroup) who = m.mentionedJid[0]
