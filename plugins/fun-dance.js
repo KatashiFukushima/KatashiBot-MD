@@ -8,7 +8,7 @@ if (!who) throw '✦ Menciona al usuario con *@user*'
 let name2 = conn.getName(who)
 let name = conn.getName(m.sender)
 
-await conn.sendMessage(m.chat, { video: { url: pp.getRandom() }, gifPlayback: true, caption: `*${name}*` + ' está bailando con' + ` *${name2}*` + ' (ﾉ^ヮ^)ﾉ*:・ﾟ✧' }, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: pp.getRandom() }, gifPlayback: true, caption: `*${name}*` + ' está bailando con' + ` *${name2}*` + ' (ﾉ^ヮ^)ﾉ*:・ﾟ✧', contextInfo: fakeChannel }, { quoted: m })
 }
 handler.help = ['dance <@user>']
 handler.tags = ['fun']
