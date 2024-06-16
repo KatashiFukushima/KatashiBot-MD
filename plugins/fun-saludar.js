@@ -1,3 +1,5 @@
+// Función creada por Katashi Fukushima. Está a libre edición de videos para el envío del saludo
+
 let handler = async (m, { conn, usedPrefix, command}) => {
 let pp = ['https://qu.ax/Tvpv.mp4', 'https://qu.ax/Tvpv.mp4','https://qu.ax/Tvpv.mp4']
 //let pp2 = 'https://tinyurl.com/294oahv9'
