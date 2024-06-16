@@ -22,7 +22,7 @@ global.tk = accounts.tiktok
 global.ths = accounts.threads
 global.paypal = accounts.paypal
 global.asistencia = others.assistance_num
-global.bot = 'wa.me/50238024328'
+global.bot = 'wa.me/51984034663'
 global.cuentas = accounts.all
 
 global.canal1 = channels.channel1
@@ -61,10 +61,6 @@ var canalesInfo = [
 var indiceAleatorio = Math.floor(Math.random() * canalesInfo.length)
 var channelRD = canalesInfo[indiceAleatorio]
 
-/*global.fakeChannel = { contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: '', newsletterName: channelRD.name }, externalAdReply: { title: wm, body: vs, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: gataImg.getRandom(), thumbnail: imagen1, sourceUrl: accountsgb }}}, { quoted: m }
-global.fakeChannel2 = { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }, forwardingScore: 200, externalAdReply: { title: packname, body: author, thumbnailUrl: gataMenu.getRandom(), sourceUrl: accountsgb, mediaType: 1, renderLargerThumbnail: false }}
-*/
-
 // Imágenes 
 global.imagen1 = fs.readFileSync("./media/menus/Menu3.jpg")
 global.imagen2 = fs.readFileSync("./media/menus/img1.jpg")
@@ -98,13 +94,14 @@ global.img12 = 'https://telegra.ph/file/dc871409fc8c0a9ecab90.jpg'
 global.img13 = 'https://telegra.ph/file/ffdd4ed96c39c24abf89e.jpg'
 global.img14 = 'https://telegra.ph/file/65f5ccdcf2a879731894d.jpg'
 global.img15 = 'https://telegra.ph/file/d5314b1e4a1549cfd3158.jpg'
+  
+global.img16 = 'https://qu.ax/ovkN.jpg' //+18
 
-global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18
+global.img17 = 'https://qu.ax/HJdr.jpg'
+global.img18 = 'https://qu.ax/HCt.jpg'
 
-global.img17 = 'https://i.imgur.com/JpYfcH0.jpeg'
-global.img18 = 'https://i.imgur.com/9yLH4W4.jpeg'
+global.logogit = 'https://qu.ax/RzKF.jpg'
 
-global.logogit = 'https://tinyurl.com/2qvl9vgs'
 global.gataVidMenu = ['https://qu.ax/TNPH.mp4', 'https://qu.ax/srFl.mp4', 'https://qu.ax/yLtv.mp4'].getRandom()
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18].getRandom()
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13].getRandom()
