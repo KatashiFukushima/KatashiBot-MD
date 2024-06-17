@@ -1,4 +1,4 @@
-//let axios = require("axios");
+let axios = require("axios");
 let handler = async(m, { conn, text }) => {
 
    await m.reply('Searching...')
@@ -29,3 +29,4 @@ handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
 handler.owner = false
+export default handler
