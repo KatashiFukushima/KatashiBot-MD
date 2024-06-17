@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, "Masukan Alamat IP yang akan dicek", m);
 
   try {
-    const response = await axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
+    const response = await axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
     const data = response.data;
 
     // Manejo de errores de la API (status != "success")
@@ -17,14 +17,15 @@ let handler = async (m, { conn, text }) => {
 *IP CHECKER*
 
 IP : ${data.query}
-Negara : ${data.country}
-Kode Negara : ${data.countryCode}
-Provinsi : ${data.regionName}
-Kode Provinsi : ${data.region}
-Kota : ${data.city}
-Kode Pos : ${data.zip}
-Kordinat : ${data.lat}, ${data.lon}
-Zona Waktu : ${data.timezone}
+País : ${data.country}
+Código de País : ${data.countryCode}
+Provincia : ${data.regionName}
+Código de Provincia : ${data.region}
+Ciudad : ${data.city}
+Distrito : ${data.district}
+Código Postal : ${data.zip}
+Coordenadas : ${data.lat}, ${data.lon}
+Zona Horaria : ${data.timezone}
 ISP : ${data.isp}
 Organización : ${data.org}
 AS : ${data.as}
@@ -33,11 +34,8 @@ Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
 
     conn.reply(m.chat, hasil, m);
-  } catch (error) {
-    conn.reply(m.chat, `Error al obtener información de la IP: ${error.message}`, m);
-    console.error(error);
   }
-};
+}
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
