@@ -1,4 +1,5 @@
-let axios = require("axios");
+import axios from 'axios'
+//let axios = require("axios");
 let handler = async(m, { conn, text }) => {
 
    await m.reply('Searching...')
