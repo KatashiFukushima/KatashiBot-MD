@@ -10,8 +10,8 @@ await m.reply("Buscando...")
       if (String(data.status) !== "success") {
         throw new Error(data.message || "Falló")
       }
-    let ipsearch = `
-ㅤ > 𝗜𝗣 *INFO*
+    let ipsearch = ` 
+> 𝗜𝗣 *INFO*
 
 IP : ${data.query}
 País : ${data.country}
