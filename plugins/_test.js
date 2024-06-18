@@ -35,7 +35,7 @@ Hosting : ${data.hosting ? "Si" : "No"}
     conn.reply(m.chat, hasil, m)}
  } catch (e) {
 console.log(`Error`)
-console.log(e)}}
+console.log(e)}
   
     
 
