@@ -2,7 +2,7 @@ import axios from 'axios';
 
 let handler = async (m, { conn, text }) => {
   await m.reply("Buscando...");
-  if (!text) return conn.reply(m.chat, "Masukan Alamat IP yang akan dicek", m);
+  if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m);
 
   try {
     const response = await axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
 
     // Manejo de errores de la API (status != "success")
     if (data.status !== "success") {
-      throw new Error(data.message || "Error en la solicitud a la API");
+      throw new Error(data.message || "Falló");
     }
 
     let hasil = `
