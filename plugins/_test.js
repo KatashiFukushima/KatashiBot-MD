@@ -35,7 +35,7 @@ Hosting : ${data.hosting ? "Si" : "No"}
     conn.reply(m.chat, hasil, m);
   })
 } catch {
-handler.limit = 0 
+ return m.reply(`Error: ${error.message}`);
 }
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
