@@ -25,7 +25,7 @@ AS : ${data.as}
 Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
-conn.reply(m.chat, hasil, m)
+conn.reply(m.chat, hasil, m)}
     
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
