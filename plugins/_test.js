@@ -32,17 +32,12 @@ Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
 
-     await conn.sendMessage(m.chat, { text: hasil, edit: sentMessage.key }); // Editar con conn.sendMessage
-  } catch (error) { 
-    await conn.sendMessage(m.chat, { 
-      text: `Error al intentar obtener información de la IP: ${error.message}`,
-      edit: sentMessage.key
-    });
-  }
-};
+  } catch (e) {
+console.log(`Error`)
+console.log(e)}}
 
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
-handler.owner = false
+handler.owner = true
 export default handler
