@@ -5,9 +5,13 @@ await m.reply("Buscando...")
   if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m)
 
   axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`).then ((res) => {
-    
-    let hasil = `
-*IP CHECKER*
+    const data = response.data; // Ahora data está definida dentro del bloque .then()
+
+      if (String(data.status) !== "success") {
+        throw new Error(data.message || "Falló");
+      }
+    let ipsearch = `
+*IP INFO*
 
 IP : ${res.data.query}
 País : ${res.data.country}
@@ -26,7 +30,7 @@ Mobile : ${res.data.mobile ? "Si" : "No"}
 Hosting : ${res.data.hosting ? "Si" : "No"}
 `.trim()
 
-conn.reply(m.chat, hasil, m)
+conn.reply(m.chat, ipsearch, m)
 })
 }
   
