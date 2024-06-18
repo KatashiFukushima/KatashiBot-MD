@@ -1,4 +1,4 @@
-import { watchFile, unwatchFile } from "fs" 
+import { watchFile, unwatchFile } from "fs"
 import chalk from "chalk"
 import { fileURLToPath } from "url"
 import fs from "fs"
@@ -134,12 +134,15 @@ global.packname = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆"
 global.author = "✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂✥"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-// [ES] > CUENTAS E INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
+// [ES] > INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
 // MANTENGA ESTO SIN MODIFICAR, NOS ESFORZAMOS A DIARIO POR OFRECERLES UN BOT PARA LA COMUNIDAD, SEA AGRADECIDO 😉
-// [EN] > ACCOUNTS AND BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
+// [EN] > BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
 global.vs = "1.0.1"
 global.vsJB = "2.5 (Beta)"
 global.gt = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆"
+
+fetchDataAndProcess().catch(error => console.error('Ocurrió un error:', error))
+
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
 global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
@@ -166,12 +169,7 @@ global.exito = eg
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 global.wm = "☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆ : ✥𝑲𝒂𝒕𝒂𝒔𝒉𝒊 𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂✥"
 global.igfg = "☆𝕂𝕒𝕥𝕒𝕤𝕙𝕚-𝔹𝕠𝕥☆"
-global.wait = "*⌛ _Cargando | Charging..._ ▬▭▭▭▭▭▭*"
-global.waitt = "*⌛ _Cargando | Charging..._ ▬▬▭▭▭*"
-global.waittt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▭▭*"
-global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*"
-global.waittttt = "*✅ _Completado | Filled..._ ▬▬▬▬▬▬▬*"
-global.nomorown = "51948705559"
+global.nomorown = "5194870559"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
@@ -433,3 +431,44 @@ unwatchFile(file);
 console.log(chalk.redBright("Update 'config.js'"));
 import(`${file}?update=${Date.now()}`);
 })
+
+async function fetchDataAndProcess() {
+const response = await fetch('https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/official_accounts.json')
+const data = await response.json() 
+let { accounts, channels, groups, collaboration, sponsors, others } = data.info
+
+global.yt = accounts.youTube
+global.yt2 = others.yt_vid
+global.ig = accounts.instagram
+global.md = accounts.gatabot_md
+global.fb = accounts.facebook
+global.tk = accounts.tiktok
+global.ths = accounts.threads
+global.paypal = accounts.paypal
+global.asistencia = others.assistance_num
+global.bot = 'wa.me/51948273587'
+global.cuentas = accounts.all
+
+global.canal1 = channels.channel1
+global.canal2 = channels.channel2
+global.canal3 = channels.channel3
+global.canal4 = channels.channel4
+
+global.soporteGB = others.group_support
+global.grupo1 = groups.group1
+global.grupo2 = groups.group2
+global.grupo3 = groups.group3
+global.grupo4 = groups.group4
+global.grupo5 = groups.group5
+global.grupo6 = groups.group6
+
+global.grupo_collab1 = collaboration.group1
+global.grupo_collab2 = collaboration.group2
+global.grupo_collab3 = collaboration.group3
+global.grupo_collab4 = collaboration.group4
+
+global.patrocinador1 = sponsors.boxmine
+global.patrocinador2 = sponsors.cafirexos
+global.patrocinador3 = sponsors.vortexus
+global.patrocinador4 = sponsors.asif
+}
