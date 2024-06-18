@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
 await m.reply("Buscando...");
   if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m);
 
-  axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
+  axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`).then 
     
     let hasil = `
 *IP CHECKER*
