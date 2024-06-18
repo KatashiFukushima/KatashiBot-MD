@@ -32,9 +32,10 @@ Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
 
-  } catch (e) {
-console.log(`Error`)
-console.log(e)}}
+ conn.sendMessage(m.chat, { text: hasil }, m); // Enviar el resultado aquí
+  } catch (error) {
+    console.log("Error");
+    console.log(error);
 
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
