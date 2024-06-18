@@ -4,14 +4,8 @@ let handler = async (m, { conn, text }) => {
 await m.reply("Buscando...");
   if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m);
 
-  try {
-    const response = await axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
-    const data = response.data;
-
-  if (String(data.status) !== "success") {
-      throw new Error(data.message || "Falló");
-    }
-
+  axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
+    
     let hasil = `
 *IP CHECKER*
 
@@ -32,13 +26,6 @@ Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
 conn.reply(m.chat, hasil, m)
-
-
-}catch{
-    throw `Ocurrio un error inesperado en la busqueda de la IP`
-}}
-   
-
     
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
