@@ -13,21 +13,21 @@ await m.reply("Buscando...")
     let ipsearch = `
 *IP INFO*
 
-IP : ${res.data.query}
-País : ${res.data.country}
-Código de País : ${res.data.countryCode}
-Provincia : ${res.data.regionName}
-Código de Provincia : ${res.data.region}
-Ciudad : ${res.data.city}
-Distrito : ${res.data.district}
-Código Postal : ${res.res.data.zip}
-Coordenadas : ${res.data.lat}, ${data.lon}
-Zona Horaria : ${res.data.timezone}
-ISP : ${res.data.isp}
-Organización : ${res.data.org}
-AS : ${res.data.as}
-Mobile : ${res.data.mobile ? "Si" : "No"}
-Hosting : ${res.data.hosting ? "Si" : "No"}
+IP : ${data.query}
+País : ${data.country}
+Código de País : ${data.countryCode}
+Provincia : ${data.regionName}
+Código de Provincia : ${data.region}
+Ciudad : ${data.city}
+Distrito : ${data.district}
+Código Postal : ${res.data.zip}
+Coordenadas : ${data.lat}, ${data.lon}
+Zona Horaria : ${data.timezone}
+ISP : ${data.isp}
+Organización : ${data.org}
+AS : ${data.as}
+Mobile : ${data.mobile ? "Si" : "No"}
+Hosting : ${data.hosting ? "Si" : "No"}
 `.trim()
 
 conn.reply(m.chat, ipsearch, m)
