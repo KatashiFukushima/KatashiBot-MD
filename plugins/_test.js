@@ -32,11 +32,15 @@ Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
 
-       conn.reply(m.chat, hasil, m);
-  } catch (error) { // Aquí se agrega el bloque catch
-    conn.reply(m.chat, `Error al intentar obtener información de la IP: ${error.message}`, m);
+      await conn.sendMessage(m.chat, { text: hasil, edit: sentMessage.key }); // Editar con conn.sendMessage
+  } catch (error) { 
+    await conn.sendMessage(m.chat, { 
+      text: `Error al intentar obtener información de la IP: ${error.message}`,
+      edit: sentMessage.key
+    });
   }
 };
+
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
