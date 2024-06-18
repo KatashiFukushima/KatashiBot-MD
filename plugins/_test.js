@@ -31,12 +31,15 @@ AS : ${data.as}
 Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
+ 
+    conn.reply(m.chat, hasil, m)}
+ } catch (e) {
+console.log(`Error`)
+console.log(e)}}
+  
+    
 
- conn.sendMessage(m.chat, { text: hasil }, m); // Enviar el resultado aquí
-  } catch (error) {
-    console.log("Error");
-    console.log(error);
-
+    
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
