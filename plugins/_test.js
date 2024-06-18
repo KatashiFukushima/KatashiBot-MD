@@ -1,7 +1,7 @@
 eimport axios from 'axios';
 
 let handler = async (m, { conn, text }) => {
-let sentMessage = await m.reply("Buscando...");
+await m.reply("Buscando...");
   if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m);
 
   try {
