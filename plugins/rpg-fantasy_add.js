@@ -12,13 +12,12 @@ const helpMessage = `
 _Este comando te permite agregar nuevos personajes a la base de datos._
 
 *Uso:*
-\`${usedPrefix + command}\` enlace + nombre + origen + info + clase + tipo
+\`${usedPrefix + command}\` enlace + nombre + descripción + clase + tipo
 
 *Parámetros:*
 \`url:\` » Enlace de la imagen (debe comenzar con 'https://telegra.ph/file/').\n
 \`name\` » Nombre del anime o personaje (primera letra de cada palabra en mayúscula).\n
-\`desp\` » Origen del personaje (Nombre del Anime, serie, película, etc...\n
-\`info\` » Realiza una breve descripción del personaje.\n
+\`desp\` » Descripción del anime o personaje o de donde proviene.\n
 \`class\` » Clase del personaje (Común, Poco Común, Raro, Épico, Legendario, Sagrado, Supremo, o Transcendental).\n
 \`type\` » Etiquetas del personaje, separadas por ":" o ";" o "/" (primera letra de cada etiqueta en mayúscula).
 
@@ -26,7 +25,7 @@ _Este comando te permite agregar nuevos personajes a la base de datos._
 > _Para obtener el enlace a la imagen puedes usar el coamndo *${usedPrefix}tourl* respondiendo a la imgen, también puedes mejorar la calidad de imagen respondiendo a la imagen *${usedPrefix}hd*_
 
 *Ejemplo:*
-\`${usedPrefix + command}\` https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Son Goku es el protagonista principal de la franquicia Dragon Ball. Es un Saiyan enviado a la Tierra cuando era un bebé con la misión de conquistar el planeta, pero debido a un golpe en la cabeza pierde la memoria y se convierte en un héroe. + Épico + Aventura / Acción
+\`${usedPrefix + command}\` https://telegra.ph/file/abcd1234.jpg + Son Goku + Dragon Ball + Épico + Aventura / Acción
 `.trim()
 if (!text) return conn.reply(m.chat, helpMessage, m)
   
@@ -35,8 +34,8 @@ if (fs.existsSync(fantasyAddPath)) {
 const data = fs.readFileSync(fantasyAddPath, 'utf8')
 fantasyAddData = JSON.parse(data)
 }
-const [url, name, desp, info, classInput, typeInput] = text.split('+').map((item) => item.trim())
-if (!url || !name || !desp || !info || !classInput || !typeInput) {
+const [url, name, desp, classInput, typeInput] = text.split('+').map((item) => item.trim())
+if (!url || !name || !desp || !classInput || !typeInput) {
 return conn.reply(m.chat, '> *Faltan parámetros.* Asegúrate de proporcionar todos los datos requeridos.', m)
 }
 
@@ -46,7 +45,6 @@ return conn.reply(m.chat, '> *¡Por favor, ingresa un enlace de imagen válido!*
 
 const formattedName = name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
 const formattedDesp = desp
-const formattedInfo = info.replace(/"/g, "'")
 
 const validClasses = ['Común', 'Poco Común', 'Raro', 'Épico', 'Legendario', 'Sagrado', 'Supremo', 'Transcendental']
 const formattedClass = classInput.trim().toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
@@ -90,11 +88,11 @@ break
 case 'Transcendental':
 price = Math.floor(Math.random() * (999999 - 30000 + 1) + 30000)
 break
-default:
+default:codigoImagen
 break
 }
 
-const codigoImagen = generarCodigo()
+const  = generarCodigo()
 //for (const info of data.infoImg) {
 //fantasyAddData.push({
 //index: info.index,
@@ -113,7 +111,6 @@ index: true,
 url,
 name: formattedName,
 desp: formattedDesp,
-info: formattedInfo,
 class: formattedClass,
 type: formattedType,
 price,
@@ -122,12 +119,11 @@ code: codigoImagen,
 
 fs.writeFileSync(fantasyAddPath, JSON.stringify(fantasyAddData, null, 2), 'utf8')
 const reply = await conn.reply(m.chat, '> *¡Personaje agregado exitosamente!*\n\nResponde a este mensaje con "enviar" o "👍" sólo si deseas enviar los personajes a mis creadores para que lo agreguen en *KatashiBot*.', m)
-
-handler.before = async function (m, { conn }) {
+handler.before = async (m) => {
 if (m.quoted && m.quoted.id === reply.id && ['enviar', '👍'].includes(m.text.toLowerCase())) {
 const databaseFantasyAdd = Buffer.from(JSON.stringify(fantasyAddData, null, 2), 'utf-8')
 const jsonString = JSON.stringify(fantasyAddData, null, 2)
-await conn.reply('51948705559@s.whatsapp.net', `*Solicitud de @${m.sender.split("@")[0]} Para agregar personajes de Fantasy RPG en KatashiBot*`, null, { mentions: [m.sender] })
+await conn.reply('5217442363122@s.whatsapp.net', `*Solicitud de @${m.sender.split("@")[0]} Para agregar personajes de Fantasy RPG en KatashiBot*`, null, { mentions: [m.sender] })
 await conn.sendMessage('51948705559@s.whatsapp.net', { document: databaseFantasyAdd, mimetype: 'application/json', fileName: `fantasyAdd_${m.sender}.json` }, { quoted: m })
 await conn.reply('51948705559@s.whatsapp.net', `${jsonString}`, m)
 await conn.reply(m.chat, `¡Archivo enviado a mis creadores! Sigue agregando más personajes que quieras que esten en KatashiBot`, m)

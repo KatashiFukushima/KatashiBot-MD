@@ -31,13 +31,11 @@ AS : ${data.as}
 Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim();
- 
+
+}catch{
+    throw `Ocurrio un error inesperado en la busqueda de la IP`
+}
     conn.reply(m.chat, hasil, m)}
- } catch (e) {
-console.log(`Error`)
-console.log(e)}
-  
-    
 
     
 handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
