@@ -8,7 +8,7 @@ let handler = async (m, { conn, text }) => {
     const response = await axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`);
     const data = response.data;
 
-    if (data.status.trim() !== "success") {
+  if (String(data.status) !== "success") {
       throw new Error(data.message || "Falló");
     }
 
