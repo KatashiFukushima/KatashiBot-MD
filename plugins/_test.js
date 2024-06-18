@@ -5,7 +5,7 @@ await m.reply("Buscando...")
   if (!text) return conn.reply(m.chat, "Ingrese una dirección IP válida", m)
 
   axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`).then ((res) => {
-    const data = response.data; // Ahora data está definida dentro del bloque .then()
+    const data = res.data; 
 
       if (String(data.status) !== "success") {
         throw new Error(data.message || "Falló");
