@@ -8,7 +8,7 @@ const handler = async (m, {text, usedPrefix, command}) => {
 
 
 if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${tradutor.texto1} ${usedPrefix}enable modohorny*`;   
-  if (!text) throw `${tradutor.texto2} ${usedPrefix + command} Con mi prima*`;
+  if (!text) throw `Hola ${usedPrefix + command} Con mi prima*`;
   try {
     const vids_ = {
       from: m.sender,
