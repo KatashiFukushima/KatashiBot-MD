@@ -34,7 +34,6 @@ conn.reply(m.chat, ipsearch, m)
 })
 }
   
-handler.help = ['ip', 'ipcheck', 'ipcek'].map(v => v + ' <alamat ip>')
 handler.tags = ['tools']
 handler.command = /^(ip|ipcheck|ipcek)$/i
 handler.owner = true
