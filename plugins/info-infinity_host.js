@@ -1,6 +1,6 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let infinitytxt = `
-_Optimice la implementación de *KatashiBot* mediante la integración en un servicio de alojamiento de alto rendimiento._
+*Optimice la implementación de *KatashiBot* mediante la integración en un servicio de alojamiento de alto rendimiento.*
 
 *🥷 Compatible con KatashiBot*
 Aprovecha la compatibilidad y comienza usar KatashiBot en servidores de alto rendimiento. El Staff de KatashiBot y InfinityHost hacen posible que puedas ejecutar las funciones que tanto te gusta usar sintiendo una experiencia fluida y de calidad.
