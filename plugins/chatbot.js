@@ -9,8 +9,35 @@ if (chat.isBanned) return
 let vn = 'https://qu.ax/Ocxm.mp3'
 let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy | Here I am 😼`, `*Hola Aqui estoy yo puedo ayudar? | Hello, here I am, can I help? 😸*`])}`.trim()
 
-/*if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
- await conn.sendMessage(m.chat, { text: txt,
+let infinitytxt = `
+_Optimice la implementación de *KatashiBot* mediante la integración en un servicio de alojamiento de alto rendimiento._
+
+*🥷 Compatible con KatashiBot*
+Aprovecha la compatibilidad y comienza usar KatashiBot en servidores de alto rendimiento. El Staff de KatashiBot y InfinityHost hacen posible que puedas ejecutar las funciones que tanto te gusta usar sintiendo una experiencia fluida y de calidad.
+
+🔵 \`\`\`Información del Host\`\`\`
+
+✨ *Dashboard*
+https://dashboard.infinitywa.xyz/
+
+⚙️ *Panel*
+https://store.panel-infinitywa.store/
+
+📢 *Canal de WhatsApp*
+https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A
+
+💥 *Grupo de WhatsApp*
+https://chat.whatsapp.com/J7DTlOOCuEhJS7CW6OSINJ
+
+📧 *Correo*
+katashifukushima23@gmail.com
+
+🧑‍💻 *Contacto (Katashi Fukushima)*
+https://wa.me/51948705559
+`
+ 
+if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
+ await conn.sendMessage(m.chat, { text: infinitytxt,
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: false, 
@@ -23,21 +50,23 @@ body: `✅ Hosting de Calidad`,
 thumbnailUrl: 'https://qu.ax/EQTd.jpg', 
 sourceUrl: accountsgb}}},
 { quoted: fkontak})
-} */
- 
+}
+
 if (/^bot$/i.test(m.text)) {
 await conn.reply(m.chat, bot, m, fakeChannel)
 await conn.sendPresenceUpdate('recording', m.chat)    
 await conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: m })   
 }
 
-if (/^e$/i.test(m.text) ) { //sin prefijo 
+
+ 
+/*if (/^e$/i.test(m.text) ) { //sin prefijo 
 let teks = `${pickRandom([`Que bueno sabe la letra E`, `eeeeee`])}`.trim()
 conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})}
 
-/*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sin prefijo 
+if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sin prefijo 
 let teks = `${pickRandom([`no puedo esta contra las política del grupo.😸`, `_uff miren un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣_`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callate putito_'])}`.trim()
-conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})}*/
+conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})}
 
 if (/^reglas|normas|Reglas$/i.test(m.text) ) { //sin prefijo 
 conn.reply(m.chat, `*╭┅〘 ⚠️ 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 ⚠️ 〙*
@@ -93,7 +122,7 @@ conn.reply(m.chat, `\`✨ ¿𝐐𝐮𝐞́ 𝐞𝐬 𝐮𝐧 𝐁𝐨𝐭 𝐝�
 🍃 *_Para ver el menú de comandos puedes usar:_*
 #menu
 
-🐈 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 🐈`, m)}  
+🐈 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨 🐈`, m)}*/  
 return !0 
 }
 export default handler
