@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command, text, args }) => {
-if (!text) throw 🙂‍↔️ Ingresa un texto junto al comando.\n\n*Ejemplo:*\n*${usedPrefix + command}* katashi es gay
+if (!text) throw `🙂‍↔️ Ingresa un texto junto al comando.\n\n*Ejemplo:*\n*${usedPrefix + command}* katashi es gay`
   await m.react('🕓')
   try {
     let response = await fetch(https://api.yanzbotz.my.id/api/cari/tiktok?query=${text})
