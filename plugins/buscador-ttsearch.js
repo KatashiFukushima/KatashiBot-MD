@@ -11,14 +11,14 @@ if (!text) throw `🙂‍↔️ Ingresa un texto junto al comando.\n\n*Ejemplo:*
     if (data.status === 200) {
       let videos = data.result.videos
 
-      let txt = *  T I K T O K  -  S E A R C H*
+      let txt = `*  T I K T O K  -  S E A R C H*`
       for (let i = 0; i < (50 <= videos.length ? 50 : videos.length); i++) {
-        let video = videos[i]
+        let video = `videos[i]
         txt += \n\n
-        txt += `	   Nro : ${i + 1}\n`
-        txt += `	  Título : ${video.title}\n`
-        txt += `	   Autor : ${video.author.nickname}\n`
-        txt += `	   Url : https://vm.tiktok.com/video/${video.video_id}`
+        txt += 	   Nro : ${i + 1}\n
+        txt += 	  Título : ${video.title}\n
+        txt += 	   Autor : ${video.author.nickname}\n
+        txt += 	   Url : https://vm.tiktok.com/video/${video.video_id}`
       }
 await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
 await m.react('✅') 
