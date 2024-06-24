@@ -1,37 +1,47 @@
-import fetch from 'node-fetch'
+import axios from "axios";
 
-let handler = async (m, { conn, usedPrefix, command, text, args }) => {
-if (!text) throw `🙂‍↔️ Ingresa un texto junto al comando.\n\n*Ejemplo:*\n*${usedPrefix + command}* katashi es gay`
-  await m.react('🕓')
+let handler = async (m, { conn, usedPrefix, text }) => {
+  if (!text)
+    return conn.reply(
+      m.chat,
+      "*🚩 𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚕𝚘 𝚚𝚞𝚎 𝚍𝚎𝚜𝚎𝚊𝚜 𝚋𝚞𝚜𝚌𝚊𝚛 𝚎𝚗 𝚃𝚒𝚔𝚃𝚘𝚔.*",
+      m,
+    );
+  await m.react("💙");
   try {
-    let response = await fetch(https://api.yanzbotz.my.id/api/cari/tiktok?query=${text})
-    let data = await response.json()
-    let img = await (await fetch('url de la imagen de tu bot pe')).buffer()
-
-    if (data.status === 200) {
-      let videos = data.result.videos
-
-      let txt = `*  T I K T O K  -  S E A R C H*`
-      for (let i = 0; i < (50 <= videos.length ? 50 : videos.length); i++) {
-        let video = `videos[i]
-        txt += \n\n
-        txt += 	   Nro : ${i + 1}\n
-        txt += 	  Título : ${video.title}\n
-        txt += 	   Autor : ${video.author.nickname}\n
-        txt += 	   Url : https://vm.tiktok.com/video/${video.video_id}`
-      }
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
-await m.react('✅') 
-} else {
-await m.react('✖️')
-}
-} catch {
-await m.react('✖️')
-}}
-handler.tags = ['search']
-handler.help = ['tiktoksearch <texto>']
-handler.command = ['tiktoksearch', 'tiktoks']
-handler.register = true 
-//handler.limit = 1
-
-export default handler
+    let response = await axios.get(`https://delirius-api-oficial.vercel.app/api/tiktoksearch?query=${encodeURIComponent(text)}`);
+    let results = response.data.meta;
+    if (!results.length)
+      return conn
+        .reply(
+          m.chat,
+          "No se encontraron resultados, intenta con un nombre más corto.",
+          m,
+        )
+        .then((_) => m.react("✖️"));
+    let txt = `*ＴｉｋＴｏｋ－Ｓｅａｒｃｈ ⇄ Ⅰ<    ⅠⅠ    >Ⅰ   ↻*\n\n`;
+    for (let i = 0; i < (30 <= results.length ? 30 : results.length); i++) {
+      let video = results[i];
+      txt += `\n`;
+      txt += `	❧  *ᴛɪᴛᴜʟᴏ* : ${video.title}\n`;
+      txt += `	❧  *ᴅᴜʀᴀᴄɪÓɴ* : ${video.duration} segundos\n`;
+      txt += `	❧  *ᴜʀʟ* : ${video.url}\n`;
+      txt += `	❧  *ᴀᴜᴛᴏʀ* : ${video.author.username || "×"}\n`;
+      txt += `	❧  *ᴠɪᴇᴡs* : ${video.play}\n`;
+      txt += `	❧  *ᴄᴏʀᴀᴢᴏɴᴇꜱ* : ${video.like}\n\n`;
+    }
+    const url = "https://i.imgur.com/BO4TfMR.png"; 
+    const responseImg = await axios.get(url, { responseType: 'arraybuffer' });
+    await conn.sendFile(m.chat, responseImg.data, "thumbnail.png", txt, m); 
+    await m.react("✅");
+  } catch (e) {
+    console.error(e);
+    conn.reply(m.chat, "Ocurrió un error al buscar en TikTok.", m);
+    m.react("❌");
+  }
+};
+handler.help = ["tiktoksearch"];
+handler.tags = ["search"];
+handler.command = ["tiktoksearch", "tiks"];
+handler.register = true;
+export default handler;
