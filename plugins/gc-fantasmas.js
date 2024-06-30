@@ -1,4 +1,4 @@
-/**
+/** 
  * Plugin desarrollado por el proyecto del bot ANI MX SCANS de ReyEndymion
  * https://github.com/ReyEndymion
  */
