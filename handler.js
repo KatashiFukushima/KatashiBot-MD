@@ -1218,7 +1218,7 @@ global.db.data.users[m.sender].spam = new Date * 1
 		
 let hl = _prefix 
 let adminMode = global.db.data.chats[m.chat].modoadmin
-let  = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
+let gata = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
 if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && gata) return   
 if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //número bot owner
 fail('owner', m, this)
@@ -1265,19 +1265,19 @@ if (xp > 2000)
 m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-//this.reply(m.chat, `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 �𝘾𝙊𝙄𝙉𝙎`, m)
+//this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
 this.sendMessage(m.chat, {text: `🪙 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙆𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: Img, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
 continue //Sin límite
 }
 if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: Img, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
 continue // Si no se ha alcanzado el nivel
 }
@@ -1423,7 +1423,7 @@ case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
-let pp = global.Img
+let pp = global.gataImg
 try {
 pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
@@ -1559,7 +1559,7 @@ restrict: lenguajeGB['smsRestrict'](),
 //if (msg) return m.reply(msg)
 	
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: Img, sourceUrl: accountsgb }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
