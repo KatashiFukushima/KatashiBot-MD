@@ -70,24 +70,24 @@ let isCode = args[0] && args[0].includes("--code") ? true : !!(args[1] && args[1
         if (args[0] == '') args[0] = undefined;
       }
 
-      if (!fs.existsSync('./GataJadiBot/' + mentionedNumber)) {
-        fs.mkdirSync("./GataJadiBot/" + mentionedNumber, { recursive: true });
+      if (!fs.existsSync('./KatashiJadiBot/' + mentionedNumber)) {
+        fs.mkdirSync("./KatashiJadiBot/" + mentionedNumber, { recursive: true });
       }
 
       if (args[0]) {
-        fs.writeFileSync("./GataJadiBot/" + mentionedNumber + "/creds.json", JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, "\t"));
+        fs.writeFileSync("./KatashiJadiBot/" + mentionedNumber + "/creds.json", JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, "\t"));
       }
 
-      if (fs.existsSync("./GataJadiBot/" + mentionedNumber + "/creds.json")) {
-        let creds = JSON.parse(fs.readFileSync('./GataJadiBot/' + mentionedNumber + "/creds.json"));
+      if (fs.existsSync("./KatashiJadiBot/" + mentionedNumber + "/creds.json")) {
+        let creds = JSON.parse(fs.readFileSync('./KatashiJadiBot/' + mentionedNumber + "/creds.json"));
         if (creds) {
           if (creds.registered = false) {
-            fs.unlinkSync('./GataJadiBot/' + mentionedNumber + "/creds.json");
+            fs.unlinkSync('./KatashiJadiBot/' + mentionedNumber + "/creds.json");
           }
         }
       }
 
-      const { state, saveState, saveCreds } = await useMultiFileAuthState("./GataJadiBot/" + mentionedNumber);
+      const { state, saveState, saveCreds } = await useMultiFileAuthState("./KatashiJadiBot/" + mentionedNumber);
       const msgRetryCounterMap = new NodeCache();
       const { version } = await fetchLatestBaileysVersion();
       const socketConfig = {
@@ -97,7 +97,7 @@ let isCode = args[0] && args[0].includes("--code") ? true : !!(args[1] && args[1
           keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "silent" }))
         },
         logger: pino({ level: "silent" }),
-        browser: isCode ? ['Ubuntu', "Chrome", "20.0.04"] : ["GataBot-MD (Sub-Bot)", "Safari", "2.0.0"],
+        browser: isCode ? ['Ubuntu', "Chrome", "20.0.04"] : ["KatashiBot-MD (Sub-Bot)", "Safari", "2.0.0"],
         markOnlineOnConnect: true,
         generateHighQualityLinkPreview: true,
         getMessage: async key => {
@@ -142,12 +142,12 @@ let isCode = args[0] && args[0].includes("--code") ? true : !!(args[1] && args[1
             return conn.sendMessage(m.chat, { text: "*⚠️ Se ha alcanzado el limite de reconexiones, por favor intente mas tarde.*" }, { quoted: m });
           }
           if (statusCode == 405 || statusCode == 404) {
-            fs.unlinkSync('./GataJadiBot/' + mentionedNumber + '/creds.json');
+            fs.unlinkSync('./KatashiJadiBot/' + mentionedNumber + '/creds.json');
             return initBot();
           }
           if (statusCode === DisconnectReason.badSession) {
             conn.sendMessage(m.chat, { text: "*⚠️ La sesión actual es inválida, Tendras que iniciar sesion de nuevo." }, { quoted: m });
-            fs.rmdirSync("./GataJadiBot/" + mentionedNumber, { recursive: true });
+            fs.rmdirSync("./KatashiJadiBot/" + mentionedNumber, { recursive: true });
           } else if (statusCode === DisconnectReason.connectionClosed) {
             if (socket.fstop) {
               return conn.sendMessage(m.chat, { text: "*⚠️ El bot se ha apagado correctamente!!*" }, { quoted: m });
@@ -165,7 +165,7 @@ let isCode = args[0] && args[0].includes("--code") ? true : !!(args[1] && args[1
             conn.sendMessage(m.chat, { text: "*⚠️ La conexión se reemplazó, Su conexion se cerro*\n\n*Para volver a conectarte usa:*\n" + usedPrefix + command }, { quoted: m });
           } else if (statusCode === DisconnectReason.loggedOut) {
             conn.sendMessage(m.chat, { text: "*La conexión se cerró*, Tendrá que conectarse manualmente usando el comando #serbot*" }, { quoted: m });
-            return fs.rmdirSync("./GataJadiBot/" + mentionedNumber, { recursive: true });
+            return fs.rmdirSync("./KatashiJadiBot/" + mentionedNumber, { recursive: true });
           } else if (statusCode === DisconnectReason.restartRequired) {
             await reloadHandler(true).catch(console.error);
           } else if (statusCode === DisconnectReason.timedOut) {
@@ -194,7 +194,7 @@ return console.log(await reloadHandler(false).catch(console.error));
           await sleep(5000);
 if (!args[0]) {
 await parent.sendMessage(conn.user.jid, {text : `${lenguajeGB['smsJBInfo1']()} ${lenguajeGB['smsJBInfo2']()}`}, { quoted: m })
-conn.sendMessage(conn.user.jid, { text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./GataJadiBot/" + mentionedNumber + "/creds.json"), "utf-8").toString('base64') }, { quoted: m });
+conn.sendMessage(conn.user.jid, { text: usedPrefix + command + " " + Buffer.from(fs.readFileSync("./KatashiJadiBot/" + mentionedNumber + "/creds.json"), "utf-8").toString('base64') }, { quoted: m });
           }
         }
       }
