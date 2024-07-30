@@ -1,4 +1,4 @@
-/*⚠ PROHIBIDO EDITAR ⚠
+/*⚠ PROHIBIDO EDITAR ⚠ 
 
 El codigo de este archivo esta totalmente hecho por:
 - Aiden_NotLogic >> https://github.com/ferhacks
