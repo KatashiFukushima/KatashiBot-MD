@@ -12,7 +12,7 @@ if (/^.*false|disnable|(turn)?off|0/i.test(m.text)) return;
 let textodem = m.text;
 const name = conn.getName(m.sender)
 const namedem = `${name || 'Sin Definir'}`
-const sytm = await fetch(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/chatgpt_indicciones.txt`).then(v => v.text()); 
+const sytm = await fetch(`https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/src/chatgpt_indicciones.txt`).then(v => v.text()); 
 const sistema1 = sytm.replace('@name', namedem)
 try {
 await conn.sendPresenceUpdate('composing', m.chat)
