@@ -4,8 +4,8 @@
     "accounts": {
       "youTube": "https://youtube.com/@katashifukushima",
       "instagram": "https://www.instagram.com/katashi_fukushima",
-      "katashibot_md": "https://github.com/KatashiFukushima/KatashiBot-MD",
-      "gatabot_md": "https://github.com/KatashiFukushima",
+      "katashibot_md": "https://github.com/KatashiFukushima/YaemoriBot-MD",
+      "gatabot_md": "https://github.com/KatashiFukushima/KatashiBot_md",
       "facebook": "https://www.facebook.com/KatashiFukushimaF",
       "tiktok": "https://www.tiktok.com/@katashi_fukushima",
       "threads": "https://www.threads.net/@katashi_fukushima",
@@ -17,9 +17,9 @@
 
     "channels": {
       "channel1": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
-      "channel2": "https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g",
-      "channel3": "https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A",
-      "channel4": "https://discord.gg/MUbBJAMs"
+      "channel2": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
+      "channel3": "https://whatsapp.com/channel/0029VaefZxt1t90Tn4rCv50X",
+      "channel4": "https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g"
     },
 
     "groups": {
