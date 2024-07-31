@@ -20,7 +20,7 @@ await fs.rmdir("./GataJadiBot/" + uniqid, { recursive: true, force: true })
 await conn.sendMessage(m.chat, { text: lenguajeGB.smsJBAdios() }, { quoted: m })
 await conn.sendMessage(m.chat, { text : lenguajeGB.smsJBCerrarS() } , { quoted: m })
 } catch(err) {
-if (err.code === 'ENOENT' && err.path === `./GataJadiBot/${uniqid}`) {
+if (err.code === 'ENOENT' && err.path === `./KatashiJadiBot/${uniqid}`) {
 await conn.sendMessage(m.chat, { text: "Usted no es Sub Bot" }, { quoted: m })
 } else {
 console.error(userS + ' ' + lenguajeGB.smsJBErr(), err)
