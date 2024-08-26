@@ -19,7 +19,6 @@ m.reply(`${eg}𝙀𝙎𝙏𝙀 𝘾𝙃𝘼𝙏 𝙁𝙐𝙀 𝘽𝘼𝙉𝙀�
 handler.help = ['banchat']
 handler.tags = ['owner']
 handler.command = /^banchat|bangata|banchat2$/i
-//handler.botAdmin = true
+handler.bot = true
 handler.rowner = true
-handler.owner = true
 export default handler
