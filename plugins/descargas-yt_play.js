@@ -25,7 +25,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     txt += '┗─══──━══─| ✠ |─══━─═──┛ \n';
     txt += '𝑲𝒂𝒕𝒂𝒔𝒉𝒊𝑭𝒖𝒌𝒖𝒔𝒉𝒊𝒎𝒂';
 
-    await conn.sendButton2(m.chat, txt, '. ', thumbnail, [
+    await conn.sendButton(m.chat, txt, '. ', thumbnail, [
         ['MP3', `${usedPrefix}ytmp3 ${url}`],
         ['MP3DOC', `${usedPrefix}ytmp3doc ${url}`],
         ['MP4', `${usedPrefix}ytmp4 ${url}`], 
