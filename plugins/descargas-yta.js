@@ -8,7 +8,7 @@ let youtubeLink = '';
 if (args[0].includes('you')) {
 youtubeLink = args[0]; 
 } else {
-const index = parseInt(args[0]) - 1;
+const index = parseInt(args[0]) - 1; 
 if (index >= 0) {
 if (Array.isArray(global.videoList) && global.videoList.length > 0) {
 const matchingItem = global.videoList.find(item => item.from === m.sender);
