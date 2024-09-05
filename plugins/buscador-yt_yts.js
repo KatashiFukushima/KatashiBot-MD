@@ -86,13 +86,8 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 };
 
 handler.command = /^y(outubesearch|ts(earch)?)$/i
-export default handler
+export default handler*/
 
-
-
-___________________________
-Aquí termina el block
-___________________________ 
 
 import ytSearch from "yt-search"
 const handler = async (m, { conn, usedPrefix, args, command }) => {
