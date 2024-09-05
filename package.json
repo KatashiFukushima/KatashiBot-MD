@@ -37,6 +37,7 @@
 "@nechlophomeriaa/spotifydl": "1.0.11",
 "@sasmeee/igdl":"^1.0.0",
 "@shineiichijo/marika": "^2.0.6",
+"@ibaraki-douji/pixivts": "^2.4.1",
 "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
 "@vitalets/google-translate-api": "^8.0.0",
