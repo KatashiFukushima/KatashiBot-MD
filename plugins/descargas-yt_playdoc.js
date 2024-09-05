@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
 import axios from 'axios';
@@ -217,4 +217,4 @@ const random = url[0];
 const getVideo = await ytMp4(random);
 resolve(getVideo);
 }).catch(reject);
-})}
+})}*/
