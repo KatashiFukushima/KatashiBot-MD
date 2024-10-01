@@ -80,7 +80,7 @@ showAdAttribution: false,
 title: `${conn.getName(m.sender)}`,
 body: `${dato.desp}`,
 mediaType: 1,
-sourceUrl: null,
+sourceUrl: false,
 thumbnailUrl: pp
 }}
 }, { caption: 'imagen_info' })).key.id
