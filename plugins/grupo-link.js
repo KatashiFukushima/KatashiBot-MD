@@ -11,7 +11,8 @@ let adReply = { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { forwardi
 
 try{
 ///await conn.sendFile(m.chat, pp, 'error.jpg', '*https://chat.whatsapp.com/' + await conn.groupInviteCode(group) + '*', m)
-await conn.sendButton(m.chat, 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group), wm, pp, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, null, fkontak, adReply)
+//await conn.sendButton(m.chat, 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group), wm, pp, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], null, null, fkontak, adReply)
+  await conn.reply(m.chat, '*https://chat.whatsapp.com/' + await conn.groupInviteCode(group) + '*', m, adReply)
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
