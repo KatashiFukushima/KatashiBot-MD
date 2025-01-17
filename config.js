@@ -14,8 +14,8 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
 ['51979901365', '☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆', false],
-['51906662557', '𝙊𝙬𝙣𝙚𝙧', true],  
-['5217442363122', '𝑖𝑍𝑖', true],
+['51906662557', '𝙊𝙬𝙣𝙚𝙧', false],  
+['5217442363122', '𝑖𝑍𝑖', false],
 ['59175655964', 'Alba070503', false],
 ['56974513824']]
 
