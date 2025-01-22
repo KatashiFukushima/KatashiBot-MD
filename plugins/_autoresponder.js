@@ -1,4 +1,4 @@
-import { sticker } from '../lib/sticker.js'
+/*import { sticker } from '../lib/sticker.js'
 let handler = m => m
 
 handler.all = async function (m, {conn}) {
@@ -11,3 +11,4 @@ contextInfo: { externalAdReply: { title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 
     
 return !0 }
 export default handler
+*/
