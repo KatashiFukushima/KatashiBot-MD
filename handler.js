@@ -1,3 +1,4 @@
+
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
@@ -411,7 +412,6 @@ if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
 if (!isNumber(user.pausbakar)) user.pausbakar = 0
-if (!isNumber(user.pc)) user.pc = 0
 if (!isNumber(user.pepesikan)) user.pepesikan = 0
 if (!isNumber(user.pertambangan)) user.pertambangan = 0
 if (!isNumber(user.pertanian)) user.pertanian = 0
@@ -473,6 +473,7 @@ if (!isNumber(user.skillexp)) user.skillexp = 0
 if (!isNumber(user.snlast)) user.snlast = 0
 if (!isNumber(user.soda)) user.soda = 0
 if (!isNumber(user.sop)) user.sop = 0
+if (!isNumber(user.banco)) user.banco = 0
 if (!isNumber(user.spammer)) user.spammer = 0
 if (!isNumber(user.spinlast)) user.spinlast = 0
 if (!isNumber(user.ssapi)) user.ssapi = 0
@@ -546,6 +547,7 @@ anakphonix: 0,
 anakrubah: 0,
 anakserigala: 0,
 anggur: 0,
+banco: 0,
 anjing: 0,
 anjinglastclaim: 0,
 antispam: 0,
@@ -832,7 +834,6 @@ panda: 0,
 pasangan: '',
 paus: 0,
 pausbakar: 0,
-pc: 0,
 pepesikan: 0,
 pet: 0,
 phonix: 0,
@@ -977,13 +978,14 @@ if (!('sBye' in chat)) chat.sBye = ''
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
+if (!('sAutorespond' in chat)) chat.sAutorespond = '' 
 if (!('delete' in chat)) chat.delete = false                   
 if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
-if (!('audios' in chat)) chat.audios = true               
-if (!('antiver' in chat)) chat.antiver = true
-if (!('antiPorn' in chat)) chat.antiPorn = false     
+if (!('audios' in chat)) chat.audios = false             
+if (!('antiver' in chat)) chat.antiver = true 
+if (!('antiPorn' in chat)) chat.antiPorn = true     
 if (!('antiLink' in chat)) chat.antiLink = false     
 if (!('antiLink2' in chat)) chat.antiLink2 = false
 if (!('antiTiktok' in chat)) chat.antiTiktok = false
@@ -997,15 +999,22 @@ if (!('antiThreads' in chat)) chat.antiThreads = false
 if (!('antiTwitch' in chat)) chat.antiTwitch = false
 if (!('antifake' in chat)) chat.antifake = false
 if (!('reaction' in chat)) chat.reaction = false    
-if (!('viewonce' in chat)) chat.viewonce = true       
-if (!('modoadmin' in chat)) chat.modoadmin = false    
+if (!('viewonce' in chat)) chat.viewonce = false       
+if (!('modoadmin' in chat)) chat.modoadmin = false  
+if (!('autorespond' in chat)) chat.autorespond = false
 if (!('antitoxic' in chat)) chat.antitoxic = false
-if (!('game' in chat)) chat.game = true
-if (!('game2' in chat)) chat.game2 = true
+if (!('game' in chat)) chat.game = false
+if (!('game2' in chat)) chat.game2 = false
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = false
 if (!isNumber(chat.expired)) chat.expired = 0
+if (!('horarioNsfw' in chat)) { 
+chat.horarioNsfw = {
+inicio: "00:00", 
+fin: "23:59"
+};
+}
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
@@ -1016,6 +1025,7 @@ sBye: '',
 sPromote: '',
 sDemote: '', 
 sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
+sAutorespond: '', 
 delete: false,
 modohorny: true,
 stickers: false,
@@ -1036,15 +1046,20 @@ antiThreads: false,
 antiTwitch: false,
 antifake: false,
 reaction: false,
-viewonce: true,
+viewonce: false,
 modoadmin: false,
+autorespond: false,
 antitoxic: false,
-game: true, 
-game2: true, 
+game: false, 
+game2: false, 
 simi: false,
 antiTraba: true,
 autolevelup: false,
 expired: 0,
+horarioNsfw: {
+inicio: "00:00", 
+fin: "23:59"
+}
 }
 let settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
@@ -1054,6 +1069,7 @@ if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = false
+if (!('anticommand' in settings)) settings.anticommand = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
@@ -1069,6 +1085,7 @@ antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
+anticommand: false, 
 jadibotmd: true,
 }} catch (e) {
 console.error(e)
@@ -1079,6 +1096,7 @@ const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
+
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
 const previousID = queque[queque.length - 1]
@@ -1089,6 +1107,8 @@ await delay(time)
 }, time)
 }
 
+
+if(m.id.startsWith('NJX-') || m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20) return
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
 if (opts['pconly'] && m.chat.endsWith('g.us')) return
@@ -1096,8 +1116,7 @@ if (opts['gconly'] && !m.chat.endsWith('g.us')) return
 if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
-
-if (m.isBaileys) return
+	
 m.exp += Math.ceil(Math.random() * 10)
 let usedPrefix
 let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
@@ -1109,7 +1128,9 @@ const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.use
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
-
+m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
+m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
+	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
 let plugin = global.plugins[name]
@@ -1470,7 +1491,7 @@ mentionedJid:[user],
 "title": [wm, '🥷 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 🥷', '🌟 katashifukushima23.gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
-sourceUrl: accountsgb ? accountsgb : 'https://github.com/KatashiFukushima/KatashiBot-MD' }}}, { quoted: fkontak2 })
+sourceUrl: 'https://github.com/KatashiFukushima/KatashiBot-MD' }}}, { quoted: fkontak2 })
 apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
@@ -1568,9 +1589,4 @@ watchFile(file, async () => {
 unwatchFile(file)
 console.log(chalk.redBright('Update \'handler.js\''));
 //if (global.reloadHandler) console.log(await global.reloadHandler());
-  
-if (global.conns && global.conns.length > 0 ) {
-const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-for (const userr of users) {
-userr.subreloadHandler(false)
-}}});
+})
