@@ -1,8 +1,9 @@
+
 import fetch from 'node-fetch';
 import axios from 'axios';
-import instagramGetUrl from 'instagram-url-direct';
-import {instagram} from '@xct007/frieren-scraper';
-import {instagramdl} from '@bochilteam/scraper';
+//import instagramGetUrl from 'instagram-url-direct';
+//import {instagram} from '@xct007/frieren-scraper';
+//import {instagramdl} from '@bochilteam/scraper';
 const handler = async (m, {conn, args, command, usedPrefix}) => {
 if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta}\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
 const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
@@ -10,18 +11,36 @@ const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
 await conn.sendMessage(m.chat, {text: waittt, edit: key});
 await conn.sendMessage(m.chat, {text: waitttt, edit: key});
-try{
-const responseIg = await axios.get(`https://delirios-api-delta.vercel.app/download/instagram?url=${args[0]}`);
-const resultlIg = responseIg.data;
-let linkig=resultlIg.data[0].url
-await conn.sendFile(m.chat,linkig, 'error.mp4', `${wm}`, m);
-}catch{
-try{
-const resultD = await instagramDl(args[0]);
-const linkD=resultD[0].download_link
-await conn.sendFile(m.chat, linkD, 'error.mp4', `${wm}`, m);
+try {
+const res = await fetch(`https://api.siputzx.my.id/api/d/igdl?url=${args}`);
+const data = await res.json();
+const fileType = data.data[0].url.includes('.webp') ? 'image' : 'video'; 
+const downloadUrl = data.data[0].url;
+if (fileType === 'image') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${wm}`, m, null, fake);
 await conn.sendMessage(m.chat, {text: waittttt, edit: key})
-} catch{
+} else if (fileType === 'video') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${wm}`, m, null, fake);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+}
+} catch {   
+try {
+const apiUrl = `${apis}/download/instagram?url=${encodeURIComponent(args[0])}`;
+const apiResponse = await fetch(apiUrl);
+const delius = await apiResponse.json();
+if (!delius || !delius.data || delius.data.length === 0) return m.react("❌");
+const downloadUrl = delius.data[0].url;
+const fileType = delius.data[0].type;
+if (!downloadUrl) return m.react("❌");
+if (fileType === 'image') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.jpg', `${wm}`, m, null, fake);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+} else if (fileType === 'video') {
+await conn.sendFile(m.chat, downloadUrl, 'ig.mp4', `${wm}`, m, null, fake);
+await conn.sendMessage(m.chat, {text: waittttt, edit: key})
+} else {
+return m.react("❌"); 
+}} catch {   
 try {
 const apiUrll = `https://api.betabotz.org/api/download/igdowloader?url=${encodeURIComponent(args[0])}&apikey=bot-secx3`;
 const responsel = await axios.get(apiUrll);
