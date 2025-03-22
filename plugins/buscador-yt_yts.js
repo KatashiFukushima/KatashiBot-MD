@@ -1,7 +1,8 @@
 import yts from 'yt-search';
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-if (!text) return m.reply(`Ingrese texto o responda a un mensaje con el texto que desea buscar en YouTube.\nEjemplo de uso:\n*${usedPrefix + command} GataBot*`) m.react('📀');
+if (!text) return m.reply(`Ingrese texto o responda a un mensaje con el texto que desea buscar en YouTube.\nEjemplo de uso:\n*${usedPrefix + command} GataBot*`)
+  m.react('📀');
 let result = await yts(text);
 let ytres = result.videos;
 if (!ytres.length) return m.reply('❌ No se encontraron resultados.');
