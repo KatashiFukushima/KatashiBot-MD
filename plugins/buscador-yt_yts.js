@@ -28,9 +28,5 @@ v.image,
 await conn.sendCarousel(m.chat, `${htki} *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊𝙎* ${htka}\n`, htki + "YouTube Search" + htka, messages, m);
 }
 };
-handler.help = ['playlist']
-handler.tags = ['dl']
 handler.command = /^playlist|ytbuscar|yts(earch)?$/i
-handler.limit = 1
-handler.level = 3
 export default handler
