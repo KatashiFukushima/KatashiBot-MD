@@ -32,7 +32,7 @@ const cleanSessionFiles = async (conn) => {
 
 setInterval(() => {
   cleanSessionFiles(global.conn);
-}, 3600000);
+}, 60000);
 
 const handler = async (m, { conn, usedPrefix }) => {
   if (global.conn.user.jid !== conn.user.jid) {
