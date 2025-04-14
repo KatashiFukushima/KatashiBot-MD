@@ -1,17 +1,17 @@
 import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 
-const handler = async (msg, conn) => {
+const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correctamente
   try {
-    const quotedInfo = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
+    const quotedInfo = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedInfo) {
-      return await conn.sendMessage(msg.key.remoteJid, {
+      return await conn.sendMessage(m.chat, {
         text: "❌ *Error:* Debes responder a un mensaje de *ver una sola vez* (imagen, video o audio) para poder verlo nuevamente."
-      }, { quoted: msg });
+      }, { quoted: m });
     }
 
-    // 
-    await conn.sendMessage(msg.key.remoteJid, {
-      react: { text: "⏳", key: msg.key }
+    // Reacción indicando procesamiento
+    await conn.sendMessage(m.chat, {
+      react: { text: "⏳", key: m.key }
     });
 
     let mediaType, mediaMessage;
@@ -25,12 +25,12 @@ const handler = async (msg, conn) => {
       mediaType = "audio";
       mediaMessage = quotedInfo.audioMessage;
     } else {
-      return await conn.sendMessage(msg.key.remoteJid, {
+      return await conn.sendMessage(m.chat, {
         text: "❌ *Error:* Solo puedes usar este comando en mensajes de *ver una sola vez*."
-      }, { quoted: msg });
+      }, { quoted: m });
     }
 
-    // 
+    // Descargar el contenido
     const stream = await downloadContentFromMessage(mediaMessage, mediaType);
     const bufferChunks = [];
     
@@ -50,26 +50,28 @@ const handler = async (msg, conn) => {
       mimetype: mediaMessage.mimetype 
     };
 
-    await conn.sendMessage(msg.key.remoteJid, messageOptions, { quoted: msg });
+    await conn.sendMessage(m.chat, messageOptions, { quoted: m });
 
-    // 
-    await conn.sendMessage(msg.key.remoteJid, {
-      react: { text: "✅", key: msg.key }
+    // Reacción de éxito
+    await conn.sendMessage(m.chat, {
+      react: { text: "✅", key: m.key }
     });
 
   } catch (error) {
     console.error("Error en comando /ver:", error);
     
-    //
-    await conn.sendMessage(msg.key.remoteJid, {
-      react: { text: "❌", key: msg.key }
+    // Reacción de error
+    await conn.sendMessage(m.chat, {
+      react: { text: "❌", key: m.key }
     });
     
-    await conn.sendMessage(msg.key.remoteJid, {
+    await conn.sendMessage(m.chat, {
       text: "❌ *Error:* Ocurrió un problema al procesar el mensaje. Intenta de nuevo."
-    }, { quoted: msg });
+    }, { quoted: m });
   }
 };
 
-handler.command = ["ver"];
+handler.help = ['ver'];
+handler.tags = ['tools'];
+handler.command = /^ver$/i;
 export default handler;
