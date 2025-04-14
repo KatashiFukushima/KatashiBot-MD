@@ -5,7 +5,7 @@ const handler = async (m, { conn }) => {
     const quotedInfo = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedInfo) {
       return await conn.sendMessage(m.chat, {
-        text: "❌ *Error:* Debes responder a un mensaje de *ver una sola vez* (imagen, video o audio) para poder verlo nuevamente."
+        text: "❌ *Error:* Debes usarlo en mensajes de *ver una sola vez* para verlo nuevamente."
       }, { quoted: m });
     }
 
@@ -57,14 +57,14 @@ const handler = async (m, { conn }) => {
     });
 
   } catch (error) {
-    console.error("Error en comando /ver:", error);
+    console.error("Error", error);
     
     await conn.sendMessage(m.chat, {
       react: { text: "❌", key: m.key }
     });
     
     await conn.sendMessage(m.chat, {
-      text: "❌ *Error:* Ocurrió un problema al procesar el mensaje. Intenta de nuevo."
+      text: "❌ *Error:* Ocurrió un problema inesperado al revisar el mensaje."
     }, { quoted: m });
   }
 };
