@@ -1,6 +1,6 @@
 import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 
-const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correctamente
+const handler = async (m, { conn }) => {
   try {
     const quotedInfo = m.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedInfo) {
@@ -9,7 +9,6 @@ const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correct
       }, { quoted: m });
     }
 
-    // Reacción indicando procesamiento
     await conn.sendMessage(m.chat, {
       react: { text: "⏳", key: m.key }
     });
@@ -30,7 +29,7 @@ const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correct
       }, { quoted: m });
     }
 
-    // Descargar el contenido
+ 
     const stream = await downloadContentFromMessage(mediaMessage, mediaType);
     const bufferChunks = [];
     
@@ -44,7 +43,7 @@ const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correct
       throw new Error("Buffer vacío");
     }
 
-    // Enviar el medio
+   
     const messageOptions = { 
       [mediaType]: mediaBuffer,
       mimetype: mediaMessage.mimetype 
@@ -52,7 +51,7 @@ const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correct
 
     await conn.sendMessage(m.chat, messageOptions, { quoted: m });
 
-    // Reacción de éxito
+
     await conn.sendMessage(m.chat, {
       react: { text: "✅", key: m.key }
     });
@@ -60,7 +59,6 @@ const handler = async (m, { conn }) => { // Asegúrate de recibir 'conn' correct
   } catch (error) {
     console.error("Error en comando /ver:", error);
     
-    // Reacción de error
     await conn.sendMessage(m.chat, {
       react: { text: "❌", key: m.key }
     });
