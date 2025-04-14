@@ -71,4 +71,4 @@ const handler = async (msg, { conn }) => {
 };
 
 handler.command = ["ver"];
-module.exports = handler;
+export default handler;
