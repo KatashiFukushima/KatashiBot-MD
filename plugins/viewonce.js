@@ -1,18 +1,6 @@
-
 const fs = require("fs");
 const path = require("path");
 const { downloadContentFromMessage } = require("@whiskeysockets/baileys");
-
-const handler = async (msg, { conn }) => {
-  const rawID = conn.user?.id || "";
-  const subbotID = rawID.split(":")[0] + "@s.whatsapp.net";
-
-  const prefixPath = path.resolve("prefixes.json");
-  let prefixes = {};
-  if (fs.existsSync(prefixPath)) {
-    prefixes = JSON.parse(fs.readFileSync(prefixPath, "utf-8"));
-  }
-  const usedPrefix = prefixes[subbotID] || ".";
 
   const quotedInfo = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
   if (!quotedInfo) {
