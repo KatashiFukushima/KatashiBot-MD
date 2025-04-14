@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const { downloadContentFromMessage } = require("@whiskeysockets/baileys");
+import fs from "fs";
+import path from "path";
+import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 
   const quotedInfo = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
   if (!quotedInfo) {
