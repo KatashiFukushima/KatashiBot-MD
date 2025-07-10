@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 import translate from '@vitalets/google-translate-api';
 const handler = (m) => m;
 
@@ -68,3 +68,4 @@ return;
 return true;
 };
 export default handler;
+*/
