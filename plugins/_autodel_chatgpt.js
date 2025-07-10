@@ -1,3 +1,4 @@
+/* --------------------------------------
 const INACTIVITY_TIMEOUT_MS = 30 * 60 * 1000; 
 
 async function deleteInactiveUserData(m) {
@@ -24,7 +25,7 @@ export async function all(m) {
   }
 
   setTimeout(() => deleteInactiveUserData(m), INACTIVITY_TIMEOUT_MS);
-}
+} ---------------------------- */
 
 /*const INACTIVITY_TIMEOUT_MS = 30 * 60 * 1000;
 
