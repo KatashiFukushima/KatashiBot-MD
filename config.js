@@ -453,6 +453,8 @@ global.canal2 = channels.channel2
 global.canal3 = channels.channel3
 global.canal4 = channels.channel4
 
+global.ch = [null]
+
 global.soporteGB = others.group_support
 global.grupo1 = groups.group1
 global.grupo2 = groups.group2
