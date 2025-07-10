@@ -1,4 +1,3 @@
-
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
@@ -40,9 +39,6 @@ if (!m) {
 return;
 }
 if (global.db.data == null) await global.loadDatabase()
-/*------------------------------------------------*/	     
-if (global.chatgpt.data === null) await global.loadChatgptDB()
-/*------------------------------------------------*/	
 try {
 m = smsg(this, m) || m
 if (!m)
