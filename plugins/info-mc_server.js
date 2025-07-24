@@ -1,37 +1,53 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, usedPrefix, command }) => {
+let lastRequestTime = 0;
+let cachedResponse = null;
+
+const handler = async (m, { conn }) => {
     try {
         await conn.sendPresenceUpdate('composing', m.chat);
         
         const serverAddress = 'it-node1.skyultraplus.com:2046';
-        const serverInfo = await checkMinecraftServer(serverAddress);
+        const forceRefresh = m.text.includes('!refresh'); // Comando secreto para forzar actualización
+        
+        const serverInfo = await checkMinecraftServer(serverAddress, forceRefresh);
         const response = formatServerResponse(serverInfo);
         
         await conn.reply(m.chat, response, m);
         
     } catch (error) {
         console.error('Error:', error);
-        let errorMessage = '❌ Error al verificar el servidor';
-        if (error.message.includes('fetch failed')) {
-            errorMessage = '🌐 No se pudo conectar al servicio de monitoreo';
-        }
-        await conn.reply(m.chat, `${errorMessage}\nDetalles: ${error.message}`, m);
+        await conn.reply(m.chat, `❌ Error: ${error.message}`, m);
     }
 };
 
-async function checkMinecraftServer(address) {
-    const url = `https://api.mcsrvstat.us/bedrock/3/${address}`;
+async function checkMinecraftServer(address, forceRefresh = false) {
+    const now = Date.now();
+    
+
+    if (!forceRefresh && cachedResponse && (now - lastRequestTime < 60000)) {
+        return cachedResponse;
+    }
+
+    const url = `https://api.mcsrvstat.us/bedrock/3/${address}?_=${now}`;
+    
     const response = await fetch(url, {
-        timeout: 10000 // 10 segundos de timeout
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+        },
+        timeout: 10000
     });
     
-    if (!response.ok) {
-        throw new Error(`API respondió con estado ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`API no disponible (${response.status})`);
     
-    return await response.json();
+    const data = await response.json();
+    lastRequestTime = now;
+    cachedResponse = data;
+    
+    return data;
 }
+
 
 function formatServerResponse(data) {
     if (!data.online) {
