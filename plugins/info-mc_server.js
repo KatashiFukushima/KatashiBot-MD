@@ -19,6 +19,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         // Indicar que el bot está escribiendo
         await conn.sendPresenceUpdate('composing', m.chat);
         
+        const server = 'it-node1.skyultraplus.com:2046';
+        const tipo = 'bedrock';
         // Consultar la API
         const serverInfo = await checkMinecraftServer(server, tipo);
         const response = formatServerResponse(serverInfo);
@@ -27,7 +29,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.reply(m.chat, response, m);
         
     } catch (error) {
-        console.error('Error en mcHandler:', error);
+        console.error('Error:', error);
         let errorMessage = '❌ Error al verificar el servidor';
         if (error.response?.status === 404) {
             errorMessage = '🔍 Servidor no encontrado o no responde';
