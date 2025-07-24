@@ -57,6 +57,7 @@ function formatServerResponse(data) {
     return `*⎔ Minecraft Server Status ⎔*
     
 ${statusEmoji} *Estado:* ${data.status.toUpperCase()}
+
 🌐 *Tipo:* ${data.serverType}
 🔌 *Servidor:* ${data.host}:${data.port}
 📝 *Descripción:* ${data.description || 'N/A'}
