@@ -3,7 +3,7 @@ import { format } from 'util';
 
 // Configuración de Pterodactyl
 const PTERODACTYL_CONFIG = {
-  PANEL_URL: 'https://panel.skyultraplus.com/', // Reemplaza con tu URL del panel
+  PANEL_URL: 'https://panel.skyultraplus.com', // Reemplaza con tu URL del panel
   SERVER_ID: '1a39799b-aaf2-4c6c-ac53-15a72f34ebd0',
   API_KEY: 'ptlc_AC9ttaVgCmwmDs8DhE9ejPy9ffa7eGunbyDERnqJTqU'
 };
