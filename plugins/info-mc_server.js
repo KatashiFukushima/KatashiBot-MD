@@ -5,7 +5,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
   //  if (!text) return conn.reply(m.chat, `✳️ Uso correcto: *${usedPrefix}mc <servidor:puerto> <tipo>*\nEjemplo: *${usedPrefix}mc it-node1.skyultraplus.com:2046 bedrock*`, m);
     
-    const args = text.split(' ');
+  /*  const args = text.split(' ');
     if (args.length < 2) return conn.reply(m.chat, `❌ Formato incorrecto. Necesitas especificar servidor y tipo.\nEjemplo: *${usedPrefix}mc it-node1.skyultraplus.com:2046 bedrock*`, m);
 
     const [server, tipo] = args;
@@ -13,7 +13,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (!validTypes.includes(tipo.toLowerCase())) {
         return conn.reply(m.chat, `❌ Tipo de servidor inválido. Usa *bedrock* o *java*`, m);
-    }
+    }*/
 
     try {
         // Indicar que el bot está escribiendo
