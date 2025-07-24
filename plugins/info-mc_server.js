@@ -62,7 +62,6 @@ ${statusEmoji} *Estado:* ${data.status.toUpperCase()}
 🔌 *Servidor:* ${data.host}:${data.port}
 📝 *Descripción:* ${data.description || 'N/A'}
 🛠 *Versión:* ${data.version || 'Desconocida'}
-tests:  ${data.difficulty || 'N/A'}
 🎮 *Modo de juego:* ${data.gamemode || 'N/A'}
 🗺 *Mapa:* ${data.map || 'N/A'}
 
