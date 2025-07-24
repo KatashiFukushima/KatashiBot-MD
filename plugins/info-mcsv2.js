@@ -103,7 +103,7 @@ function formatBytes(bytes) {
 
 handler.command = /^(ptero|server)$/i;
 handler.help = ['ptero <start|stop|restart|status>'];
-handler.tags = ['admin'];
+
 handler.owner = true;
 
 export default handler
