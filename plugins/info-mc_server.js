@@ -16,12 +16,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }*/
 
     try {
-        // Indicar que el bot está escribiendo
+       
         await conn.sendPresenceUpdate('composing', m.chat);
         
         const server = 'it-node1.skyultraplus.com:2046';
         const tipo = 'bedrock';
-        // Consultar la API
+       
         const serverInfo = await checkMinecraftServer(server, tipo);
         const response = formatServerResponse(serverInfo);
         
@@ -48,7 +48,7 @@ async function checkMinecraftServer(server, tipo) {
     return response.data;
 }
 
-// Formateador de respuesta (mejorado)
+
 function formatServerResponse(data) {
     const statusEmoji = data.status === 'online' ? '🟢' : '🔴';
     const playerList = data.players.list?.length > 0 ? 
@@ -71,10 +71,9 @@ ${statusEmoji} *Estado:* ${data.status.toUpperCase()}
 ✨ _SoIz1_`;
 }
 
-// Asignación de comandos (adaptar según tu sistema)
+
 handler.command = /^(mc|minecraft|serverstatus)$/i;
 handler.help = ['mc <servidor:puerto> <bedrock|java>', 'minecraft <servidor> <tipo>'];
 handler.tags = ['games'];
-handler.limit = true; // Puedes ajustar esto
-
+handler.limit = true; 
 export default handler
