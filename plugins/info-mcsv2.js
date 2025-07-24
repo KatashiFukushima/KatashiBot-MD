@@ -1,2 +1,108 @@
-//
-const _0x4b18=['\x67\x65\x74','\x73\x74\x6f\x70','\x70\x6f\x73\x74','\x41\x63\x63\x65\x70\x74','\x73\x74\x61\x72\x74','\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x6a\x73\x6f\x6e','\x72\x65\x73\x6f\x75\x72\x63\x65\x73','\x72\x65\x73\x74\x61\x72\x74','\x43\x6f\x6e\x74\x65\x6e\x74\x2d\x54\x79\x70\x65','\x73\x74\x61\x74\x75\x73','\x70\x6f\x77\x65\x72','\x41\x75\x74\x68\x6f\x72\x69\x7a\x61\x74\x69\x6f\x6e','\x42\x65\x61\x72\x65\x72\x20'];const _0x3e8a=function(_0x4b18d3,_0x3e8a8d){_0x4b18d3=_0x4b18d3-0x0;let _0x4d4c4a=_0x4b18[_0x4b18d3];return _0x4d4c4a;};(function(_0x2cf582,_0x4b18d3){const _0x2d7f48=function(_0x3e8a8d){while(--_0x3e8a8d){_0x2cf582['\x70\x75\x73\x68'](_0x2cf582['\x73\x68\x69\x66\x74']());}};_0x2d7f48(++_0x4b18d3);}(_0x4b18,0x1f4));const _0x2d7f=function(_0x2cf582,_0x4b18d3){_0x2cf582=_0x2cf582-0x0;let _0x2d7f48=_0x4b18[_0x2cf582];return _0x2d7f48;};import axios from'\x61\x78\x69\x6f\x73';const config={'\x70\x61\x6e\x65\x6c\x5f\x75\x72\x6c':'\x68\x74\x74\x70\x73\x3a\x2f\x2f\x70\x61\x6e\x65\x6c\x2e\x73\x6b\x79\x75\x6c\x74\x72\x61\x70\x6c\x75\x73\x2e\x63\x6f\x6d','\x73\x65\x72\x76\x65\x72\x5f\x69\x64':'\x31\x61\x33\x39\x37\x39\x39\x62\x2d\x61\x61\x66\x32\x2d\x34\x63\x36\x63\x2d\x61\x63\x35\x33\x2d\x31\x35\x61\x37\x32\x66\x33\x34\x65\x62\x64\x30','\x61\x70\x69\x5f\x6b\x65\x79':'\x70\x74\x6c\x63\x5f\x41\x43\x39\x74\x74\x61\x56\x67\x43\x6d\x77\x6d\x44\x73\x38\x44\x68\x45\x39\x65\x6a\x50\x79\x39\x66\x66\x61\x37\x65\x47\x75\x6e\x62\x79\x44\x45\x52\x6e\x71\x4a\x54\x71\x55'};const handler=async(_0x1f58dc,_0x5e72d4)=>{const _0x5b5e8e=_0x5e72d4[_0x2d7f('0x0')]||_0x2d7f('0x1');const _0x5a22a3={'🟢':_0x2d7f('0x2'),'🔴':_0x2d7f('0x3'),'🔄':_0x2d7f('0x4'),'📊':_0x2d7f('0x5')};if(!Object['\x76\x61\x6c\x75\x65\x73'](_0x5a22a3)['\x69\x6e\x63\x6c\x75\x64\x65\x73'](_0x5b5e8e)){const _0x2f8a5a=`*${_0x5e72d4[_0x2d7f('0x6')]}ptero [comando]*\n\n`+Object[_0x2d7f('0x7')](_0x5a22a3)[_0x2d7f('0x8')](([_0x2e9d8b,_0x1b1a1c])=>`${_0x2e9d8b} *${_0x5e72d4[_0x2d7f('0x6')]}ptero ${_0x1b1a1c}*`)['\x6a\x6f\x69\x6e']('\n');return await _0x5e72d4[_0x2d7f('0x9')][_0x2d7f('0xa')](_0x1f58dc[_0x2d7f('0xb')],_0x2f8a5a,_0x1f58dc);}try{await _0x5e72d4[_0x2d7f('0x9')][_0x2d7f('0xc')]('\x63\x6f\x6d\x70\x6f\x73\x69\x6e\x67',_0x1f58dc[_0x2d7f('0xb')]);if(_0x5b5e8e===_0x2d7f('0x5')){const {data:_0x4e0b8a}=await axios[_0x2d7f('0xd')](`${config[_0x2d7f('0xe')]}/api/client/servers/${config[_0x2d7f('0xf')]}/${_0x2d7f('0x10')}`,{'\x68\x65\x61\x64\x65\x72\x73':{'\x41\x75\x74\x68\x6f\x72\x69\x7a\x61\x74\x69\x6f\x6e':_0x2d7f('0x11')+config['\x61\x70\x69\x5f\x6b\x65\x79'],[_0x2d7f('0x12')]:_0x2d7f('0x13')},'\x74\x69\x6d\x65\x6f\x75\x74':0x1f40});return await _0x5e72d4[_0x2d7f('0x9')][_0x2d7f('0xa')](_0x1f58dc[_0x2d7f('0xb')],_0x3850af(_0x4e0b8a),_0x1f58dc);}await axios[_0x2d7f('0x14')](`${config[_0x2d7f('0xe')]}/api/client/servers/${config[_0x2d7f('0xf')]}/${_0x2d7f('0x15')}`,{'\x73\x69\x67\x6e\x61\x6c':_0x5a22a3[_0x5b5e8e]},{'\x68\x65\x61\x64\x65\x72\x73':{'\x41\x75\x74\x68\x6f\x72\x69\x7a\x61\x74\x69\x6f\x6e':_0x2d7f('0x11')+config[_0x2d7f('0x16')],[_0x2d7f('0x17')]:_0x2d7f('0x13')},'\x74\x69\x6d\x65\x6f\x75\x74':0x3a98});return await _0x5e72d4[_0x2d7f('0x9')][_0x2d7f('0xa')](_0x1f58dc[_0x2d7f('0xb')],`${_0x5b5e8e} *Servidor ${_0x5a22a3[_0x5b5e8e][_0x2d7f('0x18')]()} con éxito*`,_0x1f58dc);}catch(_0x1a2a89){console[_0x2d7f('0x19')]('\x45\x72\x72\x6f\x72\x3a',_0x1a2a89);const _0x5e0f4b=_0x1a2a89[_0x2d7f('0x1a')]?.[_0x2d7f('0x1b')]?.['\x65\x72\x72\x6f\x72\x73']?.[0x0]?.[_0x2d7f('0x1c')]||_0x1a2a89[_0x2d7f('0x1d')]||'\x45\x72\x72\x6f\x72\x20\x64\x65\x73\x63\x6f\x6e\x6f\x63\x69\x64\x6f';return await _0x5e72d4[_0x2d7f('0x9')][_0x2d7f('0xa')](_0x1f58dc[_0x2d7f('0xb')],`❌ ${_0x2d7f('0x1e')}\x3a ${_0x5e0f4b}`,_0x1f58dc);}};function _0x3850af(_0x4e0b8a){const _0x2e9d8b={'🔴':'\x4f\x46\x46\x4c\x49\x4e\x45','🟢':'\x4f\x4e\x4c\x49\x4e\x45','🟡':'\x49\x4e\x49\x43\x49\x41\x4e\x44\x4f','🟠':'\x44\x45\x54\x45\x4e\x49\x45\x4e\x44\x4f'};const _0x1b1a1c=_0x4e0b8a[_0x2d7f('0x1f')][_0x2d7f('0x20')];const _0x5a22a3=_0x1b1a1c===_0x2d7f('0x21')?'🔴':_0x1b1a1c===_0x2d7f('0x22')?'🟢':_0x1b1a1c===_0x2d7f('0x23')?'🟡':'🟠';const _0x2f8a5a=_0x2e9d8b[_0x5a22a3]||_0x1b1a1c;const _0x3850af=_0x4e0b8a[_0x2d7f('0x1f')][_0x2d7f('0x24')];const _0x3c5a3a=_0x3850af[_0x2d7f('0x25')];const _0x3e8a8d=_0x3850af[_0x2d7f('0x26')]?_0x4c4a4a(_0x3850af[_0x2d7f('0x26')]):'\x30\x73';return`*⎔ ${_0x2d7f('0x27')} ⎔*\n\n▸ ${_0x5a22a3} ${_0x2f8a5a}\n▸ ${_0x2d7f('0x28')}\x3a ${(_0x3c5a3a/0x400/0x400)[_0x2d7f('0x29')](0x2)} MB\n▸ ${_0x2d7f('0x2a')}\x3a ${_0x3850af[_0x2d7f('0x2b')]?.[_0x2d7f('0x29')](0x2)||'\x30'}%\n▸ ${_0x2d7f('0x2c')}\x3a ${_0x3e8a8d}`;}function _0x4c4a4a(_0x5e0f4b){const _0x1a2a89=Math[_0x2d7f('0x2d')](_0x5e0f4b/0x3e8);const _0x3c5a3a=Math[_0x2d7f('0x2d')](_0x1a2a89/0x3c);const _0x3e8a8d=Math[_0x2d7f('0x2d')]((_0x1a2a89%0x3c)/0x3c);return _0x3c5a3a>0x0?`${_0x3c5a3a}h ${_0x3e8a8d}m`:`${_0x3e8a8d}m`;}handler[_0x2d7f('0x2e')]=/^(ptero|server|mc)$/i;handler[_0x2d7f('0x2f')]=['\x70\x74\x65\x72\x6f \x3c\x73\x74\x61\x72\x74\x7c\x73\x74\x6f\x70\x7c\x72\x65\x73\x74\x61\x72\x74\x7c\x73\x74\x61\x74\x75\x73\x3e'];handler[_0x2d7f('0x30')]=['\x6d\x69\x6e\x65\x63\x72\x61\x66\x74'];handler[_0x2d7f('0x31')]=!![];export default handler;
+import axios from 'axios';
+
+const PTERODACTYL_CONFIG = {
+  PANEL_URL: 'https://panel.skyultraplus.com',
+  SERVER_ID: '1a39799b-aaf2-4c6c-ac53-15a72f34ebd0',
+  API_KEY: 'ptlc_AC9ttaVgCmwmDs8DhE9ejPy9ffa7eGunbyDERnqJTqU'
+};
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  const action = text?.toLowerCase() || 'status';
+  const validActions = ['start', 'stop', 'restart', 'status'];
+
+  try {
+    await conn.sendPresenceUpdate('composing', m.chat);
+
+    if (action === 'status') {
+      const { data } = await getServerStatus();
+      const status = formatServerStatus(data);
+      return await conn.reply(m.chat, status, m);
+    }
+
+    if (['start', 'stop', 'restart'].includes(action)) {
+      await sendPowerAction(action);
+      const emoji = { start: '🟢', stop: '🔴', restart: '🔄' };
+      return await conn.reply(m.chat, `${emoji[action]} *Servidor ${action.toUpperCase()} exitoso*`, m);
+    }
+
+    return await conn.reply(m.chat, `❌ Comando no válido. Usa ${usedPrefix}ptero <start|stop|restart|status>`, m);
+
+  } catch (error) {
+    console.error('Error:', error);
+    let errorMsg = '❌ Error: ';
+    
+    if (error.response) {
+      errorMsg += `API (${error.response.status}): ${error.response.data?.errors?.[0]?.detail || 'Sin detalles'}`;
+    } else {
+      errorMsg += error.message;
+    }
+    
+    return await conn.reply(m.chat, errorMsg, m);
+  }
+};
+
+
+async function getServerStatus() {
+  return axios.get(`${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/resources`, {
+    headers: {
+      'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
+      'Accept': 'application/json'
+    },
+    timeout: 8000
+  });
+}
+
+async function sendPowerAction(signal) {
+  return axios.post(
+    `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/power`,
+    { signal },
+    {
+      headers: {
+        'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      timeout: 15000
+    }
+  );
+}
+
+// Formateador mejorado
+function formatServerStatus(data) {
+  const stateMap = {
+    offline: '🔴 OFFLINE',
+    running: '🟢 ONLINE',
+    starting: '🟡 INICIANDO',
+    stopping: '🟠 DETENIENDO'
+  };
+
+  const state = stateMap[data.attributes.current_state] || data.attributes.current_state;
+  const uptime = data.attributes.resources.uptime > 0 ? 
+    formatUptime(data.attributes.resources.uptime) : '0 segundos';
+
+  return `📊 *Estado del Servidor*\n\n` +
+    `▸ Estado: ${state}\n` +
+    `▸ CPU: ${data.attributes.resources.cpu_absolute?.toFixed(2) || '0'}%\n` +
+    `▸ RAM: ${(data.attributes.resources.memory_bytes / 1024 / 1024).toFixed(2)} MB\n` +
+    `▸ Uptime: ${uptime}\n` +
+    `▸ Red: ▼${formatBytes(data.attributes.resources.network_rx_bytes)} ▲${formatBytes(data.attributes.resources.network_tx_bytes)}`;
+}
+
+function formatUptime(ms) {
+  const seconds = Math.floor(ms / 1000);
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  return `${h}h ${m}m`;
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1048576) return `${(bytes / 1024).toFixed(2)} KB`;
+  return `${(bytes / 1048576).toFixed(2)} MB`;
+}
+
+handler.command = /^(ptero|server)$/i;
+handler.help = ['ptero <start|stop|restart|status>'];
+
+handler.owner = true;
+
+export default handler
