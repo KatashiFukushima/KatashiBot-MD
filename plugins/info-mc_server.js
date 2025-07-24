@@ -52,7 +52,7 @@ async function checkMinecraftServer(address, forceRefresh = false) {
 function formatServerResponse(data) {
     if (!data.online) {
         return `*🔴 SERVIDOR OFFLINE*\n\n` +
-               `▸ IP: ${data.ip || 'N/A'}\n` +
+               `▸ IP: it-node1.skyultraplus.com'}\n` +
                `▸ Puerto: ${data.port || 'N/A'}\n` +
                `▸ Última consulta: ${new Date().toLocaleTimeString()}`;
     }
@@ -63,7 +63,7 @@ function formatServerResponse(data) {
         '\n👤 *No hay jugadores conectados*';
 
     return `*🟢 SERVIDOR ONLINE*\n\n` +
-           `🌐 *IP:* ${data.ip}:${data.port}\n` +
+           `🌐 *IP:* it-node1.skyultraplus.com:2046\n` +
            (data.hostname ? `🔗 *Hostname:* ${data.hostname}\n` : '') +
            `🛠 *Versión:* ${data.version || 'Desconocida'}\n` +
            `🎮 *Modo de juego:* ${data.gamemode || 'N/A'}\n` +
