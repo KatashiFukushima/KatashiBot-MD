@@ -1,79 +1,67 @@
 import fetch from 'node-fetch';
-import axios from 'axios';
-//
-const handler = async (m, { conn, text, usedPrefix, command }) => {
 
-  //  if (!text) return conn.reply(m.chat, `✳️ Uso correcto: *${usedPrefix}mc <servidor:puerto> <tipo>*\nEjemplo: *${usedPrefix}mc it-node1.skyultraplus.com:2046 bedrock*`, m);
-    
-  /*  const args = text.split(' ');
-    if (args.length < 2) return conn.reply(m.chat, `❌ Formato incorrecto. Necesitas especificar servidor y tipo.\nEjemplo: *${usedPrefix}mc it-node1.skyultraplus.com:2046 bedrock*`, m);
-
-    const [server, tipo] = args;
-    const validTypes = ['bedrock', 'java'];
-    
-    if (!validTypes.includes(tipo.toLowerCase())) {
-        return conn.reply(m.chat, `❌ Tipo de servidor inválido. Usa *bedrock* o *java*`, m);
-    }*/
-
+const handler = async (m, { conn, usedPrefix, command }) => {
     try {
-       
         await conn.sendPresenceUpdate('composing', m.chat);
         
-        const server = 'it-node1.skyultraplus.com:2046';
-        const tipo = 'bedrock';
-       
-        const serverInfo = await checkMinecraftServer(server, tipo);
+        const serverAddress = 'it-node1.skyultraplus.com:2046';
+        const serverInfo = await checkMinecraftServer(serverAddress);
         const response = formatServerResponse(serverInfo);
         
-        // Enviar respuesta con formato
         await conn.reply(m.chat, response, m);
         
     } catch (error) {
         console.error('Error:', error);
         let errorMessage = '❌ Error al verificar el servidor';
-        if (error.response?.status === 404) {
-            errorMessage = '🔍 Servidor no encontrado o no responde';
-        } else if (error.message.includes('ECONNREFUSED')) {
-            errorMessage = '📛 No se pudo conectar al servidor (tiempo de espera agotado)';
+        if (error.message.includes('fetch failed')) {
+            errorMessage = '🌐 No se pudo conectar al servicio de monitoreo';
         }
         await conn.reply(m.chat, `${errorMessage}\nDetalles: ${error.message}`, m);
     }
 };
 
-async function checkMinecraftServer(server, tipo) {
-    const url = `https://api.dorratz.com/v3/mc-server?server=it-node1.skyultraplus.com:2046&tipo=bedrock`;
-    const response = await axios.get(url, {
+async function checkMinecraftServer(address) {
+    const url = `https://api.mcsrvstat.us/bedrock/3/${address}`;
+    const response = await fetch(url, {
         timeout: 10000 // 10 segundos de timeout
     });
-    return response.data;
+    
+    if (!response.ok) {
+        throw new Error(`API respondió con estado ${response.status}`);
+    }
+    
+    return await response.json();
 }
-
 
 function formatServerResponse(data) {
-    const statusEmoji = data.status === 'online' ? '🟢' : '🔴';
-    const playerList = data.players.list?.length > 0 ? 
-        `\n  👥 Jugadores conectados:\n  ${data.players.list.map(p => `▸ ${p}`).join('\n  ')}` : '';
-    
-    return `*⎔ Minecraft Server Status ⎔*
-    
-${statusEmoji} *Estado:* ${data.status.toUpperCase()}
+    if (!data.online) {
+        return `*🔴 SERVIDOR OFFLINE*\n\n` +
+               `▸ IP: ${data.ip || 'N/A'}\n` +
+               `▸ Puerto: ${data.port || 'N/A'}\n` +
+               `▸ Última consulta: ${new Date().toLocaleTimeString()}`;
+    }
 
-🌐 *Tipo:* ${data.serverType}
-🔌 *Servidor:* ${data.host}:${data.port}
-📝 *Descripción:* ${data.description || 'N/A'}
-🛠 *Versión:* ${data.version || 'Desconocida'}
-🎮 *Modo de juego:* ${data.gamemode || 'N/A'}
-🗺 *Mapa:* ${data.map || 'N/A'}
+    const playerList = data.players?.list?.length > 0 ? 
+        `\n👥 *Jugadores conectados:*\n` +
+        data.players.list.map(p => `▸ ${p.name}`).join('\n') : 
+        '\n👤 *No hay jugadores conectados*';
 
-👤 *Jugadores:* ${data.players.online}/${data.players.max}${playerList}
-
-⚡ *Consultado con:* ${data.queriedWith}
-✨ _SoIz1_`;
+    return `*🟢 SERVIDOR ONLINE*\n\n` +
+           `🌐 *IP:* ${data.ip}:${data.port}\n` +
+           (data.hostname ? `🔗 *Hostname:* ${data.hostname}\n` : '') +
+           `🛠 *Versión:* ${data.version || 'Desconocida'}\n` +
+           `🎮 *Modo de juego:* ${data.gamemode || 'N/A'}\n` +
+           (data.map ? `🗺 *Mapa:* ${data.map.clean || data.map.raw}\n` : '') +
+           (data.software ? `⚙️ *Software:* ${data.software}\n` : '') +
+           `\n👤 *Jugadores:* ${data.players?.online || 0}/${data.players?.max || '?'}` +
+           playerList +
+           `\n\n⏰ *Última consulta:* ${new Date().toLocaleTimeString()}` +
+           `\n✨ *API:* mcsrvstat.us`;
 }
 
-
 handler.command = /^(mc|minecraft|serverstatus)$/i;
-handler.help = ['mc <servidor:puerto> <bedrock|java>', 'minecraft <servidor> <tipo>'];
+handler.help = ['mc', 'minecraft', 'serverstatus'];
 handler.tags = ['games'];
-handler.limit = true; 
+handler.limit = true;
+
 export default handler
