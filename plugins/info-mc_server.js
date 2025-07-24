@@ -1,15 +1,14 @@
 import fetch from 'node-fetch';
 
-//
-let lastRequestData = null;
 let lastRequestTime = 0;
+let cachedResponse = null;
 
 const handler = async (m, { conn }) => {
     try {
         await conn.sendPresenceUpdate('composing', m.chat);
         
         const serverAddress = 'it-node1.skyultraplus.com:2046';
-        const forceRefresh = m.text.includes('!force'); // Comando secreto para forzar actualización
+        const forceRefresh = m.text.includes('!refresh'); // Comando secreto para forzar actualización
         
         const serverInfo = await checkMinecraftServer(serverAddress, forceRefresh);
         const response = formatServerResponse(serverInfo);
@@ -18,86 +17,67 @@ const handler = async (m, { conn }) => {
         
     } catch (error) {
         console.error('Error:', error);
-        await conn.reply(m.chat, `❌ Error: ${error.message}\n\nPrueba con *${usedPrefix}mc!force* para forzar actualización`, m);
+        await conn.reply(m.chat, `❌ Error: ${error.message}`, m);
     }
 };
 
 async function checkMinecraftServer(address, forceRefresh = false) {
-    // 
-    const strategies = [
-        async () => {
-            // 
-            const timestamp = Date.now();
-            const url = `https://api.mcsrvstat.us/bedrock/3/${address}?_=${timestamp}&rand=${Math.random()}`;
-            const response = await fetch(url, {
-                headers: {
-                    'Cache-Control': 'no-cache, no-store, must-revalidate',
-                    'Pragma': 'no-cache',
-                    'Expires': '0'
-                },
-                timeout: 8000
-            });
-            return await response.json();
-        },
-        async () => {
-            // 
-            const url = `https://api.mcsrvstat.us/2/${address}`;
-            const response = await fetch(url);
-            return await response.json();
-        },
-        async () => {
-            //
-            const url = `https://cors-anywhere.herokuapp.com/https://api.mcsrvstat.us/bedrock/3/${address}?bypass=${Date.now()}`;
-            const response = await fetch(url);
-            return await response.json();
-        }
-    ];
-
-    //
-    for (const strategy of strategies) {
-        try {
-            const data = await strategy();
-            
-            // Verificar si los datos son diferentes a los anteriores
-            if (forceRefresh || JSON.stringify(data) !== JSON.stringify(lastRequestData)) {
-                lastRequestData = data;
-                lastRequestTime = Date.now();
-                return data;
-            }
-        } catch (e) {
-            console.log(`Estrategia fallida: ${e.message}`);
-        }
-    }
+    const now = Date.now();
     
-    throw new Error('No se pudo obtener datos actualizados');
+
+    if (!forceRefresh && cachedResponse && (now - lastRequestTime < 60000)) {
+        return cachedResponse;
+    }
+
+    const url = `https://api.mcsrvstat.us/bedrock/3/${address}?_=${now}`;
+    
+    const response = await fetch(url, {
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+        },
+        timeout: 10000
+    });
+    
+    if (!response.ok) throw new Error(`API no disponible (${response.status})`);
+    
+    const data = await response.json();
+    lastRequestTime = now;
+    cachedResponse = data;
+    
+    return data;
 }
 
+
 function formatServerResponse(data) {
-    const now = new Date();
-    const lastUpdated = `\n\n🕒 Actualizado: ${now.toLocaleTimeString()}`;
-    
     if (!data.online) {
-        return `*🔴 SERVIDOR OFFLINE*${lastUpdated}\n` +
-               `IP: ${data.ip || 'N/A'}:${data.port || 'N/A'}\n` +
-               `Último chequeo: ${now.toLocaleString()}`;
+        return `*🔴 SERVIDOR OFFLINE*\n\n` +
+               `▸ IP: it-node1.skyultraplus.com'}\n` +
+               `▸ Puerto: ${data.port || 'N/A'}\n` +
+               `▸ Última consulta: ${new Date().toLocaleTimeString()}`;
     }
 
     const playerList = data.players?.list?.length > 0 ? 
-        `\n👥 Jugadores (${data.players.online}/${data.players.max}):\n` +
-        data.players.list.slice(0, 10).map(p => `▸ ${p.name}`).join('\n') +
-        (data.players.online > 10 ? `\n... y ${data.players.online - 10} más` : '') : 
-        '\n👤 No hay jugadores conectados';
+        `\n👥 *Jugadores conectados:*\n` +
+        data.players.list.map(p => `▸ ${p.name}`).join('\n') : 
+        '\n👤 *No hay jugadores conectados*';
 
-    return `*🟢 SERVIDOR ONLINE*${lastUpdated}\n` +
-           `🌐 ${data.hostname || data.ip}:${data.port}\n` +
-           `🛠 ${data.version || 'Versión desconocida'}\n` +
-           `🎮 Modo: ${data.gamemode || 'N/A'}\n` +
-           (data.map ? `🗺 Mapa: ${data.map.clean || data.map.raw}\n` : '') +
-           (data.software ? `⚙️ Software: ${data.software}\n` : '') +
-           playerList;
+    return `*🟢 SERVIDOR ONLINE*\n\n` +
+           `🌐 *IP:* it-node1.skyultraplus.com:2046\n` +
+           (data.hostname ? `🔗 *Hostname:* ${data.hostname}\n` : '') +
+           `🛠 *Versión:* ${data.version || 'Desconocida'}\n` +
+           `🎮 *Modo de juego:* ${data.gamemode || 'N/A'}\n` +
+           (data.map ? `🗺 *Mapa:* ${data.map.clean || data.map.raw}\n` : '') +
+           (data.software ? `⚙️ *Software:* ${data.software}\n` : '') +
+           `\n👤 *Jugadores:* ${data.players?.online || 0}/${data.players?.max || '?'}` +
+           playerList +
+           `\n\n⏰ *Última consulta:* ${new Date().toLocaleTimeString()}` +
+           `\n✨ *API:* mcsrvstat.us`;
 }
 
-handler.command = /^(mc|minecraft|serverstatus|mc!force)$/i;
-handler.help = ['mc', 'minecraft', 'serverstatus', 'mc!force'];
+handler.command = /^(mc|minecraft|serverstatus)$/i;
+handler.help = ['mc', 'minecraft', 'serverstatus'];
 handler.tags = ['games'];
-export default handler;
+handler.limit = true;
+
+export default handler
