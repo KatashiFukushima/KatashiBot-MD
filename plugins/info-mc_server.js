@@ -74,4 +74,4 @@ handler.help = ['mc <servidor:puerto> <bedrock|java>', 'minecraft <servidor> <ti
 handler.tags = ['games'];
 handler.limit = true; // Puedes ajustar esto
 
-export default handler;
+export default handler
