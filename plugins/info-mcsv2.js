@@ -7,8 +7,9 @@ const PTERODACTYL_CONFIG = {
 };
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  const action = text?.toLowerCase() || 'status';
-  const validActions = ['start', 'stop', 'restart', 'status'];
+  const args = text.split(' ');
+  const action = args[0]?.toLowerCase() || 'status';
+  const validActions = ['start', 'stop', 'restart', 'status', 'cmd'];
 
   try {
     await conn.sendPresenceUpdate('composing', m.chat);
@@ -25,7 +26,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return await conn.reply(m.chat, `${emoji[action]} *Servidor ${action.toUpperCase()} exitoso*`, m);
     }
 
-    return await conn.reply(m.chat, `❌ Comando no válido. Usa ${usedPrefix}ptero <start|stop|restart|status>`, m);
+    if (action === 'cmd' && args.length > 1) {
+      const commandToSend = args.slice(1).join(' ');
+      await sendConsoleCommand(commandToSend);
+      return await conn.reply(m.chat, `📝 *Comando enviado a la consola:*\n${commandToSend}`, m);
+    }
+
+    return await conn.reply(m.chat, `❌ Comando no válido. Usa:\n${usedPrefix}ptero <start|stop|restart|status>\n${usedPrefix}ptero cmd <comando>`, m);
 
   } catch (error) {
     console.error('Error:', error);
@@ -40,6 +47,22 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     return await conn.reply(m.chat, errorMsg, m);
   }
 };
+
+// Función para enviar comandos a la consola
+async function sendConsoleCommand(command) {
+  return axios.post(
+    `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/command`,
+    { command },
+    {
+      headers: {
+        'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      timeout: 10000
+    }
+  );
+}
 
 
 async function getServerStatus() {
@@ -100,9 +123,9 @@ function formatBytes(bytes) {
   return `${(bytes / 1048576).toFixed(2)} MB`;
 }
 
-handler.command = /^(ptero|server)$/i;
-handler.help = ['ptero <start|stop|restart|status>'];
+handler.command = /^(ptero|server|consola)$/i;
+handler.help = ['ptero <start|stop|restart|status>','ptero cmd <comando>'];
 
 handler.owner = true;
 
-export default handler
+export default handler;
