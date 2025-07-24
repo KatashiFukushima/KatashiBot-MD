@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-// Variables para manejo de caché local
+//
 let lastRequestData = null;
 let lastRequestTime = 0;
 
@@ -23,10 +23,10 @@ const handler = async (m, { conn }) => {
 };
 
 async function checkMinecraftServer(address, forceRefresh = false) {
-    // Estrategias alternativas para evitar caché
+    // 
     const strategies = [
         async () => {
-            // Método 1: Usar parámetro único + headers anti-caché
+            // 
             const timestamp = Date.now();
             const url = `https://api.mcsrvstat.us/bedrock/3/${address}?_=${timestamp}&rand=${Math.random()}`;
             const response = await fetch(url, {
@@ -40,20 +40,20 @@ async function checkMinecraftServer(address, forceRefresh = false) {
             return await response.json();
         },
         async () => {
-            // Método 2: Usar endpoint alternativo
+            // 
             const url = `https://api.mcsrvstat.us/2/${address}`;
             const response = await fetch(url);
             return await response.json();
         },
         async () => {
-            // Método 3: Usar proxy
+            //
             const url = `https://cors-anywhere.herokuapp.com/https://api.mcsrvstat.us/bedrock/3/${address}?bypass=${Date.now()}`;
             const response = await fetch(url);
             return await response.json();
         }
     ];
 
-    // Intentar cada estrategia hasta obtener una respuesta fresca
+    //
     for (const strategy of strategies) {
         try {
             const data = await strategy();
