@@ -35,7 +35,7 @@ if (m.fromMe || conn.user.jid === m.sender) return
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${text ? text.replace(/\D/g, '') : who.split`@`[0]}`  //conn.getName(who)
-let pathGataJadiBot = path.join("./GataJadiBot/", id)
+let pathGataJadiBot = path.join("./KatashiJadiBot/", id)
 if (!fs.existsSync(pathGataJadiBot)){
 fs.mkdirSync(pathGataJadiBot, { recursive: true })
 }
