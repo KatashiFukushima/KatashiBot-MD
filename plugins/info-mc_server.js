@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
 //
-const mcHandler = async (m, { conn, text, usedPrefix, command }) => {
+const handler = async (m, { conn, text, usedPrefix, command }) => {
 
   //  if (!text) return conn.reply(m.chat, `✳️ Uso correcto: *${usedPrefix}mc <servidor:puerto> <tipo>*\nEjemplo: *${usedPrefix}mc it-node1.skyultraplus.com:2046 bedrock*`, m);
     
