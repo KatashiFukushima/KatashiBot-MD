@@ -1,4 +1,5 @@
 import axios from 'axios';
+import WebSocket from 'ws';
 
 const PTERODACTYL_CONFIG = {
   PANEL_URL: 'https://panel.skyultraplus.com',
@@ -6,10 +7,15 @@ const PTERODACTYL_CONFIG = {
   API_KEY: 'ptlc_AC9ttaVgCmwmDs8DhE9ejPy9ffa7eGunbyDERnqJTqU'
 };
 
+// Variable para almacenar la conexión WebSocket
+let socketConnection = null;
+let consoleBuffer = '';
+let commandResponseResolver = null;
+
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   const args = text.split(' ');
   const action = args[0]?.toLowerCase() || 'status';
-  const validActions = ['start', 'stop', 'restart', 'status', 'cmd'];
+  const validActions = ['start', 'stop', 'restart', 'status', 'cmd', 'connect'];
 
   try {
     await conn.sendPresenceUpdate('composing', m.chat);
@@ -26,43 +32,99 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return await conn.reply(m.chat, `${emoji[action]} *Servidor ${action.toUpperCase()} exitoso*`, m);
     }
 
-    if (action === 'cmd' && args.length > 1) {
-      const commandToSend = args.slice(1).join(' ');
-      await sendConsoleCommand(commandToSend);
-      return await conn.reply(m.chat, `📝 *Comando enviado a la consola:*\n${commandToSend}`, m);
+    if (action === 'connect') {
+      await connectWebSocket();
+      return await conn.reply(m.chat, '🔌 *Conexión WebSocket establecida*', m);
     }
 
-    return await conn.reply(m.chat, `❌ Comando no válido. Usa:\n${usedPrefix}ptero <start|stop|restart|status>\n${usedPrefix}ptero cmd <comando>`, m);
+    if (action === 'cmd' && args.length > 1) {
+      if (!socketConnection) {
+        await connectWebSocket();
+      }
+      
+      const commandToSend = args.slice(1).join(' ');
+      await sendConsoleCommand(commandToSend);
+      
+      // Esperar respuesta de la consola (timeout de 15 segundos)
+      const response = await new Promise((resolve, reject) => {
+        commandResponseResolver = resolve;
+        consoleBuffer = ''; // Limpiar buffer
+        
+        setTimeout(() => {
+          reject(new Error('Tiempo de espera agotado (15 segundos)'));
+        }, 15000);
+      });
+      
+      return await conn.reply(m.chat, `📝 *Comando ejecutado:*\n${commandToSend}\n\n📋 *Respuesta:*\n${response || 'Sin respuesta'}`, m);
+    }
+
+    return await conn.reply(m.chat, `❌ Comando no válido. Usa:\n${usedPrefix}ptero <start|stop|restart|status|connect>\n${usedPrefix}ptero cmd <comando>`, m);
 
   } catch (error) {
     console.error('Error:', error);
-    let errorMsg = '❌ Error: ';
-    
-    if (error.response) {
-      errorMsg += `API (${error.response.status}): ${error.response.data?.errors?.[0]?.detail || 'Sin detalles'}`;
-    } else {
-      errorMsg += error.message;
-    }
-    
-    return await conn.reply(m.chat, errorMsg, m);
+    return await conn.reply(m.chat, `❌ Error: ${error.message}`, m);
   }
 };
 
+// Conexión WebSocket para la consola
+async function connectWebSocket() {
+  return new Promise((resolve, reject) => {
+    if (socketConnection) {
+      socketConnection.close();
+    }
+
+    const wsUrl = PTERODACTYL_CONFIG.PANEL_URL.replace('https', 'wss') + 
+                 `/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/ws`;
+    
+    socketConnection = new WebSocket(wsUrl, {
+      headers: {
+        'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`
+      }
+    });
+
+    socketConnection.on('open', () => {
+      console.log('Conexión WebSocket establecida');
+      resolve();
+    });
+
+    socketConnection.on('message', (data) => {
+      const message = JSON.parse(data.toString());
+      if (message.event === 'console output') {
+        consoleBuffer += message.args[0] + '\n';
+        
+        // Si hay un comando esperando respuesta, resolver la promesa
+        if (commandResponseResolver) {
+          commandResponseResolver(consoleBuffer.trim());
+          commandResponseResolver = null;
+          consoleBuffer = '';
+        }
+      }
+    });
+
+    socketConnection.on('error', (error) => {
+      console.error('Error WebSocket:', error);
+      reject(error);
+    });
+
+    socketConnection.on('close', () => {
+      console.log('Conexión WebSocket cerrada');
+      socketConnection = null;
+    });
+  });
+}
+
 // Función para enviar comandos a la consola
 async function sendConsoleCommand(command) {
-  return axios.post(
-    `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/command`,
-    { command },
-    {
-      headers: {
-        'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      timeout: 10000
-    }
-  );
+  if (!socketConnection) {
+    throw new Error('No hay conexión WebSocket activa');
+  }
+  
+  socketConnection.send(JSON.stringify({
+    event: 'send command',
+    args: [command]
+  }));
 }
+
 
 
 async function getServerStatus() {
