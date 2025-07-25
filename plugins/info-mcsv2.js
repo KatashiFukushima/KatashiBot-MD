@@ -235,9 +235,10 @@ function formatBytes(bytes) {
   return `${(bytes / 1048576).toFixed(2)} MB`;
 }
 
-handler.command = /^(ptero|server|console)$/i;
-handler.help = ['ptero <start|stop|restart|status>', 'ptero cmd <comando>'];
+handler.command = /^(ptero|server|mcctl)$/i;
+handler.help = ['ptero <start|stop|restart|status>', 'ptero cmd <comando>  // Ejecuta comando y muestra respuesta', 'ptero console  // Modo consola en tiempo real'];
 
 handler.owner = true;
+
 
 export default handler;
