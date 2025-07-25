@@ -1,5 +1,4 @@
 import axios from 'axios';
-import WebSocket from 'ws';
 
 const PTERODACTYL_CONFIG = {
   PANEL_URL: 'https://panel.skyultraplus.com',
@@ -7,16 +6,16 @@ const PTERODACTYL_CONFIG = {
   API_KEY: 'ptlc_AC9ttaVgCmwmDs8DhE9ejPy9ffa7eGunbyDERnqJTqU'
 };
 
-// Configuración WebSocket
-let socketConnection = null;
-let reconnectAttempts = 0;
-const MAX_RECONNECT_ATTEMPTS = 3;
-const RECONNECT_DELAY = 5000; // 5 segundos
+// Cache simple para almacenar el último comando
+const commandCache = {
+  lastCommand: '',
+  lastResponse: ''
+};
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   const args = text.split(' ');
   const action = args[0]?.toLowerCase() || 'status';
-  const validActions = ['start', 'stop', 'restart', 'status', 'cmd', 'connect'];
+  const validActions = ['start', 'stop', 'restart', 'status', 'cmd'];
 
   try {
     await conn.sendPresenceUpdate('composing', m.chat);
@@ -33,152 +32,102 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       return await conn.reply(m.chat, `${emoji[action]} *Servidor ${action.toUpperCase()} exitoso*`, m);
     }
 
-    if (action === 'connect') {
-      await connectWebSocket();
-      return await conn.reply(m.chat, '🔌 *Conexión WebSocket establecida*', m);
-    }
-
     if (action === 'cmd' && args.length > 1) {
       const commandToSend = args.slice(1).join(' ');
+      commandCache.lastCommand = commandToSend;
       
-      try {
-        // Intentar con WebSocket primero
-        if (!socketConnection) await connectWebSocket();
-        const wsResponse = await sendCommandViaWebSocket(commandToSend);
-        return await conn.reply(m.chat, `📝 *Comando ejecutado (WebSocket):*\n${commandToSend}\n\n📋 *Respuesta:*\n${wsResponse}`, m);
-      } catch (wsError) {
-        console.error('Error WebSocket, usando fallback HTTP:', wsError);
-        // Fallback a HTTP si WebSocket falla
-        await sendConsoleCommand(commandToSend);
-        const logs = await getConsoleOutput();
-        return await conn.reply(m.chat, `📝 *Comando ejecutado (HTTP Fallback):*\n${commandToSend}\n\n📋 *Últimos logs:*\n${logs.slice(0, 500)}`, m);
+      const commandResponse = await sendConsoleCommand(commandToSend);
+      commandCache.lastResponse = commandResponse;
+      
+      let responseMessage = `📝 *Comando ejecutado:* ${commandToSend}\n`;
+      
+      if (commandResponse) {
+        responseMessage += `📋 *Respuesta:*\n${commandResponse.slice(0, 800)}`;
+        if (commandResponse.length > 800) {
+          responseMessage += '\n... (respuesta truncada)';
+        }
+      } else {
+        responseMessage += 'ℹ️ El comando no generó una respuesta visible';
       }
+      
+      return await conn.reply(m.chat, responseMessage, m);
     }
 
-    return await conn.reply(m.chat, `❌ Comando no válido. Usa:\n${usedPrefix}ptero <start|stop|restart|status|connect>\n${usedPrefix}ptero cmd <comando>`, m);
+    return await conn.reply(m.chat, 
+      `❌ Comando no válido. Usa:\n` +
+      `${usedPrefix}ptero <start|stop|restart|status>\n` +
+      `${usedPrefix}ptero cmd <comando>`, 
+      m
+    );
 
   } catch (error) {
     console.error('Error:', error);
-    return await conn.reply(m.chat, `❌ Error: ${error.message}`, m);
+    let errorMsg = '❌ Error: ';
+    
+    if (error.response) {
+      errorMsg += `API (${error.response.status}): ${error.response.data?.errors?.[0]?.detail || 'Sin detalles'}`;
+    } else {
+      errorMsg += error.message;
+    }
+    
+    return await conn.reply(m.chat, errorMsg, m);
   }
 };
 
-// Conexión WebSocket mejorada
-async function connectWebSocket() {
-  return new Promise((resolve, reject) => {
-    if (socketConnection && socketConnection.readyState === WebSocket.OPEN) {
-      return resolve();
-    }
-
-    // Cerrar conexión existente si hay alguna
-    if (socketConnection) {
-      socketConnection.removeAllListeners();
-      socketConnection.close();
-    }
-
-    // Configurar URL WebSocket (alternativas)
-    const wsUrls = [
-      PTERODACTYL_CONFIG.PANEL_URL.replace('https', 'wss') + 
-        `/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/ws`,
-      PTERODACTYL_CONFIG.PANEL_URL.replace('https', 'wss') + 
-        `/api/servers/${PTERODACTYL_CONFIG.SERVER_ID}/ws`
-    ];
-
-    let currentUrlIndex = 0;
-    let lastError = null;
-
-    const tryConnect = (urlIndex) => {
-      if (urlIndex >= wsUrls.length) {
-        reject(lastError || new Error('Todas las URLs WebSocket fallaron'));
-        return;
-      }
-
-      const wsUrl = wsUrls[urlIndex];
-      console.log(`Intentando conectar a WebSocket: ${wsUrl}`);
-
-      socketConnection = new WebSocket(wsUrl, {
+async function sendConsoleCommand(command) {
+  try {
+    // 1. Enviar comando
+    await axios.post(
+      `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/command`,
+      { command },
+      {
         headers: {
-          'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`
+          'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
+          'Content-Type': 'application/json'
         },
-        rejectUnauthorized: false // Solo si tienes problemas con SSL
-      });
-
-      socketConnection.on('open', () => {
-        console.log('Conexión WebSocket establecida');
-        reconnectAttempts = 0;
-        resolve();
-      });
-
-      socketConnection.on('error', (error) => {
-        console.error(`Error WebSocket (${wsUrl}):`, error);
-        lastError = error;
-        
-        // Intentar con la siguiente URL
-        setTimeout(() => tryConnect(urlIndex + 1), 1000);
-      });
-
-      socketConnection.on('close', () => {
-        console.log('Conexión WebSocket cerrada');
-        if (reconnectAttempts < MAX_RECONNECT_ATTEMPTS) {
-          reconnectAttempts++;
-          console.log(`Reintentando conexión (${reconnectAttempts}/${MAX_RECONNECT_ATTEMPTS})...`);
-          setTimeout(() => tryConnect(0), RECONNECT_DELAY);
-        }
-      });
-    };
-
-    tryConnect(0);
-  });
-}
-
-// Envío de comandos via WebSocket
-async function sendCommandViaWebSocket(command) {
-  if (!socketConnection || socketConnection.readyState !== WebSocket.OPEN) {
-    throw new Error('Conexión WebSocket no disponible');
-  }
-
-  return new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      reject(new Error('Tiempo de espera agotado (15 segundos)'));
-    }, 15000);
-
-    const listener = (data) => {
-      try {
-        const message = JSON.parse(data.toString());
-        if (message.event === 'console output') {
-          clearTimeout(timeout);
-          socketConnection.removeListener('message', listener);
-          resolve(message.args[0]);
-        }
-      } catch (e) {
-        console.error('Error procesando mensaje WebSocket:', e);
+        timeout: 5000
       }
-    };
+    );
 
-    socketConnection.on('message', listener);
-    socketConnection.send(JSON.stringify({
-      event: 'send command',
-      args: [command]
-    }));
-  });
-}
+    // 2. Esperar para dar tiempo al servidor a procesar
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
-// Fallback HTTP para obtener logs
-async function getConsoleOutput(lines = 50) {
-  const response = await axios.get(
-    `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/logs`,
-    {
-      headers: {
-        'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
-        'Accept': 'application/json'
-      },
-      params: { lines },
-      timeout: 8000
+    // 3. Obtener logs
+    const { data } = await axios.get(
+      `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/logs`,
+      {
+        headers: {
+          'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
+          'Accept': 'text/plain'
+        },
+        timeout: 8000
+      }
+    );
+
+    // 4. Procesar logs para encontrar la respuesta
+    const lines = data.split('\n').reverse();
+    let responseLines = [];
+    let foundCommand = false;
+
+    for (const line of lines) {
+      if (line.includes(command) && !foundCommand) {
+        foundCommand = true;
+        continue;
+      }
+      if (foundCommand) {
+        if (line.trim() && !line.includes('[Pterodactyl Daemon]')) {
+          responseLines.unshift(line);
+        }
+      }
+      if (responseLines.length >= 5) break; // Limitar a 5 líneas
     }
-  );
-  return response.data;
-}
 
+    return responseLines.join('\n').trim() || null;
+  } catch (error) {
+    console.error('Error en sendConsoleCommand:', error);
+    throw new Error('No se pudo obtener la respuesta de la consola');
+  }
+}
 
 /* ------------- */
 async function getServerStatus() {
@@ -240,15 +189,10 @@ function formatBytes(bytes) {
   return `${(bytes / 1048576).toFixed(2)} MB`;
 }
 
-handler.command = /^(ptero|server|consola)$/i;
-handler.help = ['ptero <start|stop|restart|status|connect>', 'ptero cmd <comando>  // Ejecuta comando y muestra respuesta'];
+handler.command = /^(ptero|server|console)$/i;
+handler.help = ['ptero <start|stop|restart|status>', 'ptero cmd <comando>'];
 
 handler.owner = true;
 
-process.on('exit', () => {
-  if (socketConnection) {
-    socketConnection.close();
-  }
-});
-
+export default handler;
 export default handler;
