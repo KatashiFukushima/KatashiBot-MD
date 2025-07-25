@@ -6,12 +6,6 @@ const PTERODACTYL_CONFIG = {
   API_KEY: 'ptlc_AC9ttaVgCmwmDs8DhE9ejPy9ffa7eGunbyDERnqJTqU'
 };
 
-// Cache simple para almacenar el último comando
-const commandCache = {
-  lastCommand: '',
-  lastResponse: ''
-};
-
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   const args = text.split(' ');
   const action = args[0]?.toLowerCase() || 'status';
@@ -34,29 +28,16 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (action === 'cmd' && args.length > 1) {
       const commandToSend = args.slice(1).join(' ');
-      commandCache.lastCommand = commandToSend;
-      
       const commandResponse = await sendConsoleCommand(commandToSend);
-      commandCache.lastResponse = commandResponse;
       
       let responseMessage = `📝 *Comando ejecutado:* ${commandToSend}\n`;
-      
-      if (commandResponse) {
-        responseMessage += `📋 *Respuesta:*\n${commandResponse.slice(0, 800)}`;
-        if (commandResponse.length > 800) {
-          responseMessage += '\n... (respuesta truncada)';
-        }
-      } else {
-        responseMessage += 'ℹ️ El comando no generó una respuesta visible';
-      }
+      responseMessage += `📋 *Respuesta:*\n${commandResponse || 'No hubo salida visible'}`;
       
       return await conn.reply(m.chat, responseMessage, m);
     }
 
     return await conn.reply(m.chat, 
-      `❌ Comando no válido. Usa:\n` +
-      `${usedPrefix}ptero <start|stop|restart|status>\n` +
-      `${usedPrefix}ptero cmd <comando>`, 
+      `❌ Comando no válido. Usa:\n${usedPrefix}ptero <start|stop|restart|status>\n${usedPrefix}ptero cmd <comando>`, 
       m
     );
 
@@ -74,9 +55,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
+// Función modificada para usar el endpoint correcto
 async function sendConsoleCommand(command) {
   try {
-    // 1. Enviar comando
+    // 1. Enviar el comando
     await axios.post(
       `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/command`,
       { command },
@@ -89,43 +71,25 @@ async function sendConsoleCommand(command) {
       }
     );
 
-    // 2. Esperar para dar tiempo al servidor a procesar
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // 3. Obtener logs
-    const { data } = await axios.get(
-      `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/logs`,
+    // 2. Obtener el websocket token (necesario para la conexión)
+    const { data: wsToken } = await axios.get(
+      `${PTERODACTYL_CONFIG.PANEL_URL}/api/client/servers/${PTERODACTYL_CONFIG.SERVER_ID}/websocket`,
       {
         headers: {
-          'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`,
-          'Accept': 'text/plain'
-        },
-        timeout: 8000
+          'Authorization': `Bearer ${PTERODACTYL_CONFIG.API_KEY}`
+        }
       }
     );
 
-    // 4. Procesar logs para encontrar la respuesta
-    const lines = data.split('\n').reverse();
-    let responseLines = [];
-    let foundCommand = false;
-
-    for (const line of lines) {
-      if (line.includes(command) && !foundCommand) {
-        foundCommand = true;
-        continue;
-      }
-      if (foundCommand) {
-        if (line.trim() && !line.includes('[Pterodactyl Daemon]')) {
-          responseLines.unshift(line);
-        }
-      }
-      if (responseLines.length >= 5) break; // Limitar a 5 líneas
-    }
-
-    return responseLines.join('\n').trim() || null;
+    // 3. Conectar al websocket para recibir la salida
+    // Nota: Esto requiere implementación de WebSocket en tu entorno
+    // Aquí deberías implementar la lógica de conexión WS
+    
+    return "⚠️ La función de captura de output requiere WebSockets. Implementación avanzada necesaria.";
+    
   } catch (error) {
     console.error('Error en sendConsoleCommand:', error);
-    throw new Error('No se pudo obtener la respuesta de la consola');
+    throw new Error('No se pudo enviar el comando o capturar la respuesta');
   }
 }
 
