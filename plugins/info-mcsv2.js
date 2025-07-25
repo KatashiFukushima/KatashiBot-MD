@@ -195,4 +195,3 @@ handler.help = ['ptero <start|stop|restart|status>', 'ptero cmd <comando>'];
 handler.owner = true;
 
 export default handler;
-export default handler;
