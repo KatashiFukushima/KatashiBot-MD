@@ -67,7 +67,7 @@
 "human-readable": "^0.2.1",
 "imagemaker.js": "^2.0.4",
 "jsdom": "^19.0.0",
-"jimp": "^0.16.1",
+"jimp": "^1.6.0",
 "link-preview-js": "^3.0.0",
 "lowdb": "^3.0.0",
 "libphonenumber-js": "^1.10.55",
