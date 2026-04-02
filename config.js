@@ -15,10 +15,8 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 global.owner = [
 ['51979901365', '☆𝑲𝒂𝒕𝒂𝒔𝒉𝒊-𝑩𝒐𝒕☆', false],
 ['51906662557', '𝙊𝙬𝙣𝙚𝙧', false],  
-['5217442363122', '𝑖𝑍𝑖', false],
-['59175655964', 'Alba070503', false],
-//['5217445404792'],.
-['56974513824']]
+['5217442363122', '𝑖𝑍𝑖', true],
+['59175655964', 'Alba070503', false]]
 
 global.mods = []
 global.prems = []
