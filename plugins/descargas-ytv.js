@@ -1,4 +1,3 @@
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
@@ -25,35 +24,31 @@ throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefi
 }}}  
 await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 try {
-let qu = args[1] || '360'
-let q = qu + 'p'
-let v = youtubeLink
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
-} catch (E1) {
-//console.log('Error 1 ' + E1)  
-try {  
-let mediaa = await ytMp4(youtubeLink)
-await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `_${wm}_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
-} catch (E2) {  
-//console.log('Error 2 ' + E2)   
-try {
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${youtubeLink}`)    
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
-let n2 = lolh.result.link
-let n3 = lolh.result.size
-let n4 = lolh.result.thumbnail
-await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${n}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, thumbnail: await fetch(n4) }, { quoted: m })
+const format = args[1] || '360'
+const api = `https://api.delirius.store/download/ytmp4?url=${encodeURIComponent(youtubeLink)}&format=${encodeURIComponent(format)}`
+const response = await fetch(api)
+if (!response.ok) throw new Error(`HTTP ${response.status}`)
+const json = await response.json()
+if (!json?.status || !json?.data?.download) throw new Error('Respuesta inválida de API ytmp4')
+
+const title = json.data.title || 'video'
+const thumb = json.data.image || null
+await conn.sendMessage(
+	m.chat,
+	{
+		video: { url: json.data.download },
+		fileName: `${title}.mp4`,
+		mimetype: 'video/mp4',
+		caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,
+		thumbnail: thumb ? await (await fetch(thumb)).buffer() : undefined,
+	},
+	{ quoted: m }
+)
 } catch (E3) {
-//console.log('Error 3 ' + E3)   
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(E3)}
-}}}
+console.log(E3)
+}}
 handler.command = /^video|fgmp4|dlmp4|getvid|yt(v|mp4)?$/i
 export default handler
 
