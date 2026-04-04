@@ -1,8 +1,4 @@
 import fetch from 'node-fetch';
-import yts from 'yt-search';
-import ytdl from 'ytdl-core';
-import axios from 'axios';
-import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!text) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused4}\n*${usedPrefix + command} Billie Eilish - Bellyache*`
 try { 
@@ -62,8 +58,48 @@ handler.command = ['play', 'play2', 'play3', 'play4']
 export default handler;
 
 async function search(query, options = {}) {
-const search = await yts.search({query, hl: 'es', gl: 'ES', ...options});
-return search.videos;
+const endpoint = `https://api.delirius.store/search/ytsearch?q=${encodeURIComponent(query)}`
+const res = await fetch(endpoint)
+if (!res.ok) throw new Error(`Delirius ytsearch HTTP ${res.status}`)
+
+const json = await res.json()
+if (!json?.status || !Array.isArray(json?.data)) {
+throw new Error('Respuesta invalida de Delirius ytsearch')
+}
+
+const videos = json.data
+.filter(item => item?.type === 'video' && item?.url)
+.map(item => ({
+title: item.title || 'Sin titulo',
+url: item.url,
+thumbnail: item.thumbnail || item.image || '',
+ago: item.publishedAt || 'Desconocido',
+views: Number(item.views) || 0,
+author: {
+name: item.author?.name || item.description || 'Desconocido'
+},
+duration: {
+seconds: parseDurationToSeconds(item.duration || '0:00')
+}
+}))
+
+if (!videos.length) throw new Error('Sin resultados de video en Delirius ytsearch')
+return videos;
+}
+
+function parseDurationToSeconds(duration = '') {
+if (typeof duration !== 'string' || !duration.includes(':')) return 0
+const parts = duration.split(':').map(n => Number(n.trim()))
+if (parts.some(Number.isNaN)) return 0
+if (parts.length === 3) {
+const [h, m, s] = parts
+return h * 3600 + m * 60 + s
+}
+if (parts.length === 2) {
+const [m, s] = parts
+return m * 60 + s
+}
+return parts[0] || 0
 }
 
 function MilesNumber(number) {
