@@ -23,7 +23,7 @@ https://chat.whatsapp.com/J7DTlOOCuEhJS7CW6OSINJ
 katashifukushima23@gmail.com
 
 🧑‍💻 *Contacto (Katashi Fukushima)*
-https://wa.me/51948705559
+https://wa.me/51974399615
 `
 await conn.sendFile(m.chat, 'https://telegra.ph/file/5bfb99ebc653ff9c24120.jpg', 'fantasy.jpg', infinitytxt.trim(), fkontak, true, {
 contextInfo: {
