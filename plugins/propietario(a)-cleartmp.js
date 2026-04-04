@@ -6,7 +6,8 @@ statSync,
 unlinkSync,
 existsSync,
 readFileSync,
-watch
+watch,
+rmSync
 } from 'fs'
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => { 
 
@@ -17,7 +18,11 @@ const filename = []
 tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
 return filename.map(file => {
 const stats = statSync(file)
+if (stats.isDirectory()) {
+rmSync(file, { recursive: true, force: true })
+} else {
 unlinkSync(file)
+}
 })} //NO USAR ESTE COMANDO EN HEROKU | DO NOT USE THIS COMMAND ON HEROKU
 handler.help = ['cleartmp']
 handler.tags = ['owner']
