@@ -30,6 +30,14 @@ image: { url: yt_play[0].thumbnail },
 caption: texto1
 }, { quoted: m })
 
+const downloadHint = `╭═══〘 卐 𝐊𝐚𝐭𝐚𝐬𝐡𝐢 𝐁𝐨𝐭 卐 〙═══⊷❍
+┃ ❖ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 𝐌𝐀𝐍𝐔𝐀𝐋
+┃ ❖ Usa ${usedPrefix}ytmp3 ${yt_play[0].url}
+┃ ❖ para descargar audio
+┃ ❖ Usa ${usedPrefix}ytmp4 ${yt_play[0].url}
+┃ ❖ para descargar video
+╰══════════════════════════⊷❍`
+
 let listSections = [];             
 listSections.push({
 title: comienzo + ' 📡 𝗧𝗜𝗣𝗢𝗦 𝗗𝗘 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦 ' + fin,
@@ -48,7 +56,7 @@ rows: [{ header: "𓃠 𝗔 𝗨 𝗗 𝗜 𝗢 (Opcion 1)", title: "", id: `${u
   sections
 }) */
 
-await conn.sendList(m.chat, `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉  ${text}*`, `\n${htki} *♻️ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎* ${htka}`, `🍄 𝙀𝙇𝙀𝙂𝙄𝙍 🍁`, listSections, {quoted: fkontak});
+await conn.sendList(m.chat, `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉  ${text}*\n\n${downloadHint}`, `\n${htki} *♻️ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎* ${htka}`, `🍄 𝙀𝙇𝙀𝙂𝙄𝙍 🍁`, listSections, {quoted: fkontak});
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
