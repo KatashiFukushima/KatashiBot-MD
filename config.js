@@ -471,3 +471,17 @@ global.patrocinador2 = sponsors.cafirexos
 global.patrocinador3 = sponsors.vortexus
 global.patrocinador4 = sponsors.asif
 }
+
+const config = {
+      get owner() { return global.owner },
+      get mods() { return global.mods },
+      get prems() { return global.prems },
+      get APIs() { return global.APIs },
+      get APIKeys() { return global.APIKeys },
+      get botNumberCode() { return global.botNumberCode },
+      get confirmCode() { return global.confirmCode },
+      get obtenerQrWeb() { return global.obtenerQrWeb },
+      get keepAliveRender() { return global.keepAliveRender },
+}
+
+export default config
