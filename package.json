@@ -107,7 +107,10 @@
 "ytdl-core": "latest"
 },
 "overrides": {
-"simple-xml-to-json": "1.2.5"
+"simple-xml-to-json": "1.2.2",
+"@jimp/plugin-print": {
+"simple-xml-to-json": "1.2.2"
+}
 },
 "devDependencies": {
 "eslint": "^8.45.0",
