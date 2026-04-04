@@ -122,12 +122,17 @@ let lvl = level
 let emoji = Array.from(lvl.toString()).map((digit) => numberToEmoji[digit] || "❓").join("")
 
 let fechaMoment, formatDate, nombreLugar, ciudad = null
-const phoneNumber = '+' + m.sender
-const parsedPhoneNumber = parsePhoneNumber(phoneNumber)
-const countryCode = parsedPhoneNumber.country
-const countryData = ct.getCountry(countryCode)
-const timezones = countryData.timezones
-const zonaHoraria = timezones.length > 0 ? timezones[0] : 'UTC'
+const senderDigits = (m.sender || '').replace(/\D/g, '')
+let countryCode = 'PE'
+try {
+const parsedPhoneNumber = senderDigits ? parsePhoneNumber('+' + senderDigits) : null
+if (parsedPhoneNumber?.country) countryCode = parsedPhoneNumber.country
+} catch {
+countryCode = 'PE'
+}
+const countryData = ct.getCountry(countryCode) || ct.getCountry('PE') || { name: 'Perú', timezones: ['America/Lima'] }
+const timezones = Array.isArray(countryData.timezones) ? countryData.timezones : ['America/Lima']
+const zonaHoraria = timezones.length > 0 ? timezones[0] : 'America/Lima'
 moment.locale(mid.idioma_code)
 let lugarMoment = moment().tz(zonaHoraria)
 if (lugarMoment) {
