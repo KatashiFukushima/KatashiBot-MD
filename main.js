@@ -154,7 +154,7 @@ global.db.loadDatabase = async function () {
         });
       } else {
         seenIds.add(originalId);
-        if (category === 'users' && (originalId.includes('@newsletter') || originalId.includes('lid'))) continue;
+        if (category === 'users' && originalId.includes('@newsletter')) continue;
         if (category === 'chats' && originalId.includes('@newsletter')) continue;
         global.db.data[category][originalId] = unsanitizeObject(doc.data);
       }
@@ -168,7 +168,7 @@ global.db.save = async function () {
   for (const category of Object.keys(global.db.data)) {
     for (const [id, data] of Object.entries(global.db.data[category])) {
       if (Object.keys(data).length > 0) {
-        if (category === 'users' && (id.includes('@newsletter') || id.includes('lid'))) continue;
+        if (category === 'users' && id.includes('@newsletter')) continue;
         if (category === 'chats' && id.includes('@newsletter')) continue;
         savePromises.push(
           new Promise((resolve, reject) => {
