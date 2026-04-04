@@ -1,8 +1,6 @@
 import fetch from 'node-fetch'
 import fs from 'fs' 
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, text }) => { 
-m.reply(m.isWABusiness)
-console.log(m.isWABusiness)
 //try{
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
