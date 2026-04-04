@@ -31,32 +31,16 @@ caption: texto1
 }, { quoted: m })
 
 const downloadHint = `╭═══〘 卐 𝐊𝐚𝐭𝐚𝐬𝐡𝐢 𝐁𝐨𝐭 卐 〙═══⊷❍
-┃ ❖ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 𝐌𝐀𝐍𝐔𝐀𝐋
-┃ ❖ Usa ${usedPrefix}ytmp3 ${yt_play[0].url}
-┃ ❖ para descargar audio
-┃ ❖ Usa ${usedPrefix}ytmp4 ${yt_play[0].url}
-┃ ❖ para descargar video
+┃ ❖ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒 𝐃𝐈𝐒𝐏𝐎𝐍𝐈𝐁𝐋𝐄𝐒
+┃ ❖ Audio: ${usedPrefix}yta ${yt_play[0].url}
+┃ ❖ Audio Doc: ${usedPrefix}ytmp3doc ${yt_play[0].url}
+┃ ❖ Video: ${usedPrefix}ytv ${yt_play[0].url}
+┃ ❖ Video Doc: ${usedPrefix}ytmp4doc ${yt_play[0].url}
 ╰══════════════════════════⊷❍`
 
-let listSections = [];             
-listSections.push({
-title: comienzo + ' 📡 𝗧𝗜𝗣𝗢𝗦 𝗗𝗘 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦 ' + fin,
-rows: [{ header: "𓃠 𝗔 𝗨 𝗗 𝗜 𝗢 (Opcion 1)", title: "", id: `${usedPrefix}yta ${yt_play[0].url}`, description: `${yt_play[0].title}\n` }, /*{ header: "𓃠 𝗔 𝗨 𝗗 𝗜 𝗢 (Opcion 2)", title: "", id: `${usedPrefix}play.1 ${yt_play[0].url}`, description: `${yt_play[0].title}\n` },*/
-{ header: "𓃠 𝗔 𝗨 𝗗 𝗜 𝗢   𝗗 𝗢 𝗖", title: "", id: `${usedPrefix}ytmp3doc ${yt_play[0].url}`, description: `${yt_play[0].title}\n` },
-{ header: "𓃠 𝗩 𝗜 𝗗 𝗘 𝗢 (Opcion 1)", title: "", id: `${usedPrefix}ytv ${yt_play[0].url}`, description: `${yt_play[0].title}\n` },
-/*{ header: "𓃠 𝗩 𝗜 𝗗 𝗘 𝗢 (Opcion 2)", title: "", id: `${usedPrefix}play.2 ${yt_play[0].url}`, description: `${yt_play[0].title}\n` },*/
-{header: "𓃠 𝗩 𝗜 𝗗 𝗘 𝗢   𝗗 𝗢 𝗖", title: "", id: `${usedPrefix}ytmp4doc ${yt_play[0].url}`, description: `${yt_play[0].title}\n`}
-]});
-
-/*listSections.push({
-  text: `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉  ${text}*`,
-  footer: global.wm,
-  title: `${htki} *♻️ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎* ${htka}`,
-  buttonText: `🍄 𝙀𝙇𝙀𝙂𝙄𝙍 🍁`,
-  sections
-}) */
-
-await conn.sendList(m.chat, `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉  ${text}*\n\n${downloadHint}`, `\n${htki} *♻️ 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎* ${htka}`, `🍄 𝙀𝙇𝙀𝙂𝙄𝙍 🍁`, listSections, {quoted: fkontak});
+await conn.sendMessage(m.chat, {
+text: `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉 ${text}*\n\n${downloadHint}`
+}, { quoted: m })
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
