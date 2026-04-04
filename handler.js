@@ -1111,12 +1111,13 @@ prefix = new RegExp('^' + settings.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$
 }} else {
 prefix = new RegExp(''); // Permite comandos sin prefijo
 }
-const detectwhat = m.sender.includes('@lid') ? '@lid' : '@s.whatsapp.net';
-const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender)
+const senderJid = typeof m.sender === 'string' ? m.sender : ''
+const detectwhat = senderJid.includes('@lid') ? '@lid' : '@s.whatsapp.net';
+const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(senderJid)
 const isOwner = isROwner || m.fromMe
-const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender)
+const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(senderJid)
 //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender)
-const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
+const isPrems = isROwner || (global.db.data.users[senderJid]?.premiumTime > 0)
 
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
@@ -1151,14 +1152,14 @@ let _user = global.db.data && global.db.data.users && global.db.data.users[m.sen
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
 const participants = (m.isGroup ? groupMetadata.participants : []) || []
 let numBot = (conn.user.lid || '').replace(/:.*/, '') || false
-const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid
+const detectwhat2 = senderJid.includes('@lid') ? `${numBot}@lid` : conn.user.jid
 const user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {}
 const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == detectwhat2) : {}) || {}
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
 m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
-m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
+m.isChannel = m.chat.includes('@newsletter') || senderJid.includes('@newsletter')
 	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
