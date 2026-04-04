@@ -1,6 +1,12 @@
 //import { areJidsSameUser } from '@adiwajshing/baileys'
 let areJidsSameUser =  (await import(global.baileys)).default
 let handler = async (m, { conn, text, participants, args, areJidsSameUser, command }) => {
+const normalize = (jid = '') => (typeof jid === 'string' ? conn.decodeJid(jid) : '')
+const selfIds = new Set([
+normalize(conn.user?.id || ''),
+normalize(conn.user?.jid || ''),
+normalize(conn.user?.lid || '')
+].filter(Boolean))
 let member = participants.map(u => u.id)
 if(!text) {
 var sum = member.length
@@ -33,9 +39,9 @@ case "kickfantasmas":
        try{
        
          let users = m.mentionedJid.filter(u => !areJidsSameUser(u, conn.user.id))
-       let kickedGhost = sider.map(v => v.id).filter(v => v !== conn.user.jid)
+       let kickedGhost = sider.filter(v => !selfIds.has(normalize(v)))
        for (let user of users)
-           if (user.endsWith('@s.whatsapp.net') && !(participants.find(v => areJidsSameUser(v.id, user)) || { admin: true }).admin)
+           if ((user.endsWith('@s.whatsapp.net') || user.endsWith('@lid')) && !(participants.find(v => areJidsSameUser(v.id, user)) || { admin: true }).admin)
         {
         let res = await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
         kickedGhost.concat(res)

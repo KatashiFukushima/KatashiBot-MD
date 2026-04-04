@@ -6,7 +6,13 @@ if (!bot.restrict) return m.reply(`${lenguajeGB['smsAvisoAG']()} ${lenguajeGB['s
 if (!isBotAdmin) return m.reply(`${lenguajeGB['smsAvisoAG']()} ${lenguajeGB['smsAllAdmin']()}`)
 if (!m.isGroup) return !1
 let format = a => '@' + a.split('@')[0]
-let psmap = groupMetadata.participants.filter(v => v !== conn.user.jid)
+const normalize = (jid = '') => (typeof jid === 'string' ? conn.decodeJid(jid) : '')
+const selfIds = new Set([
+normalize(conn.user?.id || ''),
+normalize(conn.user?.jid || ''),
+normalize(conn.user?.lid || '')
+].filter(Boolean))
+let psmap = groupMetadata.participants.filter(v => !selfIds.has(normalize(v.id || v.jid || v.lid || '')))
 psmap=psmap.filter(v => v.admin !=='superadmin')
 psmap=psmap.filter(v => v.admin !=='admin')
 psmap=psmap.map(v => v.id)

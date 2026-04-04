@@ -7,18 +7,37 @@ let user = global.db.data.users[m.sender] || {};
 let setting = global.db.data.settings[this.user.jid]
 const settingsREAD = global.db.data.settings[this.user.jid] || {}
 if (!setting.prefix) return
+const normalize = (jid = '') => (typeof jid === 'string' ? conn.decodeJid(jid) : '')
+const senderJid = typeof m.sender === 'string' ? m.sender : ''
+if (!senderJid) return !1
 let prefixRegex = new RegExp('^[' + setting.prefix.replace(/[|\\{}()[\]^$+*.\-\^]/g, '\\$&') + ']')
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 const participants = m.isGroup ? (await conn.groupMetadata(m.chat).catch(() => ({ participants: [] }))).participants : []
-let numBot = conn.user.lid.replace(/:.*/, '')
-let numBot2 = global.conn.user.lid.replace(/:.*/, '')
-const detectwhat = m.sender.includes('@lid') ? `${numBot2}@lid` : global.conn.user.jid;
-const detectwhat2 = m.sender.includes('@lid') ? `${numBot}@lid` : conn.user.jid;
+const selfIds = new Set([
+normalize(conn.user?.id || ''),
+normalize(conn.user?.jid || ''),
+normalize(conn.user?.lid || '')
+].filter(Boolean))
+const mainIds = new Set([
+normalize(global.conn?.user?.id || ''),
+normalize(global.conn?.user?.jid || ''),
+normalize(global.conn?.user?.lid || '')
+].filter(Boolean))
 
-const mainBotInGroup = participants.some(p => p.id === detectwhat);
+const mainBotInGroup = participants.some(p => mainIds.has(normalize(p.id || p.jid || p.lid || '')));
 const primaryBot = chat.primaryBot;
-const primaryBotConnected = users.some(conn => detectwhat2 === primaryBot);
-const primaryBotInGroup = participants.some(p => p.id === primaryBot);
+const primaryBotNorm = normalize(primaryBot || '')
+const primaryBotConnected = users.some(activeConn => {
+const activeIds = [
+normalize(activeConn.user?.id || ''),
+normalize(activeConn.user?.jid || ''),
+normalize(activeConn.user?.lid || '')
+].filter(Boolean)
+return primaryBotNorm && activeIds.includes(primaryBotNorm)
+});
+const primaryBotInGroup = participants.some(p => primaryBotNorm && normalize(p.id || p.jid || p.lid || '') === primaryBotNorm);
+const currentIsMainBot = Array.from(selfIds).some(id => mainIds.has(id))
+const currentIsPrimaryBot = primaryBotNorm ? selfIds.has(primaryBotNorm) : false
 
 //contando de mensaje 
 if (!global.db.data.users[m.sender]) global.db.data.users[m.sender] = {};
@@ -29,10 +48,10 @@ global.db.data.users[m.sender].mensaje[m.chat]++;
 if (m.isGroup) {
 if (primaryBot) {
 if (primaryBotConnected && primaryBotInGroup) {
-if (detectwhat2 !== primaryBot) throw !1; 
+if (!currentIsPrimaryBot) throw !1; 
 }
 else if (mainBotInGroup) {
-if (detectwhat2 !== detectwhat) throw !1;
+if (!currentIsMainBot) throw !1;
 }}}
 
 if (m.fromMe) return
@@ -40,7 +59,7 @@ if (m.isGroup) return !1
 if (!m.message) return !0 
 if (m.chat === "120363336642332098@newsletter") return; 
 const regexWithPrefix = new RegExp(`^${prefixRegex.source}\\s?${comandos.source}`, 'i')
-if (regexWithPrefix.test(m.text.toLowerCase().trim())) return !0
+if (typeof m.text === 'string' && regexWithPrefix.test(m.text.toLowerCase().trim())) return !0
 if (!user.warnPv) user.warnPv = false;
 
 //antipv
