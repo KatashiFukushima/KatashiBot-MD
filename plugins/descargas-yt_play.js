@@ -25,7 +25,10 @@ const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim()
 
-await conn.sendButton(m.chat, wm, texto1, yt_play[0].thumbnail, [['𝗠 𝗘 𝗡 𝗨 ☘️', `${usedPrefix}menu`]], null, null, m)
+await conn.sendMessage(m.chat, {
+image: { url: yt_play[0].thumbnail },
+caption: texto1
+}, { quoted: m })
 
 let listSections = [];             
 listSections.push({
