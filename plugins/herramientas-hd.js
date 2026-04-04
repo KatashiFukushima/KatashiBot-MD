@@ -1,5 +1,5 @@
 import FormData from "form-data";
-import Jimp from "jimp";
+import { Jimp } from "jimp";
 const handler = async (m, {conn, usedPrefix, command}) => {
  try {    
   let q = m.quoted ? m.quoted : m;
