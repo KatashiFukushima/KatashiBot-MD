@@ -1136,6 +1136,10 @@ m.id.startsWith('EvoGlobalBot-') ||
 m.id.startsWith('B24E') ||
 (m.id.startsWith('8SCO') && m.id.length === 20) ||
 m.id.startsWith('FizzxyTheGreat-')) return
+
+// En Baileys v7 algunos mensajes enviados por el propio socket vuelven al upsert.
+// Los ignoramos para que antispam/antilink/u otros plugins no reaccionen al bot.
+if (m.fromMe && m.isBaileys) return
 	
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
