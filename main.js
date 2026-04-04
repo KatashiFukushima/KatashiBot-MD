@@ -27,7 +27,7 @@ import { katashiJadiBot } from './plugins/jadibot-serbot.js';
 import pkg from 'google-libphonenumber'
 const { PhoneNumberUtil } = pkg
 const phoneUtil = PhoneNumberUtil.getInstance()
-const { makeInMemoryStore, DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore } = await import('@whiskeysockets/baileys')
+const { makeInMemoryStore, DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } = await import('@whiskeysockets/baileys')
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
@@ -275,6 +275,13 @@ resolver(respuesta.trim())
 })})
 }
 
+const normalizeJid = (jid = '') => {
+try {
+return jidNormalizedUser(jid)
+} catch {
+return jid
+}}
+
 let opcion
 if (methodCodeQR) {
 opcion = '1'
@@ -361,7 +368,7 @@ generateHighQualityLinkPreview: true,
 syncFullHistory: false,
 getMessage: async (key) => {
 try {
-let jid = jidNormalizedUser(key.remoteJid);
+let jid = normalizeJid(key.remoteJid);
 let msg = await store.loadMessage(jid, key.id);
 return msg?.message || "";
 } catch (error) {
@@ -498,6 +505,49 @@ console.log(chalk.bold.redBright(lenguajeGB['smsConexiondescon'](reason, connect
 }}
 }
 
+
+function lidMappingUpdate(update) {
+try {
+const mappingStore = conn?.signalRepository?.lidMapping
+if (!mappingStore) return
+
+const updates = Array.isArray(update)
+? update
+: Array.isArray(update?.updates)
+? update.updates
+: Array.isArray(update?.mappings)
+? update.mappings
+: []
+
+if (!updates.length) return
+
+const mappings = updates
+.map((item) => {
+const lid = item?.lid || item?.lidJid || item?.userLid || item?.id
+const pn = item?.pn || item?.phoneNumber || item?.phone || item?.userPn || item?.jid
+if (!lid || !pn) return null
+return {
+lid: normalizeJid(lid),
+pn: normalizeJid(pn)
+}
+})
+.filter(Boolean)
+
+if (!mappings.length) return
+
+if (typeof mappingStore.storeLIDPNMappings === 'function') {
+mappingStore.storeLIDPNMappings(mappings)
+return
+}
+
+if (typeof mappingStore.storeLIDPNMapping === 'function') {
+for (const mapping of mappings) {
+mappingStore.storeLIDPNMapping(mapping.lid, mapping.pn)
+}
+}
+} catch (e) {
+console.error('lid-mapping.update error:', e)
+}}
 process.on('uncaughtException', console.error);
 
 let isInit = true;
@@ -526,6 +576,7 @@ conn.ev.off('message.delete', conn.onDelete);
 conn.ev.off('call', conn.onCall);
 conn.ev.off('connection.update', conn.connectionUpdate);
 conn.ev.off('creds.update', conn.credsUpdate);
+conn.ev.off('lid-mapping.update', conn.lidMappingUpdate);
 }
 //Información para Grupos
 conn.welcome = lenguajeGB['smsWelcome']() 
@@ -543,6 +594,7 @@ conn.onDelete = handler.deleteUpdate.bind(global.conn);
 conn.onCall = handler.callUpdate.bind(global.conn);
 conn.connectionUpdate = connectionUpdate.bind(global.conn);
 conn.credsUpdate = saveCreds.bind(global.conn, true);
+conn.lidMappingUpdate = lidMappingUpdate.bind(global.conn);
 conn.ev.on('messages.upsert', conn.handler);
 conn.ev.on('group-participants.update', conn.participantsUpdate);
 conn.ev.on('groups.update', conn.groupsUpdate);
@@ -550,6 +602,7 @@ conn.ev.on('message.delete', conn.onDelete);
 conn.ev.on('call', conn.onCall);
 conn.ev.on('connection.update', conn.connectionUpdate);
 conn.ev.on('creds.update', conn.credsUpdate);
+conn.ev.on('lid-mapping.update', conn.lidMappingUpdate);
 isInit = false
 return true
 }
