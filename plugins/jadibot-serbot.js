@@ -29,12 +29,38 @@ const retryMap = new Map();
 const maxAttempts = 5;
 if (global.conns instanceof Array) console.log()
 else global.conns = []
+
+async function resolvePhoneNumber(conn, jidOrNumber = '', explicitText = '') {
+const fromText = String(explicitText || '').replace(/\D/g, '')
+if (fromText) return fromText
+
+const normalize = (jid = '') => (typeof jid === 'string' ? conn.decodeJid(jid) : '')
+const current = normalize(jidOrNumber)
+if (!current) return ''
+
+if (current.endsWith('@lid')) {
+const lidMap = conn?.signalRepository?.lidMapping
+if (lidMap && typeof lidMap.getPNForLID === 'function') {
+try {
+const pn = normalize(await lidMap.getPNForLID(current))
+const pnDigits = String(pn || '').split('@')[0].replace(/\D/g, '')
+if (pnDigits) return pnDigits
+} catch {
+}
+}
+}
+
+return current.split('@')[0].replace(/\D/g, '')
+}
+
 let handler = async (m, { conn, args, usedPrefix, command, isOwner, text }) => {
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${lenguajeGB['smsSoloOwnerJB']()}`)
 if (m.fromMe || conn.user.jid === m.sender) return
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let id = `${text ? text.replace(/\D/g, '') : who.split`@`[0]}`  //conn.getName(who)
+let id = await resolvePhoneNumber(conn, who, text)
+if (!id) id = `${text ? text.replace(/\D/g, '') : String(who || '').split`@`[0].replace(/\D/g, '')}`
+if (!id) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} *No se pudo obtener un numero valido para generar el codigo de vinculacion*`, m)
 let pathGataJadiBot = path.join("./KatashiJadiBot/", id)
 if (!fs.existsSync(pathGataJadiBot)){
 fs.mkdirSync(pathGataJadiBot, { recursive: true })
@@ -115,7 +141,11 @@ return
 } 
 if (qr && mcode) {
 //let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-let fixTe = text ? text.replace(/\D/g, '') : m.sender.split('@')[0]
+let fixTe = await resolvePhoneNumber(conn, m.sender, text)
+if (!fixTe) {
+await conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()} *No se pudo resolver tu numero telefonico (PN) para generar el codigo*`, m)
+return
+}
 let secret = await sock.requestPairingCode((fixTe))
 secret = secret.match(/.{1,4}/g)?.join("-")
 const dispositivo = await getDevice(m.key.id);

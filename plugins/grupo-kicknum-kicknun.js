@@ -27,8 +27,9 @@ normalize(conn.user?.lid || '')
 ].filter(Boolean))
 const rows = await Promise.all(participants.map(async (u) => {
 const id = normalize(u.id || u.jid || u.lid || '')
-const pn = await resolvePnFromId(id)
-const phone = (pn || id).split('@')[0] || ''
+const pnDirect = normalize(u.phoneNumber || u.pn || '')
+const pn = pnDirect || await resolvePnFromId(id)
+const phone = pn ? pn.split('@')[0] : (id.endsWith('@s.whatsapp.net') ? id.split('@')[0] : '')
 return { id, pn, phone, admin: u.admin }
 }))
 let ps = rows
