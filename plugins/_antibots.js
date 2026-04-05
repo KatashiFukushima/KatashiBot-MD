@@ -70,7 +70,7 @@ const mention = `@${sender.split('@')[0]}`
 ? '_Intento de usar comando de Sub-Bot en el grupo_'
 : '_Cliente automatizado no autorizado_'*/
 const textoDeteccion = `${mid.mAdvertencia}✋ *¡El usuario ${mention} no esta permitido en este grupo!*\n\n` +
-`*Motivo:* ${motivo}`
+`*Motivo:* Bot no permitidoKs`
 
 await conn.reply(
 m.chat,
