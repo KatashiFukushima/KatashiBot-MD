@@ -636,7 +636,7 @@ console.log(e)}
 }
 
 //handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|menucompleto|allmenu|allm|m|\?)$/i
-handler.command = /^(menucompleto|allmenu|\?)$/i
+handler.command = /^(menú|allmenu|menu|\?)$/i
 export default handler
 
 const more = String.fromCharCode(8206)

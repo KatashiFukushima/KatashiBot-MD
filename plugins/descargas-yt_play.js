@@ -23,24 +23,15 @@ const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 ও ${mid.smsYT4}
 » ${yt_play[0].url}
 
+﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
+ও 𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝙀 𝘼 𝙀𝙎𝙏𝙀 𝙈𝙀𝙉𝙎𝘼𝙅𝙀 𝘾𝙊𝙉:
+» *audio* 𝙤 *video*
+
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim()
 
 await conn.sendMessage(m.chat, {
 image: { url: yt_play[0].thumbnail },
 caption: texto1
-}, { quoted: m })
-
-const downloadHint = `╭═══〘 卐 𝐊𝐚𝐭𝐚𝐬𝐡𝐢 𝐁𝐨𝐭 卐 〙═══⊷❍
-┃ ❖ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒 𝐃𝐈𝐒𝐏𝐎𝐍𝐈𝐁𝐋𝐄𝐒
-┃ ❖ Audio: ${usedPrefix}yta ${yt_play[0].url}
-┃ ❖ Audio Doc: ${usedPrefix}ytmp3doc ${yt_play[0].url}
-┃ ❖ Video: ${usedPrefix}ytv ${yt_play[0].url}
-┃ ❖ Video Doc: ${usedPrefix}ytmp4doc ${yt_play[0].url}
-┃ ❖ También puedes responder a este mensaje con *audio* o *video*
-╰══════════════════════════⊷❍`
-
-await conn.sendMessage(m.chat, {
-text: `*𝙀𝙇𝙄𝙅𝘼 𝙌𝙐𝙀 𝙑𝘼 𝙃𝘼𝘾𝙀𝙍 𝘾𝙊𝙉 ${text}*\n\n${downloadHint}`
 }, { quoted: m })
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
