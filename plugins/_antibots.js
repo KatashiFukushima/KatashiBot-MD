@@ -65,7 +65,19 @@ participant,
 },
 }).catch(() => null)
 
-const mention = `@${sender.split('@')[0]}`
+let mentionJid = sender
+if (sender.endsWith('@lid')) {
+const lidMap = conn?.signalRepository?.lidMapping
+if (lidMap && typeof lidMap.getPNForLID === 'function') {
+try {
+const pn = await lidMap.getPNForLID(sender)
+if (typeof pn === 'string' && pn.includes('@')) mentionJid = pn
+} catch {
+}
+}
+}
+
+const mention = `@${mentionJid.split('@')[0]}`
 /*const motivo = isSubBotCommandAttempt
 ? '_Intento de usar comando de Sub-Bot en el grupo_'
 : '_Cliente automatizado no autorizado_'*/
@@ -76,7 +88,7 @@ await conn.reply(
 m.chat,
 textoDeteccion,
 m,
-{ mentions: [sender] },
+{ mentions: [mentionJid] },
 )
 
 await conn.groupParticipantsUpdate(m.chat, [sender], 'remove').catch(() => null)
