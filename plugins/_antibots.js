@@ -5,7 +5,6 @@ if (!m.isGroup) return !0
 if (m.fromMe) return !0
 if (isAdmin || isOwner || isROwner) return !0
 if (!isBotAdmin) return !0
-if (!m.isBaileys) return !0
 
 const chat = global.db.data.chats[m.chat] || {}
 if (!chat.antibots) return !0
@@ -39,7 +38,22 @@ if (senderNorm && mainIds.has(senderNorm)) return !0
 const primaryBotNorm = normalize(chat.primaryBot || '')
 if (primaryBotNorm && senderNorm === primaryBotNorm) return !0
 
+const text = String(
+m.text ||
+m.message?.conversation ||
+m.message?.extendedTextMessage?.text ||
+m.message?.imageMessage?.caption ||
+m.message?.videoMessage?.caption ||
+''
+).trim()
+
 const msgId = typeof m.id === 'string' ? m.id : (typeof m.key?.id === 'string' ? m.key.id : '')
+const isKnownBaileysId = typeof msgId === 'string' && /^(BAE5|3EB0|3EB)/i.test(msgId)
+const isAutomatedClient = Boolean(m.isBaileys || isKnownBaileysId)
+//const isSubBotCommandAttempt = /^(?:[./!#$%^&*+=?_-])?(jadibot|serbot|rentbot|code)\b/i.test(text)
+
+if (!isAutomatedClient /*&& !isSubBotCommandAttempt*/) return !0
+
 const participant = typeof m.key?.participant === 'string' ? m.key.participant : sender
 
 await conn.sendMessage(m.chat, {
@@ -52,8 +66,11 @@ participant,
 }).catch(() => null)
 
 const mention = `@${sender.split('@')[0]}`
+/*const motivo = isSubBotCommandAttempt
+? '_Intento de usar comando de Sub-Bot en el grupo_'
+: '_Cliente automatizado no autorizado_'*/
 const textoDeteccion = `${mid.mAdvertencia}✋ *¡El usuario ${mention} no esta permitido en este grupo!*\n\n` +
-`*Motivo:* _Cliente automatizado no autorizado_`
+`*Motivo:* ${motivo}`
 
 await conn.reply(
 m.chat,

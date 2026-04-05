@@ -56,6 +56,10 @@ return current.split('@')[0].replace(/\D/g, '')
 let handler = async (m, { conn, args, usedPrefix, command, isOwner, text }) => {
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${lenguajeGB['smsSoloOwnerJB']()}`)
 if (m.fromMe || conn.user.jid === m.sender) return
+const chat = global.db.data.chats[m.chat] || {}
+if (m.isGroup && chat.antibots && !isOwner) {
+return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}En este grupo esta activo AntiBots, no se permite usar comandos de Sub-Bot aqui.`, m)
+}
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = await resolvePhoneNumber(conn, who, text)
