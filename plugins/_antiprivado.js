@@ -57,7 +57,7 @@ if (!currentIsMainBot) throw !1;
 if (m.fromMe) return
 if (m.isGroup) return !1
 if (!m.message) return !0 
-if (m.chat === "120363336642332098@newsletter") return; 
+if (m.chat === "120363178367665133@newsletter") return; 
 const regexWithPrefix = new RegExp(`^${prefixRegex.source}\\s?${comandos.source}`, 'i')
 if (typeof m.text === 'string' && regexWithPrefix.test(m.text.toLowerCase().trim())) return !0
 if (!user.warnPv) user.warnPv = false;

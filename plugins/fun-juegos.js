@@ -455,8 +455,8 @@ mentionedJid: conn.parseMention(top),
 isForwarded: true,
 forwardingScore: 1, 
 forwardedNewsletterMessageInfo: {
-newsletterJid: '120363160031023229@newsletter',
-newsletterName: 'INFINITY-WA 💫',
+newsletterJid: '120363178367665133@newsletter',
+newsletterName: '💫👁️‍🗨️ 【Katashi Fukushima】 🥷🏻🚀',
 serverMessageId: -1
 }}})
 } */

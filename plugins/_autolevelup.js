@@ -15,7 +15,7 @@ let userName = m.pushName || 'Anónimo'
 	
 let user = global.db.data.users[m.sender]
 let chat = global.db.data.chats[m.chat]
-if (m.chat === "120363336642332098@newsletter") return; 
+if (m.chat === "120363178367665133@newsletter") return; 
 if (m.fromMe) return
 if (!chat.autolevelup) return !0
 
