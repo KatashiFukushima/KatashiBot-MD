@@ -25,7 +25,7 @@ const texto1 = `*𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*
 
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 ও 𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝙀 𝘼 𝙀𝙎𝙏𝙀 𝙈𝙀𝙉𝙎𝘼𝙅𝙀 𝘾𝙊𝙉:
-» *audio* 𝙤 *video*
+» *audio* | *video* | *audiodoc* | *videodoc*
 
 *𓆩 𓃠 𓆪 ✧═══ ${vs} ═══✧ 𓆩 𓃠 𓆪*`.trim()
 
@@ -44,14 +44,15 @@ handler.command = ['play', 'play2', 'play3', 'play4']
 //handler.register = true 
 handler.before = async function (m, { conn }) {
 const choice = typeof m.text === 'string' ? m.text.trim().toLowerCase() : ''
-if (choice !== 'audio' && choice !== 'video') return false
+const validChoices = new Set(['audio', 'video', 'audiodoc', 'videodoc'])
+if (!validChoices.has(choice)) return false
 if (!m.quoted) return false
 
 const youtubeUrl = extractYouTubeUrl(getQuotedText(m.quoted))
 if (!youtubeUrl) return false
 
 try {
-if (choice === 'audio') {
+if (choice === 'audio' || choice === 'audiodoc') {
 await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}${mid.smsAud}`, fkontak, m)
 const apiMp3 = `https://api.delirius.store/download/ytmp3?url=${encodeURIComponent(youtubeUrl)}`
 const responseMp3 = await fetch(apiMp3)
@@ -60,6 +61,19 @@ const jsonMp3 = await responseMp3.json()
 if (!jsonMp3?.status || !jsonMp3?.data?.download) throw new Error('Respuesta invalida de API ytmp3')
 
 const title = sanitizeFileName(jsonMp3.data.title || 'audio')
+if (choice === 'audiodoc') {
+await conn.sendMessage(
+    m.chat,
+    {
+        document: { url: jsonMp3.data.download },
+        fileName: `${title}.mp3`,
+        mimetype: 'audio/mpeg',
+        caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *${mid.smsYT1}:* \n┃» ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,
+    },
+    { quoted: m },
+)
+return true
+}
 await conn.sendFile(m.chat, jsonMp3.data.download, `${title}.mp3`, null, m, false, { mimetype: 'audio/mpeg' })
 return true
 }
@@ -72,6 +86,19 @@ const jsonMp4 = await responseMp4.json()
 if (!jsonMp4?.status || !jsonMp4?.data?.download) throw new Error('Respuesta invalida de API ytmp4')
 
 const title = sanitizeFileName(jsonMp4.data.title || 'video')
+if (choice === 'videodoc') {
+await conn.sendMessage(
+    m.chat,
+    {
+        document: { url: jsonMp4.data.download },
+        fileName: `${title}.mp4`,
+        mimetype: 'video/mp4',
+        caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 YOUTUBE DL 📥\n┃ও *${mid.smsYT1}:* \n┃» ${title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`,
+    },
+    { quoted: m },
+)
+return true
+}
 const thumb = jsonMp4.data.image || null
 await conn.sendMessage(
     m.chat,
