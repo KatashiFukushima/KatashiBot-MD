@@ -1126,7 +1126,7 @@ const isPrems = isROwner || (global.db.data.users[senderJid]?.premiumTime > 0)
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
 const previousID = queque[queque.length - 1]
-queque.push(m.id || m.key.id)
+queque.push(m.id || m.key?.id)
 setInterval(async function () {
 if (queque.indexOf(previousID) === -1) clearInterval(this)
 await delay(time)
@@ -1400,14 +1400,14 @@ break
 console.error(e)
 } finally {
 if (opts['queque'] && m.text) {
-const quequeIndex = this.msgqueque.indexOf(m.id || m.key.id)
+const quequeIndex = this.msgqueque.indexOf(m.id || m.key?.id)
 if (quequeIndex !== -1)
 this.msgqueque.splice(quequeIndex, 1)
 }
 //console.log(global.db.data.users[m.sender])
 let user, stats = global.db.data.stats
 if (m) { let utente = global.db.data.users[m.sender]
-if (utente.muto == true) {
+if (utente.muto == true && m.key?.id) {
 let bang = m.key.id
 let cancellazzione = m.key.participant
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: cancellazzione }})
