@@ -1473,6 +1473,27 @@ if (this.isInit)
 return
 if (global.db.data == null)
 await loadDatabase()
+
+const normalizeParticipantJid = (value) => {
+let raw = value
+if (typeof raw === 'string' && raw.trim().startsWith('{')) {
+try {
+raw = JSON.parse(raw)
+} catch {}
+}
+
+if (raw && typeof raw === 'object') {
+raw = raw.phoneNumber || raw.jid || raw.id || ''
+}
+
+if (typeof raw !== 'string' || !raw) return ''
+return this.decodeJid(raw)
+}
+
+const normalizedParticipants = Array.isArray(participants)
+? participants.map((p) => normalizeParticipantJid(p)).filter(Boolean)
+: []
+
 let chat = global.db.data.chats[id] || {}
 let text = ''
 switch (action) {
@@ -1480,7 +1501,7 @@ case 'add':
 case 'remove':
 if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-for (let user of participants) {
+for (let user of normalizedParticipants) {
 let pp = global.gataImg
 try {
 pp = await this.profilePictureUrl(user, 'image')
@@ -1534,7 +1555,9 @@ case 'quitarpoder':
 case 'quitaradmin':
 if (!text)
 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
-text = text.replace('@user', '@' + participants[0].split('@')[0])
+if (normalizedParticipants[0]) {
+text = text.replace('@user', '@' + normalizedParticipants[0].split('@')[0])
+}
 if (chat.detect)
 //this.sendMessage(id, { text, mentions: this.parseMention(text) })
 break
