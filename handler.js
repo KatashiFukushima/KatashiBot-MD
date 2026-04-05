@@ -43,6 +43,10 @@ try {
 m = smsg(this, m) || m
 if (!m)
 return
+if (typeof m !== 'object' || Array.isArray(m))
+return
+if (typeof m.chat !== 'string' || typeof m.sender !== 'string')
+return
 m.exp = 0
 m.limit = false
 m.money = false
@@ -1129,13 +1133,14 @@ await delay(time)
 }, time)
 }
 
-if (m.id.startsWith('EVO') ||
-m.id.startsWith('Lyru-') ||
-m.id.startsWith('EvoGlobalBot-') ||
-(m.id.startsWith('BAE5') && m.id.length === 16) ||
-m.id.startsWith('B24E') ||
-(m.id.startsWith('8SCO') && m.id.length === 20) ||
-m.id.startsWith('FizzxyTheGreat-')) return
+const messageId = typeof m.id === 'string' ? m.id : ''
+if (messageId.startsWith('EVO') ||
+messageId.startsWith('Lyru-') ||
+messageId.startsWith('EvoGlobalBot-') ||
+(messageId.startsWith('BAE5') && messageId.length === 16) ||
+messageId.startsWith('B24E') ||
+(messageId.startsWith('8SCO') && messageId.length === 20) ||
+messageId.startsWith('FizzxyTheGreat-')) return
 
 // En Baileys v7 algunos mensajes enviados por el propio socket vuelven al upsert.
 // Los ignoramos para que antispam/antilink/u otros plugins no reaccionen al bot.
@@ -1446,10 +1451,10 @@ if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
 if (opts['autoread']) await this.readMessages([m.key])
-if (settingsREAD.autoread2) await this.readMessages([m.key])  
+if (settingsREAD.autoread2 && m.key) await this.readMessages([m.key])  
 //if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
 	    
-if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify)/gi)) {
+if (db.data.chats[m.chat].reaction && typeof m.text === 'string' && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify)/gi)) {
 let emot = pickRandom(["😀", "😃", "😄", "😁", "😆", "🥹", "😅", "😂", "🤣", "🥲", "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🥸", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡", "🤬", "🤯", "😳", "🥵", "🥶", "😶‍🌫️", "😱", "😨", "😰", "😥", "😓", "🤗", "🤔", "🫣", "🤭", "🫢", "🫡", "🤫", "🫠", "🤥", "😶", "🫥", "😐", "🫤", "😑", "🫨", "😬", "🙄", "😯", "😦", "😧", "😮", "😲", "🥱", "😴", "🤤", "😪", "😮‍💨", "😵", "😵‍💫", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", "🤑", "🤠", "😈", "👿", "👺", "🤡", "💩", "👻", "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🫶", "👍", "✌️", "🙏", "🫵", "🤏", "🤌", "☝️", "🖕", "🙏", "🫵", "🫂", "🐱", "🤹‍♀️", "🤹‍♂️", "🗿", "✨", "⚡", "🔥", "🌈", "🩷", "❤️", "🧡", "💛", "💚", "🩵", "💙", "💜", "🖤", "🩶", "🤍", "🤎", "💔", "❤️‍🔥", "❤️‍🩹", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "🏳️‍🌈", "👊", "👀", "💋", "🫰", "💅", "👑", "🐣", "🐤", "🐈"])
 if (!m.fromMe) return this.sendMessage(m.chat, { react: { text: emot, key: m.key }})
 }
