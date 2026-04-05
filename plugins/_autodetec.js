@@ -3,6 +3,38 @@ import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
 import path from 'path';
 import './_content.js'
 
+async function normalizeStubUser(conn, value) {
+let raw = value
+if (typeof raw === 'string' && raw.trim().startsWith('{')) {
+try {
+raw = JSON.parse(raw)
+} catch {}
+}
+
+let candidate = ''
+if (raw && typeof raw === 'object') {
+candidate = raw.phoneNumber || raw.jid || raw.id || ''
+} else if (typeof raw === 'string') {
+candidate = raw
+}
+
+candidate = candidate ? conn.decodeJid(candidate) : ''
+if (!candidate) return ''
+
+if (candidate.endsWith('@lid')) {
+const lidMap = conn?.signalRepository?.lidMapping
+if (lidMap && typeof lidMap.getPNForLID === 'function') {
+try {
+const pn = await lidMap.getPNForLID(candidate)
+const normalizedPn = pn ? conn.decodeJid(pn) : ''
+if (normalizedPn) return normalizedPn
+} catch {}
+}
+}
+
+return candidate
+}
+
 let handler = m => m
 handler.before = async function (m, { conn, participants, groupMetadata}) {
 
@@ -36,9 +68,13 @@ await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAuto
 } else if (chat.detect && m.messageStubType == 26) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec6(m), mentions: [m.sender] }, { quoted: fkontak })
 } else if (chat.detect && m.messageStubType == 29) {
-await this.sendMessage(m.chat, { text: mid.smsAutodetec7(m, usuario), mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
+const target = await normalizeStubUser(conn, m.messageStubParameters?.[0])
+const mFixed = { ...m, messageStubParameters: [target || m.messageStubParameters?.[0] || ''] }
+await this.sendMessage(m.chat, { text: mid.smsAutodetec7(mFixed, usuario), mentions: [m.sender, ...(target ? [target] : []), ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
 } else if (chat.detect && m.messageStubType == 30) {
-await this.sendMessage(m.chat, { text: mid.smsAutodetec8(m, usuario), mentions: [m.sender, m.messageStubParameters[0], ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
+const target = await normalizeStubUser(conn, m.messageStubParameters?.[0])
+const mFixed = { ...m, messageStubParameters: [target || m.messageStubParameters?.[0] || ''] }
+await this.sendMessage(m.chat, { text: mid.smsAutodetec8(mFixed, usuario), mentions: [m.sender, ...(target ? [target] : []), ...groupAdmins.map(v => v.id)] }, { quoted: fkontak }) 
 } else if (chat.detect && m.messageStubType == 72) {
 await this.sendMessage(m.chat, { text: lenguajeGB['smsAvisoIIG']() + mid.smsAutodetec9(usuario, m), mentions: [m.sender] }, { quoted: fkontak })
 } else if (chat.detect && m.messageStubType == 123) {
