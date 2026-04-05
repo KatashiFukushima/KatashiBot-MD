@@ -18,37 +18,30 @@
     "channels": {
       "channel1": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
       "channel2": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
-      "channel3": "https://whatsapp.com/channel/0029VaefZxt1t90Tn4rCv50X",
-      "channel4": "https://whatsapp.com/channel/0029VaGGynJLY6d43krQYR2g"
+      "channel3": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37",
+      "channel4": "https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37"
     },
 
     "groups": {
-      "group1": "https://chat.whatsapp.com/Imr4Bo31Z947o1K5VkLgFT",
-      "group2": "https://chat.whatsapp.com/IdhGK1rVSG1IMGwvhrVA8t",
+      "group1": "https://chat.whatsapp.com/KGGL6RWE7eAJRGrSn3QOYl",
+      "group2": "https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW",
       "group3": "https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW",
-      "group4": "https://chat.whatsapp.com/E4ZxJiCYbvsG95fwPfaLj6",
-      "group5": "https://chat.whatsapp.com/Hg4GlAowks9IQ3gnI8ZzB2",
-      "group6": "https://chat.whatsapp.com/Imr4Bo31Z947o1K5VkLgFT"
+      "group4": "https://chat.whatsapp.com/JFWAB4SNnGB2fpIGjobNnN",
+      "group5": "https://chat.whatsapp.com/Dl1mCfQiBvqF43TNmgp5zt",
+      "group6": "https://chat.whatsapp.com/KGGL6RWE7eAJRGrSn3QOYl"
     },
 
     "collaboration": {
-      "group1": "https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV",
-      "group2": "https://chat.whatsapp.com/GrcXB1NINsDAPp4fCVgwfX",
-      "group3": "https://chat.whatsapp.com/Gxpc9XjJ8MALe4bCR3nRtL",
-      "group4": "https://chat.whatsapp.com/FwQDYWZHkli4fwQKEn2ps7"
-    },
-
-    "sponsors": {
-      "infinity": "https://dashboard.infinitywa.xyz/",
-      "cafirexos": "https://github.com/GataNina-Li",
-      "vortexus": "https://vortexuscloud.com",
-      "asif": "https://t.me/Asifhosting"
+      "group1": "https://chat.whatsapp.com/KGGL6RWE7eAJRGrSn3QOYl",
+      "group2": "https://chat.whatsapp.com/Eagxuc4pwKyAN4spnkm8lW",
+      "group3": "https://chat.whatsapp.com/JFWAB4SNnGB2fpIGjobNnN",
+      "group4": "https://chat.whatsapp.com/Dl1mCfQiBvqF43TNmgp5zt"
     },
 
     "others": {
       "assistance_num": "https://wa.me/51974399615",
       "yt_vid": "https://www.youtube.com/shorts/ZLJYDUM6vSY",
-      "group_support": "https://chat.whatsapp.com/Imr4Bo31Z947o1K5VkLgFT"
+      "group_support": "https://chat.whatsapp.com/KGGL6RWE7eAJRGrSn3QOYl"
     }
 
   }

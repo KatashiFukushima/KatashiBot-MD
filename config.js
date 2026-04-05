@@ -432,9 +432,15 @@ import(`${file}?update=${Date.now()}`);
 })
 
 async function fetchDataAndProcess() {
-const response = await fetch('https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/official_accounts.json')
-const data = await response.json() 
-let { accounts, channels, groups, collaboration, sponsors, others } = data.info
+let data
+try {
+      const localData = fs.readFileSync('./official_accounts.json', 'utf8')
+      data = JSON.parse(localData)
+} catch {
+      const response = await fetch('https://raw.githubusercontent.com/KatashiFukushima/KatashiBot-MD/master/official_accounts.json')
+      data = await response.json()
+}
+let { accounts, channels, groups, collaboration, sponsors = {}, others } = data.info
 
 global.yt = accounts.youTube
 global.yt2 = others.yt_vid
@@ -468,10 +474,10 @@ global.grupo_collab2 = collaboration.group2
 global.grupo_collab3 = collaboration.group3
 global.grupo_collab4 = collaboration.group4
 
-global.patrocinador1 = sponsors.boxmine
-global.patrocinador2 = sponsors.cafirexos
-global.patrocinador3 = sponsors.vortexus
-global.patrocinador4 = sponsors.asif
+global.patrocinador1 = sponsors.boxmine || ''
+global.patrocinador2 = sponsors.cafirexos || ''
+global.patrocinador3 = sponsors.vortexus || ''
+global.patrocinador4 = sponsors.asif || ''
 }
 
 const config = {
