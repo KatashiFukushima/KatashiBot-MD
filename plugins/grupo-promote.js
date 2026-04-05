@@ -1,31 +1,65 @@
-let handler = async (m, { conn,usedPrefix, command, text }) => {
-if(isNaN(text) && !text.match(/@/g)){
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+const query = (text || '').trim()
+const mentioned = Array.isArray(m.mentionedJid) && m.mentionedJid[0] ? conn.decodeJid(m.mentionedJid[0]) : ''
+const quoted = m.quoted?.sender ? conn.decodeJid(m.quoted.sender) : ''
+const rawDigits = query.replace(/[^0-9]/g, '')
+const groupMetadata = await conn.groupMetadata(m.chat).catch(() => null)
+const participants = groupMetadata?.participants || []
 
-}else if(isNaN(text)) {
-var number = text.split`@`[1]
-}else if(!isNaN(text)) {
-var number = text
+if (!query && !quoted && !mentioned) {
+return conn.reply(m.chat, `${lenguajeGB.smsMalused3()}\n*${usedPrefix + command} @${global.owner[0][0]}*`, fkontak, m)
 }
 
-if(!text && !m.quoted) return conn.reply(m.chat, lenguajeGB.smsMalused3(), + `*${usedPrefix + command} @${global.owner[0][0]}*`, fkontak, m)
-//conn.sendButton(m.chat, wm, lenguajeGB['smsMalused3']() + `*${usedPrefix + command} @${global.owner[0][0]}*`, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
-if(number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, lenguajeGB.smsDemott(), `*${usedPrefix + command} @${global.owner[0][0]}*`, fkontak, m)
-//conn.sendButton(m.chat, wm, lenguajeGB['smsDemott']() + `*${usedPrefix + command} @${global.owner[0][0]}*`, null, [[lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], fkontak, m)
-	
+let user = await resolveTargetJid(conn, participants, mentioned || quoted || (rawDigits ? `${rawDigits}@s.whatsapp.net` : ''))
+if (!user) {
+return conn.reply(m.chat, `${lenguajeGB.smsDemott()}\n*${usedPrefix + command} @${global.owner[0][0]}*`, fkontak, m)
+}
+
 try {
-if(text) {
-var user = number + '@s.whatsapp.net'
-} else if(m.quoted.sender) {
-var user = m.quoted.sender
-} else if(m.mentionedJid) {
-var user = number + '@s.whatsapp.net'
-} } catch (e) {
-} finally {
-conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + lenguajeGB['smsDemott2'](), fkontak, m)
-}}
+await conn.groupParticipantsUpdate(m.chat, [user], 'promote')
+await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + lenguajeGB['smsDemott2'](), fkontak, m)
+} catch (e) {
+console.log(e)
+await conn.reply(m.chat, `${lenguajeGB.smsDemott()}\n*${usedPrefix + command} @${global.owner[0][0]}*`, fkontak, m)
+}
+}
 handler.command = /^(promote|daradmin|darpoder)$/i
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
 export default handler 
+
+async function resolveTargetJid(conn, participants = [], initial = '') {
+const normalize = (jid = '') => (jid && typeof jid === 'string' ? conn.decodeJid(jid) : '')
+const toDigits = (v = '') => String(v).replace(/\D/g, '')
+const normalizedInitial = normalize(initial)
+const initialDigits = toDigits(normalizedInitial)
+const lidMap = conn?.signalRepository?.lidMapping
+
+if (!participants.length) return normalizedInitial
+
+if (normalizedInitial) {
+const exact = participants.find((p) => {
+const ids = [p?.id, p?.jid, p?.lid].map(normalize).filter(Boolean)
+return ids.includes(normalizedInitial)
+})
+if (exact) return normalize(exact.id || exact.jid || exact.lid || normalizedInitial)
+}
+
+if (!initialDigits) return normalizedInitial
+
+for (const p of participants) {
+const pid = normalize(p?.id || p?.jid || p?.lid || '')
+const pDigits = toDigits(pid)
+if (pDigits && pDigits === initialDigits) return pid
+
+if (pid.endsWith('@lid') && lidMap && typeof lidMap.getPNForLID === 'function') {
+try {
+const pn = normalize(await lidMap.getPNForLID(pid))
+if (toDigits(pn) === initialDigits) return pid
+} catch {}
+}
+}
+
+return normalizedInitial
+}
