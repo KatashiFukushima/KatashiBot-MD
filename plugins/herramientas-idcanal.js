@@ -1,22 +1,22 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-  const hint = `${lenguajeGB['smsAvisoMG']()}Responde a un mensaje reenviado de un canal para obtener su ID.`
+const hint = `${lenguajeGB['smsAvisoMG']()}Responde a un mensaje reenviado de un canal para obtener su ID.`
 
-  const quoted = m.quoted || null
-  if (!quoted && !(m.chat || '').endsWith('@newsletter')) throw hint
+const quoted = m.quoted || null
+if (!quoted && !(m.chat || '').endsWith('@newsletter')) throw hint
 
-  // If command is used directly in a channel chat, return current channel JID.
-  if ((m.chat || '').endsWith('@newsletter')) {
-    return conn.reply(m.chat, `*ID del canal:*\n${m.chat}`, m)
-  }
+// If command is used directly in a channel chat, return current channel JID.
+if ((m.chat || '').endsWith('@newsletter')) {
+return conn.reply(m.chat, `*ID del canal:*\n${m.chat}`, m)
+}
 
-  const info = extractForwardedNewsletterInfo(quoted)
-  if (!info.newsletterJid) {
-    throw `${lenguajeGB['smsAvisoMG']()}No encontre datos de canal en ese mensaje.\n\nTip: responde a una publicacion reenviada desde un canal.`
-  }
+const info = extractForwardedNewsletterInfo(quoted)
+if (!info.newsletterJid) {
+throw `${lenguajeGB['smsAvisoMG']()}No encontre datos de canal en ese mensaje.\n\nTip: responde a una publicacion reenviada desde un canal.`
+}
 
-  const channelName = info.newsletterName || 'Sin nombre'
-  const text = `*ID del canal:*\n${info.newsletterJid}\n\n*Nombre:*\n${channelName}`
-  return conn.reply(m.chat, text, m)
+const channelName = info.newsletterName || 'Sin nombre'
+const text = `*ID del canal:*\n${info.newsletterJid}\n\n*Nombre:*\n${channelName}`
+return conn.reply(m.chat, text, m)
 }
 
 handler.help = ['idcanal']
@@ -26,30 +26,65 @@ handler.command = /^(idcanal|canalid|idchannel)$/i
 export default handler
 
 function extractForwardedNewsletterInfo(quoted) {
-  const qMessage = quoted?.message || quoted?.msg?.message || {}
+if (!quoted) return {}
 
-  const direct = quoted?.forwardedNewsletterMessageInfo || quoted?.msg?.forwardedNewsletterMessageInfo
-  if (direct?.newsletterJid) return direct
+try {
+// Intenta acceder directamente a forwardedNewsletterMessageInfo
+const direct = quoted?.forwardedNewsletterMessageInfo
+if (direct?.newsletterJid) return direct
 
-  const extCtx = qMessage?.extendedTextMessage?.contextInfo || quoted?.msg?.contextInfo || quoted?.contextInfo
-  if (extCtx?.forwardedNewsletterMessageInfo?.newsletterJid) {
-    return extCtx.forwardedNewsletterMessageInfo
-  }
+// Intenta acceder a través de diferentes estructuras de mensaje
+const message = quoted?.message || quoted?.msg?.message || {}
 
-  const imageCtx = qMessage?.imageMessage?.contextInfo
-  if (imageCtx?.forwardedNewsletterMessageInfo?.newsletterJid) {
-    return imageCtx.forwardedNewsletterMessageInfo
-  }
+// Búsqueda en contextInfo de diferentes tipos de mensajes
+const checkContextInfo = (obj) => {
+if (!obj) return null
+const ctx = obj?.contextInfo || obj
+if (ctx?.forwardedNewsletterMessageInfo?.newsletterJid) {
+return ctx.forwardedNewsletterMessageInfo
+}
+return null
+}
 
-  const videoCtx = qMessage?.videoMessage?.contextInfo
-  if (videoCtx?.forwardedNewsletterMessageInfo?.newsletterJid) {
-    return videoCtx.forwardedNewsletterMessageInfo
-  }
 
-  const docCtx = qMessage?.documentMessage?.contextInfo
-  if (docCtx?.forwardedNewsletterMessageInfo?.newsletterJid) {
-    return docCtx.forwardedNewsletterMessageInfo
-  }
+const messageTypes = [
+message?.extendedTextMessage,
+message?.imageMessage,
+message?.videoMessage,
+message?.documentMessage,
+message?.audioMessage,
+message?.stickerMessage,
+message?.textMessage,
+quoted?.contextInfo,
+quoted?.msg?.contextInfo
+]
 
-  return {}
+for (const msgType of messageTypes) {
+const result = checkContextInfo(msgType)
+if (result) return result
+}
+
+// Búsqueda profunda en la estructura de quoted
+const findNewsletterInfo = (obj, depth = 0) => {
+if (depth > 5 || !obj || typeof obj !== 'object') return null
+
+if (obj?.forwardedNewsletterMessageInfo?.newsletterJid) {
+return obj.forwardedNewsletterMessageInfo
+}
+
+for (const key in obj) {
+const result = findNewsletterInfo(obj[key], depth + 1)
+if (result) return result
+}
+return null
+}
+
+const deepResult = findNewsletterInfo(quoted)
+if (deepResult) return deepResult
+
+} catch (error) {
+console.error('Error extrayendo info de canal:', error)
+}
+
+return {}
 }
