@@ -158,16 +158,16 @@ contextInfo: {
 mentionedJid: conn.parseMention(info),
 externalAdReply: {
 title: '🔰 Inspector de Grupos',
-body: packname,
-thumbnailUrl: pp ? pp : thumb,
-sourceUrl: args[0] ? args[0] : inviteCode ? `https://chat.whatsapp.com/${inviteCode}` : md,
+body: global.packname || '🤖 KatashiBot-MD',
+thumbnailUrl: pp || global.thumb,
+sourceUrl: (args && args[0]) ? args[0] : inviteCode ? `https://chat.whatsapp.com/${inviteCode}` : global.md || 'https://github.com/KatashiFukushima/KatashiBot-MD',
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
 }
 }
 },
-{quoted: fkontak}
+{quoted: global.fkontak || m}
 )
 } else {
 // Manejo de enlaces de canales
@@ -194,9 +194,9 @@ contextInfo: {
 mentionedJid: conn.parseMention(caption),
 externalAdReply: {
 title: '📢 Inspector de Canales',
-body: packname,
-thumbnailUrl: pp,
-sourceUrl: args[0],
+body: global.packname || '🤖 KatashiBot-MD',
+thumbnailUrl: pp || global.thumb,
+sourceUrl: (args && args[0]) ? args[0] : 'https://github.com/KatashiFukushima/KatashiBot-MD',
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
@@ -206,7 +206,9 @@ renderLargerThumbnail: false
 {quoted: fkontak}
 )
 }
-newsletterInfo.id ? conn.sendMessage(m.chat, {text: newsletterInfo.id}, {quoted: null}) : ''
+if (newsletterInfo?.id) {
+await conn.sendMessage(m.chat, {text: String(newsletterInfo.id)}, {quoted: null})
+}
 } catch (e) {
 console.error('Error en inspect de canal:', e)
 await m.reply('Ocurrió un error al obtener la información del canal')
