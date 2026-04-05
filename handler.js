@@ -1126,13 +1126,14 @@ const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detect
 const isPrems = isROwner || (global.db.data.users[senderJid]?.premiumTime > 0)
 
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
-let queque = this.msgqueque, time = 1000 * 5
-const previousID = queque[queque.length - 1]
-queque.push(m.id || m.key?.id)
-setInterval(async function () {
-if (queque.indexOf(previousID) === -1) clearInterval(this)
-await delay(time)
-}, time)
+const queque = this.msgqueque
+const currentID = m.id || m.key?.id
+if (currentID) {
+queque.push(currentID)
+while (queque[0] !== currentID) {
+await delay(250)
+}
+}
 }
 
 const messageId = typeof m.id === 'string' ? m.id : ''

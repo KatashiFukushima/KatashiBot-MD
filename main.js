@@ -418,7 +418,7 @@ conn.well = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.save();
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "katashiJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "katashiJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, Number(process.env.DB_SAVE_INTERVAL_MS) || 60 * 1000)}
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
@@ -458,7 +458,7 @@ console.log(`[✅] Restaurado desde respaldo: ${backups[0]}`);
 setInterval(async () => {
 await backupCreds();
 console.log('[♻️] Respaldo periódico realizado.')
-}, 5 * 60 * 1000);
+}, Number(process.env.CREDS_BACKUP_INTERVAL_MS) || 30 * 60 * 1000);
 
 async function connectionUpdate(update) {  
 const {connection, lastDisconnect, isNewLogin} = update
@@ -866,7 +866,7 @@ originalConsoleMethod.apply(console, arguments)
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
 await clearTmp()
-console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, 1000 * 60 * 3) //3 min 
+console.log(chalk.bold.cyanBright(lenguajeGB.smsClearTmp()))}, Number(process.env.CLEAR_TMP_INTERVAL_MS) || 1000 * 60 * 10) //10 min 
 
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
@@ -874,7 +874,7 @@ await purgeSessionSB()
 await purgeSession()
 console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeSession()))
 await purgeOldFiles()
-console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, 1000 * 60 * 10)
+console.log(chalk.bold.cyanBright(lenguajeGB.smspurgeOldFiles()))}, Number(process.env.PURGE_INTERVAL_MS) || 1000 * 60 * 20)
 
 _quickTest().then(() => conn.logger.info(chalk.bold(lenguajeGB['smsCargando']().trim()))).catch(console.error)
 
