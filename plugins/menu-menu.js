@@ -614,7 +614,18 @@ ${generateCommand(commandsConfig, usedPrefix).replace(/≡/g, '𖡡')}
 const vi = ['https://qu.ax/TNPH.mp4',
 'https://qu.ax/srFl.mp4',
 'https://qu.ax/yLtv.mp4']
+const fallbackImages = [
+join(__dirname, '../media/menus/Menu1.jpg'),
+join(__dirname, '../media/menus/Menu2.jpg'),
+join(__dirname, '../media/menus/Menu3.jpg')
+]
+try {
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, contextInfo: fakeChannel })
+} catch (videoError) {
+console.log('allmenu video fallback:', videoError?.message || videoError)
+const fallbackImage = fallbackImages[Math.floor(Math.random() * fallbackImages.length)]
+await conn.sendMessage(m.chat, { image: { url: fallbackImage }, caption: menu, contextInfo: fakeChannel })
+}
  
 } catch (e) {
 await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
