@@ -19,9 +19,14 @@ id = m.message.templateButtonReplyMessage.selectedId
 } else if (m.message.listResponseMessage) {
 id = m.message.listResponseMessage.singleSelectReply?.selectedRowId;
 } else if (m.message.interactiveResponseMessage) {
+try {
 id = JSON.parse(m.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id
+} catch {
+id = ''
 }
-const text = m.message.buttonsResponseMessage?.selectedDisplayText || m.message.templateButtonReplyMessage?.selectedDisplayText || m.message.listResponseMessage?.title
+}
+const text = m.message.buttonsResponseMessage?.selectedDisplayText || m.message.templateButtonReplyMessage?.selectedDisplayText || m.message.listResponseMessage?.title || m.message.interactiveResponseMessage?.body?.text || ''
+id = typeof id === 'string' ? id : (id == null ? '' : String(id))
 let isIdMessage = false
 let usedPrefix
 for (const name in global.plugins) {
@@ -71,7 +76,11 @@ continue
 }
 isIdMessage = true
 }}
-const messages = await generateWAMessage(m.chat, {text: isIdMessage ? id : text, mentions: m.mentionedJid}, {
+const payloadText = isIdMessage ? id : text
+if (typeof payloadText !== 'string' || !payloadText.length) {
+return
+}
+const messages = await generateWAMessage(m.chat, {text: payloadText, mentions: m.mentionedJid || []}, {
 userJid: this.user.id,
 quoted: m.quoted && m.quoted.fakeObj,
 })
