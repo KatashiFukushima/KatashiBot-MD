@@ -39,7 +39,7 @@ lugar = official[0][0] == String(contact[0]) ? '🇵🇪 Perú' : official[1][0]
 enlace = official[0][0] == String(contact[0]) ? 'https://github.com/KatashiFukushima' : official[1][0] == String(contact[0]) ? 'https://chat.whatsapp.com/J2IRY8iLvtL2Us6pVGGcRH' : official[2][0] == String(contact[0]) ? 'https://whatsapp.com/channel/0029Va8GeVFAO7REOj3qnW37' : official[3][0] == String(contact[0]) ? 'https://chat.whatsapp.com/EBQOkLPgftc8mPR4KTml8S' : md 
    
 lista.push([number, ofc, nombre, description, official[3][0] == String(contact[0]) ? null : correo, lugar, enlace, bio, official[1][0] == String(contact[0]) ? 'https://www.youtube.com/@elrebelde.21' : null]) }  
-lista.push([conn.user.jid.split('@')[0], await conn.getName(conn.user.jid), packname, lenguajeGB.smsContacto8(), mail === '' ? 'centergatabot@gmail.com' : mail, lenguajeGB.smsContacto7(), md, bioBot, yt, ig, fb, paypal, nna])
+lista.push([conn.user.jid.split('@')[0], await conn.getName(conn.user.jid), packname, lenguajeGB.smsContacto8(), mail === '' ? 'centergatabot@gmail.com' : mail, lenguajeGB.smsContacto7(), md, bioBot, yt, ig, fb, paypal, asistencia || null])
 await conn.sendFile(m.chat, pp, 'lp.jpg', cat, fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 🥷 𝗦𝘂𝗽𝗲𝗿 𝗞𝗮𝘁𝗮𝘀𝗵𝗶𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb.getRandom()}}})
 await conn.sendContactArray(m.chat, lista, null, { quoted: fkontak })
 
