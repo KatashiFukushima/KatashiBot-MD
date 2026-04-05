@@ -6,7 +6,8 @@ import path, { join } from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
 import { platform } from 'process'
 import * as ws from 'ws'
-import fs, { watchFile, unwatchFile, writeFileSync, readdirSync, statSync, unlinkSync, existsSync, readFileSync, copyFileSync, watch, rmSync, readdir, stat, mkdirSync, rename } from 'fs'
+import fs, { watchFile, unwatchFile, writeFileSync, readdirSync, statSync, unlinkSync, existsSync, readFileSync, copyFileSync, watch, rmSync, mkdirSync } from 'fs'
+import { readdir, stat, unlink } from 'fs/promises'
 import yargs from 'yargs'
 import { spawn } from 'child_process'
 import lodash from 'lodash'
@@ -785,12 +786,12 @@ if (!fs.existsSync(dir)) {
 console.log(chalk.yellow(`[⚠] Carpeta no existe: ${dir}`));
 continue;
 }
-const files = await fsPromises.readdir(dir); 
+const files = await readdir(dir); 
 for (const file of files) {
 if (file !== 'creds.json') {
 const filePath = join(dir, file);
 try {
-await fsPromises.unlink(filePath);
+await unlink(filePath);
 //console.log(chalk.green(`[🗑️] Archivo residual eliminado: ${file} en ${dir}`));
 } catch (err) {
 //console.error(chalk.red(`[⚠] Error al eliminar ${file} en ${dir}: ${err.message}`));
