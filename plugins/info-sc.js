@@ -1,4 +1,4 @@
-let { generateWAMessageFromContent } = (await import(global.baileys)).default 
+const { generateWAMessageFromContent } = (await import(global.baileys))
 import { performance } from 'perf_hooks'
 import fs from 'fs'
 import moment from 'moment-timezone';
@@ -43,10 +43,10 @@ token: '9',
 curreyCode: 'IDR',
 totalCurrencyCode: '>〰<',
 totalAmount1000: '1000000',
-sellerJid: md,
-thumbnail: gataImg
+sellerJid: global.md,
+thumbnail: global.gataImg
 }}, {contextInfo: null, quoted: m})
-conn.relayWAMessage(prep)
+await conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 //conn.sendMessage(m.chat, `${teks}`, MessageType.text, rtimebro)
 }
 handler.help = ['runtime']
