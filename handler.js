@@ -75,6 +75,7 @@ export async function handler(chatUpdate) {
                 if (pn) m.msg.contextInfo.participant = pn;
             } catch (e) { }
         }
+
         m.exp = 0
         m.limit = false
         m.money = false
