@@ -1349,7 +1349,7 @@ if (plugin.private && m.isGroup) { //Solo chat privado
 fail('private', m, this)
 continue
 }
-if (plugin.register == true && _user.registered == false) { // user registrado? 
+if (plugin.register == true && _user.registered == false && !(global.opts['bypass'] && (isROwner || isOwner))) { // user registrado? 
 fail('unreg', m, this)
 continue
 }
