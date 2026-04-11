@@ -48,32 +48,44 @@ return
 if (typeof m.chat !== 'string' || typeof m.sender !== 'string')
 return
 
-if (m.sender && m.sender.includes('@lid')) {
-m.senderLid = m.sender; // Guardar referencia LID si algún plugin lo requiere
+const resolveLidToPn = async (lid, conn) => {
+if (!lid || !lid.includes('@lid')) return lid;
+let pn = null;
 try {
-const pn = await this.signalRepository?.lidMapping?.getPNForLID(m.sender);
-if (pn) m.sender = pn;
-} catch (e) { }
+if (conn.authState?.keys?.get) {
+let res = await conn.authState.keys.get('lid-mapping', [lid]).catch(() => null);
+if (res && res[lid]) pn = res[lid];
+if (!pn) {
+res = await conn.authState.keys.get('lid-mappings', [lid]).catch(() => null);
+if (res && res[lid]) pn = res[lid];
+}
+}
+if (!pn && conn.signalRepository?.lidMapping?.getPNForLID) {
+pn = await conn.signalRepository.lidMapping.getPNForLID(lid).catch(() => null);
+}
+} catch (e) {}
+if (pn) {
+if (typeof pn === 'string') return pn.includes('@s.whatsapp.net') ? pn : `${pn.split('@')[0]}@s.whatsapp.net`;
+if (typeof pn === 'object' && pn.pn) return pn.pn.includes('@s.whatsapp.net') ? pn.pn : `${pn.pn.split('@')[0]}@s.whatsapp.net`;
+if (typeof pn === 'object' && pn.jid) return pn.jid.includes('@s.whatsapp.net') ? pn.jid : `${pn.jid.split('@')[0]}@s.whatsapp.net`;
+}
+return lid; // Si falla, devuelve el LID original
+};
+
+if (m.sender && m.sender.includes('@lid')) {
+m.senderLid = m.sender;
+m.sender = await resolveLidToPn(m.sender, this);
 }
 if (m.chat && m.chat.includes('@lid')) {
 m.chatLid = m.chat;
-try {
-const pn = await this.signalRepository?.lidMapping?.getPNForLID(m.chat);
-if (pn) m.chat = pn;
-} catch (e) { }
+m.chat = await resolveLidToPn(m.chat, this);
 }
 if (m.quoted && m.quoted.sender && m.quoted.sender.includes('@lid')) {
 m.quoted.senderLid = m.quoted.sender;
-try {
-const pn = await this.signalRepository?.lidMapping?.getPNForLID(m.quoted.sender);
-if (pn) m.quoted.sender = pn;
-} catch (e) { }
+m.quoted.sender = await resolveLidToPn(m.quoted.sender, this);
 }
 if (m.msg && m.msg.contextInfo && m.msg.contextInfo.participant && m.msg.contextInfo.participant.includes('@lid')) {
-try {
-const pn = await this.signalRepository?.lidMapping?.getPNForLID(m.msg.contextInfo.participant);
-if (pn) m.msg.contextInfo.participant = pn;
-} catch (e) { }
+m.msg.contextInfo.participant = await resolveLidToPn(m.msg.contextInfo.participant, this);
 }
 
 m.exp = 0
