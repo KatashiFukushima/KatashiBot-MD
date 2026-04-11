@@ -71,9 +71,11 @@ pn = await conn.signalRepository.lidMapping.getPNForLID(lid).catch(() => null);
 }
 } catch (e) {}
 if (pn) {
-if (typeof pn === 'string') return pn.includes('@s.whatsapp.net') ? pn : `${pn.split('@')[0]}@s.whatsapp.net`;
-if (typeof pn === 'object' && pn.pn) return pn.pn.includes('@s.whatsapp.net') ? pn.pn : `${pn.pn.split('@')[0]}@s.whatsapp.net`;
-if (typeof pn === 'object' && pn.jid) return pn.jid.includes('@s.whatsapp.net') ? pn.jid : `${pn.jid.split('@')[0]}@s.whatsapp.net`;
+const rawJid = typeof pn === 'string' ? pn : (typeof pn === 'object' && pn.pn ? pn.pn : (typeof pn === 'object' && pn.jid ? pn.jid : null));
+if (rawJid) {
+const stripped = rawJid.split('@')[0].split(':')[0];
+return `${stripped}@s.whatsapp.net`;
+}
 }
 return lid; // Si falla, devuelve el LID original
 };
