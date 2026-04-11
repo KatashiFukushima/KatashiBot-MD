@@ -620,11 +620,11 @@ join(__dirname, '../media/menus/Menu2.jpg'),
 join(__dirname, '../media/menus/Menu3.jpg')
 ]
 try {
-await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, contextInfo: fakeChannel })
+await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: mentionedJid, contextInfo: { ...fakeChannel, mentionedJid } })
 } catch (videoError) {
 console.log('allmenu video fallback:', videoError?.message || videoError)
 const fallbackImage = fallbackImages[Math.floor(Math.random() * fallbackImages.length)]
-await conn.sendMessage(m.chat, { image: { url: fallbackImage }, caption: menu, contextInfo: fakeChannel })
+await conn.sendMessage(m.chat, { image: { url: fallbackImage }, caption: menu, mentions: mentionedJid, contextInfo: { ...fakeChannel, mentionedJid } })
 }
  
 } catch (e) {
