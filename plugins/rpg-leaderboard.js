@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 let handler = async (m, { conn, args, participants, usedPrefix }) => {
-let users = Object.entries(global.db.data.users).map(([key, value]) => { 
+let users = Object.entries(global.db.data.users).filter(([key]) => !key.includes('@lid')).map(([key, value]) => { 
 return {...value, jid: key}
   })
   let sortedExp = users.map(toNumber('exp')).sort(sort('exp'))
