@@ -1,4 +1,5 @@
 import uploadImage from "../lib/uploadImage.js";
+import uploadFile from "../lib/uploadFile.js";
 import fetch from "node-fetch";
 
 const handler = async (m, { conn, usedPrefix, command }) => {
@@ -11,7 +12,12 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     m.reply("*🐈 𝙈𝙀𝙅𝙊𝙍𝘼𝙉𝘿𝙊 𝙇𝘼 𝘾𝘼𝙇𝙄𝘿𝘼𝘿...*");
 
     let img = await q.download?.();
-    let upld = await uploadImage(img);
+    let upld;
+    try {
+        upld = await uploadImage(img);
+    } catch {
+        upld = await uploadFile(img);
+    }
     
     let res = await fetch(`https://api.delirius.store/ia/enhance?image=${upld}&scale=4`);
     let json = await res.json();
@@ -19,7 +25,8 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     if (json.status && json.data?.url) {
       await conn.sendMessage(m.chat, { image: { url: json.data.url } }, { quoted: m });
     } else {
-      throw "Error en la API de Delirius";
+      console.log("HD API FAIL:", json);
+      throw "Error en la API de Delirius: " + (json.data?.msg || json.msg || "Sin respuesta válida");
     }
   } catch (e) {
     console.error(e);
