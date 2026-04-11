@@ -1177,9 +1177,56 @@ await delay(250)
 }
 
 const messageId = typeof m.id === 'string' ? m.id : ''
+
+function getBotSignals(m) {
+  const msg = m?.message || {}
+  const content =
+    msg.viewOnceMessage?.message ||
+    msg.ephemeralMessage?.message ||
+    msg
+
+  const signals = []
+  if (!content) return signals
+
+  if (content.interactiveMessage) signals.push('interactiveMessage')
+  if (content.listMessage) signals.push('listMessage')
+  if (content.templateMessage) signals.push('templateMessage')
+  if (content.requestPaymentMessage) signals.push('requestPaymentMessage')
+
+  const im = content.interactiveMessage
+  if (im?.nativeFlowMessage) signals.push('nativeFlowMessage')
+  if (im?.carouselMessage) signals.push('carouselMessage')
+
+  const ctx =
+    content.extendedTextMessage?.contextInfo ||
+    content.imageMessage?.contextInfo ||
+    content.videoMessage?.contextInfo ||
+    im?.contextInfo
+
+  if (ctx?.externalAdReply) signals.push('externalAdReply')
+  if (ctx?.forwardedNewsletterMessageInfo) signals.push('forwardedNewsletterMessageInfo')
+  if (ctx?.isForwarded) signals.push('isForwarded')
+
+  return signals
+}
+
+const signals = getBotSignals(m)
+const strong = [
+  'interactiveMessage',
+  'nativeFlowMessage',
+  'listMessage',
+  'templateMessage',
+  'carouselMessage',
+  'requestPaymentMessage'
+]
+
+const strongHits = signals.filter(x => strong.includes(x)).length
+const suspicious = strongHits >= 1 || signals.length >= 3
+
 const isBotId = /^(EVO|Lyru-|EvoGlobalBot-|B24E|FizzxyTheGreat-|BAE5|3EB0|3EB|4EB0|B1E|6EB0)/i.test(messageId) || 
                (messageId.startsWith('BAE5') && messageId.length === 16) || 
-               (messageId.startsWith('8SCO') && messageId.length === 20);
+               (messageId.startsWith('8SCO') && messageId.length === 20) ||
+               suspicious;
 
 if (isBotId) {
     const chatSetting = global.db.data.chats[m.chat] || {}
