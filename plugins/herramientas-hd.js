@@ -1,6 +1,6 @@
-import uploadImage from "../lib/uploadImage.js";
-import uploadFile from "../lib/uploadFile.js";
 import fetch from "node-fetch";
+import { FormData, Blob } from 'formdata-node';
+import { fileTypeFromBuffer } from 'file-type';
 
 const handler = async (m, { conn, usedPrefix, command }) => {
   try {
@@ -12,12 +12,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     m.reply("*🐈 𝙈𝙀𝙅𝙊𝙍𝘼𝙉𝘿𝙊 𝙇𝘼 𝘾𝘼𝙇𝙄𝘿𝘼𝘿...*");
 
     let img = await q.download?.();
-    let upld;
-    try {
-        upld = await uploadImage(img);
-    } catch {
-        upld = await uploadFile(img);
-    }
+    let upld = await uploadToTelegraph(img);
     
     let res = await fetch(`https://api.delirius.store/ia/enhance?image=${upld}&scale=4`);
     let json = await res.json();
@@ -30,9 +25,23 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     }
   } catch (e) {
     console.error(e);
-    m.reply("╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼* ⊱⚠️⊱╮\n\n𝙁𝘼𝙇𝙇𝙊́, 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍");
+    m.reply("╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼* ⊱⚠️⊱╮\n\n𝙁𝘼𝙇𝙇𝙊́, 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙑𝙐𝙀𝙇𝙑𝘼 𝘼 𝙄𝙉𝙏𝙀𝙉𝙏𝘼𝙍\n\n" + e);
   }
 };
+
+async function uploadToTelegraph(buffer) {
+  const { ext, mime } = await fileTypeFromBuffer(buffer);
+  const form = new FormData();
+  const blob = new Blob([buffer.toArrayBuffer()], { type: mime });
+  form.append('file', blob, 'tmp.' + ext);
+  const res = await fetch('https://telegra.ph/upload', {
+    method: 'POST',
+    body: form
+  });
+  const img = await res.json();
+  if (img.error) throw img.error;
+  return 'https://telegra.ph' + img[0].src;
+}
 
 handler.help = ["remini", "hd", "enhance"];
 handler.tags = ["ai", "tools"];
