@@ -45,15 +45,6 @@ if (!m)
 return
 if (typeof m !== 'object' || Array.isArray(m))
 return
-if (typeof m.chat !== 'string' || typeof m.sender !== 'string')
-return
-
-const overwriteProp = (obj, prop, val) => {
-if (obj[prop] !== val) {
-Object.defineProperty(obj, prop, { value: val, writable: true, configurable: true, enumerable: true });
-}
-};
-
 const resolveLidToPn = async (lid, conn) => {
 if (!lid || !lid.includes('@lid')) return lid;
 let pn = null;
@@ -82,18 +73,18 @@ return lid; // Si falla, devuelve el LID original
 
 if (m.sender && m.sender.includes('@lid')) {
 m.senderLid = m.sender;
-overwriteProp(m, 'sender', await resolveLidToPn(m.sender, this));
+m.sender = await resolveLidToPn(m.sender, this);
 }
 if (m.chat && m.chat.includes('@lid')) {
 m.chatLid = m.chat;
-overwriteProp(m, 'chat', await resolveLidToPn(m.chat, this));
+m.chat = await resolveLidToPn(m.chat, this);
 }
 if (m.quoted && m.quoted.sender && m.quoted.sender.includes('@lid')) {
 m.quoted.senderLid = m.quoted.sender;
-overwriteProp(m.quoted, 'sender', await resolveLidToPn(m.quoted.sender, this));
+m.quoted.sender = await resolveLidToPn(m.quoted.sender, this);
 }
 if (m.msg && m.msg.contextInfo && m.msg.contextInfo.participant && m.msg.contextInfo.participant.includes('@lid')) {
-overwriteProp(m.msg.contextInfo, 'participant', await resolveLidToPn(m.msg.contextInfo.participant, this));
+m.msg.contextInfo.participant = await resolveLidToPn(m.msg.contextInfo.participant, this);
 }
 
 m.exp = 0
