@@ -86,7 +86,6 @@ const isAutomatedClient = Boolean(m.isBaileys || isBotId)
 
 if (!isAutomatedClient) return !0
 
-// Flag the message as handled so handler.js can stop processing it
 m.isBotHandled = true
 
 const participant = typeof m.key?.participant === 'string' ? m.key.participant : sender
