@@ -1,12 +1,12 @@
 import crypto from 'crypto'
-import fileTypePkg from 'file-type'
+import { fileTypeFromBuffer } from 'file-type'
 import { promises as fsp } from 'fs'
 import os from 'os'
 import path from 'path'
 import fetch from 'node-fetch'
 import sharp from 'sharp'
 
-const { fileTypeFromBuffer } = fileTypePkg
+
 
 async function safeFileType(buf) {
   try { return await fileTypeFromBuffer(buf) } catch { return null }

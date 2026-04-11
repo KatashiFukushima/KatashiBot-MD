@@ -48,11 +48,16 @@ m.message?.videoMessage?.caption ||
 ).trim()
 
 const msgId = typeof m.id === 'string' ? m.id : (typeof m.key?.id === 'string' ? m.key.id : '')
-const isKnownBaileysId = typeof msgId === 'string' && /^(BAE5|3EB0|3EB)/i.test(msgId)
-const isAutomatedClient = Boolean(m.isBaileys || isKnownBaileysId)
-//const isSubBotCommandAttempt = /^(?:[./!#$%^&*+=?_-])?(jadibot|serbot|rentbot|code)\b/i.test(text)
+const isBotId = /^(EVO|Lyru-|EvoGlobalBot-|B24E|FizzxyTheGreat-|BAE5|3EB0|3EB|4EB0|B1E|6EB0)/i.test(msgId) || 
+               (msgId.startsWith('BAE5') && msgId.length === 16) || 
+               (msgId.startsWith('8SCO') && msgId.length === 20);
 
-if (!isAutomatedClient /*&& !isSubBotCommandAttempt*/) return !0
+const isAutomatedClient = Boolean(m.isBaileys || isBotId)
+
+if (!isAutomatedClient) return !0
+
+// Flag the message as handled so handler.js can stop processing it
+m.isBotHandled = true
 
 const participant = typeof m.key?.participant === 'string' ? m.key.participant : sender
 

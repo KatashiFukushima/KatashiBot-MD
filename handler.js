@@ -1177,13 +1177,16 @@ await delay(250)
 }
 
 const messageId = typeof m.id === 'string' ? m.id : ''
-if (messageId.startsWith('EVO') ||
-messageId.startsWith('Lyru-') ||
-messageId.startsWith('EvoGlobalBot-') ||
-(messageId.startsWith('BAE5') && messageId.length === 16) ||
-messageId.startsWith('B24E') ||
-(messageId.startsWith('8SCO') && messageId.length === 20) ||
-messageId.startsWith('FizzxyTheGreat-')) return
+const isBotId = /^(EVO|Lyru-|EvoGlobalBot-|B24E|FizzxyTheGreat-|BAE5|3EB0|3EB|4EB0|B1E|6EB0)/i.test(messageId) || 
+               (messageId.startsWith('BAE5') && messageId.length === 16) || 
+               (messageId.startsWith('8SCO') && messageId.length === 20);
+
+if (isBotId) {
+    const chatSetting = global.db.data.chats[m.chat] || {}
+    // Si antibots está apagado, ignoramos el mensaje del bot de inmediato
+    if (!chatSetting.antibots) return
+    // Si antibots está encendido, dejamos que pase para que el plugin _antibots lo procese
+}
 
 // En Baileys v7 algunos mensajes enviados por el propio socket vuelven al upsert.
 // Los ignoramos para que antispam/antilink/u otros plugins no reaccionen al bot.
@@ -1215,7 +1218,8 @@ m.isChannel = m.chat.includes('@newsletter') || senderJid.includes('@newsletter'
 	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
-let plugin = global.plugins[name]
+    if (m.isBotHandled) break;
+    let plugin = global.plugins[name]
 if (!plugin)
 continue
 if (plugin.disabled)
@@ -1350,7 +1354,7 @@ fail('private', m, this)
 continue
 }
 if (plugin.register == true && _user.registered == false && !(global.opts['bypass'] && (isROwner || isOwner))) { // user registrado? 
-fail('unreg', m, this)
+if (usedPrefix) fail('unreg', m, this)
 continue
 }
 
