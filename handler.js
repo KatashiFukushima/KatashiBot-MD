@@ -1254,9 +1254,15 @@ let _user = global.db.data && global.db.data.users && global.db.data.users[m.sen
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
 const participants = (m.isGroup ? groupMetadata.participants : []) || []
 let numBot = (conn.user.lid || '').replace(/:.*/, '') || false
-const detectwhat2 = senderJid.includes('@lid') ? `${numBot}@lid` : conn.user.jid
-const user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {}
-const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == detectwhat2) : {}) || {}
+const cleanBotLid = numBot ? `${numBot}@lid` : false
+const user = (m.isGroup ? participants.find(u => {
+    let uJid = conn.decodeJid(u.id)
+    return uJid === m.sender || (m.senderLid && uJid === m.senderLid)
+}) : {}) || {}
+const bot = (m.isGroup ? participants.find(u => {
+    let uJid = conn.decodeJid(u.id)
+    return uJid === conn.user.jid || (cleanBotLid && uJid === cleanBotLid)
+}) : {}) || {}
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin

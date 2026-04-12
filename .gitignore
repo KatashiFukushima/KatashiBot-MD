@@ -1,5 +1,10 @@
+.gitignore
+
+.agents\skills
+
 node_modules
 
 package-lock.json
+.agents
 
 
