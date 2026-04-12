@@ -1649,6 +1649,7 @@ await this.sendMessage(id, {
     caption: text,
     mentions: [user]
 })
+apii.data = null
 }}}
 			    
 break
