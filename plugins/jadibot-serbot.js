@@ -265,6 +265,8 @@ wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}+code
 `.trim()
 let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
 await sleep(3000)
+try {
+if (ch?.ch1 && typeof ch.ch1 === 'string') {
 await global.conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
@@ -275,6 +277,10 @@ mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
 }}}, { quoted: null })
+}
+} catch (e) {
+console.error('jadibot: error enviando notificacion al canal:', e?.message || e)
+}
 await sleep(3000)
 await joinChannels(sock)
 m?.chat ? await conn.sendMessage(m.chat, {text : `☄️ *IMPORTANTE*
