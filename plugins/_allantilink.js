@@ -2,7 +2,8 @@ import fetch from 'node-fetch'
 
 const isLinkTik = /tiktok.com/i 
 const isLinkYt = /youtube.com|youtu.be/i 
-const isLinkTel = /telegram.com|t.me/i 
+/*const isLinkTel = /telegram.com|t.me/i*/
+const isLinkTel = /\b(?:https?:\/\/)?(?:www\.)?(telegram\.com|t\.me)\/\S+/i
 const isLinkFb = /facebook.com|fb.me/i 
 const isLinkIg = /instagram.com/i 
 const isLinkTw = /twitter.com|x.com/i 
