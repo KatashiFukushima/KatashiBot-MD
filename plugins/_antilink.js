@@ -1,4 +1,4 @@
-let linkRegex = /whatsapp.com|wa.me|whatsapp.com\/channel/i
+let linkRegex = /https?:\/\/(chat\.whatsapp\.com|wa\.me|whatsapp\.com\/channel)\//i
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {

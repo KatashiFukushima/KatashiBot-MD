@@ -1,6 +1,5 @@
-// Esta versión actualizada detecta enlaces aunque no tengan presente el protocolo https
-
-let linkRegex = /\b((https?:\/\/|www\.)?[\w-]+\.[\w-]+(?:\.[\w-]+)*(\/[\w\.\-\/]*)?)\b/i
+// Detecta enlaces reales (con http/https o www) evitando falsos positivos en texto normal
+let linkRegex = /\b(https?:\/\/|www\.)[^\s]*/i
 let handler = m => m
 handler.before = async function (m, { isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
 if (!m.isGroup) return 
