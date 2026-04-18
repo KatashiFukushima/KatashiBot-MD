@@ -5,10 +5,13 @@ let handler = async (m, { conn, groupMetadata, participants, command, text, used
 if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
 try {
 
-let user = a => '@' + a.split('@')[0] //'@' + a.split('@')[0]
-let ps = groupMetadata.participants.map(v => v.id)
+let user = a => '@' + a.split('@')[0]
+// Solo participantes con PN (@s.whatsapp.net), sin LIDs ni newsletters
+let ps = groupMetadata.participants
+  .map(v => conn.decodeJid(v.id))
+  .filter(id => id && id.endsWith('@s.whatsapp.net'))
 let a = ps.getRandom()
-let b = ps.getRandom() 
+let b = ps.getRandom()
 let c = ps.getRandom()
 let d = ps.getRandom()
 let e = ps.getRandom()
@@ -16,7 +19,7 @@ let f = ps.getRandom()
 let g = ps.getRandom()
 let h = ps.getRandom()
 let i = ps.getRandom()
-let j = ps.getRandom() 
+let j = ps.getRandom()
 
 if (command == 'amistad' || command == 'amigorandom') {   
 m.reply(`*🔰 Vamos a hacer algunas amistades 🔰*\n\n*Oye ${toM(a)} hablale al privado a ${toM(b)} para que jueguen y se haga una amistad 🙆*\n\n*Las mejores amistades empiezan con un juego 😉*`, null, {
