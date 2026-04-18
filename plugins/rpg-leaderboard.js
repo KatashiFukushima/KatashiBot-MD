@@ -20,7 +20,8 @@ let users = Object.entries(global.db.data.users)
             let usersPremium = sortedPremium.map(enumGetKey)
            
 console.log(participants)
-let len = args[0] && args[0].length > 0 ? Math.min(100, Math.max(parseInt(args[0]), 10)) : Math.min(10, sortedExp.length)
+let _lenArg = args[0] ? parseInt(args[0]) : NaN
+let len = !isNaN(_lenArg) ? Math.min(100, Math.max(_lenArg, 10)) : Math.min(10, sortedExp.length)
 let text = `       🏆 *TABLA DE CLASIFICACION*
     
 💠 *TOP ${len} XP ⚡* 
