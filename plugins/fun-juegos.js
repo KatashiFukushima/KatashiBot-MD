@@ -5,11 +5,11 @@ let handler = async (m, { conn, groupMetadata, participants, command, text, used
 if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
 try {
 
-let user = a => '@' + a.split('@')[0]
+let user = a => a ? '@' + a.split('@')[0] : '@desconocido'
 // Solo participantes con PN (@s.whatsapp.net), sin LIDs ni newsletters
-let ps = groupMetadata.participants
-  .map(v => conn.decodeJid(v.id))
-  .filter(id => id && id.endsWith('@s.whatsapp.net'))
+let psAll = groupMetadata.participants.map(v => conn.decodeJid(v.id)).filter(Boolean)
+let ps = psAll.filter(id => id.endsWith('@s.whatsapp.net'))
+if (ps.length === 0) ps = psAll
 let a = ps.getRandom()
 let b = ps.getRandom()
 let c = ps.getRandom()
