@@ -5,11 +5,20 @@ let handler = async (m, { conn, groupMetadata, participants, command, text, used
 if (!db.data.chats[m.chat].game) throw `${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos` 
 try {
 
-let user = a => a ? '@' + a.split('@')[0] : '@desconocido'
-// Solo participantes con PN (@s.whatsapp.net), sin LIDs ni newsletters
-let psAll = groupMetadata.participants.map(v => conn.decodeJid(v.id)).filter(Boolean)
-let ps = psAll.filter(id => id.endsWith('@s.whatsapp.net'))
-if (ps.length === 0) ps = psAll
+// Construir lista con JID preferido (LID o PN) y número de teléfono para mostrar
+let ps = groupMetadata.participants.map(p => {
+  const jid = conn.decodeJid(p.id)
+  // Si id es LID, phoneNumber tiene el PN para mostrar; si es PN, lo sacamos del JID
+  const displayNum = p.phoneNumber
+    ? String(p.phoneNumber).replace(/\D/g, '')
+    : jid.split('@')[0]
+  return { jid, displayNum }
+}).filter(p => p.jid)
+
+// user() devuelve el texto @numero visible; jid() devuelve el JID para mentions
+let user = p => p ? '@' + p.displayNum : '@desconocido'
+let jidOf = p => p ? p.jid : ''
+
 let a = ps.getRandom()
 let b = ps.getRandom()
 let c = ps.getRandom()
@@ -277,6 +286,8 @@ await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid }
  
  if (command == 'topgays') {
 let vn = 'https://qu.ax/HfeP.mp3'
+// Array de JIDs reales para mentions (LID o PN según lo que devuelva Baileys)
+const allMentions = [a, b, c, d, e, f, g, h, i, j].map(jidOf).filter(Boolean)
 let top = `*🌈TOP 10 GAYS/LESBIANAS DEL GRUPO🌈*
     
 *_1.- 🏳️‍🌈 ${user(a)}_* 🏳️‍🌈
@@ -289,7 +300,7 @@ let top = `*🌈TOP 10 GAYS/LESBIANAS DEL GRUPO🌈*
 *_8.- 🪂 ${user(h)}_* 🪂
 *_9.- 🪁 ${user(i)}_* 🪁
 *_10.- 🏳️‍🌈 ${user(j)}_* 🏳️‍🌈`
-m.reply(top, null, { mentions: conn.parseMention(top) })
+m.reply(top, null, { mentions: allMentions })
 conn.sendFile(m.chat, vn, 'error.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true })}
@@ -310,7 +321,7 @@ let top = `*🌸 TOP 10 OTAKUS DEL GRUPO 🌸*
 *_8.- 🌷 ${user(h)}_* 🌷
 *_9.- 💮 ${user(i)}_* 💮
 *_10.- 🌷 ${user(j)}_* 🌷`
-m.reply(top, null, { mentions: conn.parseMention(top) })
+m.reply(top, null, { mentions: allMentions })
 conn.sendFile(m.chat, vn, 'otaku.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
@@ -331,7 +342,7 @@ let top = `*_💎TOP 10 L@S MEJORES INTEGRANTES👑_*
 *_8.- 👑 ${user(h)}_* 👑
 *_9.- 💎 ${user(i)}_* 💎
 *_10.- 👑 ${user(j)}_* 👑`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -348,7 +359,7 @@ let top = `*_Uwu TOP 10 LA GRASA Uwu_*
 *_8.- ._. ${user(h)} ._._*
 *_9.- :V ${user(i)} :V_*
 *_10.- XD ${user(j)} XD_*`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -365,7 +376,7 @@ let top = `*_👊TOP 10 PANAFRESCOS👊_*
 *_8.- 🤜 ${user(h)}_* 🤜
 *_9.- 💪 ${user(i)}_* 💪
 *_10.- 😉 ${user(j)}_* 😉`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -382,7 +393,7 @@ let top = `*_😱TOP 10 SHIPOSTERS DEL GRUPO😱_*
 *_8.- 😨 ${user(h)}_* 😨
 *_9.- 😇 ${user(i)}_* 😇
 *_10.- 🤠 ${user(j)}_* 🤠`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -399,7 +410,7 @@ let top = `*_😏TOP L@S MAS PAJEROS/AS DEL GRUPO💦_*
 *_8.- 🥵 ${user(h)}_* 💦
 *_9.- 🥵 ${user(i)}_* 💦
 *_10.- 🥵 ${user(j)}_* 💦`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -416,7 +427,7 @@ let top = `*_😳TOP L@S MAS LIND@S Y SEXIS DEL GRUPO😳_*
 *_8.- ✨ ${user(h)}_* ✨
 *_9.- ✨ ${user(i)}_* ✨
 *_10.- ✨ ${user(j)}_* ✨`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -433,7 +444,7 @@ let top = `*_😏TOP L@S MAS PUT@S DEL GRUPO SON🔥_*
 *_8.- 👉 ${user(h)}_* 👌
 *_9.- 👉 ${user(i)}_* 👌
 *_10.- 👉 ${user(j)}_* 👌`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
    
 // ------------------------------------------------------------------------------------------------------------------------------------------------   
    
@@ -450,7 +461,7 @@ let top = `*_🌟TOP PERSONAS FAMOSAS EN EL GRUPO🌟_*
 *_8.- 🥂 ${user(h)}_* 🥂
 *_9.- 🤩 ${user(i)}_* 🤩
 *_10.- 🛫 ${user(j)}_* 🛫`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
 /*conn.sendMessage(m.chat, {
 text: top,
 contextInfo: {
@@ -482,7 +493,7 @@ Tan enamorados 😍, para cuando la familia 🥰
 
 *_5.- ${user(i)} 💘 ${user(j)}_* 
 Genial! 💝, están de Luna de miel 🥵✨❤️‍🔥`
-m.reply(top, null, { mentions: conn.parseMention(top) })}
+m.reply(top, null, { mentions: allMentions })}
 } catch (e) {
 //await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
