@@ -10,9 +10,9 @@ const leaderboards = [
 ]
 
 let handler = async (m, { conn, args, participants, usedPrefix, command }) => {
-let users = Object.entries(global.db.data.users).map(([key, value]) => {
-return { ...value, jid: key }
-})
+let users = Object.entries(global.db.data.users)
+  .filter(([key]) => !key.includes('@lid') && !key.includes('@newsletter'))
+  .map(([key, value]) => ({ ...value, jid: key }))
   
 let leaderboard = leaderboards.filter(
 (v) => v && users.filter((user) => user && user[v]).length
@@ -51,11 +51,11 @@ ${sortedItem
 .slice(page * 20, page * 20 + 20)
 .map(
 (user, i) =>
-"▣\n" +
-`│ ${i + 1}〉 ${
-participants.some((p) => areJidsSameUser(user.jid, p.id))
-? `(${conn.getName(user.jid)}) wa.me/`
-: "@"
+`▣\n` +
+`│ ${i + 1}〉 ${
+  participants.some((p) => conn.decodeJid(p.id) === user.jid)
+    ? `(${conn.getName(user.jid)}) wa.me/`
+    : "@"
 }${user.jid.split`@`[0]}\n│▸ ${user[type]} ${type}${rpg.emoticon(type)}`
 ).join`\n┗────────────·····\n\n`}
 ┗────────────·····
