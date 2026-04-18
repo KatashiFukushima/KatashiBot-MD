@@ -29,6 +29,8 @@ let g = ps.getRandom()
 let h = ps.getRandom()
 let i = ps.getRandom()
 let j = ps.getRandom()
+// Array de JIDs reales para mentions (LID o PN según lo que devuelva Baileys)
+const allMentions = [a, b, c, d, e, f, g, h, i, j].map(jidOf).filter(Boolean)
 
 if (command == 'amistad' || command == 'amigorandom') {   
 m.reply(`*🔰 Vamos a hacer algunas amistades 🔰*\n\n*Oye ${toM(a)} hablale al privado a ${toM(b)} para que jueguen y se haga una amistad 🙆*\n\n*Las mejores amistades empiezan con un juego 😉*`, null, {
@@ -286,8 +288,6 @@ await conn.reply(m.chat, juego, m, m.mentionedJid ? { mentions: m.mentionedJid }
  
  if (command == 'topgays') {
 let vn = 'https://qu.ax/HfeP.mp3'
-// Array de JIDs reales para mentions (LID o PN según lo que devuelva Baileys)
-const allMentions = [a, b, c, d, e, f, g, h, i, j].map(jidOf).filter(Boolean)
 let top = `*🌈TOP 10 GAYS/LESBIANAS DEL GRUPO🌈*
     
 *_1.- 🏳️‍🌈 ${user(a)}_* 🏳️‍🌈
