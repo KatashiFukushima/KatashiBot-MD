@@ -29,6 +29,7 @@ import pkg from 'google-libphonenumber'
 const { PhoneNumberUtil } = pkg
 const phoneUtil = PhoneNumberUtil.getInstance()
 const { makeInMemoryStore, DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } = await import('@whiskeysockets/baileys')
+import qrcode from 'qrcode-terminal'
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
@@ -331,7 +332,7 @@ console.debug = () => {}
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+
 mobile: MethodMobile, 
 browser: opcion == '1' ? ['null', 'Edge', '20.0.04'] : methodCodeQR ? ['null', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
 auth: {
@@ -357,7 +358,7 @@ console.debug = () => {}
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
 const connectionOptions = {
 logger: pino({ level: 'silent' }),
-printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+
 mobile: MethodMobile, 
 browser: opcion == '1' ? ['KataBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['KatashiBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
 auth: {
@@ -471,9 +472,11 @@ await global.reloadHandler(true).catch(console.error)
 global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
-if (update.qr != 0 && update.qr != undefined || methodCodeQR) {
+if (update.qr) {
 if (opcion == '1' || methodCodeQR) {
-console.log(chalk.bold.yellow(mid.mCodigoQR))}
+console.log(chalk.bold.yellow(mid.mCodigoQR))
+qrcode.generate(update.qr, { small: true })
+}
 }
 if (connection == 'open') {
 console.log(chalk.bold.greenBright(mid.mConexion))

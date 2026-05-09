@@ -115,7 +115,6 @@ const { state, saveState, saveCreds } = await useMultiFileAuthState(pathGataJadi
 
 const connectionOptions = {
 logger: pino({ level: "fatal" }),
-printQRInTerminal: false,
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
 msgRetry,
 msgRetryCache,
